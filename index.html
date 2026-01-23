@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    background: #f5f5f5;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .question {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+
+  label {
+    display: block;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #0056b3;
+  }
+
+  #result {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Online Quiz</h1>
+
+<form id="quizForm">
+
+  <div class="question" data-correct="b">
+  <p>1. Probability of committing type 2 error?</p>
+  <label><input type="radio" name="q1" value="a"> a</label><br>
+  <label><input type="radio" name="q1" value="b"> b</label><br>
+  <label><input type="radio" name="q1" value="c"> gamma</label><br>
+  <label><input type="radio" name="q1" value="d"> chi</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>2. Which of the following is the formula for sample size calculation using mean and standard deviation?</p>
+  <label><input type="radio" name="q2" value="a"> n = z²σ² / d²</label><br>
+  <label><input type="radio" name="q2" value="b"> n = (zσ + d)² / d²</label><br>
+  <label><input type="radio" name="q2" value="c"> n = z²(1-p)p / d²</label><br>
+  <label><input type="radio" name="q2" value="d"> n = (z-σ)/4</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>3. Which statistical test is most appropriate for pre-post Yes/No data?</p>
+  <label><input type="radio" name="q3" value="a"> Chi-square test</label><br>
+  <label><input type="radio" name="q3" value="b"> McNemar's test</label><br>
+  <label><input type="radio" name="q3" value="c"> Fisher's exact test</label><br>
+  <label><input type="radio" name="q3" value="d"> Logistic regression</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>4. Which is the most difficult criterion in Hill's criteria for causation?</p>
+  <label><input type="radio" name="q4" value="a"> Specificity</label><br>
+  <label><input type="radio" name="q4" value="b"> Strength</label><br>
+  <label><input type="radio" name="q4" value="c"> Dose-response</label><br>
+  <label><input type="radio" name="q4" value="d"> Temporality</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>5. The lower-level supervisory employee requires which skill most?</p>
+  <label><input type="radio" name="q5" value="a"> Conceptual skill</label><br>
+  <label><input type="radio" name="q5" value="b"> Human skill</label><br>
+  <label><input type="radio" name="q5" value="c"> Technical skill</label><br>
+  <label><input type="radio" name="q5" value="d"> None</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>6. Which micronutrient is associated with neural tube defect?</p>
+  <label><input type="radio" name="q6" value="a"> Vitamin A</label><br>
+  <label><input type="radio" name="q6" value="b"> Vitamin K</label><br>
+  <label><input type="radio" name="q6" value="c"> Folate</label><br>
+  <label><input type="radio" name="q6" value="d"> Vitamin D</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>7. Which study design is most appropriate for assessing vaccine effectiveness?</p>
+  <label><input type="radio" name="q7" value="a"> Case-control study</label><br>
+  <label><input type="radio" name="q7" value="b"> Cross-sectional study</label><br>
+  <label><input type="radio" name="q7" value="c"> Randomized controlled trial</label><br>
+  <label><input type="radio" name="q7" value="d"> Ecological study</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>8. Which sampling technique is best for hidden populations?</p>
+  <label><input type="radio" name="q8" value="a"> Simple random</label><br>
+  <label><input type="radio" name="q8" value="b"> Systematic</label><br>
+  <label><input type="radio" name="q8" value="c"> Snowball</label><br>
+  <label><input type="radio" name="q8" value="d"> Stratified</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>9. Research moving from general principles to specific findings uses:</p>
+  <label><input type="radio" name="q9" value="a"> Inductive reasoning</label><br>
+  <label><input type="radio" name="q9" value="b"> Deductive reasoning</label><br>
+  <label><input type="radio" name="q9" value="c"> Qualitative research</label><br>
+  <label><input type="radio" name="q9" value="d"> Grounded theory</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>10. One DALY signifies:</p>
+  <label><input type="radio" name="q10" value="a"> One year disease-free life</label><br>
+  <label><input type="radio" name="q10" value="b"> One lost year of healthy life</label><br>
+  <label><input type="radio" name="q10" value="c"> One month bedridden</label><br>
+  <label><input type="radio" name="q10" value="d"> One happy year lost</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>11. Best indicator of availability, utilization & effectiveness of health services:</p>
+  <label><input type="radio" name="q11" value="a"> IMR</label><br>
+  <label><input type="radio" name="q11" value="b"> MMR</label><br>
+  <label><input type="radio" name="q11" value="c"> Bed occupancy rate</label><br>
+  <label><input type="radio" name="q11" value="d"> DALY</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>12. Mean output of breast milk is maximum during:</p>
+  <label><input type="radio" name="q12" value="a"> 0–2 months</label><br>
+  <label><input type="radio" name="q12" value="b"> 3–4 months</label><br>
+  <label><input type="radio" name="q12" value="c"> 5–6 months</label><br>
+  <label><input type="radio" name="q12" value="d"> 7–8 months</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>13. Extra calorie needed during lactation (6–12 months):</p>
+  <label><input type="radio" name="q13" value="a"> 600</label><br>
+  <label><input type="radio" name="q13" value="b"> 520</label><br>
+  <label><input type="radio" name="q13" value="c"> 350</label><br>
+  <label><input type="radio" name="q13" value="d"> 450</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>14. Hiring staff and procuring supplies represents which management function?</p>
+  <label><input type="radio" name="q14" value="a"> Cooperating</label><br>
+  <label><input type="radio" name="q14" value="b"> Organizing</label><br>
+  <label><input type="radio" name="q14" value="c"> Acquisition</label><br>
+  <label><input type="radio" name="q14" value="d"> Controlling</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>15. Who introduced the concept of the Policy Rainbow?</p>
+  <label><input type="radio" name="q15" value="a"> Dahlgren & Whitehead</label><br>
+  <label><input type="radio" name="q15" value="b"> Henry Mintzberg</label><br>
+  <label><input type="radio" name="q15" value="c"> Talcott Parsons</label><br>
+  <label><input type="radio" name="q15" value="d"> Michael Porter</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>16. Consolidated financial plan of an organization is called:</p>
+  <label><input type="radio" name="q16" value="a"> Cash budget</label><br>
+  <label><input type="radio" name="q16" value="b"> Master budget</label><br>
+  <label><input type="radio" name="q16" value="c"> Flexible budget</label><br>
+  <label><input type="radio" name="q16" value="d"> Capital budget</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>17. Variance of Poisson distribution is:</p>
+  <label><input type="radio" name="q17" value="a"> npq</label><br>
+  <label><input type="radio" name="q17" value="b"> λ</label><br>
+  <label><input type="radio" name="q17" value="c"> λ/2</label><br>
+  <label><input type="radio" name="q17" value="d"> λ²</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>18. Best measure for inter-rater reliability:</p>
+  <label><input type="radio" name="q18" value="a"> Pearson correlation</label><br>
+  <label><input type="radio" name="q18" value="b"> Cohen's Kappa</label><br>
+  <label><input type="radio" name="q18" value="c"> Independent t-test</label><br>
+  <label><input type="radio" name="q18" value="d"> One-way ANOVA</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>19. 3 risk factors → 4 diseases → 50% deaths concept is called:</p>
+  <label><input type="radio" name="q19" value="a"> Epidemiological triad</label><br>
+  <label><input type="radio" name="q19" value="b"> 3-4-50 concept</label><br>
+  <label><input type="radio" name="q19" value="c"> Web of causation</label><br>
+  <label><input type="radio" name="q19" value="d"> Social determinants model</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>20. Cost, place, promotion, product aligns with:</p>
+  <label><input type="radio" name="q20" value="a"> 4P's of Marketing</label><br>
+  <label><input type="radio" name="q20" value="b"> SWOT analysis</label><br>
+  <label><input type="radio" name="q20" value="c"> Porter's five forces</label><br>
+  <label><input type="radio" name="q20" value="d"> Branding strategy</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>21. Which epidemiological model considers multiple causes of disease?</p>
+  <label><input type="radio" name="q21" value="a"> Germ Theory</label><br>
+  <label><input type="radio" name="q21" value="b"> Causal Model of Disease</label><br>
+  <label><input type="radio" name="q21" value="c"> Risk Factor Model</label><br>
+  <label><input type="radio" name="q21" value="d"> Immunological Theory</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>22. Which reliability measure tests internal consistency of a questionnaire?</p>
+  <label><input type="radio" name="q22" value="a"> Cronbach's Alpha</label><br>
+  <label><input type="radio" name="q22" value="b"> Spearman's Rank Correlation</label><br>
+  <label><input type="radio" name="q22" value="c"> Chi-square Test</label><br>
+  <label><input type="radio" name="q22" value="d"> Kaplan-Meier Estimate</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>23. Which chapter of Labour Act 2074 deals with Occupational Safety and Health?</p>
+  <label><input type="radio" name="q23" value="a"> Chapter 5</label><br>
+  <label><input type="radio" name="q23" value="b"> Chapter 8</label><br>
+  <label><input type="radio" name="q23" value="c"> Chapter 12</label><br>
+  <label><input type="radio" name="q23" value="d"> Chapter 16</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>24. The first indicator of Protein Energy Malnutrition (PEM) is:</p>
+  <label><input type="radio" name="q24" value="a"> Stunting</label><br>
+  <label><input type="radio" name="q24" value="b"> Marasmus</label><br>
+  <label><input type="radio" name="q24" value="c"> Underweight for height</label><br>
+  <label><input type="radio" name="q24" value="d"> Underweight for age</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>25. Which is an example of personal prevention through immunization?</p>
+  <label><input type="radio" name="q25" value="a"> Wearing a seatbelt</label><br>
+  <label><input type="radio" name="q25" value="b"> Receiving the influenza vaccine</label><br>
+  <label><input type="radio" name="q25" value="c"> Washing hands regularly</label><br>
+  <label><input type="radio" name="q25" value="d"> Maintaining a balanced diet</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>26. "Good Health and Well-being" falls under which SDG?</p>
+  <label><input type="radio" name="q26" value="a"> SDG 1</label><br>
+  <label><input type="radio" name="q26" value="b"> SDG 3</label><br>
+  <label><input type="radio" name="q26" value="c"> SDG 5</label><br>
+  <label><input type="radio" name="q26" value="d"> SDG 7</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>27. Which conference provided guidance on public health?</p>
+  <label><input type="radio" name="q27" value="a"> COP21</label><br>
+  <label><input type="radio" name="q27" value="b"> Alma-Ata Conference</label><br>
+  <label><input type="radio" name="q27" value="c"> Kyoto Protocol</label><br>
+  <label><input type="radio" name="q27" value="d"> Montreal Protocol</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>28. Which international agreement focuses on climate change?</p>
+  <label><input type="radio" name="q28" value="a"> Paris Agreement</label><br>
+  <label><input type="radio" name="q28" value="b"> Geneva Convention</label><br>
+  <label><input type="radio" name="q28" value="c"> Basel Convention</label><br>
+  <label><input type="radio" name="q28" value="d"> Vienna Convention</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>29. MMR as per NDHS 2022 is:</p>
+  <label><input type="radio" name="q29" value="a"> 161</label><br>
+  <label><input type="radio" name="q29" value="b"> 141</label><br>
+  <label><input type="radio" name="q29" value="c"> 151</label><br>
+  <label><input type="radio" name="q29" value="d"> 171</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>30. Which EPI vaccine is most sensitive to heat?</p>
+  <label><input type="radio" name="q30" value="a"> TT</label><br>
+  <label><input type="radio" name="q30" value="b"> Measles</label><br>
+  <label><input type="radio" name="q30" value="c"> Polio</label><br>
+  <label><input type="radio" name="q30" value="d"> DPT</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>31. Relative risk is defined as:</p>
+  <label><input type="radio" name="q31" value="a"> Risk among exposed / risk among non-exposed</label><br>
+  <label><input type="radio" name="q31" value="b"> Risk among exposed / risk in population</label><br>
+  <label><input type="radio" name="q31" value="c"> Risk difference</label><br>
+  <label><input type="radio" name="q31" value="d"> All of the above</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>32. Eligible couple age for family planning services:</p>
+  <label><input type="radio" name="q32" value="a"> 10–45 years</label><br>
+  <label><input type="radio" name="q32" value="b"> 15–49 years</label><br>
+  <label><input type="radio" name="q32" value="c"> 20–55 years</label><br>
+  <label><input type="radio" name="q32" value="d"> 21–40 years</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>33. Primary objective of public health surveillance:</p>
+  <label><input type="radio" name="q33" value="a"> Academic research</label><br>
+  <label><input type="radio" name="q33" value="b"> Monitor and prevent disease outbreaks</label><br>
+  <label><input type="radio" name="q33" value="c"> Record hospital visits</label><br>
+  <label><input type="radio" name="q33" value="d"> Provide treatment</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>34. Which is NOT a WHO health system building block?</p>
+  <label><input type="radio" name="q34" value="a"> Service delivery</label><br>
+  <label><input type="radio" name="q34" value="b"> Health workforce</label><br>
+  <label><input type="radio" name="q34" value="c"> Environmental protection</label><br>
+  <label><input type="radio" name="q34" value="d"> Leadership & governance</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>35. When was HMIS established in Nepal?</p>
+  <label><input type="radio" name="q35" value="a"> 1985</label><br>
+  <label><input type="radio" name="q35" value="b"> 1990</label><br>
+  <label><input type="radio" name="q35" value="c"> 1994</label><br>
+  <label><input type="radio" name="q35" value="d"> 2000</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>36. GATHER technique is related to:</p>
+  <label><input type="radio" name="q36" value="a"> Group dynamics</label><br>
+  <label><input type="radio" name="q36" value="b"> Community organization</label><br>
+  <label><input type="radio" name="q36" value="c"> Counselling</label><br>
+  <label><input type="radio" name="q36" value="d"> None</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>37. Borderline mental IQ according to Wechsler scale:</p>
+  <label><input type="radio" name="q37" value="a"> 70–79</label><br>
+  <label><input type="radio" name="q37" value="b"> 80–89</label><br>
+  <label><input type="radio" name="q37" value="c"> 90–109</label><br>
+  <label><input type="radio" name="q37" value="d"> 110–119</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>38. Measuring results and taking corrective action is:</p>
+  <label><input type="radio" name="q38" value="a"> Planning</label><br>
+  <label><input type="radio" name="q38" value="b"> Organizing</label><br>
+  <label><input type="radio" name="q38" value="c"> Leading</label><br>
+  <label><input type="radio" name="q38" value="d"> Controlling</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>39. Additional cost per unit of outcome is called:</p>
+  <label><input type="radio" name="q39" value="a"> Economic evaluation</label><br>
+  <label><input type="radio" name="q39" value="b"> Incremental Cost-Effectiveness Ratio</label><br>
+  <label><input type="radio" name="q39" value="c"> Average cost-effectiveness</label><br>
+  <label><input type="radio" name="q39" value="d"> Cost-effectiveness ratio</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>40. Which health education approach is a radically new approach?</p>
+  <label><input type="radio" name="q40" value="a"> Regulatory approach</label><br>
+  <label><input type="radio" name="q40" value="b"> Primary Health Care approach</label><br>
+  <label><input type="radio" name="q40" value="c"> Service approach</label><br>
+  <label><input type="radio" name="q40" value="d"> Health education approach</label>
+</div>
+
+
+<div class="question" data-correct="b">
+  <p>41. According to Rogers's model of adoption, people pass through which series?</p>
+  <label><input type="radio" name="q41" value="a"> Awareness, evaluation, trial, interest and adoption</label><br>
+  <label><input type="radio" name="q41" value="b"> Awareness, interest, evaluation, trial</label><br>
+  <label><input type="radio" name="q41" value="c"> Awareness, interest, trial, evaluation</label><br>
+  <label><input type="radio" name="q41" value="d"> Interest, evaluation, trial, awareness</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>42. Which was NOT included when Primary Health Care was initially introduced?</p>
+  <label><input type="radio" name="q42" value="a"> Maternal and child health</label><br>
+  <label><input type="radio" name="q42" value="b"> Immunization</label><br>
+  <label><input type="radio" name="q42" value="c"> Mental health</label><br>
+  <label><input type="radio" name="q42" value="d"> Health education</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>43. Health promotion includes all EXCEPT:</p>
+  <label><input type="radio" name="q43" value="a"> Nutrition</label><br>
+  <label><input type="radio" name="q43" value="b"> Immunization</label><br>
+  <label><input type="radio" name="q43" value="c"> Treatment of disease</label><br>
+  <label><input type="radio" name="q43" value="d"> Health education</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>44. Energy provided by human milk per 100 gm is:</p>
+  <label><input type="radio" name="q44" value="a"> 50 kcal</label><br>
+  <label><input type="radio" name="q44" value="b"> 65 kcal</label><br>
+  <label><input type="radio" name="q44" value="c"> 90 kcal</label><br>
+  <label><input type="radio" name="q44" value="d"> 120 kcal</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>45. What is NOT included in CBIMNCI?</p>
+  <label><input type="radio" name="q45" value="a"> Case Management</label><br>
+  <label><input type="radio" name="q45" value="b"> Family planning</label><br>
+  <label><input type="radio" name="q45" value="c"> Immunization</label><br>
+  <label><input type="radio" name="q45" value="d"> Maternal Nutrition</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>46. Which terminology is used to describe interruption of transmission?</p>
+  <label><input type="radio" name="q46" value="a"> Elimination</label><br>
+  <label><input type="radio" name="q46" value="b"> Control</label><br>
+  <label><input type="radio" name="q46" value="c"> Prevention</label><br>
+  <label><input type="radio" name="q46" value="d"> Promotion</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>47. Stunting is a sign of:</p>
+  <label><input type="radio" name="q47" value="a"> Severe undernutrition</label><br>
+  <label><input type="radio" name="q47" value="b"> Chronic undernutrition</label><br>
+  <label><input type="radio" name="q47" value="c"> Acute malnutrition</label><br>
+  <label><input type="radio" name="q47" value="d"> None of the above</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>48. Iceberg phenomenon of disease is NOT shown by:</p>
+  <label><input type="radio" name="q48" value="a"> HIV/AIDS</label><br>
+  <label><input type="radio" name="q48" value="b"> Tuberculosis</label><br>
+  <label><input type="radio" name="q48" value="c"> Leprosy</label><br>
+  <label><input type="radio" name="q48" value="d"> Rabies</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>49. WHO defines blindness if visual acuity is:</p>
+  <label><input type="radio" name="q49" value="a"> 3/60</label><br>
+  <label><input type="radio" name="q49" value="b"> 18/38</label><br>
+  <label><input type="radio" name="q49" value="c"> 9/60</label><br>
+  <label><input type="radio" name="q49" value="d"> 3/6</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>50. A baby suffering from measles requires which vitamin most?</p>
+  <label><input type="radio" name="q50" value="a"> Vitamin A</label><br>
+  <label><input type="radio" name="q50" value="b"> Vitamin B</label><br>
+  <label><input type="radio" name="q50" value="c"> Vitamin D</label><br>
+  <label><input type="radio" name="q50" value="d"> Vitamin C</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>51. Which test compares variance among three independent groups?</p>
+  <label><input type="radio" name="q51" value="a"> Chi-square test</label><br>
+  <label><input type="radio" name="q51" value="b"> T-test</label><br>
+  <label><input type="radio" name="q51" value="c"> ANOVA</label><br>
+  <label><input type="radio" name="q51" value="d"> Correlation analysis</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>52. Which test compares blood pressure before and after treatment in same subjects?</p>
+  <label><input type="radio" name="q52" value="a"> Independent t-test</label><br>
+  <label><input type="radio" name="q52" value="b"> Chi-square test</label><br>
+  <label><input type="radio" name="q52" value="c"> Paired t-test</label><br>
+  <label><input type="radio" name="q52" value="d"> One-way ANOVA</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>53. Denominator used in Maternal Mortality Ratio is:</p>
+  <label><input type="radio" name="q53" value="a"> Live births</label><br>
+  <label><input type="radio" name="q53" value="b"> Mid-year population</label><br>
+  <label><input type="radio" name="q53" value="c"> Women 15–49 population</label><br>
+  <label><input type="radio" name="q53" value="d"> Married women 15–49</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>54. Daily calcium and folic acid requirement during pregnancy is:</p>
+  <label><input type="radio" name="q54" value="a"> 2400 mg + 300 mcg</label><br>
+  <label><input type="radio" name="q54" value="b"> 1200 mg + 500 mcg</label><br>
+  <label><input type="radio" name="q54" value="c"> 800 mg + 600 mcg</label><br>
+  <label><input type="radio" name="q54" value="d"> 500 mg + 1200 mcg</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>55. As per World Bank Report 2024, highest global investment is in:</p>
+  <label><input type="radio" name="q55" value="a"> Agriculture</label><br>
+  <label><input type="radio" name="q55" value="b"> Health and Education</label><br>
+  <label><input type="radio" name="q55" value="c"> Energy and Infrastructure</label><br>
+  <label><input type="radio" name="q55" value="d"> Information Technology</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>56. Probability of exactly two heads when tossing a fair coin three times:</p>
+  <label><input type="radio" name="q56" value="a"> 1/8</label><br>
+  <label><input type="radio" name="q56" value="b"> 3/8</label><br>
+  <label><input type="radio" name="q56" value="c"> 1/4</label><br>
+  <label><input type="radio" name="q56" value="d"> 1/2</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>57. Which techniques are used in project management for risk analysis?</p>
+  <label><input type="radio" name="q57" value="a"> PERT Analysis</label><br>
+  <label><input type="radio" name="q57" value="b"> SWOT Analysis</label><br>
+  <label><input type="radio" name="q57" value="c"> Logic Model</label><br>
+  <label><input type="radio" name="q57" value="d"> All of the above</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>58. Rabies transmission from dogs to humans is classified as:</p>
+  <label><input type="radio" name="q58" value="a"> Zooanthroponoses</label><br>
+  <label><input type="radio" name="q58" value="b"> Amphixenoses</label><br>
+  <label><input type="radio" name="q58" value="c"> Anthropozoonoses</label><br>
+  <label><input type="radio" name="q58" value="d"> Epizoonoses</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>59. Screening of high-risk socioeconomic groups is called:</p>
+  <label><input type="radio" name="q59" value="a"> Population-based screening</label><br>
+  <label><input type="radio" name="q59" value="b"> Selective screening</label><br>
+  <label><input type="radio" name="q59" value="c"> Opportunistic screening</label><br>
+  <label><input type="radio" name="q59" value="d"> Universal screening</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>60. Primary function of health education is:</p>
+  <label><input type="radio" name="q60" value="a"> Providing group discussions</label><br>
+  <label><input type="radio" name="q60" value="b"> Empowering people to make informed decisions</label><br>
+  <label><input type="radio" name="q60" value="c"> Secondary prevention</label><br>
+  <label><input type="radio" name="q60" value="d"> Medical treatment</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>61. A school health educator wants to teach young children the correct technique for brushing their teeth. Which teaching method would be most effective?</p>
+  <label><input type="radio" name="q61" value="a"> a. Handing out informational pamphlets</label><br>
+  <label><input type="radio" name="q61" value="b"> b. Giving a lecture about dental hygiene</label><br>
+  <label><input type="radio" name="q61" value="c"> c. Using a role-play activity with students</label><br>
+  <label><input type="radio" name="q61" value="d"> d. Demonstrating proper brushing techniques</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>62. A doctor from an urban hospital is assigned to work in a remote village where cultural beliefs about illness differ significantly from medical science. He experiences confusion and frustration. This situation is an example of:</p>
+  <label><input type="radio" name="q62" value="a"> a. Cultural superiority</label><br>
+  <label><input type="radio" name="q62" value="b"> b. Failure to recognize cultural differences</label><br>
+  <label><input type="radio" name="q62" value="c"> c. Cultural shock</label><br>
+  <label><input type="radio" name="q62" value="d"> d. Imposing one's culture on others</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>63. During a nationwide awareness campaign on COVID-19, which medium would be most effective in rapidly disseminating information?</p>
+  <label><input type="radio" name="q63" value="a"> a. Health magazines</label><br>
+  <label><input type="radio" name="q63" value="b"> b. Newspapers</label><br>
+  <label><input type="radio" name="q63" value="c"> c. Radio</label><br>
+  <label><input type="radio" name="q63" value="d"> d. Television</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>64. A health promotion campaign encourages healthier eating habits. What is its primary objective?</p>
+  <label><input type="radio" name="q64" value="a"> a. Generating interest and participation</label><br>
+  <label><input type="radio" name="q64" value="b"> b. Providing information, motivating change, and guiding action</label><br>
+  <label><input type="radio" name="q64" value="c"> c. Evaluating dietary habits</label><br>
+  <label><input type="radio" name="q64" value="d"> d. Reinforcing traditional food choices</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>65. A national public health agency develops a 10-year plan to reduce NCDs. Who is responsible for this level of planning?</p>
+  <label><input type="radio" name="q65" value="a"> a. Operational-level management</label><br>
+  <label><input type="radio" name="q65" value="b"> b. Middle-level management</label><br>
+  <label><input type="radio" name="q65" value="c"> c. Subordinate-level management</label><br>
+  <label><input type="radio" name="q65" value="d"> d. High-level management</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>66. A healthcare organization aspires to be the leading provider by 2035. This statement is an example of:</p>
+  <label><input type="radio" name="q66" value="a"> a. Organizational values</label><br>
+  <label><input type="radio" name="q66" value="b"> b. Mission statement</label><br>
+  <label><input type="radio" name="q66" value="c"> c. Vision statement</label><br>
+  <label><input type="radio" name="q66" value="d"> d. Strategic plan</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>67. What is the major limitation of Management by Objectives (MBO)?</p>
+  <label><input type="radio" name="q67" value="a"> a. Unclear organizational actions</label><br>
+  <label><input type="radio" name="q67" value="b"> b. Employee dissatisfaction</label><br>
+  <label><input type="radio" name="q67" value="c"> c. Rigidity in adapting to changes</label><br>
+  <label><input type="radio" name="q67" value="d"> d. Ineffective performance evaluation</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>68. Which best describes Neglected Tropical Diseases (NTDs)?</p>
+  <label><input type="radio" name="q68" value="a"> a. Highly contagious diseases in developed countries</label><br>
+  <label><input type="radio" name="q68" value="b"> b. Infectious diseases linked to poverty in tropical regions</label><br>
+  <label><input type="radio" name="q68" value="c"> c. Diseases with no global impact</label><br>
+  <label><input type="radio" name="q68" value="d"> d. Genetic disorders</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>69. Process evaluation in public health programs refers to:</p>
+  <label><input type="radio" name="q69" value="a"> a. Assessing final impact</label><br>
+  <label><input type="radio" name="q69" value="b"> b. Measuring implementation against the plan</label><br>
+  <label><input type="radio" name="q69" value="c"> c. Comparing intervention strategies</label><br>
+  <label><input type="radio" name="q69" value="d"> d. Determining sustainability</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>70. Increased TSH and decreased T3/T4 causing cold intolerance occurs in:</p>
+  <label><input type="radio" name="q70" value="a"> a. Hyperthyroidism</label><br>
+  <label><input type="radio" name="q70" value="b"> b. Hypothyroidism</label><br>
+  <label><input type="radio" name="q70" value="c"> c. Addison's disease</label><br>
+  <label><input type="radio" name="q70" value="d"> d. Cushing's syndrome</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>71. Most common cause of anemia among reproductive-age women in Nepal?</p>
+  <label><input type="radio" name="q71" value="a"> a. Frequent pregnancy</label><br>
+  <label><input type="radio" name="q71" value="b"> b. Iron deficiency</label><br>
+  <label><input type="radio" name="q71" value="c"> c. Vitamin B12 deficiency</label><br>
+  <label><input type="radio" name="q71" value="d"> d. Vitamin A deficiency</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>72. Which helps in iron absorption?</p>
+  <label><input type="radio" name="q72" value="a"> a. Vitamin C</label><br>
+  <label><input type="radio" name="q72" value="b"> b. Vitamin D</label><br>
+  <label><input type="radio" name="q72" value="c"> c. Vitamin E</label><br>
+  <label><input type="radio" name="q72" value="d"> d. Vitamin B</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>73. Vitamin deficit in vegans is:</p>
+  <label><input type="radio" name="q73" value="a"> a. Vitamin B3</label><br>
+  <label><input type="radio" name="q73" value="b"> b. Vitamin B7</label><br>
+  <label><input type="radio" name="q73" value="c"> c. Vitamin B9</label><br>
+  <label><input type="radio" name="q73" value="d"> d. Vitamin B12</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>74. Prevalence of cataract at one point of time is determined by:</p>
+  <label><input type="radio" name="q74" value="a"> a. Cohort study</label><br>
+  <label><input type="radio" name="q74" value="b"> b. Surveillance</label><br>
+  <label><input type="radio" name="q74" value="c"> c. Cross-sectional study</label><br>
+  <label><input type="radio" name="q74" value="d"> d. Longitudinal study</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>75. Which minimizes malnutrition at family level?</p>
+  <label><input type="radio" name="q75" value="a"> a. Food fortification</label><br>
+  <label><input type="radio" name="q75" value="b"> b. Nutritional surveillance</label><br>
+  <label><input type="radio" name="q75" value="c"> c. Exclusive breastfeeding</label><br>
+  <label><input type="radio" name="q75" value="d"> d. Vitamin D and calcium supplementation</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>76. Which supplement is contraindicated in first trimester?</p>
+  <label><input type="radio" name="q76" value="a"> a. Vitamin D</label><br>
+  <label><input type="radio" name="q76" value="b"> b. Albendazole</label><br>
+  <label><input type="radio" name="q76" value="c"> c. Iron</label><br>
+  <label><input type="radio" name="q76" value="d"> d. Iodine</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>77. A nested case-control study is:</p>
+  <label><input type="radio" name="q77" value="a"> a. Case-control study within a cohort</label><br>
+  <label><input type="radio" name="q77" value="b"> b. Simultaneous case-control selection</label><br>
+  <label><input type="radio" name="q77" value="c"> c. Prospective study</label><br>
+  <label><input type="radio" name="q77" value="d"> d. Randomized trial</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>78. Final step in public health research process is:</p>
+  <label><input type="radio" name="q78" value="a"> a. Hypothesis testing</label><br>
+  <label><input type="radio" name="q78" value="b"> b. Data analysis</label><br>
+  <label><input type="radio" name="q78" value="c"> c. Interpretation and conclusion</label><br>
+  <label><input type="radio" name="q78" value="d"> d. Literature review</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>79. Inflation and unemployment are examples of:</p>
+  <label><input type="radio" name="q79" value="a"> a. Health determinants</label><br>
+  <label><input type="radio" name="q79" value="b"> b. Economic determinants of health</label><br>
+  <label><input type="radio" name="q79" value="c"> c. Political determinants</label><br>
+  <label><input type="radio" name="q79" value="d"> d. Household risk factors</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>80. A p-value of 0.03 at 5% significance indicates:</p>
+  <label><input type="radio" name="q80" value="a"> a. Strong evidence against null hypothesis</label><br>
+  <label><input type="radio" name="q80" value="b"> b. Not statistically significant</label><br>
+  <label><input type="radio" name="q80" value="c"> c. Statistically significant at 5% level</label><br>
+  <label><input type="radio" name="q80" value="d"> d. No association exists</label>
+</div>
+
+
+
+<div class="question" data-correct="c">
+  <p>81. A 15-month-old child can walk alone, babble words, and use a pincer grasp but is unable to point to objects when named. Which milestone is most likely delayed?</p>
+  <label><input type="radio" name="q81" value="a"> a. Gross motor development</label><br>
+  <label><input type="radio" name="q81" value="b"> b. Fine motor development</label><br>
+  <label><input type="radio" name="q81" value="c"> c. Language and cognitive development</label><br>
+  <label><input type="radio" name="q81" value="d"> d. Social development</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>82. A 45-year-old man in Karnali Province presents with bleeding gums, fatigue, and slow wound healing. His diet lacks fresh fruits and vegetables. Which vitamin deficiency is most likely responsible?</p>
+  <label><input type="radio" name="q82" value="a"> a. Vitamin D</label><br>
+  <label><input type="radio" name="q82" value="b"> b. Vitamin C</label><br>
+  <label><input type="radio" name="q82" value="c"> c. Vitamin B12</label><br>
+  <label><input type="radio" name="q82" value="d"> d. Iron</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>83. Probability of pneumonia is 0.24 and UTI is 0.36. If mutually exclusive, what is the probability of either?</p>
+  <label><input type="radio" name="q83" value="a"> a. 0.60</label><br>
+  <label><input type="radio" name="q83" value="b"> b. 0.50</label><br>
+  <label><input type="radio" name="q83" value="c"> c. 0.86</label><br>
+  <label><input type="radio" name="q83" value="d"> d. 0.24</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>84. Median hemoglobin is 11.2 g/dL with IQR of 3.1 g/dL. What does the IQR indicate?</p>
+  <label><input type="radio" name="q84" value="a"> a. Data is symmetrical</label><br>
+  <label><input type="radio" name="q84" value="b"> b. 50% of values lie within a 3.1 g/dL range</label><br>
+  <label><input type="radio" name="q84" value="c"> c. SD equals 3.1 g/dL</label><br>
+  <label><input type="radio" name="q84" value="d"> d. No outliers</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>85. Mean newborn weight is 3.2 kg with SD 0.5 kg. What percentage lie within ±1 SD?</p>
+  <label><input type="radio" name="q85" value="a"> a. 50%</label><br>
+  <label><input type="radio" name="q85" value="b"> b. 68%</label><br>
+  <label><input type="radio" name="q85" value="c"> c. 95%</label><br>
+  <label><input type="radio" name="q85" value="d"> d. 99.7%</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>86. Diarrheal outbreak after monsoon flooding confirms Vibrio cholerae. Which disease?</p>
+  <label><input type="radio" name="q86" value="a"> a. Typhoid fever</label><br>
+  <label><input type="radio" name="q86" value="b"> b. Hepatitis B</label><br>
+  <label><input type="radio" name="q86" value="c"> c. Cholera</label><br>
+  <label><input type="radio" name="q86" value="d"> d. Tuberculosis</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>87. Which intervention is most effective in preventing stunting?</p>
+  <label><input type="radio" name="q87" value="a"> a. School meals</label><br>
+  <label><input type="radio" name="q87" value="b"> b. Iron and folic acid supplementation during pregnancy</label><br>
+  <label><input type="radio" name="q87" value="c"> c. Increased agricultural production</label><br>
+  <label><input type="radio" name="q87" value="d"> d. Deworming campaigns</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>88. Which antiepileptic drug is most associated with congenital malformations?</p>
+  <label><input type="radio" name="q88" value="a"> a. Paracetamol</label><br>
+  <label><input type="radio" name="q88" value="b"> b. Valproic acid</label><br>
+  <label><input type="radio" name="q88" value="c"> c. Metformin</label><br>
+  <label><input type="radio" name="q88" value="d"> d. Amoxicillin</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>89. A farmer presents with typhus after cleaning a barn. What is the mode of transmission?</p>
+  <label><input type="radio" name="q89" value="a"> a. Contaminated water</label><br>
+  <label><input type="radio" name="q89" value="b"> b. Mosquito bite</label><br>
+  <label><input type="radio" name="q89" value="c"> c. Larval mites</label><br>
+  <label><input type="radio" name="q89" value="d"> d. Human-to-human contact</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>90. Probability of infection is 0.1 in 10,000 patients. Which is true?</p>
+  <label><input type="radio" name="q90" value="a"> a. Mean equals variance</label><br>
+  <label><input type="radio" name="q90" value="b"> b. Mean is greater than variance</label><br>
+  <label><input type="radio" name="q90" value="c"> c. Variance is greater than mean</label><br>
+  <label><input type="radio" name="q90" value="d"> d. Mean and variance unrelated</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>91. Which measure is most affected by skewness?</p>
+  <label><input type="radio" name="q91" value="a"> a. Mean</label><br>
+  <label><input type="radio" name="q91" value="b"> b. Median</label><br>
+  <label><input type="radio" name="q91" value="c"> c. Mode</label><br>
+  <label><input type="radio" name="q91" value="d"> d. Standard deviation</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>92. Mean &gt; Median &gt; Mode suggests:</p>
+  <label><input type="radio" name="q92" value="a"> a. Symmetrical distribution</label><br>
+  <label><input type="radio" name="q92" value="b"> b. Positively skewed distribution</label><br>
+  <label><input type="radio" name="q92" value="c"> c. Negatively skewed distribution</label><br>
+  <label><input type="radio" name="q92" value="d"> d. Binomial distribution</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>93. Average of 4 emergency cases per hour is best modeled by:</p>
+  <label><input type="radio" name="q93" value="a"> a. Normal</label><br>
+  <label><input type="radio" name="q93" value="b"> b. Binomial</label><br>
+  <label><input type="radio" name="q93" value="c"> c. Poisson</label><br>
+  <label><input type="radio" name="q93" value="d"> d. Exponential</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>94. Odds ratio of BMI is 1.5 (p&lt;0.05). What does this mean?</p>
+  <label><input type="radio" name="q94" value="a"> a. BMI not significant</label><br>
+  <label><input type="radio" name="q94" value="b"> b. 50% increase in odds per BMI unit</label><br>
+  <label><input type="radio" name="q94" value="c"> c. Negative association</label><br>
+  <label><input type="radio" name="q94" value="d"> d. Model invalid</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>95. Neonatal mortality rate in Nepal (NDHS 2022) per 1,000 live births is:</p>
+  <label><input type="radio" name="q95" value="a"> a. 18</label><br>
+  <label><input type="radio" name="q95" value="b"> b. 21</label><br>
+  <label><input type="radio" name="q95" value="c"> c. 28</label><br>
+  <label><input type="radio" name="q95" value="d"> d. 35</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>96. Recommended permissible noise level for 8-hour exposure is:</p>
+  <label><input type="radio" name="q96" value="a"> a. 75 dB</label><br>
+  <label><input type="radio" name="q96" value="b"> b. 80 dB</label><br>
+  <label><input type="radio" name="q96" value="c"> c. 85 dB</label><br>
+  <label><input type="radio" name="q96" value="d"> d. 95 dB</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>97. Mean is 10 kg and SD is 2 kg. What is the variance?</p>
+  <label><input type="radio" name="q97" value="a"> a. 2</label><br>
+  <label><input type="radio" name="q97" value="b"> b. 4</label><br>
+  <label><input type="radio" name="q97" value="c"> c. 6</label><br>
+  <label><input type="radio" name="q97" value="d"> d. 8</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>98. Which behavioral theory best fits COVID-19 vaccine uptake intervention?</p>
+  <label><input type="radio" name="q98" value="a"> a. Theory of Planned Behavior</label><br>
+  <label><input type="radio" name="q98" value="b"> b. Health Belief Model</label><br>
+  <label><input type="radio" name="q98" value="c"> c. Transtheoretical Model</label><br>
+  <label><input type="radio" name="q98" value="d"> d. Social Cognitive Theory</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>99. WHO-recommended practice for breastfeeding during infant diarrhea is:</p>
+  <label><input type="radio" name="q99" value="a"> a. Stop breastfeeding</label><br>
+  <label><input type="radio" name="q99" value="b"> b. Limit breastfeeding</label><br>
+  <label><input type="radio" name="q99" value="c"> c. Continue breastfeeding with medicine</label><br>
+  <label><input type="radio" name="q99" value="d"> d. Replace with formula</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>100. Which lipid component increases with high saturated fat intake?</p>
+  <label><input type="radio" name="q100" value="a"> a. HDL</label><br>
+  <label><input type="radio" name="q100" value="b"> b. Triglycerides</label><br>
+  <label><input type="radio" name="q100" value="c"> c. LDL</label><br>
+  <label><input type="radio" name="q100" value="d"> d. None of the above</label>
+</div>
+
+
+<div class="question" data-correct="c">
+  <p>101. A 45-year-old male underwent a minor surgical procedure and developed a severe infection at the surgical site due to non-sterile instruments. What type of infection is this?</p>
+  <label><input type="radio" name="q101" value="a"> a. Nosocomial</label><br>
+  <label><input type="radio" name="q101" value="b"> b. Opportunistic</label><br>
+  <label><input type="radio" name="q101" value="c"> c. Iatrogenic</label><br>
+  <label><input type="radio" name="q101" value="d"> d. Infectious</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>102. The government is planning to introduce a policy to allocate resources for maternal health services in rural areas. What aspect of health governance does this represent?</p>
+  <label><input type="radio" name="q102" value="a"> a. Allocation of resources for stakeholders</label><br>
+  <label><input type="radio" name="q102" value="b"> b. Allocation of resources for basic health services</label><br>
+  <label><input type="radio" name="q102" value="c"> c. Policy decision-making in health care</label><br>
+  <label><input type="radio" name="q102" value="d"> d. Health system reforms</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>103. During an 1854 cholera outbreak, a physician mapped cases in London and linked them to a contaminated water pump. Who conducted this study?</p>
+  <label><input type="radio" name="q103" value="a"> a. Louis Pasteur</label><br>
+  <label><input type="radio" name="q103" value="b"> b. John Snow</label><br>
+  <label><input type="radio" name="q103" value="c"> c. Edward Jenner</label><br>
+  <label><input type="radio" name="q103" value="d"> d. Robert Koch</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>104. A government official in the 19th century advocated urban sanitation, leading to laws on clean water and sewage. Who was this reformer?</p>
+  <label><input type="radio" name="q104" value="a"> a. William Farr</label><br>
+  <label><input type="radio" name="q104" value="b"> b. William Chadwick</label><br>
+  <label><input type="radio" name="q104" value="c"> c. Edwin Chadwick</label><br>
+  <label><input type="radio" name="q104" value="d"> d. John Snow</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>105. Under which HMIS register should Vitamin A supplementation data be recorded?</p>
+  <label><input type="radio" name="q105" value="a"> a. 2.3</label><br>
+  <label><input type="radio" name="q105" value="b"> b. 4.1</label><br>
+  <label><input type="radio" name="q105" value="c"> c. 3.1</label><br>
+  <label><input type="radio" name="q105" value="d"> d. 5.1</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>106. A cell undergoing controlled self-destruction without inflammation is called:</p>
+  <label><input type="radio" name="q106" value="a"> a. Apoptosis</label><br>
+  <label><input type="radio" name="q106" value="b"> b. Necrosis</label><br>
+  <label><input type="radio" name="q106" value="c"> c. Autophagy</label><br>
+  <label><input type="radio" name="q106" value="d"> d. Atrophy</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>107. Which is NOT a standard indicator of safe motherhood?</p>
+  <label><input type="radio" name="q107" value="a"> a. % of ANC checkups</label><br>
+  <label><input type="radio" name="q107" value="b"> b. % of mothers taking mebendazole</label><br>
+  <label><input type="radio" name="q107" value="c"> c. % of institutional deliveries</label><br>
+  <label><input type="radio" name="q107" value="d"> d. Maternal mortality rate</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>108. Ratio of incidence among exposed to non-exposed is:</p>
+  <label><input type="radio" name="q108" value="a"> a. Attributable risk</label><br>
+  <label><input type="radio" name="q108" value="b"> b. Relative risk</label><br>
+  <label><input type="radio" name="q108" value="c"> c. Odds ratio</label><br>
+  <label><input type="radio" name="q108" value="d"> d. Risk difference</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>109. Increased body temperature during ovulation is due to increased:</p>
+  <label><input type="radio" name="q109" value="a"> a. Estrogen</label><br>
+  <label><input type="radio" name="q109" value="b"> b. Progesterone</label><br>
+  <label><input type="radio" name="q109" value="c"> c. LH</label><br>
+  <label><input type="radio" name="q109" value="d"> d. FSH</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>110. Continuing a trial despite severe side effects violates which ethical principle?</p>
+  <label><input type="radio" name="q110" value="a"> a. Non-maleficence</label><br>
+  <label><input type="radio" name="q110" value="b"> b. Beneficence</label><br>
+  <label><input type="radio" name="q110" value="c"> c. Autonomy</label><br>
+  <label><input type="radio" name="q110" value="d"> d. Justice</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>111. Who should decide on budget cuts in a large hospital?</p>
+  <label><input type="radio" name="q111" value="a"> a. High-level managers</label><br>
+  <label><input type="radio" name="q111" value="b"> b. Low-level managers</label><br>
+  <label><input type="radio" name="q111" value="c"> c. Middle-level managers</label><br>
+  <label><input type="radio" name="q111" value="d"> d. Supervisors</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>112. Which does NOT directly contribute to Universal Health Coverage?</p>
+  <label><input type="radio" name="q112" value="a"> a. Expanding genetic services</label><br>
+  <label><input type="radio" name="q112" value="b"> b. Financial risk protection</label><br>
+  <label><input type="radio" name="q112" value="c"> c. Access to essential services</label><br>
+  <label><input type="radio" name="q112" value="d"> d. Affordable essential medicines</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>113. To determine whether a nutrition program improved outcomes, which process is used?</p>
+  <label><input type="radio" name="q113" value="a"> a. Evaluation</label><br>
+  <label><input type="radio" name="q113" value="b"> b. Monitoring</label><br>
+  <label><input type="radio" name="q113" value="c"> c. Supervision</label><br>
+  <label><input type="radio" name="q113" value="d"> d. Quality control</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>114. Using Gambusia fish to control mosquitoes is an example of:</p>
+  <label><input type="radio" name="q114" value="a"> a. Biological control</label><br>
+  <label><input type="radio" name="q114" value="b"> b. Environmental control</label><br>
+  <label><input type="radio" name="q114" value="c"> c. Chemical control</label><br>
+  <label><input type="radio" name="q114" value="d"> d. Mechanical control</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>115. Which disease is NOT vector-borne?</p>
+  <label><input type="radio" name="q115" value="a"> a. Malaria</label><br>
+  <label><input type="radio" name="q115" value="b"> b. Dengue</label><br>
+  <label><input type="radio" name="q115" value="c"> c. Tuberculosis</label><br>
+  <label><input type="radio" name="q115" value="d"> d. Japanese encephalitis</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>116. Leading cause of maternal mortality globally is:</p>
+  <label><input type="radio" name="q116" value="a"> a. Hemorrhage</label><br>
+  <label><input type="radio" name="q116" value="b"> b. Eclampsia</label><br>
+  <label><input type="radio" name="q116" value="c"> c. Sepsis</label><br>
+  <label><input type="radio" name="q116" value="d"> d. Obstructed labor</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>117. Which is an example of secondary prevention?</p>
+  <label><input type="radio" name="q117" value="a"> a. Immunization</label><br>
+  <label><input type="radio" name="q117" value="b"> b. Blood pressure screening</label><br>
+  <label><input type="radio" name="q117" value="c"> c. Health education</label><br>
+  <label><input type="radio" name="q117" value="d"> d. Rehabilitation</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>118. The term "cold chain" refers to:</p>
+  <label><input type="radio" name="q118" value="a"> a. Storage and transport of vaccines</label><br>
+  <label><input type="radio" name="q118" value="b"> b. Cooling system in hospitals</label><br>
+  <label><input type="radio" name="q118" value="c"> c. Emergency communication</label><br>
+  <label><input type="radio" name="q118" value="d"> d. Cold weather preparedness</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>119. Main steps in the PRECEDE-PROCEED model are:</p>
+  <label><input type="radio" name="q119" value="a"> a. Planning, Implementation, Evaluation</label><br>
+  <label><input type="radio" name="q119" value="b"> b. Assessment, Planning, Implementation, Evaluation</label><br>
+  <label><input type="radio" name="q119" value="c"> c. Implementation, Monitoring, Feedback</label><br>
+  <label><input type="radio" name="q119" value="d"> d. Diagnosis, Planning, Evaluation</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>120. Submerged portion of an iceberg does NOT denote:</p>
+  <label><input type="radio" name="q120" value="a"> a. Subclinical cases</label><br>
+  <label><input type="radio" name="q120" value="b"> b. Carriers</label><br>
+  <label><input type="radio" name="q120" value="c"> c. Clinical cases</label><br>
+  <label><input type="radio" name="q120" value="d"> d. Inapparent cases</label>
+</div>
+
+
+<!-- QUESTIONS 121–140 -->
+
+<div class="question" data-correct="a">
+  <p>121. Individual approach of information, education and communication is:</p>
+  <label><input type="radio" name="q121" value="a"> Home visits</label><br>
+  <label><input type="radio" name="q121" value="b"> Television</label><br>
+  <label><input type="radio" name="q121" value="c"> Role play</label><br>
+  <label><input type="radio" name="q121" value="d"> Posters</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>122. When healthy population migrate to other countries, prevalence of a disease in country of origin:</p>
+  <label><input type="radio" name="q122" value="a"> Decrease</label><br>
+  <label><input type="radio" name="q122" value="b"> Always same</label><br>
+  <label><input type="radio" name="q122" value="c"> Increase</label><br>
+  <label><input type="radio" name="q122" value="d"> Not affected</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>123. Pathogenesis phase of disease starts upon:</p>
+  <label><input type="radio" name="q123" value="a"> Entry of agent into host</label><br>
+  <label><input type="radio" name="q123" value="b"> Agent-host-environment interaction</label><br>
+  <label><input type="radio" name="q123" value="c"> Appearance of symptoms</label><br>
+  <label><input type="radio" name="q123" value="d"> Complications</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>124. Test to compare mean body weight of male and female students:</p>
+  <label><input type="radio" name="q124" value="a"> Student t-test</label><br>
+  <label><input type="radio" name="q124" value="b"> Chi-square test</label><br>
+  <label><input type="radio" name="q124" value="c"> Odds ratio</label><br>
+  <label><input type="radio" name="q124" value="d"> Correlation coefficient</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>125. Indicator used for effectiveness of contraceptive:</p>
+  <label><input type="radio" name="q125" value="a"> Pearl index</label><br>
+  <label><input type="radio" name="q125" value="b"> Couple protection rate</label><br>
+  <label><input type="radio" name="q125" value="c"> Contraceptive protection rate</label><br>
+  <label><input type="radio" name="q125" value="d"> Pregnancy rate</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>126. Infectivity of measles remains till:</p>
+  <label><input type="radio" name="q126" value="a"> Last scab falls off</label><br>
+  <label><input type="radio" name="q126" value="b"> 3 days after rash</label><br>
+  <label><input type="radio" name="q126" value="c"> 5 days after rash</label><br>
+  <label><input type="radio" name="q126" value="d"> Fever lasts</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>127. First case of communicable disease introduced into population:</p>
+  <label><input type="radio" name="q127" value="a"> Index case</label><br>
+  <label><input type="radio" name="q127" value="b"> Primary case</label><br>
+  <label><input type="radio" name="q127" value="c"> Secondary case</label><br>
+  <label><input type="radio" name="q127" value="d"> Tertiary case</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>128. Contaminated well in a village is an example of:</p>
+  <label><input type="radio" name="q128" value="a"> Propagated epidemic</label><br>
+  <label><input type="radio" name="q128" value="b"> Point source epidemic</label><br>
+  <label><input type="radio" name="q128" value="c"> Common source continuous</label><br>
+  <label><input type="radio" name="q128" value="d"> Common exposure outbreak</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>129. Sensitivity of a screening test refers to:</p>
+  <label><input type="radio" name="q129" value="a"> True negative</label><br>
+  <label><input type="radio" name="q129" value="b"> True positive</label><br>
+  <label><input type="radio" name="q129" value="c"> False negative</label><br>
+  <label><input type="radio" name="q129" value="d"> False positive</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>130. Leading risk factor for COPD:</p>
+  <label><input type="radio" name="q130" value="a"> Smoking</label><br>
+  <label><input type="radio" name="q130" value="b"> High cholesterol</label><br>
+  <label><input type="radio" name="q130" value="c"> Physical inactivity</label><br>
+  <label><input type="radio" name="q130" value="d"> Poor sanitation</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>131. Key characteristic of disease elimination:</p>
+  <label><input type="radio" name="q131" value="a"> Zero global burden</label><br>
+  <label><input type="radio" name="q131" value="b"> Disease no longer exists anywhere</label><br>
+  <label><input type="radio" name="q131" value="c"> Transmission stopped in specific region</label><br>
+  <label><input type="radio" name="q131" value="d"> Pathogen eradicated globally</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>132. Demographic processes do NOT include:</p>
+  <label><input type="radio" name="q132" value="a"> Fertility</label><br>
+  <label><input type="radio" name="q132" value="b"> Morbidity</label><br>
+  <label><input type="radio" name="q132" value="c"> Mortality</label><br>
+  <label><input type="radio" name="q132" value="d"> Social mobility</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>133. Chi-square test measures:</p>
+  <label><input type="radio" name="q133" value="a"> Difference between three means</label><br>
+  <label><input type="radio" name="q133" value="b"> Difference between two means</label><br>
+  <label><input type="radio" name="q133" value="c"> Difference between mean and median</label><br>
+  <label><input type="radio" name="q133" value="d"> Difference between two proportions</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>134. SAFE strategy excludes:</p>
+  <label><input type="radio" name="q134" value="a"> Screening</label><br>
+  <label><input type="radio" name="q134" value="b"> Antibiotics</label><br>
+  <label><input type="radio" name="q134" value="c"> Face washing</label><br>
+  <label><input type="radio" name="q134" value="d"> Environmental improvement</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>135. Knowledge derived from experience is:</p>
+  <label><input type="radio" name="q135" value="a"> Rationalism</label><br>
+  <label><input type="radio" name="q135" value="b"> Logic</label><br>
+  <label><input type="radio" name="q135" value="c"> Inductive & deductive reasoning</label><br>
+  <label><input type="radio" name="q135" value="d"> Empiricism</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>136. Child’s agreement for study participation is called:</p>
+  <label><input type="radio" name="q136" value="a"> Assent</label><br>
+  <label><input type="radio" name="q136" value="b"> Consent of minor</label><br>
+  <label><input type="radio" name="q136" value="c"> Minor agreement</label><br>
+  <label><input type="radio" name="q136" value="d"> None</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>137. Degree of freedom in 4×3 table:</p>
+  <label><input type="radio" name="q137" value="a"> 6</label><br>
+  <label><input type="radio" name="q137" value="b"> 7</label><br>
+  <label><input type="radio" name="q137" value="c"> 9</label><br>
+  <label><input type="radio" name="q137" value="d"> 12</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>138. Selective primary health care is related to:</p>
+  <label><input type="radio" name="q138" value="a"> Horizontal program</label><br>
+  <label><input type="radio" name="q138" value="b"> Vertical program</label><br>
+  <label><input type="radio" name="q138" value="c"> Parallel program</label><br>
+  <label><input type="radio" name="q138" value="d"> All</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>139. AIDS in Nepal is:</p>
+  <label><input type="radio" name="q139" value="a"> Epidemic</label><br>
+  <label><input type="radio" name="q139" value="b"> Endemic</label><br>
+  <label><input type="radio" name="q139" value="c"> Concentrated epidemic</label><br>
+  <label><input type="radio" name="q139" value="d"> Concentrated endemic</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>140. Antibodies involved in Type II hypersensitivity:</p>
+  <label><input type="radio" name="q140" value="a"> IgE</label><br>
+  <label><input type="radio" name="q140" value="b"> IgG and IgM</label><br>
+  <label><input type="radio" name="q140" value="c"> IgM and IgE</label><br>
+  <label><input type="radio" name="q140" value="d"> IgG only</label>
+</div>
+
+
+<!-- QUESTIONS 141–160 -->
+
+<div class="question" data-correct="c">
+  <p>141. In an accident, an adult burns to his entire back and left arm. Using the rule of nines, what percentage of body surface is burned?</p>
+  <label><input type="radio" name="q141" value="a"> 9%</label><br>
+  <label><input type="radio" name="q141" value="b"> 13.5%</label><br>
+  <label><input type="radio" name="q141" value="c"> 27%</label><br>
+  <label><input type="radio" name="q141" value="d"> 36%</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>142. Protein synthesis takes place in which organelle?</p>
+  <label><input type="radio" name="q142" value="a"> Mitochondria</label><br>
+  <label><input type="radio" name="q142" value="b"> Endoplasmic reticulum</label><br>
+  <label><input type="radio" name="q142" value="c"> Lysosomes</label><br>
+  <label><input type="radio" name="q142" value="d"> Golgi apparatus</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>143. Immediate source of energy for muscle contraction:</p>
+  <label><input type="radio" name="q143" value="a"> ATP</label><br>
+  <label><input type="radio" name="q143" value="b"> GTP</label><br>
+  <label><input type="radio" name="q143" value="c"> Glucose</label><br>
+  <label><input type="radio" name="q143" value="d"> Creatine</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>144. When was maternal and neonatal tetanus eliminated in Nepal?</p>
+  <label><input type="radio" name="q144" value="a"> 2002 AD</label><br>
+  <label><input type="radio" name="q144" value="b"> 2004 AD</label><br>
+  <label><input type="radio" name="q144" value="c"> 2005 AD</label><br>
+  <label><input type="radio" name="q144" value="d"> 2006 AD</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>145. Monopoly, duopoly and oligopoly fall under:</p>
+  <label><input type="radio" name="q145" value="a"> Perfect competition</label><br>
+  <label><input type="radio" name="q145" value="b"> Imperfect competition</label><br>
+  <label><input type="radio" name="q145" value="c"> Mixed market</label><br>
+  <label><input type="radio" name="q145" value="d"> Health market</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>146. Shape of AR and MR curve under monopoly:</p>
+  <label><input type="radio" name="q146" value="a"> Vertical</label><br>
+  <label><input type="radio" name="q146" value="b"> Positively sloped</label><br>
+  <label><input type="radio" name="q146" value="c"> Negatively sloped</label><br>
+  <label><input type="radio" name="q146" value="d"> None</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>147. Temporary hardness of water is due to:</p>
+  <label><input type="radio" name="q147" value="a"> Calcium & magnesium sulphates</label><br>
+  <label><input type="radio" name="q147" value="b"> Calcium & magnesium chlorides</label><br>
+  <label><input type="radio" name="q147" value="c"> Calcium & magnesium bicarbonates</label><br>
+  <label><input type="radio" name="q147" value="d"> Calcium & magnesium nitrates</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>148. Conventional contraceptives include:</p>
+  <label><input type="radio" name="q148" value="a"> Condom</label><br>
+  <label><input type="radio" name="q148" value="b"> Copper-T</label><br>
+  <label><input type="radio" name="q148" value="c"> Oral pills</label><br>
+  <label><input type="radio" name="q148" value="d"> Tubectomy</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>149. Bachelor of Public Health is registered to:</p>
+  <label><input type="radio" name="q149" value="a"> First category class A</label><br>
+  <label><input type="radio" name="q149" value="b"> Second category class B</label><br>
+  <label><input type="radio" name="q149" value="c"> Third category class C</label><br>
+  <label><input type="radio" name="q149" value="d"> Third category class B</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>150. Which is not included in sociology?</p>
+  <label><input type="radio" name="q150" value="a"> Social institutions</label><br>
+  <label><input type="radio" name="q150" value="b"> Social relationships</label><br>
+  <label><input type="radio" name="q150" value="c"> Biological processes</label><br>
+  <label><input type="radio" name="q150" value="d"> Cultural norms</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>151. UNICEF was established in:</p>
+  <label><input type="radio" name="q151" value="a"> 1946 AD</label><br>
+  <label><input type="radio" name="q151" value="b"> 1947 AD</label><br>
+  <label><input type="radio" name="q151" value="c"> 1948 AD</label><br>
+  <label><input type="radio" name="q151" value="d"> 1953 AD</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>152. Most dangerous particle size is:</p>
+  <label><input type="radio" name="q152" value="a"> 0.5–3.0 micron</label><br>
+  <label><input type="radio" name="q152" value="b"> 5–10 micron</label><br>
+  <label><input type="radio" name="q152" value="c"> 0.5–5 micron</label><br>
+  <label><input type="radio" name="q152" value="d"> 1–3 micron</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>153. Designer handbags are:</p>
+  <label><input type="radio" name="q153" value="a"> Inferior goods</label><br>
+  <label><input type="radio" name="q153" value="b"> Necessity goods</label><br>
+  <label><input type="radio" name="q153" value="c"> Luxury goods</label><br>
+  <label><input type="radio" name="q153" value="d"> Giffen goods</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>154. Community physicians take action based on:</p>
+  <label><input type="radio" name="q154" value="a"> Population attributable risk</label><br>
+  <label><input type="radio" name="q154" value="b"> Odds ratio</label><br>
+  <label><input type="radio" name="q154" value="c"> Relative risk</label><br>
+  <label><input type="radio" name="q154" value="d"> Attributable risk</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>155. Study of disease in relation to social conditions is:</p>
+  <label><input type="radio" name="q155" value="a"> Social physiology</label><br>
+  <label><input type="radio" name="q155" value="b"> Social pathology</label><br>
+  <label><input type="radio" name="q155" value="c"> Socialized medicine</label><br>
+  <label><input type="radio" name="q155" value="d"> Social medicine</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>156. Primary structure of protein is held by:</p>
+  <label><input type="radio" name="q156" value="a"> Hydrogen bonds</label><br>
+  <label><input type="radio" name="q156" value="b"> Covalent bonds</label><br>
+  <label><input type="radio" name="q156" value="c"> Peptide bonds</label><br>
+  <label><input type="radio" name="q156" value="d"> Ionic bonds</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>157. Best test to detect iron deficiency in community:</p>
+  <label><input type="radio" name="q157" value="a"> Transferrin</label><br>
+  <label><input type="radio" name="q157" value="b"> Serum ferritin</label><br>
+  <label><input type="radio" name="q157" value="c"> Serum iron</label><br>
+  <label><input type="radio" name="q157" value="d"> Hemoglobin</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>158. Developer of administrative theory of management:</p>
+  <label><input type="radio" name="q158" value="a"> Elton Mayo</label><br>
+  <label><input type="radio" name="q158" value="b"> Douglas McGregor</label><br>
+  <label><input type="radio" name="q158" value="c"> F.W. Taylor</label><br>
+  <label><input type="radio" name="q158" value="d"> Henri Fayol</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>159. Correct sequence is:</p>
+  <label><input type="radio" name="q159" value="a"> Impairment–disease–disability–handicap</label><br>
+  <label><input type="radio" name="q159" value="b"> Disease–impairment–disability–handicap</label><br>
+  <label><input type="radio" name="q159" value="c"> Disease–impairment–handicap–disability</label><br>
+  <label><input type="radio" name="q159" value="d"> Disease–disability–impairment–handicap</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>160. Most essential fatty acid is:</p>
+  <label><input type="radio" name="q160" value="a"> Linoleic acid</label><br>
+  <label><input type="radio" name="q160" value="b"> Arachidonic acid</label><br>
+  <label><input type="radio" name="q160" value="c"> Stearic acid</label><br>
+  <label><input type="radio" name="q160" value="d"> Riboflavin</label>
+</div>
+
+<!-- QUESTIONS 161–180 -->
+
+<div class="question" data-correct="b">
+  <p>161. Example of cyclo-propagative transmission is:</p>
+  <label><input type="radio" name="q161" value="a"> Plague bacilli in rat flea</label><br>
+  <label><input type="radio" name="q161" value="b"> Malaria parasite in mosquito</label><br>
+  <label><input type="radio" name="q161" value="c"> Microfilaria in mosquito</label><br>
+  <label><input type="radio" name="q161" value="d"> Guinea worm embryo in Cyclops</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>162. Environmental manipulation which enables genes to express themselves readily is known as:</p>
+  <label><input type="radio" name="q162" value="a"> Positive eugenics</label><br>
+  <label><input type="radio" name="q162" value="b"> Euthenics</label><br>
+  <label><input type="radio" name="q162" value="c"> Negative eugenics</label><br>
+  <label><input type="radio" name="q162" value="d"> Genetic counselling</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>163. Which is a limitation of the PRECEDE–PROCEED model?</p>
+  <label><input type="radio" name="q163" value="a"> Too complex and time-consuming</label><br>
+  <label><input type="radio" name="q163" value="b"> Lacks guidance on implementation</label><br>
+  <label><input type="radio" name="q163" value="c"> Ignores cultural factors</label><br>
+  <label><input type="radio" name="q163" value="d"> All of the above</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>164. In the Transtheoretical Model, which stage involves active behavior change within six months?</p>
+  <label><input type="radio" name="q164" value="a"> Action</label><br>
+  <label><input type="radio" name="q164" value="b"> Contemplation</label><br>
+  <label><input type="radio" name="q164" value="c"> Preparation</label><br>
+  <label><input type="radio" name="q164" value="d"> Precontemplation</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>165. According to Diffusion of Innovations theory, who adopts early?</p>
+  <label><input type="radio" name="q165" value="a"> Resistant individuals</label><br>
+  <label><input type="radio" name="q165" value="b"> Early adopters</label><br>
+  <label><input type="radio" name="q165" value="c"> Laggards</label><br>
+  <label><input type="radio" name="q165" value="d"> None of the above</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>166. Which is a policy-level intervention to reduce tobacco use?</p>
+  <label><input type="radio" name="q166" value="a"> Health education</label><br>
+  <label><input type="radio" name="q166" value="b"> One-to-one counseling</label><br>
+  <label><input type="radio" name="q166" value="c"> Increasing tobacco tax</label><br>
+  <label><input type="radio" name="q166" value="d"> Free nicotine patches</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>167. The world's first international health agency was:</p>
+  <label><input type="radio" name="q167" value="a"> WHO</label><br>
+  <label><input type="radio" name="q167" value="b"> UNICEF</label><br>
+  <label><input type="radio" name="q167" value="c"> Pan American Sanitary Bureau</label><br>
+  <label><input type="radio" name="q167" value="d"> Office International Hygiene Publique</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>168. Variation of values drawn from the same population is called:</p>
+  <label><input type="radio" name="q168" value="a"> Fluctuation error</label><br>
+  <label><input type="radio" name="q168" value="b"> Standard error</label><br>
+  <label><input type="radio" name="q168" value="c"> Selection error</label><br>
+  <label><input type="radio" name="q168" value="d"> Population error</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>169. All are PHEIC diseases except:</p>
+  <label><input type="radio" name="q169" value="a"> Smallpox</label><br>
+  <label><input type="radio" name="q169" value="b"> Poliomyelitis</label><br>
+  <label><input type="radio" name="q169" value="c"> Malaria</label><br>
+  <label><input type="radio" name="q169" value="d"> SARS</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>170. Primary advantage of national health insurance:</p>
+  <label><input type="radio" name="q170" value="a"> Service provision</label><br>
+  <label><input type="radio" name="q170" value="b"> Risk pooling</label><br>
+  <label><input type="radio" name="q170" value="c"> Third-party payment</label><br>
+  <label><input type="radio" name="q170" value="d"> Regulation</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>171. Number of IFA tablets for adolescent girls per year:</p>
+  <label><input type="radio" name="q171" value="a"> 13</label><br>
+  <label><input type="radio" name="q171" value="b"> 24</label><br>
+  <label><input type="radio" name="q171" value="c"> 26</label><br>
+  <label><input type="radio" name="q171" value="d"> 30</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>172. First step in behavior change:</p>
+  <label><input type="radio" name="q172" value="a"> Knowledge</label><br>
+  <label><input type="radio" name="q172" value="b"> Attitude</label><br>
+  <label><input type="radio" name="q172" value="c"> Practice</label><br>
+  <label><input type="radio" name="q172" value="d"> None</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>173. Healthcare financing with least pooling:</p>
+  <label><input type="radio" name="q173" value="a"> General tax</label><br>
+  <label><input type="radio" name="q173" value="b"> Out-of-pocket payment</label><br>
+  <label><input type="radio" name="q173" value="c"> External financing</label><br>
+  <label><input type="radio" name="q173" value="d"> Provider payment</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>174. Primary purpose of healthcare needs assessment:</p>
+  <label><input type="radio" name="q174" value="a"> Determine workload</label><br>
+  <label><input type="radio" name="q174" value="b"> Identify required services</label><br>
+  <label><input type="radio" name="q174" value="c"> Promote curative care</label><br>
+  <label><input type="radio" name="q174" value="d"> Reduce healthcare cost</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>175. Objective of cost-effectiveness analysis:</p>
+  <label><input type="radio" name="q175" value="a"> Compare costs</label><br>
+  <label><input type="radio" name="q175" value="b"> Monetary valuation</label><br>
+  <label><input type="radio" name="q175" value="c"> Determine relative efficiency</label><br>
+  <label><input type="radio" name="q175" value="d"> Study social determinants</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>176. Kappa value = 0 indicates:</p>
+  <label><input type="radio" name="q176" value="a"> No agreement</label><br>
+  <label><input type="radio" name="q176" value="b"> Agreement due to chance</label><br>
+  <label><input type="radio" name="q176" value="c"> Perfect agreement</label><br>
+  <label><input type="radio" name="q176" value="d"> Average agreement</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>177. Major players of economic globalization:</p>
+  <label><input type="radio" name="q177" value="a"> Bilateral agencies</label><br>
+  <label><input type="radio" name="q177" value="b"> World Bank, IMF & WTO</label><br>
+  <label><input type="radio" name="q177" value="c"> World Bank & WTO</label><br>
+  <label><input type="radio" name="q177" value="d"> Multinational corporations</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>178. WHO recommended drinking water pH range:</p>
+  <label><input type="radio" name="q178" value="a"> 2.5–4.5</label><br>
+  <label><input type="radio" name="q178" value="b"> 4.5–6.5</label><br>
+  <label><input type="radio" name="q178" value="c"> 6.5–8.5</label><br>
+  <label><input type="radio" name="q178" value="d"> 8.5–10.5</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>179. Goal of National Health Policy 2019 is achieved through:</p>
+  <label><input type="radio" name="q179" value="a"> Partnerships</label><br>
+  <label><input type="radio" name="q179" value="b"> Technology</label><br>
+  <label><input type="radio" name="q179" value="c"> Innovations</label><br>
+  <label><input type="radio" name="q179" value="d"> Coordination</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>180. Graphical plan of all activities to reach an objective:</p>
+  <label><input type="radio" name="q180" value="a"> System analysis</label><br>
+  <label><input type="radio" name="q180" value="b"> Network analysis</label><br>
+  <label><input type="radio" name="q180" value="c"> Work sampling</label><br>
+  <label><input type="radio" name="q180" value="d"> Simulation model</label>
+</div>
+
+
+<!-- QUESTIONS 181–200 -->
+
+<div class="question" data-correct="c">
+  <p>181. Diphtheria carriers are identified by:</p>
+  <label><input type="radio" name="q181" value="a"> Schick test</label><br>
+  <label><input type="radio" name="q181" value="b"> Albert's staining</label><br>
+  <label><input type="radio" name="q181" value="c"> Throat swab culture</label><br>
+  <label><input type="radio" name="q181" value="d"> Gram staining</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>182. Network analysis is a:</p>
+  <label><input type="radio" name="q182" value="a"> Quantitative method</label><br>
+  <label><input type="radio" name="q182" value="b"> Qualitative method</label><br>
+  <label><input type="radio" name="q182" value="c"> Health education method</label><br>
+  <label><input type="radio" name="q182" value="d"> None of the above</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>183. The statistical tool that depicts a project's tasks and relationships is:</p>
+  <label><input type="radio" name="q183" value="a"> Milestone tool</label><br>
+  <label><input type="radio" name="q183" value="b"> Goal chart</label><br>
+  <label><input type="radio" name="q183" value="c"> Gantt chart</label><br>
+  <label><input type="radio" name="q183" value="d"> PERT chart</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>184. All are true regarding Critical Path Method except:</p>
+  <label><input type="radio" name="q184" value="a"> Is a part of input-output analysis</label><br>
+  <label><input type="radio" name="q184" value="b"> Visualized in graphical representation</label><br>
+  <label><input type="radio" name="q184" value="c"> Longest path of the network</label><br>
+  <label><input type="radio" name="q184" value="d"> Any delay delays whole project</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>185. Emergency contraceptive pills are effective:</p>
+  <label><input type="radio" name="q185" value="a"> 24-48 hours after ovulation</label><br>
+  <label><input type="radio" name="q185" value="b"> 72-120 hours after coitus</label><br>
+  <label><input type="radio" name="q185" value="c"> Immediately after ovulation</label><br>
+  <label><input type="radio" name="q185" value="d"> Within 24 hours of unprotected intercourse</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>186. According to Herzberg's Motivation-Hygiene Theory, which factor influences motivation in the scenario?</p>
+  <label><input type="radio" name="q186" value="a"> Job security</label><br>
+  <label><input type="radio" name="q186" value="b"> Work conditions</label><br>
+  <label><input type="radio" name="q186" value="c"> Recognition</label><br>
+  <label><input type="radio" name="q186" value="d"> Salary</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>187. According to Rothman's sufficient cause model, Mycobacterium tuberculosis is:</p>
+  <label><input type="radio" name="q187" value="a"> A necessary component cause</label><br>
+  <label><input type="radio" name="q187" value="b"> A sufficient cause by itself</label><br>
+  <label><input type="radio" name="q187" value="c"> An incidental factor</label><br>
+  <label><input type="radio" name="q187" value="d"> A confounder</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>188. Toxin responsible for descending flaccid paralysis in improperly canned food (BOAA):</p>
+  <label><input type="radio" name="q188" value="a"> Botulinum toxin</label><br>
+  <label><input type="radio" name="q188" value="b"> Tetanus toxin</label><br>
+  <label><input type="radio" name="q188" value="c"> Staphylococcal enterotoxin</label><br>
+  <label><input type="radio" name="q188" value="d"> Clostridium perfringens toxin</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>189. Which is not considered a service utilization indicator?</p>
+  <label><input type="radio" name="q189" value="a"> Hospital admission rate</label><br>
+  <label><input type="radio" name="q189" value="b"> Outpatient visit rate</label><br>
+  <label><input type="radio" name="q189" value="c"> Immunization coverage rate</label><br>
+  <label><input type="radio" name="q189" value="d"> Health facility density</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>190. Providing corrective lenses to a myopic patient is an example of:</p>
+  <label><input type="radio" name="q190" value="a"> Primary prevention</label><br>
+  <label><input type="radio" name="q190" value="b"> Secondary prevention</label><br>
+  <label><input type="radio" name="q190" value="c"> Tertiary prevention</label><br>
+  <label><input type="radio" name="q190" value="d"> Quaternary prevention</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>191. If a study's confidence interval widens, the likely effect on significance is:</p>
+  <label><input type="radio" name="q191" value="a"> Previously insignificant may become significant</label><br>
+  <label><input type="radio" name="q191" value="b"> Previously significant may become insignificant</label><br>
+  <label><input type="radio" name="q191" value="c"> Point estimate more precise</label><br>
+  <label><input type="radio" name="q191" value="d"> No effect on significance</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>192. Treatment of MDR-TB typically falls under:</p>
+  <label><input type="radio" name="q192" value="a"> Emergency health services</label><br>
+  <label><input type="radio" name="q192" value="b"> Free health services</label><br>
+  <label><input type="radio" name="q192" value="c"> Out-of-pocket services</label><br>
+  <label><input type="radio" name="q192" value="d"> Private health services</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>193. WHO recommended number of medical staff for primary care coverage:</p>
+  <label><input type="radio" name="q193" value="a"> 2.2 per 1,000</label><br>
+  <label><input type="radio" name="q193" value="b"> 2.3 per 1,000</label><br>
+  <label><input type="radio" name="q193" value="c"> 2.4 per 1,000</label><br>
+  <label><input type="radio" name="q193" value="d"> 2.5 per 1,000</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>194. Formula to estimate mean for infinite population:</p>
+  <label><input type="radio" name="q194" value="a"> n = (Z² * σ²) / E²</label><br>
+  <label><input type="radio" name="q194" value="b"> n = N - n / N</label><br>
+  <label><input type="radio" name="q194" value="c"> n = (N-1)/n</label><br>
+  <label><input type="radio" name="q194" value="d"> n = n-1 / N</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>195. Minimum required sample size given mean 72/min, SD 8, allowable error 2:</p>
+  <label><input type="radio" name="q195" value="a"> 64</label><br>
+  <label><input type="radio" name="q195" value="b"> 68</label><br>
+  <label><input type="radio" name="q195" value="c"> 246</label><br>
+  <label><input type="radio" name="q195" value="d"> 256</label>
+</div>
+
+<div class="question" data-correct="c">
+  <p>196. Probability of randomly selecting a heavy smoker who develops lung cancer:</p>
+  <label><input type="radio" name="q196" value="a"> 1/100</label><br>
+  <label><input type="radio" name="q196" value="b"> 11/100</label><br>
+  <label><input type="radio" name="q196" value="c"> 1/1000</label><br>
+  <label><input type="radio" name="q196" value="d"> 11/1000</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>197. Intervention for a person avoiding expression due to stigma:</p>
+  <label><input type="radio" name="q197" value="a"> Individual anonymous counseling</label><br>
+  <label><input type="radio" name="q197" value="b"> Workplace discussion</label><br>
+  <label><input type="radio" name="q197" value="c"> Awareness sessions for members</label><br>
+  <label><input type="radio" name="q197" value="d"> Coordination among group members</label>
+</div>
+
+<div class="question" data-correct="b">
+  <p>198. Loss of workdays due to hospitalization represents:</p>
+  <label><input type="radio" name="q198" value="a"> Direct cost</label><br>
+  <label><input type="radio" name="q198" value="b"> Indirect cost</label><br>
+  <label><input type="radio" name="q198" value="c"> Opportunity cost</label><br>
+  <label><input type="radio" name="q198" value="d"> Fixed cost</label>
+</div>
+
+<div class="question" data-correct="d">
+  <p>199. Generally not included in the abstract section of a thesis:</p>
+  <label><input type="radio" name="q199" value="a"> Introduction</label><br>
+  <label><input type="radio" name="q199" value="b"> Findings</label><br>
+  <label><input type="radio" name="q199" value="c"> Methodology</label><br>
+  <label><input type="radio" name="q199" value="d"> Ethical considerations</label>
+</div>
+
+<div class="question" data-correct="a">
+  <p>200. Best course of action for an HIV-tested patient according to WHO guidelines:</p>
+  <label><input type="radio" name="q200" value="a"> Start antiretroviral drugs immediately</label><br>
+  <label><input type="radio" name="q200" value="b"> Wait 9 months before therapy</label><br>
+  <label><input type="radio" name="q200" value="c"> Monitor without intervention</label><br>
+  <label><input type="radio" name="q200" value="d"> Initiate therapy only upon symptom onset</label>
+</div>
+
+
+
+
+
+  <!-- ADD QUESTIONS 3–200 THE SAME WAY -->
+
+  <button type="submit">Submit Quiz</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let score = 0;
+  const questions = document.querySelectorAll(".question");
+
+  questions.forEach(question => {
+    const correct = question.dataset.correct;
+    const selected = question.querySelector("input[type='radio']:checked");
+    const labels = question.querySelectorAll("label");
+
+    // Reset colors
+    labels.forEach(label => {
+      label.style.background = "";
+      label.style.color = "";
+    });
+
+    labels.forEach(label => {
+      const input = label.querySelector("input");
+
+      if (input.value === correct) {
+        label.style.background = "#d4edda"; // green
+        label.style.color = "#155724";
+      }
+
+      if (input.checked && input.value !== correct) {
+        label.style.background = "#f8d7da"; // red
+        label.style.color = "#721c24";
+      }
+    });
+
+    if (selected && selected.value === correct) {
+      score++;
+    }
+  });
+
+  document.getElementById("result").innerText =
+    `Your Score: ${score} / ${questions.length}`;
+});
+</script>
+
+</body>
+</html>
