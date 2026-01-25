@@ -1,3 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SET 1</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    background: #f5f5f5;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .question {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+
+  label {
+    display: block;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #0056b3;
+  }
+
+  #result {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Online Quiz</h1>
+
+<form id="quizForm">
+
 <!-- QUESTION 1 -->
 <div class="question">
   <h3>1. What is the primary source of methane gas emissions?</h3>
@@ -140,3 +204,54 @@
   <label class="option"><input type="radio" name="q16"> Objectives</label>
   <label class="option"><input type="radio" name="q16"> Methodologies</label>
   <label class="option correct"><input type="radio" name="q16">
+
+
+  <button type="submit">Submit Quiz</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let score = 0;
+  const questions = document.querySelectorAll(".question");
+
+  questions.forEach(question => {
+    const correct = question.dataset.correct;
+    const selected = question.querySelector("input[type='radio']:checked");
+    const labels = question.querySelectorAll("label");
+
+    // Reset colors
+    labels.forEach(label => {
+      label.style.background = "";
+      label.style.color = "";
+    });
+
+    labels.forEach(label => {
+      const input = label.querySelector("input");
+
+      if (input.value === correct) {
+        label.style.background = "#d4edda"; // green
+        label.style.color = "#155724";
+      }
+
+      if (input.checked && input.value !== correct) {
+        label.style.background = "#f8d7da"; // red
+        label.style.color = "#721c24";
+      }
+    });
+
+    if (selected && selected.value === correct) {
+      score++;
+    }
+  });
+
+  document.getElementById("result").innerText =
+    `Your Score: ${score} / ${questions.length}`;
+});
+</script>
+
+</body>
+</html>
