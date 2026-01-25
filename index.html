@@ -2,51 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Question Sets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Sets</title>
 
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f6f8;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
         }
 
         h1 {
             text-align: center;
-            padding: 20px;
-            margin: 0;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
         }
 
-        .container {
+        .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
             margin: auto;
         }
 
         .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 35px 20px;
             text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card a {
-            display: block;
-            padding: 30px 10px;
             text-decoration: none;
-            color: #333;
-            font-size: 18px;
-            font-weight: bold;
+            color: #fff;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .year {
+            font-size: 2.4rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .sets {
+            font-size: 1rem;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+            .year {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -54,50 +79,31 @@
 
     <h1>Question Sets</h1>
 
-    <div class="container">
-        <div class="card"><a href="set1.html">Set 1</a></div>
-        <div class="card"><a href="set2.html">Set 2</a></div>
-        <div class="card"><a href="set3.html">Set 3</a></div>
-        <div class="card"><a href="set4.html">Set 4</a></div>
-        <div class="card"><a href="set5.html">Set 5</a></div>
-        <div class="card"><a href="set6.html">Set 6</a></div>
-        <div class="card"><a href="set7.html">Set 7</a></div>
-        <div class="card"><a href="set8.html">Set 8</a></div>
-        <div class="card"><a href="set9.html">Set 9</a></div>
-        <div class="card"><a href="set10.html">Set 10</a></div>
+    <div class="card-container">
+        <a href="2020.html" class="card">
+            <div class="year">2020</div>
+            <div class="sets">Sets</div>
+        </a>
 
-        <div class="card"><a href="set11.html">Set 11</a></div>
-        <div class="card"><a href="set12.html">Set 12</a></div>
-        <div class="card"><a href="set13.html">Set 13</a></div>
-        <div class="card"><a href="set14.html">Set 14</a></div>
-        <div class="card"><a href="set15.html">Set 15</a></div>
-        <div class="card"><a href="set16.html">Set 16</a></div>
-        <div class="card"><a href="set17.html">Set 17</a></div>
-        <div class="card"><a href="set18.html">Set 18</a></div>
-        <div class="card"><a href="set19.html">Set 19</a></div>
-        <div class="card"><a href="set20.html">Set 20</a></div>
+        <a href="2021.html" class="card">
+            <div class="year">2021</div>
+            <div class="sets">Sets</div>
+        </a>
 
-        <div class="card"><a href="set21.html">Set 21</a></div>
-        <div class="card"><a href="set22.html">Set 22</a></div>
-        <div class="card"><a href="set23.html">Set 23</a></div>
-        <div class="card"><a href="set24.html">Set 24</a></div>
-        <div class="card"><a href="set25.html">Set 25</a></div>
-        <div class="card"><a href="set26.html">Set 26</a></div>
-        <div class="card"><a href="set27.html">Set 27</a></div>
-        <div class="card"><a href="set28.html">Set 28</a></div>
-        <div class="card"><a href="set29.html">Set 29</a></div>
-        <div class="card"><a href="set30.html">Set 30</a></div>
+        <a href="2022.html" class="card">
+            <div class="year">2022</div>
+            <div class="sets">Sets</div>
+        </a>
 
-        <div class="card"><a href="set31.html">Set 31</a></div>
-        <div class="card"><a href="set32.html">Set 32</a></div>
-        <div class="card"><a href="set33.html">Set 33</a></div>
-        <div class="card"><a href="set34.html">Set 34</a></div>
-        <div class="card"><a href="set35.html">Set 35</a></div>
-        <div class="card"><a href="set36.html">Set 36</a></div>
-        <div class="card"><a href="set37.html">Set 37</a></div>
-        <div class="card"><a href="set38.html">Set 38</a></div>
-        <div class="card"><a href="set39.html">Set 39</a></div>
-        <div class="card"><a href="set40.html">Set 40</a></div>
+        <a href="2024.html" class="card">
+            <div class="year">2024</div>
+            <div class="sets">Sets</div>
+        </a>
+
+        <a href="2025.html" class="card">
+            <div class="year">2025</div>
+            <div class="sets">Sets</div>
+        </a>
     </div>
 
 </body>
