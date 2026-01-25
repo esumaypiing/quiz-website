@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f4f8;
+    padding:20px;
+}
+.quiz-box{
+    max-width:900px;
+    margin:auto;
+    background:#ffffff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+h1{
+    text-align:center;
+}
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    background:#f9f9f9;
+    border-radius:8px;
+}
+.question p{
+    font-weight:bold;
+}
+.options label{
+    display:block;
+    padding:6px;
+    cursor:pointer;
+}
+.correct{
+    background:#d4edda;
+    border:1px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border:1px solid #dc3545;
+}
+button{
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    margin-top:20px;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+}
+@media(max-width:600px){
+    body{padding:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+<h1>Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question" data-correct="c">
+<p>1. Temporary hardness of water is primarily due to the presence of:</p>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> a. Calcium and magnesium sulphates</label>
+<label><input type="radio" name="q1" value="b"> b. Calcium and magnesium chlorides</label>
+<label><input type="radio" name="q1" value="c"> c Calcium and magnesium bicarbonates</label>
+<label><input type="radio" name="q1" value="d"> d. Calcium and magnesium nitrates</label>
+</div>
+</div>
+
+<div class="question" data-correct="c">
+<p>2. In women, what waist-hip ratio is indicative of obesity?</p>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> a. &gt;0.75</label>
+<label><input type="radio" name="q2" value="b"> b. &gt;0.80</label>
+<label><input type="radio" name="q2" value="c"> C. &gt;0.85</label>
+<label><input type="radio" name="q2" value="d"> d. &gt;0.90</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>3. What does the 'O' in GOBI campaign stand for?</p>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> a. Oxygenation</label>
+<label><input type="radio" name="q3" value="b"> b. Oral Rehydration Therapy</label>
+<label><input type="radio" name="q3" value="c"> c.Obstetrics</label>
+<label><input type="radio" name="q3" value="d"> d. Oncology</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>4. Which particles size are most dangerous</p>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> a. 0.5-3.0 micron</label>
+<label><input type="radio" name="q4" value="c"> c. 0.5-5 micron</label>
+<label><input type="radio" name="q4" value="b"> b. 5-10 micron</label>
+<label><input type="radio" name="q4" value="d"> d. 1-3 micron</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>5. The theory of Cognitive Dissonance has been introduced by:</p>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> a. Winn Eger</label>
+<label><input type="radio" name="q5" value="b"> b. Fastinger-</label>
+<label><input type="radio" name="q5" value="c"> c. Lawrence co green</label>
+<label><input type="radio" name="q5" value="d"> d. None of the above</label>
+</div>
+</div>
+
+<div class="question" data-correct="c">
+<p>6. Pre-obese according to the BMI is:</p>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> a. &lt;18.50 BMI</label>
+<label><input type="radio" name="q6" value="b"> b. 18.5-24.99 BMI</label>
+<label><input type="radio" name="q6" value="c"> c. 25-29.99 BMI</label>
+<label><input type="radio" name="q6" value="d"> d. 30-34.99 BMI</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>7. Which of the following is an example of an essential healthcare service typically included in primary care?</p>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> a. Cosmetic surgery</label>
+<label><input type="radio" name="q7" value="b"> b. Routine vaccinations</label>
+<label><input type="radio" name="q7" value="c"> c. Laser eye surgery for vision correction</label>
+<label><input type="radio" name="q7" value="d"> d. Hair transplant procedures</label>
+</div>
+</div>
+
+<div class="question" data-correct="d">
+<p>8. Following are used in the planning of health education except:</p>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> a. Using simple words</label>
+<label><input type="radio" name="q8" value="b"> b. Cover felt needs</label>
+<label><input type="radio" name="q8" value="c"> c. Ensuring participation</label>
+<label><input type="radio" name="q8" value="d"> d. Catchy slogans</label>
+</div>
+</div>
+
+<div class="question" data-correct="c">
+<p>9. Which of the following statements reflects the pre- contemplation stage of the behavior change model?</p>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> a. "I stopped using butter on my sandwiches to help lower my cholesterol."</label>
+<label><input type="radio" name="q9" value="b"> b. "I think I will join a fitness club next month because exercise is going to reduce my risk of having a heart attack."</label>
+<label><input type="radio" name="q9" value="c"> c. "I don't think I can change my cholesterol levels with my diet. High cholesterol runs in my family."</label>
+<label><input type="radio" name="q9" value="d"> d. "I don't worry about my cholesterol anymore. It has been controlled well with a low-fat diet and exercise plan for 6 months."</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>10. What does universal health coverage (UHC) mean?</p>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> a. UHC means that all individuals and communities receive the health services they need, when and where they need them</label>
+<label><input type="radio" name="q10" value="b"> b. UHC prevents people from being pushed into poverty when paying for health services out of their own pockets</label>
+<label><input type="radio" name="q10" value="c"> c. UHC enables everyone to access the services that address the most important causes of disease and death</label>
+<label><input type="radio" name="q10" value="d"> d. UHC is about health services for individuals and populations, such as controlling mosquito breeding grounds</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>11. Catch up, keep up and follow up is the strategy for:</p>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> a. Polio eradication</label>
+<label><input type="radio" name="q11" value="b"> b. Measles elimination</label>
+<label><input type="radio" name="q11" value="c"> C. Malaria control</label>
+<label><input type="radio" name="q11" value="d"> d. Leprosy elimination</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>12. ............ is the achievement of objective with least amount of resources</p>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> a. Effectiveness</label>
+<label><input type="radio" name="q12" value="b"> b. Efficiency</label>
+<label><input type="radio" name="q12" value="c"> c. Validity</label>
+<label><input type="radio" name="q12" value="d"> d. Accuracy</label>
+</div>
+</div>
+
+<div class="question" data-correct="d">
+<p>13. Standard of living (WHO) indicates all excepts</p>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> a. Income</label>
+<label><input type="radio" name="q13" value="b"> b. Sanitation and nutrition</label>
+<label><input type="radio" name="q13" value="c"> c. Level of provision of health</label>
+<label><input type="radio" name="q13" value="d"> d. Human right</label>
+</div>
+</div>
+
+<div class="question" data-correct="d">
+<p>14. Arsenic content in water as per National water quality guidelines of Nepal 2005?</p>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> a. 0.1</label>
+<label><input type="radio" name="q14" value="b"> b. 0.01</label>
+<label><input type="radio" name="q14" value="c"> c. 0.5</label>
+<label><input type="radio" name="q14" value="d"> d. 0.05</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>15. Quasi experimental study use:</p>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> a. randomization</label>
+<label><input type="radio" name="q15" value="b"> b. do not use randomization</label>
+<label><input type="radio" name="q15" value="c"> c. both a and b</label>
+<label><input type="radio" name="q15" value="d"> d. none</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>16. Which group is particularly vulnerable to the toxic effects of lead?</p>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> a. Children</label>
+<label><input type="radio" name="q16" value="b"> b. Adults</label>
+<label><input type="radio" name="q16" value="c"> c. Old aged</label>
+<label><input type="radio" name="q16" value="d"> d. None</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>17. As per the researchers view what is the relation between Urbanization and fertility in developing countries?</p>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> a. Fertility declines with urbanization</label>
+<label><input type="radio" name="q17" value="b"> b. Fertility increases with urbanization</label>
+<label><input type="radio" name="q17" value="c"> c. Fertility remains stationary with urbanization</label>
+<label><input type="radio" name="q17" value="d"> d. None of the above</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>18. In a school, for testing the statistical significance of the mean difference in height of grade 7 students and grade 8 students, which of the following test should be used?</p>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> a. Unpaired t-test</label>
+<label><input type="radio" name="q18" value="b"> b. Chi-sqare test</label>
+<label><input type="radio" name="q18" value="c"> c. Paired t-test</label>
+<label><input type="radio" name="q18" value="d"> d. DANOVA test</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>19. In 100 patients who visited the OPD, 50 patients were of age group more than 40 and 50 patients were of age group who are less than 40. Which is the best test to compare this categorical data?</p>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> a. Chi-square test</label>
+<label><input type="radio" name="q19" value="b"> b. Fisher test</label>
+<label><input type="radio" name="q19" value="c"> c. t-test</label>
+<label><input type="radio" name="q19" value="d"> d. Mann Whitney test</label>
+</div>
+</div>
+
+<div class="question" data-correct="c">
+<p>20. P value of the test:</p>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> a. Measures strength of association</label>
+<label><input type="radio" name="q20" value="b"> b. Finds either two variable are associated or not</label>
+<label><input type="radio" name="q20" value="c"> c. Probability of test giving result correctly</label>
+<label><input type="radio" name="q20" value="d"> d. Gives information either accept or reject null hypothesis</label>
+</div>
+</div>
+
+<button type="submit">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let score = 0;
+
+    document.querySelectorAll(".question").forEach(q => {
+        const correct = q.dataset.correct;
+        const selected = q.querySelector("input:checked");
+
+        if(selected){
+            if(selected.value === correct){
+                q.classList.add("correct");
+                score++;
+            } else {
+                q.classList.add("wrong");
+                q.classList.add("correct");
+            }
+        }
+    });
+
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
+});
+</script>
+
+</body>
+</html>
