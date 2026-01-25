@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Test (1–20)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    margin:0;
+    padding:20px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+}
+h1{
+    text-align:center;
+}
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+.question p{
+    font-weight:bold;
+}
+.option{
+    display:block;
+    margin:6px 0;
+    padding:6px;
+    border-radius:4px;
+}
+.correct{
+    background:#d4edda;
+    border:1px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border:1px solid #dc3545;
+}
+button{
+    display:block;
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#result{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+}
+@media(max-width:600px){
+    body{padding:10px;}
+    .container{padding:15px;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>MCQ Test (1–20)</h1>
+
+<form id="quizForm">
+
+
+
+
+<button type="submit">Submit Test</button>
+</form>
+
+<div id="result"></div>
+</div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let score = 0;
+    const questions = document.querySelectorAll(".question");
+
+    questions.forEach(q=>{
+        const correct = q.dataset.correct;
+        const selected = q.querySelector("input[type=radio]:checked");
+        const options = q.querySelectorAll(".option");
+
+        options.forEach(o=>o.classList.remove("correct","wrong"));
+
+        if(selected){
+            if(selected.value === correct){
+                score++;
+                selected.parentElement.classList.add("correct");
+            }else{
+                selected.parentElement.classList.add("wrong");
+                q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+            }
+        }else{
+            q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+        }
+    });
+
+    document.getElementById("result").innerText =
+        `Your Score: ${score} / ${questions.length}`;
+});
+</script>
+
+</body>
+</html>
