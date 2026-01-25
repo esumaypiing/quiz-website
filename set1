@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SET 1</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    background: #f5f5f5;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .question {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+
+  label {
+    display: block;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #0056b3;
+  }
+
+  #result {
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Online Quiz</h1>
+
+<form id="quizForm">
+
+<!-- QUESTION 1 -->
+<div class="question">
+  <h3>1. What is the primary source of methane gas emissions?</h3>
+  <label class="option correct"><input type="radio" name="q1"> Agriculture sector</label>
+  <label class="option"><input type="radio" name="q1"> Industrial sector</label>
+  <label class="option"><input type="radio" name="q1"> Residential energy</label>
+  <label class="option"><input type="radio" name="q1"> Automobiles</label>
+</div>
+
+<!-- QUESTION 2 -->
+<div class="question">
+  <h3>2. Role play method is mainly used for:</h3>
+  <label class="option"><input type="radio" name="q2"> For educating large populations at once</label>
+  <label class="option correct"><input type="radio" name="q2"> For increasing active listening capacity</label>
+  <label class="option"><input type="radio" name="q2"> Developing interpersonal skills</label>
+  <label class="option"><input type="radio" name="q2"> Enhancing communication abilities</label>
+</div>
+
+<!-- QUESTION 3 -->
+<div class="question">
+  <h3>3. Choose the correct sequence:</h3>
+  <label class="option correct"><input type="radio" name="q3"> Vision, Mission, Goal, Objectives</label>
+  <label class="option"><input type="radio" name="q3"> Mission, Vision, Goal, Objectives</label>
+  <label class="option"><input type="radio" name="q3"> Goal, Vision, Mission, Objectives</label>
+  <label class="option"><input type="radio" name="q3"> Objectives, Vision, Mission, Goal</label>
+</div>
+
+<!-- QUESTION 4 -->
+<div class="question">
+  <h3>4. The full form of POMA is:</h3>
+  <label class="option"><input type="radio" name="q4"> Planning, Organizing, Monitoring, Appreciation</label>
+  <label class="option correct"><input type="radio" name="q4"> Planning, Organizing, Monitoring, Appraisal</label>
+  <label class="option"><input type="radio" name="q4"> Planning, Organizing, Managing, Assessment</label>
+  <label class="option"><input type="radio" name="q4"> Planning, Organizing, Maintaining, Analysis</label>
+</div>
+
+<!-- QUESTION 5 -->
+<div class="question">
+  <h3>5. What term is used to represent a specific achievement or outcome set to be reached within a defined time frame?</h3>
+  <label class="option correct"><input type="radio" name="q5"> Target</label>
+  <label class="option"><input type="radio" name="q5"> Goal</label>
+  <label class="option"><input type="radio" name="q5"> Aim</label>
+  <label class="option"><input type="radio" name="q5"> Objective</label>
+</div>
+
+<!-- QUESTION 6 -->
+<div class="question">
+  <h3>6. What is the World Health Organization's (WHO) slogan for the year 2022?</h3>
+  <label class="option"><input type="radio" name="q6"> Support nurses and midwives</label>
+  <label class="option correct"><input type="radio" name="q6"> Our planet, Our health</label>
+  <label class="option"><input type="radio" name="q6"> Health for All - Everyone, Everywhere</label>
+  <label class="option"><input type="radio" name="q6"> Universal health coverage: everyone, everywhere</label>
+</div>
+
+<!-- QUESTION 7 -->
+<div class="question">
+  <h3>7. What type of prevention is exemplified by providing vaccines to a community?</h3>
+  <label class="option"><input type="radio" name="q7"> Primordial prevention</label>
+  <label class="option correct"><input type="radio" name="q7"> Primary prevention</label>
+  <label class="option"><input type="radio" name="q7"> Secondary prevention</label>
+  <label class="option"><input type="radio" name="q7"> Tertiary prevention</label>
+</div>
+
+<!-- QUESTION 8 -->
+<div class="question">
+  <h3>8. In a community where there is more than 30% prevalence of iron deficiency in women of reproductive age, what intervention(s) should be implemented?</h3>
+  <label class="option"><input type="radio" name="q8"> Iron tablets, mass deworming, monitoring & health education</label>
+  <label class="option correct"><input type="radio" name="q8"> Deworming in children, iron tablet supplementation & health education</label>
+  <label class="option"><input type="radio" name="q8"> Iron-fortified food distribution, prenatal care, and vaccination campaigns</label>
+  <label class="option"><input type="radio" name="q8"> Increased access to clean water, sanitation facilities, and hygiene education</label>
+</div>
+
+<!-- QUESTION 9 -->
+<div class="question">
+  <h3>9. In a community with nutrition deficiency, particularly among the low-income population, what is an appropriate intervention?</h3>
+  <label class="option correct"><input type="radio" name="q9"> Provide cooking classes for preparing affordable, nutrient-rich foods</label>
+  <label class="option"><input type="radio" name="q9"> Ignore such population</label>
+  <label class="option"><input type="radio" name="q9"> Provide free processed foods</label>
+  <label class="option"><input type="radio" name="q9"> Implement government subsidies for fast food restaurants</label>
+</div>
+
+<!-- QUESTION 10 -->
+<div class="question">
+  <h3>10. How does "population momentum" influence "population projection"?</h3>
+  <label class="option"><input type="radio" name="q10"> Doesn't affect the projection's accuracy</label>
+  <label class="option correct"><input type="radio" name="q10"> Increases the complexity of projections</label>
+  <label class="option"><input type="radio" name="q10"> Decreases the reliability of projections</label>
+  <label class="option"><input type="radio" name="q10"> Population momentum is irrelevant</label>
+</div>
+
+<!-- QUESTION 11 -->
+<div class="question">
+  <h3>11. What is the causative agent of endemic typhus?</h3>
+  <label class="option correct"><input type="radio" name="q11"> R. typhi</label>
+  <label class="option"><input type="radio" name="q11"> B. pertussis</label>
+  <label class="option"><input type="radio" name="q11"> Yersinia pestis</label>
+  <label class="option"><input type="radio" name="q11"> Salmonella typhi</label>
+</div>
+
+<!-- QUESTION 12 -->
+<div class="question">
+  <h3>12. Which bacterium is associated with spore-forming symptoms in the body?</h3>
+  <label class="option"><input type="radio" name="q12"> Pseudomonas</label>
+  <label class="option correct"><input type="radio" name="q12"> Clostridium</label>
+  <label class="option"><input type="radio" name="q12"> Vibrio</label>
+  <label class="option"><input type="radio" name="q12"> Escherichia</label>
+</div>
+
+<!-- QUESTION 13 -->
+<div class="question">
+  <h3>13. What term refers to the organization or system that addresses disease control and prevention globally?</h3>
+  <label class="option correct"><input type="radio" name="q13"> Global health</label>
+  <label class="option"><input type="radio" name="q13"> Public health</label>
+  <label class="option"><input type="radio" name="q13"> International health</label>
+  <label class="option"><input type="radio" name="q13"> World health</label>
+</div>
+
+<!-- QUESTION 14 -->
+<div class="question">
+  <h3>14. Global health deals with:</h3>
+  <label class="option correct"><input type="radio" name="q14"> Disease all over the world</label>
+  <label class="option"><input type="radio" name="q14"> Healthcare within a specific country</label>
+  <label class="option"><input type="radio" name="q14"> Localized health issues</label>
+  <label class="option"><input type="radio" name="q14"> Health limited to a region</label>
+</div>
+
+<!-- QUESTION 15 -->
+<div class="question">
+  <h3>15. Interpretation and applications of findings are included in:</h3>
+  <label class="option"><input type="radio" name="q15"> Conclusion</label>
+  <label class="option correct"><input type="radio" name="q15"> Discussion</label>
+  <label class="option"><input type="radio" name="q15"> Objectives</label>
+  <label class="option"><input type="radio" name="q15"> Introduction</label>
+</div>
+
+<!-- QUESTION 16 -->
+<div class="question">
+  <h3>16. The abstract of a manuscript contains all of the following except:</h3>
+  <label class="option"><input type="radio" name="q16"> Introduction</label>
+  <label class="option"><input type="radio" name="q16"> Objectives</label>
+  <label class="option"><input type="radio" name="q16"> Methodologies</label>
+  <label class="option correct"><input type="radio" name="q16">
+
+
+  <button type="submit">Submit Quiz</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let score = 0;
+  const questions = document.querySelectorAll(".question");
+
+  questions.forEach(question => {
+    const correct = question.dataset.correct;
+    const selected = question.querySelector("input[type='radio']:checked");
+    const labels = question.querySelectorAll("label");
+
+    // Reset colors
+    labels.forEach(label => {
+      label.style.background = "";
+      label.style.color = "";
+    });
+
+    labels.forEach(label => {
+      const input = label.querySelector("input");
+
+      if (input.value === correct) {
+        label.style.background = "#d4edda"; // green
+        label.style.color = "#155724";
+      }
+
+      if (input.checked && input.value !== correct) {
+        label.style.background = "#f8d7da"; // red
+        label.style.color = "#721c24";
+      }
+    });
+
+    if (selected && selected.value === correct) {
+      score++;
+    }
+  });
+
+  document.getElementById("result").innerText =
+    `Your Score: ${score} / ${questions.length}`;
+});
+</script>
+
+</body>
+</html>
