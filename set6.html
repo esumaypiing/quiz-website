@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f3f6fb;
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#ffffff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+.question{
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+.question p{
+    font-weight:bold;
+}
+.options label{
+    display:block;
+    padding:8px 10px;
+    margin:6px 0;
+    border-radius:6px;
+    cursor:pointer;
+}
+.options input{
+    margin-right:8px;
+}
+.correct{
+    background:#d4edda;
+    border:1px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border:1px solid #dc3545;
+}
+button{
+    width:100%;
+    padding:14px;
+    font-size:16px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+}
+@media(max-width:600px){
+    body{padding:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h1>Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question" data-correct="c">
+<p>1. In public health research, the highest priority is given to:</p>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> a. Reduce error in statistics</label>
+<label><input type="radio" name="q1" value="b"> b. Generalizability</label>
+<label><input type="radio" name="q1" value="c"> c. Confidentiality and Anonymity</label>
+<label><input type="radio" name="q1" value="d"> d. None of the above</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>2. In research, minimizing harm and maximizing benefits is related to:</p>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> a. Beneficence</label>
+<label><input type="radio" name="q2" value="b"> b. Justice</label>
+<label><input type="radio" name="q2" value="c"> c. Respect for autonomy</label>
+<label><input type="radio" name="q2" value="d"> d. Non-maleficence</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>3. Different stages of cancer are measured in which scale?</p>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> a. Nominal</label>
+<label><input type="radio" name="q3" value="b"> b. Ordinal</label>
+<label><input type="radio" name="q3" value="c"> c. Ratio</label>
+<label><input type="radio" name="q3" value="d"> d. Interval</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>4. Quarantine and isolation were started by which disease?</p>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> a. Plague</label>
+<label><input type="radio" name="q4" value="b"> b. Smallpox</label>
+<label><input type="radio" name="q4" value="c"> c. Tuberculosis</label>
+<label><input type="radio" name="q4" value="d"> d. Chickenpox</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>5. "Health promotion & education" is concerned with:</p>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> a. Disease Control</label>
+<label><input type="radio" name="q5" value="b"> b. Disease Prevention</label>
+<label><input type="radio" name="q5" value="c"> C. Disease Diagnosis</label>
+<label><input type="radio" name="q5" value="d"> d. Disease Treatment</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>6. Which is the correct sequence?</p>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> a. Situation analysis, need assessment, prioritization</label>
+<label><input type="radio" name="q6" value="b"> b. Need assessment, situation analysis, prioritization</label>
+<label><input type="radio" name="q6" value="c"> c. Prioritization, need assessment, situation analysis</label>
+<label><input type="radio" name="q6" value="d"> d. Prioritization, situation analysis, need assessment</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>7. If the size of the population was decreased to 500 after a new treatment module had to be used in 5000 people, the potential result may be:</p>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> a. Type 1 error</label>
+<label><input type="radio" name="q7" value="b"> b. Type II error</label>
+<label><input type="radio" name="q7" value="c"> c. Sensitivity</label>
+<label><input type="radio" name="q7" value="d"> d. Specificity</label>
+</div>
+</div>
+
+<div class="question" data-correct="d">
+<p>8. Element which contribute to Herd immunity is:</p>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> a. Occurrence of clinical and subclinical infection in the herd</label>
+<label><input type="radio" name="q8" value="b"> b. Immunization of the herd</label>
+<label><input type="radio" name="q8" value="c"> c. Herd structure</label>
+<label><input type="radio" name="q8" value="d"> d. All of the above</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>9. Social marketing approach is used to:</p>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> a. Promote use of healthcare facilities</label>
+<label><input type="radio" name="q9" value="b"> b. Promote use of soaps, condoms, etc.</label>
+<label><input type="radio" name="q9" value="c"> c. Increase healthcare costs</label>
+<label><input type="radio" name="q9" value="d"> d. Encourage unhealthy behaviours</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>10. Research is not selected based on:</p>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> a. Not-novel</label>
+<label><input type="radio" name="q10" value="b"> b. Feasibility</label>
+<label><input type="radio" name="q10" value="c"> c. Funding</label>
+<label><input type="radio" name="q10" value="d"> d. Researcher's experience</label>
+</div>
+</div>
+
+<div class="question" data-correct="c">
+<p>11. Community intervention programs are increasingly being implemented to improve public health. One successful example of such a program in Nepal is:</p>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> a. Alcohol rehabilitation program</label>
+<label><input type="radio" name="q11" value="b"> b. Crisis counselling service</label>
+<label><input type="radio" name="q11" value="c"> c. National Vitamin A supplementation program</label>
+<label><input type="radio" name="q11" value="d"> d. Maternal and child health program</label>
+</div>
+</div>
+
+<div class="question" data-correct="b">
+<p>12. Continuous value is best described in:</p>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> a. Bar diagram</label>
+<label><input type="radio" name="q12" value="b"> b. Histogram</label>
+<label><input type="radio" name="q12" value="c"> c. Pie chart</label>
+<label><input type="radio" name="q12" value="d"> d. All</label>
+</div>
+</div>
+
+<div class="question" data-correct="c">
+<p>13. Variation of sample mean from population mean is:</p>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> a. Coefficient of variance</label>
+<label><input type="radio" name="q13" value="b"> b. Standard error of proportion</label>
+<label><input type="radio" name="q13" value="c"> c. Standard error of mean</label>
+<label><input type="radio" name="q13" value="d"> d. Standard error of difference between two mean</label>
+</div>
+</div>
+
+<div class="question" data-correct="d">
+<p>14. In an outbreak of COVID in a village of 2000 population 20 cases have occurred and 5 have died Case fatality rate is;</p>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> a. 1%</label>
+<label><input type="radio" name="q14" value="b"> b. 0.25%</label>
+<label><input type="radio" name="q14" value="c"> c. 5%</label>
+<label><input type="radio" name="q14" value="d"> d. 25%</label>
+</div>
+</div>
+
+<div class="question" data-correct="c">
+<p>15. Confidence limit includes</p>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> a. Range and standard deviation</label>
+<label><input type="radio" name="q15" value="b"> b. Median and Standard error</label>
+<label><input type="radio" name="q15" value="c"> c. Mean and standard error</label>
+<label><input type="radio" name="q15" value="d"> d. Mode and standard deviation</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>16. Appropriate statistical method to compare two categorical data:</p>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> a. Chi-square test</label>
+<label><input type="radio" name="q16" value="b"> b. Student's t test</label>
+<label><input type="radio" name="q16" value="c"> C. ANOVA test</label>
+<label><input type="radio" name="q16" value="d"> d. McNemar test</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>17. Calculate specificity:</p>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> a. True Negative/(False positive + True Negative)</label>
+<label><input type="radio" name="q17" value="b"> b. True Positive/(False positive + True Negative)</label>
+<label><input type="radio" name="q17" value="c"> c. True Negative/(False Negative + True Negative)</label>
+<label><input type="radio" name="q17" value="d"> d. True Negative/(False positive + True Positive)</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>18. For testing the statistical significance of the difference in heights of different age of school children</p>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> a. ANOVA</label>
+<label><input type="radio" name="q18" value="b"> b. Chi-square test</label>
+<label><input type="radio" name="q18" value="c"> c. Z test</label>
+<label><input type="radio" name="q18" value="d"> d. T test</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>19. The process of paying fixed amount by the insured at the time of receiving healthcare services is:</p>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> a. Co-payment</label>
+<label><input type="radio" name="q19" value="b"> b. Capitalization</label>
+<label><input type="radio" name="q19" value="c"> c. Premium payment</label>
+<label><input type="radio" name="q19" value="d"> d. Deductible</label>
+</div>
+</div>
+
+<div class="question" data-correct="a">
+<p>20. In a study, variance in cholesterol was seen before and after giving a drug. The test which would give its significance is:</p>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> a. Unpaired test</label>
+<label><input type="radio" name="q20" value="b"> b. Fisher test</label>
+<label><input type="radio" name="q20" value="c"> c. Paired test</label>
+<label><input type="radio" name="q20" value="d"> d. Chi-square test</label>
+</div>
+</div>
+
+<button type="submit">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let score = 0;
+
+    document.querySelectorAll(".question").forEach(q=>{
+        const correct = q.dataset.correct;
+        const selected = q.querySelector("input[type=radio]:checked");
+
+        q.querySelectorAll("label").forEach(l=>{
+            l.classList.remove("correct","wrong");
+        });
+
+        if(selected){
+            if(selected.value === correct){
+                score++;
+                selected.parentElement.classList.add("correct");
+            }else{
+                selected.parentElement.classList.add("wrong");
+                q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+            }
+        }else{
+            q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+        }
+    });
+
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
+});
+</script>
+
+</body>
+</html>
