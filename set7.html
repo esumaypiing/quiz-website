@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6fb;
+    margin:0;
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:8px;
+    background:#f9f9f9;
+}
+.question p{
+    font-weight:bold;
+}
+.options label{
+    display:block;
+    padding:6px;
+    cursor:pointer;
+}
+.correct{
+    background:#d4edda;
+    border:1px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border:1px solid #dc3545;
+}
+button{
+    display:block;
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    margin-top:20px;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+}
+@media(max-width:600px){
+    body{padding:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h1>Quiz</h1>
+
+<form id="quizForm">
+
+<!-- Q1 -->
+<div class="question" data-correct="c">
+<p>1. What holds the primary structure of a protein together?</p>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> a. Hydrogen bonds</label>
+<label><input type="radio" name="q1" value="c"> c. Peptide bonds</label>
+<label><input type="radio" name="q1" value="b"> b.Covalent bonds</label>
+<label><input type="radio" name="q1" value="d"> d. Ionic bonds</label>
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="question" data-correct="c">
+<p>2. Which of the following groupings of muscle type and their characteristics is INCORRECT?</p>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> a. Skeletal, striated, voluntary</label>
+<label><input type="radio" name="q2" value="b"> b. Smooth, visceral, involuntary</label>
+<label><input type="radio" name="q2" value="c"> c. Cardiac, striated, voluntary</label>
+<label><input type="radio" name="q2" value="d"> d. Skeletal, striated, syncytium</label>
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="question" data-correct="b">
+<p>3. What does Hospice related to?</p>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> a. Health service at a distant location</label>
+<label><input type="radio" name="q3" value="b"> b. Palliative care</label>
+<label><input type="radio" name="q3" value="c"> c.Immunization</label>
+<label><input type="radio" name="q3" value="d"> d. Preventive care</label>
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="question" data-correct="b">
+<p>4. For which disease is the FAST technique used?</p>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> a. Diabetes</label>
+<label><input type="radio" name="q4" value="b"> b. Stroke</label>
+<label><input type="radio" name="q4" value="c"> c. Tuberculosis</label>
+<label><input type="radio" name="q4" value="d"> d. Cancer</label>
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="question" data-correct="b">
+<p>5. When did the Skilled Births Attendants (SBA) policy enacted in Nepal?</p>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> a. 2009</label>
+<label><input type="radio" name="q5" value="b"> b. 2006</label>
+<label><input type="radio" name="q5" value="c"> c. 2000</label>
+<label><input type="radio" name="q5" value="d"> d. 2001</label>
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="question" data-correct="a">
+<p>6. In 2025, what is the target for TB incidence?</p>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> a. Less than 55 per 105 population</label>
+<label><input type="radio" name="q6" value="b"> b. Less than 100 per 105 population</label>
+<label><input type="radio" name="q6" value="c"> c. Less than 150 per 105 population</label>
+<label><input type="radio" name="q6" value="d"> d. Less than 200 per 105 population</label>
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="question" data-correct="a">
+<p>7. Total Fertility Rate (TFR) according to NDHS 2022 is:</p>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> a. 2.1</label>
+<label><input type="radio" name="q7" value="b"> b. 2.8</label>
+<label><input type="radio" name="q7" value="c"> C. 3.5</label>
+<label><input type="radio" name="q7" value="d"> d. 4.2</label>
+</div>
+</div>
+
+<!-- Q8 -->
+<div class="question" data-correct="b">
+<p>8. Oral polio vaccine is also known as</p>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> a. Salk</label>
+<label><input type="radio" name="q8" value="b"> b. Sabin</label>
+<label><input type="radio" name="q8" value="c"> c. Inactivated polio vaccine</label>
+<label><input type="radio" name="q8" value="d"> d. All of the above</label>
+</div>
+</div>
+
+<!-- Q9 -->
+<div class="question" data-correct="c">
+<p>9. Which of the following is highly associated with coronary heart disease?</p>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> a. HDL</label>
+<label><input type="radio" name="q9" value="b"> b. VLDL</label>
+<label><input type="radio" name="q9" value="c"> C. LDL</label>
+<label><input type="radio" name="q9" value="d"> d. Chylomicrons</label>
+</div>
+</div>
+
+<!-- Q10 -->
+<div class="question" data-correct="b">
+<p>10. The upper limit for tolerance of noise without damage to hearing ability is:</p>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> a. 60 db</label>
+<label><input type="radio" name="q10" value="b"> b.85 db</label>
+<label><input type="radio" name="q10" value="c"> c. 90 db</label>
+<label><input type="radio" name="q10" value="d"> d.100 db</label>
+</div>
+</div>
+
+<!-- Q11 -->
+<div class="question" data-correct="a">
+<p>11. Shortest incubation period is of:</p>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> a. Diphtheria</label>
+<label><input type="radio" name="q11" value="b"> b. Rubella</label>
+<label><input type="radio" name="q11" value="c"> C. Smallpox</label>
+<label><input type="radio" name="q11" value="d"> d. Chickenpox</label>
+</div>
+</div>
+
+<!-- Q12 -->
+<div class="question" data-correct="a">
+<p>12. Pyrethrum is a:</p>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> a. Contact poison</label>
+<label><input type="radio" name="q12" value="b"> b. Stomach poison.</label>
+<label><input type="radio" name="q12" value="c"> c. Both of above</label>
+<label><input type="radio" name="q12" value="d"> d. Space poison</label>
+</div>
+</div>
+
+<!-- Q13 -->
+<div class="question" data-correct="c">
+<p>13. The best parameter for assessment of chronic malnutrition is:</p>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> a. Weight for height</label>
+<label><input type="radio" name="q13" value="b"> b. Weight for age</label>
+<label><input type="radio" name="q13" value="c"> c. Height for age</label>
+<label><input type="radio" name="q13" value="d"> d. Any of the above</label>
+</div>
+</div>
+
+<!-- Q14 -->
+<div class="question" data-correct="c">
+<p>14. A good is a luxury good if income elasticity is</p>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> a. 0</label>
+<label><input type="radio" name="q14" value="b"> b. Less than 1</label>
+<label><input type="radio" name="q14" value="c"> c. Greater than 1</label>
+<label><input type="radio" name="q14" value="d"> d. 1</label>
+</div>
+</div>
+
+<!-- Q15 -->
+<div class="question" data-correct="b">
+<p>15. The latrine of choice for camps of few months duration is</p>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> a. Bore hole</label>
+<label><input type="radio" name="q15" value="b"> b. Deep trench</label>
+<label><input type="radio" name="q15" value="c"> c. Dug well</label>
+<label><input type="radio" name="q15" value="d"> d. Shallow trench</label>
+</div>
+</div>
+
+<!-- Q16 -->
+<div class="question" data-correct="c">
+<p>16. What is the defined age for Infants?</p>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> a. Less than 28 days</label>
+<label><input type="radio" name="q16" value="b"> b.More than 1 year</label>
+<label><input type="radio" name="q16" value="c"> c. 0-1 year</label>
+<label><input type="radio" name="q16" value="d"> d. Under 5 years</label>
+</div>
+</div>
+
+<!-- Q17 -->
+<div class="question" data-correct="b">
+<p>17. What is the full form of IPCC?</p>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> a. International Public Climate Committee</label>
+<label><input type="radio" name="q17" value="b"> b. Intergovernmental Panel on Climate Change</label>
+<label><input type="radio" name="q17" value="c"> c. International Policy for Climate Control</label>
+<label><input type="radio" name="q17" value="d"> d. Intercontinental Protocol on Climate Challenges</label>
+</div>
+</div>
+
+<!-- Q18 -->
+<div class="question" data-correct="c">
+<p>18. Health education is:</p>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> a. To give immunization to children</label>
+<label><input type="radio" name="q18" value="b"> b. Secondary level of preventing health problem</label>
+<label><input type="radio" name="q18" value="c"> c. Change in knowledge, Attitude and practice of people</label>
+<label><input type="radio" name="q18" value="d"> d. Awareness about health problem</label>
+</div>
+</div>
+
+<!-- Q19 -->
+<div class="question" data-correct="c">
+<p>19. Latest National HIV Strategic Plan has been developed for a period of which year?</p>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> a. 2015-20 AD</label>
+<label><input type="radio" name="q19" value="b"> b.2016-21 AD</label>
+<label><input type="radio" name="q19" value="c"> C. 2021-26 AD</label>
+<label><input type="radio" name="q19" value="d"> d.2017-21 AD</label>
+</div>
+</div>
+
+<!-- Q20 -->
+<div class="question" data-correct="c">
+<p>20. The most common cause of the heart disease throughout the world:</p>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> a. Congenital heart anomaly</label>
+<label><input type="radio" name="q20" value="b"> b. Rheumatic fever</label>
+<label><input type="radio" name="q20" value="c"> C. Hypertension</label>
+<label><input type="radio" name="q20" value="d"> d. Diabetes</label>
+</div>
+</div>
+
+<button type="submit">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+
+</div>
+
+<script>
+document.getElementById("quizForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let score = 0;
+    const questions = document.querySelectorAll(".question");
+
+    questions.forEach(q => {
+        const correct = q.dataset.correct;
+        const selected = q.querySelector("input:checked");
+
+        if(selected){
+            if(selected.value === correct){
+                q.classList.add("correct");
+                score++;
+            }else{
+                q.classList.add("wrong");
+                q.classList.add("correct");
+            }
+        }
+    });
+
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
+});
+</script>
+
+</body>
+</html>
