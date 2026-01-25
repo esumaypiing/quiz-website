@@ -2,299 +2,223 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MCQ Test (1–20)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCQ Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body{
+body {
     font-family: Arial, sans-serif;
-    background:#f4f6f8;
-    margin:0;
-    padding:20px;
+    padding: 15px;
 }
-.container{
-    max-width:900px;
-    margin:auto;
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
+.question {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
-h1{
-    text-align:center;
+.correct {
+    background-color: #d4edda;
 }
-.question{
-    margin-bottom:20px;
-    padding:15px;
-    border:1px solid #ddd;
-    border-radius:6px;
+.wrong {
+    background-color: #f8d7da;
 }
-.question p{
-    font-weight:bold;
-}
-.option{
-    display:block;
-    margin:6px 0;
-    padding:6px;
-    border-radius:4px;
-}
-.correct{
-    background:#d4edda;
-    border:1px solid #28a745;
-}
-.wrong{
-    background:#f8d7da;
-    border:1px solid #dc3545;
-}
-button{
-    display:block;
-    width:100%;
-    padding:12px;
-    font-size:16px;
-    background:#007bff;
-    color:white;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-}
-button:hover{
-    background:#0056b3;
-}
-#result{
-    margin-top:20px;
-    font-size:20px;
-    font-weight:bold;
-    text-align:center;
-}
-@media(max-width:600px){
-    body{padding:10px;}
-    .container{padding:15px;}
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    width: 100%;
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-<h1>MCQ Test (1–20)</h1>
+
+<h2>MCQ Quiz (20 Questions)</h2>
 
 <form id="quizForm">
 
-
-<!-- Q1 -->
-<div class="question" data-correct="c">
+<div class="question">
 <p>1. The physical, biological, chemical factors are generally defined under:</p>
-<label class="option"><input type="radio" name="q1" value="a"> a. Agent</label>
-<label class="option"><input type="radio" name="q1" value="b"> b. Host</label>
-<label class="option"><input type="radio" name="q1" value="c"> c. Environment</label>
-<label class="option"><input type="radio" name="q1" value="d"> d. All of the above</label>
+<label><input type="radio" name="q1"> a. Agent</label><br>
+<label><input type="radio" name="q1"> b. Host</label><br>
+<label data-correct="true"><input type="radio" name="q1"> c. Environment</label><br>
+<label><input type="radio" name="q1"> d. All of the above</label>
 </div>
 
-<!-- Q2 -->
-<div class="question" data-correct="a">
-<p>2. Vitamin A supplementation required for reproductive-age women when night blindness is ≥30%:</p>
-<label class="option"><input type="radio" name="q2" value="a"> a. 25,000 IU</label>
-<label class="option"><input type="radio" name="q2" value="b"> b. 5,000 IU</label>
-<label class="option"><input type="radio" name="q2" value="c"> c. 100,000 IU</label>
-<label class="option"><input type="radio" name="q2" value="d"> d. 50,000 IU</label>
+<div class="question">
+<p>2. Vitamin A supplementation required for reproductive- age women when there is a 30% prevalence of night blindness among children is:</p>
+<label data-correct="true"><input type="radio" name="q2"> a. 25,000 IU</label><br>
+<label><input type="radio" name="q2"> b.5,000 IU</label><br>
+<label><input type="radio" name="q2"> c. 100,000 IU</label><br>
+<label><input type="radio" name="q2"> d.50,000 IU</label>
 </div>
 
-<!-- Q3 -->
-<div class="question" data-correct="b">
+<div class="question">
 <p>3. Likert Scale is a type of:</p>
-<label class="option"><input type="radio" name="q3" value="a"> a. Nominal scale</label>
-<label class="option"><input type="radio" name="q3" value="b"> b. Ordinal scale</label>
-<label class="option"><input type="radio" name="q3" value="c"> c. Interval scale</label>
-<label class="option"><input type="radio" name="q3" value="d"> d. Ratio scale</label>
+<label><input type="radio" name="q3"> a. Nominal Scale</label><br>
+<label data-correct="true"><input type="radio" name="q3"> b. Ordinal Scale</label><br>
+<label><input type="radio" name="q3"> c. Interval Scale</label><br>
+<label><input type="radio" name="q3"> d. Ratio scale</label>
 </div>
 
-<!-- Q4 -->
-<div class="question" data-correct="a">
-<p>4. Vitamin A deficiency is a public health problem when prevalence is:</p>
-<label class="option"><input type="radio" name="q4" value="a"> a. 1.0%</label>
-<label class="option"><input type="radio" name="q4" value="b"> b. 0.01%</label>
-<label class="option"><input type="radio" name="q4" value="c"> c. 0.1%</label>
-<label class="option"><input type="radio" name="q4" value="d"> d. 5.0%</label>
+<div class="question">
+<p>4. Vitamin A deficiency or the presence of night blindness is seen as a public health problem when the prevalence is:</p>
+<label data-correct="true"><input type="radio" name="q4"> a. 1.0%</label><br>
+<label><input type="radio" name="q4"> b. 0.01%</label><br>
+<label><input type="radio" name="q4"> c. 0.1%</label><br>
+<label><input type="radio" name="q4"> d. 5.0%</label>
 </div>
 
-<!-- Q5 -->
-<div class="question" data-correct="d">
-<p>5. Sampling from a heterogeneous population after dividing into homogeneous groups:</p>
-<label class="option"><input type="radio" name="q5" value="a"> a. Quota sampling</label>
-<label class="option"><input type="radio" name="q5" value="b"> b. Simple random sampling</label>
-<label class="option"><input type="radio" name="q5" value="c"> c. PPS sampling</label>
-<label class="option"><input type="radio" name="q5" value="d"> d. Stratified sampling</label>
+<div class="question">
+<p>5. Sampling from heterogeneous population after dividing them into homogenous group is:</p>
+<label><input type="radio" name="q5"> a. Quota Sampling</label><br>
+<label><input type="radio" name="q5"> b. Simple Random Sampling</label><br>
+<label><input type="radio" name="q5"> c. Probability proportionate sampling</label><br>
+<label data-correct="true"><input type="radio" name="q5"> d. Stratified sampling</label>
 </div>
 
-<!-- Q6 -->
-<div class="question" data-correct="a">
-<p>6. Sampling used in coverage study of national immunization program:</p>
-<label class="option"><input type="radio" name="q6" value="a"> a. Cluster sampling</label>
-<label class="option"><input type="radio" name="q6" value="b"> b. Simple random sampling</label>
-<label class="option"><input type="radio" name="q6" value="c"> c. PPS sampling</label>
-<label class="option"><input type="radio" name="q6" value="d"> d. Stratified sampling</label>
+<div class="question">
+<p>6. Type of sampling used in study of coverage of national immunization program:</p>
+<label data-correct="true"><input type="radio" name="q6"> a. Cluster Sampling</label><br>
+<label><input type="radio" name="q6"> b. Simple Random Sampling</label><br>
+<label><input type="radio" name="q6"> c. Probability proportionate sampling</label><br>
+<label><input type="radio" name="q6"> d. Stratified sampling</label>
 </div>
 
-<!-- Q7 -->
-<div class="question" data-correct="a">
-<p>7. When confidence limit increases, sample size:</p>
-<label class="option"><input type="radio" name="q7" value="a"> a. Increases</label>
-<label class="option"><input type="radio" name="q7" value="b"> b. Decreases</label>
-<label class="option"><input type="radio" name="q7" value="c"> c. Remains same</label>
-<label class="option"><input type="radio" name="q7" value="d"> d. Becomes irrelevant</label>
+<div class="question">
+<p>7. When confidence limit is increased, then the sample size:</p>
+<label data-correct="true"><input type="radio" name="q7"> a. Increases</label><br>
+<label><input type="radio" name="q7"> b. Decreases</label><br>
+<label><input type="radio" name="q7"> c. Remains unchanged</label><br>
+<label><input type="radio" name="q7"> d. Becomes irrelevant</label>
 </div>
 
-<!-- Q8 -->
-<div class="question" data-correct="b">
-<p>8. Variance of Poisson distribution is:</p>
-<label class="option"><input type="radio" name="q8" value="a"> a. npq</label>
-<label class="option"><input type="radio" name="q8" value="b"> b. λ</label>
-<label class="option"><input type="radio" name="q8" value="c"> c. λ/2</label>
-<label class="option"><input type="radio" name="q8" value="d"> d. λ²</label>
+<div class="question">
+<p>8. variance of the passion distribution is given by</p>
+<label><input type="radio" name="q8"> a. npq</label><br>
+<label data-correct="true"><input type="radio" name="q8"> b.  λ</label><br>
+<label><input type="radio" name="q8"> c.  λ/2</label><br>
+<label><input type="radio" name="q8"> d.  λ2</label>
 </div>
 
-<!-- Q9 -->
-<div class="question" data-correct="c">
-<p>9. Probability of getting one specific outcome when 3 dice are thrown:</p>
-<label class="option"><input type="radio" name="q9" value="a"> a. 1/6</label>
-<label class="option"><input type="radio" name="q9" value="b"> b. 1/36</label>
-<label class="option"><input type="radio" name="q9" value="c"> c. 1/216</label>
-<label class="option"><input type="radio" name="q9" value="d"> d. 1/3</label>
+<div class="question">
+<p>9. When 3 dice are thrown simultaneously, the probability of getting 1 is:</p>
+<label><input type="radio" name="q9"> a. 1/6</label><br>
+<label><input type="radio" name="q9"> b. 1/36</label><br>
+<label data-correct="true"><input type="radio" name="q9"> c. 1/216</label><br>
+<label><input type="radio" name="q9"> d. 1/3</label>
 </div>
 
-<!-- Q10 -->
-<div class="question" data-correct="a">
-<p>10. Test used when standard deviation is known:</p>
-<label class="option"><input type="radio" name="q10" value="a"> a. Z-test</label>
-<label class="option"><input type="radio" name="q10" value="b"> b. Sign test</label>
-<label class="option"><input type="radio" name="q10" value="c"> c. McNemar test</label>
-<label class="option"><input type="radio" name="q10" value="d"> d. Chi-square test</label>
+<div class="question">
+<p>10. When the standard deviation is known, the appropriate test to use is:</p>
+<label data-correct="true"><input type="radio" name="q10"> a. Z-test</label><br>
+<label><input type="radio" name="q10"> b. Sign test</label><br>
+<label><input type="radio" name="q10"> C. McNemar test</label><br>
+<label><input type="radio" name="q10"> d. Chi-square test</label>
 </div>
 
-<!-- Q11 -->
-<div class="question" data-correct="a">
-<p>11. Probability sampling example:</p>
-<label class="option"><input type="radio" name="q11" value="a"> a. Stratified sampling</label>
-<label class="option"><input type="radio" name="q11" value="b"> b. Convenience sampling</label>
-<label class="option"><input type="radio" name="q11" value="c"> c. Snowball sampling</label>
-<label class="option"><input type="radio" name="q11" value="d"> d. None</label>
+<div class="question">
+<p>11. Probability sampling is:</p>
+<label data-correct="true"><input type="radio" name="q11"> a. Stratified sampling</label><br>
+<label><input type="radio" name="q11"> b. Convenience sampling</label><br>
+<label><input type="radio" name="q11"> C. Snowball sampling</label><br>
+<label><input type="radio" name="q11"> d. None of the above</label>
 </div>
 
-<!-- Q12 -->
-<div class="question" data-correct="b">
-<p>12. FALSE statement about breastfeeding:</p>
-<label class="option"><input type="radio" name="q12" value="a"> a. Mother’s milk has more calcium than goat milk</label>
-<label class="option"><input type="radio" name="q12" value="b"> b. Milk comes out highest in the 12th month</label>
-<label class="option"><input type="radio" name="q12" value="c"> c. Composition remains constant</label>
-<label class="option"><input type="radio" name="q12" value="d"> d. Colostrum is first milk</label>
+<div class="question">
+<p>12. Which statement about breastfeeding is FALSE?</p>
+<label><input type="radio" name="q12"> a. Mother's milk has more calcium than goat milk.</label><br>
+<label data-correct="true"><input type="radio" name="q12"> b. Milk comes out highest in the 12th month.</label><br>
+<label><input type="radio" name="q12"> c. Breast milk composition remains constant throughout lactation</label><br>
+<label><input type="radio" name="q12"> d. Colostrum is the first milk produced after birth</label>
 </div>
 
-<!-- Q13 -->
-<div class="question" data-correct="a">
-<p>13. Expected diseased individuals when probability = 0.80 and sample = 40:</p>
-<label class="option"><input type="radio" name="q13" value="a"> a. 32</label>
-<label class="option"><input type="radio" name="q13" value="b"> b. 28</label>
-<label class="option"><input type="radio" name="q13" value="c"> c. 35</label>
-<label class="option"><input type="radio" name="q13" value="d"> d. 40</label>
+<div class="question">
+<p>13. What number of individuals expected to have the disease in a population with a disease probability of 0.80 and a total sample size of 40?</p>
+<label data-correct="true"><input type="radio" name="q13"> a. 32</label><br>
+<label><input type="radio" name="q13"> b. 28</label><br>
+<label><input type="radio" name="q13"> c. 35</label><br>
+<label><input type="radio" name="q13"> d. 40</label>
 </div>
 
-<!-- Q14 -->
-<div class="question" data-correct="a">
-<p>14. Bias eliminated by double blinding:</p>
-<label class="option"><input type="radio" name="q14" value="a"> a. Observer bias</label>
-<label class="option"><input type="radio" name="q14" value="b"> b. Selection bias</label>
-<label class="option"><input type="radio" name="q14" value="c"> c. Recall bias</label>
-<label class="option"><input type="radio" name="q14" value="d"> d. Confirmation bias</label>
+<div class="question">
+<p>14. Which bias is eliminated when double blinding takes place?</p>
+<label data-correct="true"><input type="radio" name="q14"> a. Observer bias</label><br>
+<label><input type="radio" name="q14"> b. Selection bias</label><br>
+<label><input type="radio" name="q14"> c. Recall bias</label><br>
+<label><input type="radio" name="q14"> d. Confirmation bias</label>
 </div>
 
-<!-- Q15 -->
-<div class="question" data-correct="a">
-<p>15. Study used to measure disease prevalence:</p>
-<label class="option"><input type="radio" name="q15" value="a"> a. Cross-sectional study</label>
-<label class="option"><input type="radio" name="q15" value="b"> b. Ecological study</label>
-<label class="option"><input type="radio" name="q15" value="c"> c. Cohort study</label>
-<label class="option"><input type="radio" name="q15" value="d"> d. Case-control study</label>
+<div class="question">
+<p>15. Which study is used to measure the disease prevalence?</p>
+<label data-correct="true"><input type="radio" name="q15"> a Cross-sectional study</label><br>
+<label><input type="radio" name="q15"> b. Ecological studies</label><br>
+<label><input type="radio" name="q15"> c. Cohort study</label><br>
+<label><input type="radio" name="q15"> d. Case-control study</label>
 </div>
 
-<!-- Q16 -->
-<div class="question" data-correct="c">
-<p>16. Odds ratio of 1 indicates:</p>
-<label class="option"><input type="radio" name="q16" value="a"> a. Positive association</label>
-<label class="option"><input type="radio" name="q16" value="b"> b. Negative association</label>
-<label class="option"><input type="radio" name="q16" value="c"> c. No association</label>
-<label class="option"><input type="radio" name="q16" value="d"> d. Strong association</label>
+<div class="question">
+<p>16. Odds ratio of 1 means:</p>
+<label><input type="radio" name="q16"> a. Positive association</label><br>
+<label><input type="radio" name="q16"> b. Negative association</label><br>
+<label data-correct="true"><input type="radio" name="q16"> c. No association</label><br>
+<label><input type="radio" name="q16"> d. Strong association</label>
 </div>
 
-<!-- Q17 -->
-<div class="question" data-correct="a">
-<p>17. Kappa statistic = 0 means:</p>
-<label class="option"><input type="radio" name="q17" value="a"> a. Agreement due to chance</label>
-<label class="option"><input type="radio" name="q17" value="b"> b. Perfect agreement</label>
-<label class="option"><input type="radio" name="q17" value="c"> c. No correlation</label>
-<label class="option"><input type="radio" name="q17" value="d"> d. Undefined relationship</label>
+<div class="question">
+<p>17. In statistics, Kappa statistics = 0 means:</p>
+<label data-correct="true"><input type="radio" name="q17"> a. Agreement due to chance</label><br>
+<label><input type="radio" name="q17"> b. Perfect agreement between observers</label><br>
+<label><input type="radio" name="q17"> c. No correlation between variables</label><br>
+<label><input type="radio" name="q17"> d. Undefined relationship between variables</label>
 </div>
 
-<!-- Q18 -->
-<div class="question" data-correct="a">
-<p>18. Outflow of healthy population causes disease prevalence to:</p>
-<label class="option"><input type="radio" name="q18" value="a"> a. Increase</label>
-<label class="option"><input type="radio" name="q18" value="b"> b. Decrease</label>
-<label class="option"><input type="radio" name="q18" value="c"> c. No change</label>
-<label class="option"><input type="radio" name="q18" value="d"> d. Irrelevant</label>
+<div class="question">
+<p>18. If there is an outflow of the healthy population, what will happen to the prevalence of disease?</p>
+<label data-correct="true"><input type="radio" name="q18"> a. Increases</label><br>
+<label><input type="radio" name="q18"> b. Decreases</label><br>
+<label><input type="radio" name="q18"> c. No change</label><br>
+<label><input type="radio" name="q18"> d. irrelevant</label>
 </div>
 
-<!-- Q19 -->
-<div class="question" data-correct="a">
-<p>19. Increased incidence leads to prevalence:</p>
-<label class="option"><input type="radio" name="q19" value="a"> a. Increase</label>
-<label class="option"><input type="radio" name="q19" value="b"> b. Decrease</label>
-<label class="option"><input type="radio" name="q19" value="c"> c. No change</label>
-<label class="option"><input type="radio" name="q19" value="d"> d. Irrelevant</label>
+<div class="question">
+<p>19. If the incidence of disease is increased in a population, then what will happen to the prevalence?</p>
+<label data-correct="true"><input type="radio" name="q19"> a. Increases</label><br>
+<label><input type="radio" name="q19"> b. Decreases</label><br>
+<label><input type="radio" name="q19"> c. No change</label><br>
+<label><input type="radio" name="q19"> d. Irrelevant</label>
 </div>
 
-<!-- Q20 -->
-<div class="question" data-correct="a">
-<p>20. Case fatality rate when 50 cases & 2 deaths out of 200 students:</p>
-<label class="option"><input type="radio" name="q20" value="a"> a. 4%</label>
-<label class="option"><input type="radio" name="q20" value="b"> b. 8%</label>
-<label class="option"><input type="radio" name="q20" value="c"> c. 5%</label>
-<label class="option"><input type="radio" name="q20" value="d"> d. 9%</label>
+<div class="question">
+<p>20. If school students goes to picnic with 200 students and after certain day's 50 students develop a disease and 2 dies, what is the case fatality rate?</p>
+<label data-correct="true"><input type="radio" name="q20"> a. 4%</label><br>
+<label><input type="radio" name="q20"> b. 8%</label><br>
+<label><input type="radio" name="q20"> c. 5%</label><br>
+<label><input type="radio" name="q20"> d. 9%</label>
 </div>
 
-
-<button type="submit">Submit Test</button>
+<button type="button" onclick="submitQuiz()">Submit</button>
 </form>
 
-<div id="result"></div>
-</div>
+<h3 id="score"></h3>
 
 <script>
-document.getElementById("quizForm").addEventListener("submit", function(e){
-    e.preventDefault();
+function submitQuiz() {
     let score = 0;
-    const questions = document.querySelectorAll(".question");
+    document.querySelectorAll('.question').forEach(q => {
+        const correct = q.querySelector('[data-correct="true"]');
+        const correctInput = correct.querySelector('input');
+        const selected = q.querySelector('input:checked');
 
-    questions.forEach(q=>{
-        const correct = q.dataset.correct;
-        const selected = q.querySelector("input[type=radio]:checked");
-        const options = q.querySelectorAll(".option");
-
-        options.forEach(o=>o.classList.remove("correct","wrong"));
-
-        if(selected){
-            if(selected.value === correct){
-                score++;
-                selected.parentElement.classList.add("correct");
-            }else{
-                selected.parentElement.classList.add("wrong");
-                q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
-            }
-        }else{
-            q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+        if (selected === correctInput) {
+            score++;
+            correct.classList.add('correct');
+        } else {
+            if (selected) selected.parentElement.classList.add('wrong');
+            correct.classList.add('correct');
         }
     });
-
-    document.getElementById("result").innerText =
-        `Your Score: ${score} / ${questions.length}`;
-});
+    document.getElementById('score').innerText = "Your Score: " + score + " / 20";
+}
 </script>
 
 </body>
