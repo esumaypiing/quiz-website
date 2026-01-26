@@ -8,37 +8,37 @@
 <style>
 body{
     font-family: Arial, sans-serif;
-    background:#f4f6fb;
+    background:#eef1f7;
     margin:0;
     padding:20px;
 }
-.quiz-container{
+.quiz-box{
     max-width:900px;
     margin:auto;
-    background:#fff;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    background:#ffffff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 h1{
     text-align:center;
-    margin-bottom:20px;
+    margin-bottom:25px;
 }
 .question{
     margin-bottom:25px;
 }
 .question p{
     font-weight:bold;
+    margin-bottom:10px;
 }
 .option{
     padding:10px;
-    margin:8px 0;
-    border:1px solid #ddd;
+    margin:6px 0;
+    border:1px solid #ccc;
     border-radius:6px;
-    cursor:pointer;
 }
 .option input{
-    margin-right:10px;
+    margin-right:8px;
 }
 .right{
     background:#d4edda;
@@ -50,16 +50,16 @@ h1{
 }
 button{
     width:100%;
-    padding:15px;
+    padding:14px;
     font-size:16px;
     background:#4a6cf7;
-    color:#fff;
+    color:white;
     border:none;
     border-radius:8px;
     cursor:pointer;
 }
 button:hover{
-    background:#3a5be0;
+    background:#3657d4;
 }
 #score{
     margin-top:20px;
@@ -75,7 +75,7 @@ button:hover{
 
 <body>
 
-<div class="quiz-container">
+<div class="quiz-box">
 <h1>Public Health Days – MCQs</h1>
 
 <form id="quizForm">
@@ -83,17 +83,17 @@ button:hover{
 <!-- Q1 -->
 <div class="question">
 <p>1. World Leprosy Day is observed on which of the following days?</p>
-<div class="option correct"><input type="radio" name="q1">Last Sunday of January</div>
 <div class="option"><input type="radio" name="q1">30th January</div>
 <div class="option"><input type="radio" name="q1">First Sunday of January</div>
+<div class="option correct"><input type="radio" name="q1">Last Sunday of January</div>
 <div class="option"><input type="radio" name="q1">1st February</div>
 </div>
 
 <!-- Q2 -->
 <div class="question">
 <p>2. Iodine Deficiency Disorders control activities are mainly emphasized during which month?</p>
-<div class="option"><input type="radio" name="q2">January</div>
-<div class="option correct"><input type="radio" name="q2">February</div>
+<div class="option correct"><input type="radio" name="q2">January</div>
+<div class="option"><input type="radio" name="q2">February</div>
 <div class="option"><input type="radio" name="q2">March</div>
 <div class="option"><input type="radio" name="q2">April</div>
 </div>
@@ -121,8 +121,8 @@ button:hover{
 <p>5. Safe Motherhood Day is observed on which date?</p>
 <div class="option"><input type="radio" name="q5">5th March</div>
 <div class="option"><input type="radio" name="q5">8th March</div>
-<div class="option"><input type="radio" name="q5">10th March</div>
-<div class="option correct"><input type="radio" name="q5">15th March</div>
+<div class="option correct"><input type="radio" name="q5">10th March</div>
+<div class="option"><input type="radio" name="q5">15th March</div>
 </div>
 
 <!-- Q6 -->
@@ -164,9 +164,9 @@ button:hover{
 <!-- Q10 -->
 <div class="question">
 <p>10. World Asthma Day is observed on which date?</p>
-<div class="option"><input type="radio" name="q10">1st May</div>
+<div class="option correct"><input type="radio" name="q10">1st May</div>
 <div class="option"><input type="radio" name="q10">2nd May</div>
-<div class="option correct"><input type="radio" name="q10">3rd May</div>
+<div class="option"><input type="radio" name="q10">3rd May</div>
 <div class="option"><input type="radio" name="q10">5th May</div>
 </div>
 
@@ -260,6 +260,69 @@ button:hover{
 <div class="option"><input type="radio" name="q20">30th October</div>
 </div>
 
+<!-- Q21 -->
+<div class="question">
+<p>21. United Nations Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q21">20th October</div>
+<div class="option"><input type="radio" name="q21">22nd October</div>
+<div class="option correct"><input type="radio" name="q21">24th October</div>
+<div class="option"><input type="radio" name="q21">30th October</div>
+</div>
+
+<!-- Q22 -->
+<div class="question">
+<p>22. World Immunization Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q22">5th November</div>
+<div class="option"><input type="radio" name="q22">8th November</div>
+<div class="option correct"><input type="radio" name="q22">10th November</div>
+<div class="option"><input type="radio" name="q22">12th November</div>
+</div>
+
+<!-- Q23 -->
+<div class="question">
+<p>23. World Pneumonia Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q23">10th November</div>
+<div class="option"><input type="radio" name="q23">11th November</div>
+<div class="option correct"><input type="radio" name="q23">12th November</div>
+<div class="option"><input type="radio" name="q23">14th November</div>
+</div>
+
+<!-- Q24 -->
+<div class="question">
+<p>24. World Diabetes Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q24">10th November</div>
+<div class="option"><input type="radio" name="q24">12th November</div>
+<div class="option correct"><input type="radio" name="q24">14th November</div>
+<div class="option"><input type="radio" name="q24">20th November</div>
+</div>
+
+<!-- Q25 -->
+<div class="question">
+<p>25. Universal Children’s Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q25">10th November</div>
+<div class="option"><input type="radio" name="q25">12th November</div>
+<div class="option"><input type="radio" name="q25">14th November</div>
+<div class="option correct"><input type="radio" name="q25">20th November</div>
+</div>
+
+<!-- Q26 -->
+<div class="question">
+<p>26. World AIDS Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q26">30th November</div>
+<div class="option correct"><input type="radio" name="q26">1st December</div>
+<div class="option"><input type="radio" name="q26">3rd December</div>
+<div class="option"><input type="radio" name="q26">5th December</div>
+</div>
+
+<!-- Q27 -->
+<div class="question">
+<p>27. World Disability Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q27">1st December</div>
+<div class="option"><input type="radio" name="q27">2nd December</div>
+<div class="option correct"><input type="radio" name="q27">3rd December</div>
+<div class="option"><input type="radio" name="q27">5th December</div>
+</div>
+
 <button type="button" onclick="submitQuiz()">Submit Quiz</button>
 <div id="score"></div>
 
@@ -284,7 +347,7 @@ function submitQuiz(){
             correct.classList.add('right');
         }
     });
-    document.getElementById('score').innerText = "Your Score: " + score + " / 20";
+    document.getElementById('score').innerText = "Your Score: " + score + " / 27";
 }
 </script>
 
