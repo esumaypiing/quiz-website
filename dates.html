@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Health Days Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6fb;
+    margin:0;
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+.question{
+    margin-bottom:25px;
+}
+.question p{
+    font-weight:bold;
+}
+.option{
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ddd;
+    border-radius:6px;
+    cursor:pointer;
+}
+.option input{
+    margin-right:10px;
+}
+.right{
+    background:#d4edda;
+    border-color:#28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border-color:#dc3545;
+}
+button{
+    width:100%;
+    padding:15px;
+    font-size:16px;
+    background:#4a6cf7;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#3a5be0;
+}
+#score{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+}
+@media(max-width:600px){
+    body{padding:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h1>Public Health Days – MCQs</h1>
+
+<form id="quizForm">
+
+<!-- Q1 -->
+<div class="question">
+<p>1. World Leprosy Day is observed on which of the following days?</p>
+<div class="option correct"><input type="radio" name="q1">Last Sunday of January</div>
+<div class="option"><input type="radio" name="q1">30th January</div>
+<div class="option"><input type="radio" name="q1">First Sunday of January</div>
+<div class="option"><input type="radio" name="q1">1st February</div>
+</div>
+
+<!-- Q2 -->
+<div class="question">
+<p>2. Iodine Deficiency Disorders control activities are mainly emphasized during which month?</p>
+<div class="option"><input type="radio" name="q2">January</div>
+<div class="option correct"><input type="radio" name="q2">February</div>
+<div class="option"><input type="radio" name="q2">March</div>
+<div class="option"><input type="radio" name="q2">April</div>
+</div>
+
+<!-- Q3 -->
+<div class="question">
+<p>3. World Cancer Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q3">2nd February</div>
+<div class="option correct"><input type="radio" name="q3">4th February</div>
+<div class="option"><input type="radio" name="q3">7th February</div>
+<div class="option"><input type="radio" name="q3">10th February</div>
+</div>
+
+<!-- Q4 -->
+<div class="question">
+<p>4. International Women’s Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q4">5th March</div>
+<div class="option correct"><input type="radio" name="q4">8th March</div>
+<div class="option"><input type="radio" name="q4">10th March</div>
+<div class="option"><input type="radio" name="q4">15th March</div>
+</div>
+
+<!-- Q5 -->
+<div class="question">
+<p>5. Safe Motherhood Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q5">5th March</div>
+<div class="option"><input type="radio" name="q5">8th March</div>
+<div class="option"><input type="radio" name="q5">10th March</div>
+<div class="option correct"><input type="radio" name="q5">15th March</div>
+</div>
+
+<!-- Q6 -->
+<div class="question">
+<p>6. World Tuberculosis Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q6">22nd March</div>
+<div class="option correct"><input type="radio" name="q6">24th March</div>
+<div class="option"><input type="radio" name="q6">25th March</div>
+<div class="option"><input type="radio" name="q6">31st March</div>
+</div>
+
+<!-- Q7 -->
+<div class="question">
+<p>7. World Health Day is celebrated annually on which date?</p>
+<div class="option"><input type="radio" name="q7">1st April</div>
+<div class="option"><input type="radio" name="q7">5th April</div>
+<div class="option correct"><input type="radio" name="q7">7th April</div>
+<div class="option"><input type="radio" name="q7">10th April</div>
+</div>
+
+<!-- Q8 -->
+<div class="question">
+<p>8. World Immunization Week is observed during which period?</p>
+<div class="option"><input type="radio" name="q8">1st–7th April</div>
+<div class="option"><input type="radio" name="q8">15th–21st April</div>
+<div class="option correct"><input type="radio" name="q8">24th–30th April</div>
+<div class="option"><input type="radio" name="q8">1st–7th May</div>
+</div>
+
+<!-- Q9 -->
+<div class="question">
+<p>9. World Malaria Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q9">23rd April</div>
+<div class="option"><input type="radio" name="q9">24th April</div>
+<div class="option correct"><input type="radio" name="q9">25th April</div>
+<div class="option"><input type="radio" name="q9">30th April</div>
+</div>
+
+<!-- Q10 -->
+<div class="question">
+<p>10. World Asthma Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q10">1st May</div>
+<div class="option"><input type="radio" name="q10">2nd May</div>
+<div class="option correct"><input type="radio" name="q10">3rd May</div>
+<div class="option"><input type="radio" name="q10">5th May</div>
+</div>
+
+<!-- Q11 -->
+<div class="question">
+<p>11. International Red Cross Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q11">5th May</div>
+<div class="option"><input type="radio" name="q11">7th May</div>
+<div class="option correct"><input type="radio" name="q11">8th May</div>
+<div class="option"><input type="radio" name="q11">10th May</div>
+</div>
+
+<!-- Q12 -->
+<div class="question">
+<p>12. World Hypertension Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q12">14th May</div>
+<div class="option"><input type="radio" name="q12">15th May</div>
+<div class="option correct"><input type="radio" name="q12">17th May</div>
+<div class="option"><input type="radio" name="q12">20th May</div>
+</div>
+
+<!-- Q13 -->
+<div class="question">
+<p>13. Menstrual Hygiene Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q13">26th May</div>
+<div class="option"><input type="radio" name="q13">27th May</div>
+<div class="option correct"><input type="radio" name="q13">28th May</div>
+<div class="option"><input type="radio" name="q13">30th May</div>
+</div>
+
+<!-- Q14 -->
+<div class="question">
+<p>14. World No Tobacco Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q14">29th May</div>
+<div class="option"><input type="radio" name="q14">30th May</div>
+<div class="option correct"><input type="radio" name="q14">31st May</div>
+<div class="option"><input type="radio" name="q14">1st June</div>
+</div>
+
+<!-- Q15 -->
+<div class="question">
+<p>15. World Environment Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q15">1st June</div>
+<div class="option"><input type="radio" name="q15">3rd June</div>
+<div class="option correct"><input type="radio" name="q15">5th June</div>
+<div class="option"><input type="radio" name="q15">10th June</div>
+</div>
+
+<!-- Q16 -->
+<div class="question">
+<p>16. International Breastfeeding Week is observed during which period?</p>
+<div class="option"><input type="radio" name="q16">1st–5th August</div>
+<div class="option correct"><input type="radio" name="q16">1st–7th August</div>
+<div class="option"><input type="radio" name="q16">5th–10th August</div>
+<div class="option"><input type="radio" name="q16">10th–15th August</div>
+</div>
+
+<!-- Q17 -->
+<div class="question">
+<p>17. Public Health Day (Nepal) is observed on which date?</p>
+<div class="option"><input type="radio" name="q17">10th August</div>
+<div class="option"><input type="radio" name="q17">12th August</div>
+<div class="option correct"><input type="radio" name="q17">14th August</div>
+<div class="option"><input type="radio" name="q17">15th August</div>
+</div>
+
+<!-- Q18 -->
+<div class="question">
+<p>18. World Rabies Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q18">26th September</div>
+<div class="option"><input type="radio" name="q18">27th September</div>
+<div class="option correct"><input type="radio" name="q18">28th September</div>
+<div class="option"><input type="radio" name="q18">30th September</div>
+</div>
+
+<!-- Q19 -->
+<div class="question">
+<p>19. World Mental Health Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q19">5th October</div>
+<div class="option"><input type="radio" name="q19">8th October</div>
+<div class="option correct"><input type="radio" name="q19">10th October</div>
+<div class="option"><input type="radio" name="q19">15th October</div>
+</div>
+
+<!-- Q20 -->
+<div class="question">
+<p>20. World Polio Day is observed on which date?</p>
+<div class="option"><input type="radio" name="q20">20th October</div>
+<div class="option"><input type="radio" name="q20">22nd October</div>
+<div class="option correct"><input type="radio" name="q20">24th October</div>
+<div class="option"><input type="radio" name="q20">30th October</div>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+</form>
+</div>
+
+<script>
+function submitQuiz(){
+    let score = 0;
+    document.querySelectorAll('.question').forEach(q=>{
+        let selected = q.querySelector('input:checked');
+        let correct = q.querySelector('.correct');
+        if(selected){
+            if(selected.parentElement.classList.contains('correct')){
+                score++;
+                selected.parentElement.classList.add('right');
+            }else{
+                selected.parentElement.classList.add('wrong');
+                correct.classList.add('right');
+            }
+        }else{
+            correct.classList.add('right');
+        }
+    });
+    document.getElementById('score').innerText = "Your Score: " + score + " / 20";
+}
+</script>
+
+</body>
+</html>
