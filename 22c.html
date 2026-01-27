@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Public Health Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#eef2f5;
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#ffffff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#333;
+}
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#fafafa;
+}
+.question p{
+    font-weight:bold;
+}
+.options label{
+    display:block;
+    padding:6px 10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+.correct{
+    background:#d4edda;
+    color:#155724;
+    font-weight:bold;
+}
+.wrong{
+    background:#f8d7da;
+    color:#721c24;
+    font-weight:bold;
+}
+button{
+    display:block;
+    margin:25px auto;
+    padding:12px 35px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    background:#007bff;
+    color:#fff;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h1>Public Health Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question" data-answer="b">
+<p>1. lodine can be used to test the presence of:</p>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> a. Glucose</label>
+<label><input type="radio" name="q1" value="b"> b. Starch</label>
+<label><input type="radio" name="q1" value="c"> c. Protein</label>
+<label><input type="radio" name="q1" value="d"> d. Fats</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>2. Which of the following is true about prevalence:</p>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> a. Rate</label>
+<label><input type="radio" name="q2" value="b"> b. Ratio</label>
+<label><input type="radio" name="q2" value="c"> c. Proportion</label>
+<label><input type="radio" name="q2" value="d"> d. Both rate and proportion</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>3. Sensitivity is most affected by;</p>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> a. Prevalence</label>
+<label><input type="radio" name="q3" value="b"> b. Secondary Attack Rate</label>
+<label><input type="radio" name="q3" value="c"> c. Proportion</label>
+<label><input type="radio" name="q3" value="d"> d. Case fatality Rate</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>4. Marriage is related to:</p>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> a. Religious Institution</label>
+<label><input type="radio" name="q4" value="b"> b.Social Institution</label>
+<label><input type="radio" name="q4" value="c"> c. Family Institution</label>
+<label><input type="radio" name="q4" value="d"> d. Education Institution</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>5. Which of the following disease is not caused by Asbestosis?</p>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> a. Pleural disease</label>
+<label><input type="radio" name="q5" value="b"> b. Urinary disease</label>
+<label><input type="radio" name="q5" value="c"> c. Gl cancer</label>
+<label><input type="radio" name="q5" value="d"> d. Brain cancer</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>6. Neurolathyrism can be prevented by:</p>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> a. Spraying acid</label>
+<label><input type="radio" name="q6" value="b"> b. Steeping method</label>
+<label><input type="radio" name="q6" value="c"> c. Isolation of cases</label>
+<label><input type="radio" name="q6" value="d"> d. Quarantine of cases</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>7. A qualitative method where we start with certain particular statements and conclude with a universal statement is called:</p>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> a. Deductive</label>
+<label><input type="radio" name="q7" value="b"> b. Inductive.</label>
+<label><input type="radio" name="q7" value="c"> c. Abnormal</label>
+<label><input type="radio" name="q7" value="d"> d. Transcendental</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>8. When was the Diarrhea control program initiated in Nepal?</p>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> a. 1978</label>
+<label><input type="radio" name="q8" value="b"> b. 1983</label>
+<label><input type="radio" name="q8" value="c"> c 1986</label>
+<label><input type="radio" name="q8" value="d"> d. 1991</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>9. During COVID-19, there were restriction of movement from one district to another in Nepal which type of measure was this:</p>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> a. Public Health Measure</label>
+<label><input type="radio" name="q9" value="b"> b. Medical Measure</label>
+<label><input type="radio" name="q9" value="c"> c. Curative Measure</label>
+<label><input type="radio" name="q9" value="d"> d. None</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>10.Quarantine period should be;</p>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> a. Maximum incubation period</label>
+<label><input type="radio" name="q10" value="b"> b. Minimum incubation period</label>
+<label><input type="radio" name="q10" value="c"> c. Median of the incubation period</label>
+<label><input type="radio" name="q10" value="d"> d. Median incubation period</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>11. A department revealed that the sale of antihypertensive drugs was more in those states where death due to hypertension were more. This association may prove wrong when the individual based study designs are conducted. This association is an example of:</p>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> a. Atomistic fallacy</label>
+<label><input type="radio" name="q11" value="b"> b. Indirect association</label>
+<label><input type="radio" name="q11" value="c"> c. Ecological fallacy</label>
+<label><input type="radio" name="q11" value="d"> d. Specific association</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>12. Progress of disease process in an individual over time in the absence of intervention is related to:</p>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> a. Iceberg phenomenon</label>
+<label><input type="radio" name="q12" value="b"> b. Natural history of disease</label>
+<label><input type="radio" name="q12" value="c"> c. Lack of seeking medical treatment</label>
+<label><input type="radio" name="q12" value="d"> d. All of the above</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>13. The law of demand states that the quantity of good demanded</p>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> a. Inversely with its price</label>
+<label><input type="radio" name="q13" value="b"> b. Directly with its price</label>
+<label><input type="radio" name="q13" value="c"> c. Inversely and directly with its price</label>
+<label><input type="radio" name="q13" value="d"> d. None</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>14. Following are the basic strategies of 1st International conference on health promotion at Ottawa except:</p>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> a. Advocating</label>
+<label><input type="radio" name="q14" value="b"> b. Enabling</label>
+<label><input type="radio" name="q14" value="c"> C. PHC</label>
+<label><input type="radio" name="q14" value="d"> d. Mediating</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>15. Koplik spots are seen in which of the following disease:</p>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> a. Measles</label>
+<label><input type="radio" name="q15" value="b"> b. Mumps</label>
+<label><input type="radio" name="q15" value="c"> c. Rubella</label>
+<label><input type="radio" name="q15" value="d"> d. Pertussis</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>16. Pleomorphic rashes are seen in which of the following diseases:</p>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> a. Chicken pox</label>
+<label><input type="radio" name="q16" value="b"> b. Small Pox</label>
+<label><input type="radio" name="q16" value="c"> c. Pertussis</label>
+<label><input type="radio" name="q16" value="d"> d. Sand-fly fever</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>17.1.5-2.0% growth rate of population</p>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> a. Very rapid growth</label>
+<label><input type="radio" name="q17" value="b"> b. Rapid growth</label>
+<label><input type="radio" name="q17" value="c"> c. Moderate growth</label>
+<label><input type="radio" name="q17" value="d"> d. Slow growth</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>18. Usefulness in screening test is</p>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> a. True positive/ true positive+false negative</label>
+<label><input type="radio" name="q18" value="b"> b. True positive/ true positive + false positive</label>
+<label><input type="radio" name="q18" value="c"> c. True negative/True positive + true Negative</label>
+<label><input type="radio" name="q18" value="d"> d. True negative/False positive + false negative</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>19. Most common side effect of DEPOT:</p>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> a. Disruption of normal menstrual cycle</label>
+<label><input type="radio" name="q19" value="b"> b. Ectopic pregnancy</label>
+<label><input type="radio" name="q19" value="c"> c. Breast cancer</label>
+<label><input type="radio" name="q19" value="d"> d. None</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>20. The nucleus is present in all cell except</p>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> a. Liver</label>
+<label><input type="radio" name="q20" value="b"> b. Muscle</label>
+<label><input type="radio" name="q20" value="c"> c. WBC</label>
+<label><input type="radio" name="q20" value="d"> d. RBC</label>
+</div>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+<div id="score"></div>
+
+</form>
+</div>
+
+<script>
+function submitQuiz(){
+    let score = 0;
+    let questions = document.querySelectorAll(".question");
+
+    questions.forEach(q=>{
+        let correctAnswer = q.dataset.answer;
+        let selected = q.querySelector("input[type=radio]:checked");
+        let options = q.querySelectorAll("label");
+
+        options.forEach(opt=>{
+            let input = opt.querySelector("input");
+            if(input.value === correctAnswer){
+                opt.classList.add("correct");
+            }
+            if(selected && input === selected && input.value !== correctAnswer){
+                opt.classList.add("wrong");
+            }
+        });
+
+        if(selected && selected.value === correctAnswer){
+            score++;
+        }
+    });
+
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
+}
+</script>
+
+</body>
+</html>
