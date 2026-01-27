@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Statistics Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+h1{
+    text-align:center;
+    color:#333;
+}
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:8px;
+    background:#fafafa;
+    border:1px solid #ddd;
+}
+.question p{
+    font-weight:bold;
+}
+.options label{
+    display:block;
+    padding:6px 10px;
+    cursor:pointer;
+    border-radius:5px;
+}
+.correct{
+    background:#d4edda;
+    color:#155724;
+    font-weight:bold;
+}
+.wrong{
+    background:#f8d7da;
+    color:#721c24;
+    font-weight:bold;
+}
+button{
+    display:block;
+    margin:20px auto;
+    padding:12px 30px;
+    font-size:16px;
+    border:none;
+    border-radius:6px;
+    background:#007bff;
+    color:#fff;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h1>Statistics Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question" data-answer="b">
+<p>1. Which of the following is best to represent Quantitative data?</p>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> a. Simple Bar</label>
+<label><input type="radio" name="q1" value="b"> b. Histogram</label>
+<label><input type="radio" name="q1" value="c"> c. Pie diagram</label>
+<label><input type="radio" name="q1" value="d"> d. Multiple Bar</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>2. In normal distribution which of the following statement is true?</p>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> a. mean median</label>
+<label><input type="radio" name="q2" value="b"> b. mean =median</label>
+<label><input type="radio" name="q2" value="c"> c mean (u) = 1</label>
+<label><input type="radio" name="q2" value="d"> d. curve is not bilaterally symmetrical</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>3. Rejecting a null hypothesis when it is true is called:</p>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> a. Type I error (alpha error)</label>
+<label><input type="radio" name="q3" value="b"> b. Type-ll error (beta error)</label>
+<label><input type="radio" name="q3" value="c"> C. Gamma error</label>
+<label><input type="radio" name="q3" value="d"> d. Delta error</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>4. Which of the following is known as Proportional hazard Regression?</p>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> a. Cox Regression</label>
+<label><input type="radio" name="q4" value="b"> b. McNemar's Test</label>
+<label><input type="radio" name="q4" value="c"> c. Logistic Regression</label>
+<label><input type="radio" name="q4" value="d"> d. kappa statistic</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>5. Pearson coefficient is best used for evaluation of:</p>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> a. Association</label>
+<label><input type="radio" name="q5" value="b"> b. Relative risk</label>
+<label><input type="radio" name="q5" value="c"> c. Risk factors</label>
+<label><input type="radio" name="q5" value="d"> d. Correlation</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>6. A physician, after examining a group patients having patients cancer is classified as' mild', 'moderate' and ' severe' which scale of measurement is used?</p>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> a. Nominal</label>
+<label><input type="radio" name="q6" value="b"> b. Ratio</label>
+<label><input type="radio" name="q6" value="c"> c. Interval</label>
+<label><input type="radio" name="q6" value="d"> d. Ordinal</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>7. Standard deviation is most commonly used and most appropriate measure of dispersion. What does it measures?</p>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> a. Deviation from mean value</label>
+<label><input type="radio" name="q7" value="b"> b. Deviation from median value</label>
+<label><input type="radio" name="q7" value="c"> c. Deviation from mode value</label>
+<label><input type="radio" name="q7" value="d"> d. None of the above</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>8. For testing the statistical significance of the difference in heights of school children in a Gyan Batika Boarding School of Kanchanpur district which test can be used:</p>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> a. Chi square test</label>
+<label><input type="radio" name="q8" value="b"> b. Paired t test</label>
+<label><input type="radio" name="q8" value="c"> C. ANOVA</label>
+<label><input type="radio" name="q8" value="d"> d. Yate's correction</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>9. Chi-Square test is one of the simplest and most widely used non-parametric tests. It is used to measure the of:</p>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> a. Dependence of attributes</label>
+<label><input type="radio" name="q9" value="b"> b. Significance of difference between two means</label>
+<label><input type="radio" name="q9" value="c"> c. Significance of difference between two means and median</label>
+<label><input type="radio" name="q9" value="d"> d. Significance of difference between two proportions</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>10. Mostly we see that mosquitoes decreases as the height increases which type of correlation is this:</p>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> a. Positive correlation</label>
+<label><input type="radio" name="q10" value="b"> b. Negative correlation</label>
+<label><input type="radio" name="q10" value="c"> C Weak Positive correlation</label>
+<label><input type="radio" name="q10" value="d"> d. No correlation</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>11. Suppose if you are conducting a research on "Anxiety and depression among CKD Patients in Kathmandu Valley" What will happen if you increases confidence) limit in your research?</p>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> a. There will be no change in the results</label>
+<label><input type="radio" name="q11" value="b"> b. Previously insignificant data provides some sense</label>
+<label><input type="radio" name="q11" value="c"> c. We can obtain research objectives</label>
+<label><input type="radio" name="q11" value="d"> d. Previously significant data becomes insignificant</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>12. For 2SD (mean (1) ± 2SD), confidence limit covers:</p>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> a. 68%</label>
+<label><input type="radio" name="q12" value="b"> b. 95%</label>
+<label><input type="radio" name="q12" value="c"> C. 99.7%</label>
+<label><input type="radio" name="q12" value="d"> d. 50%</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>13. What is the use of Cronbach's alpha?</p>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> a. Used for association between smokers and non-smokers</label>
+<label><input type="radio" name="q13" value="b"> b. Used to measure the skewness</label>
+<label><input type="radio" name="q13" value="c"> c. Measurement of internal consistency or reliability</label>
+<label><input type="radio" name="q13" value="d"> d. Measurement of risk factors</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>14. How can you calculate probability for independent events?</p>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> a. P(A or B) = P(A) + P(B)</label>
+<label><input type="radio" name="q14" value="b"> b. P(A and B) = P(A) *P(B)</label>
+<label><input type="radio" name="q14" value="c"> C. P(A or B) = P(A) + P(B) = P(A and B)</label>
+<label><input type="radio" name="q14" value="d"> d. None of the above</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>15. Likert scale is:</p>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> a. Nominal</label>
+<label><input type="radio" name="q15" value="b"> b. Interval</label>
+<label><input type="radio" name="q15" value="c"> C. Ratio</label>
+<label><input type="radio" name="q15" value="d"> d.Ordinal</label>
+</div>
+</div>
+
+<div class="question" data-answer="d">
+<p>16.A researcher is going to measure the association of height and weight, which diagram is best for analyzing relationship between these two variables, also known as correlation diagram?</p>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> a. Line diagram</label>
+<label><input type="radio" name="q16" value="b"> b. Sector diagram</label>
+<label><input type="radio" name="q16" value="c"> c. Bar diagram</label>
+<label><input type="radio" name="q16" value="d"> d.Scatter diagram</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>17. Recall bias is maximum common with:</p>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> a. Cohort study</label>
+<label><input type="radio" name="q17" value="b"> b. Case-control study</label>
+<label><input type="radio" name="q17" value="c"> c. Quasi experimental study.</label>
+<label><input type="radio" name="q17" value="d"> d. Experimental study</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>18. Healthy population can be best identified by:</p>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> a. Sensitivity</label>
+<label><input type="radio" name="q18" value="b"> b. Specificity</label>
+<label><input type="radio" name="q18" value="c"> c. Validity.</label>
+<label><input type="radio" name="q18" value="d"> d. Predictive Value</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>19. In which country does SAARC TB center located:</p>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> a. India</label>
+<label><input type="radio" name="q19" value="b"> b. Bangladesh</label>
+<label><input type="radio" name="q19" value="c"> c. Nepal</label>
+<label><input type="radio" name="q19" value="d"> d. Bhutan</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>20. According to census 2021, what is the sex ratio of Nepal?</p>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> a. 94.4</label>
+<label><input type="radio" name="q20" value="b"> b. 95.91</label>
+<label><input type="radio" name="q20" value="c"> C. 98.8</label>
+<label><input type="radio" name="q20" value="d"> d. 99</label>
+</div>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+<div id="score"></div>
+
+</form>
+</div>
+
+<script>
+function submitQuiz(){
+    let score = 0;
+    let questions = document.querySelectorAll(".question");
+
+    questions.forEach(q=>{
+        let correctAnswer = q.dataset.answer;
+        let selected = q.querySelector("input[type=radio]:checked");
+
+        let options = q.querySelectorAll("label");
+        options.forEach(opt=>{
+            let input = opt.querySelector("input");
+            if(input.value === correctAnswer){
+                opt.classList.add("correct");
+            }
+            if(selected && input === selected && input.value !== correctAnswer){
+                opt.classList.add("wrong");
+            }
+        });
+
+        if(selected && selected.value === correctAnswer){
+            score++;
+        }
+    });
+
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
+}
+</script>
+
+</body>
+</html>
