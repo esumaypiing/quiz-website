@@ -2,233 +2,180 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MCQ Quiz (Set)</title>
-
+<title>Health Education Quiz</title>
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    padding: 20px;
-}
-
-.quiz-container {
-    max-width: 900px;
-    margin: auto;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.question {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    background: #fafafa;
-}
-
-.question p {
-    font-weight: bold;
-}
-
-.options label {
-    display: block;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.correct {
-    background-color: #d4edda;
-    color: #155724;
-}
-
-.wrong {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-button {
-    display: block;
-    margin: 25px auto;
-    padding: 10px 25px;
-    font-size: 16px;
-    border: none;
-    background: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-#score {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-}
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .quiz-container {
+        max-width: 900px;
+        margin: auto;
+    }
+    .card {
+        background: #ffffff;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .question {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .option {
+        margin: 6px 0;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .option input {
+        margin-right: 8px;
+    }
+    .correct {
+        background-color: #c8e6c9;
+        border: 1px solid #2e7d32;
+    }
+    .wrong {
+        background-color: #ffcdd2;
+        border: 1px solid #c62828;
+    }
+    .submit-btn {
+        display: block;
+        margin: 30px auto;
+        padding: 12px 30px;
+        font-size: 16px;
+        background: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .submit-btn:hover {
+        background: #0d47a1;
+    }
+    .score {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
 </style>
 </head>
 
 <body>
+<h1>Health Education Quiz</h1>
 
 <div class="quiz-container">
-<h1>MCQ Quiz</h1>
 
 <form id="quizForm">
 
-<!-- Q1 -->
-<div class="question" data-answer="d">
-<p>1. A school health educator wants to teach young children the correct technique for brushing their teeth. Which teaching method would be most effective?</p>
-<div class="options">
-<label><input type="radio" name="q1" value="a"> a. Handing out informational pamphlets</label>
-<label><input type="radio" name="q1" value="b"> b. Giving a lecture about dental hygiene</label>
-<label><input type="radio" name="q1" value="c"> c. Using a role-play activity with students</label>
-<label><input type="radio" name="q1" value="d"> d. Demonstrating proper brushing techniques</label>
-</div>
-</div>
+<script>
+const quizData = [
+{q:"A school health educator wants to teach young children the correct technique for brushing their teeth. Which teaching method would be most effective?",
+o:["Handing out informational pamphlets","Giving a lecture about dental hygiene","Using a role-play activity with students","Demonstrating proper brushing techniques"],a:3},
 
-<!-- Q2 -->
-<div class="question" data-answer="c">
-<p>2. A doctor from an urban hospital is assigned to work in a remote village where cultural beliefs about illness differ significantly from medical science. He finds it difficult to adjust and experiences confusion and frustration. This situation is an example of:</p>
-<div class="options">
-<label><input type="radio" name="q2" value="a"> a. Cultural superiority</label>
-<label><input type="radio" name="q2" value="b"> b. Failure to recognize cultural differences.</label>
-<label><input type="radio" name="q2" value="c"> c. Cultural shock</label>
-<label><input type="radio" name="q2" value="d"> d. Imposing one's culture on others</label>
-</div>
-</div>
+{q:"A doctor from an urban hospital is assigned to work in a remote village where cultural beliefs about illness differ significantly from medical science. He finds it difficult to adjust and experiences confusion and frustration. This situation is an example of:",
+o:["Cultural superiority","Failure to recognize cultural differences.","Cultural shock","Imposing one's culture on others"],a:2},
 
-<!-- Q3 -->
-<div class="question" data-answer="d">
-<p>3. During a nationwide awareness campaign on COVID-19, which medium would be most effective in rapidly disseminating information to a large population?</p>
-<div class="options">
-<label><input type="radio" name="q3" value="a"> a. Health magazines</label>
-<label><input type="radio" name="q3" value="b"> b. Newspapers</label>
-<label><input type="radio" name="q3" value="c"> c. Radio</label>
-<label><input type="radio" name="q3" value="d"> d. Television</label>
-</div>
-</div>
+{q:"During a nationwide awareness campaign on COVID-19, which medium would be most effective in rapidly disseminating information to a large population?",
+o:["Health magazines","Newspapers","Radio","Television"],a:3},
 
-<!-- Q4 -->
-<div class="question" data-answer="b">
-<p>4. A health promotion campaign is designed to encourage people to adopt healthier eating habits. What is the primary objective of this campaign?</p>
-<div class="options">
-<label><input type="radio" name="q4" value="a"> a. Generating interest and participation</label>
-<label><input type="radio" name="q4" value="b"> b. Providing information, motivating change, and guiding action</label>
-<label><input type="radio" name="q4" value="c"> c. Evaluating the effectiveness of dietary habits</label>
-<label><input type="radio" name="q4" value="d"> d. Reinforcing traditional food choices</label>
-</div>
-</div>
+{q:"A health promotion campaign is designed to encourage people to adopt healthier eating habits. What is the primary objective of this campaign?",
+o:["Generating interest and participation","Providing information, motivating change, and guiding action","Evaluating the effectiveness of dietary habits","Reinforcing traditional food choices"],a:1},
 
-<!-- Q5 -->
-<div class="question" data-answer="d">
-<p>5. A national public health agency is developing a 10-year plan to reduce the burden of non-communicable diseases. Who is responsible for this level of planning?</p>
-<div class="options">
-<label><input type="radio" name="q5" value="a"> a. Operational-level management</label>
-<label><input type="radio" name="q5" value="b"> b. Middle-level management</label>
-<label><input type="radio" name="q5" value="c"> c. Subordinate-level management</label>
-<label><input type="radio" name="q5" value="d"> d. High-level management</label>
-</div>
-</div>
+{q:"A national public health agency is developing a 10-year plan to reduce the burden of non-communicable diseases. Who is responsible for this level of planning?",
+o:["Operational-level management","Middle-level management","Subordinate-level management","High-level management"],a:3},
 
-<!-- Q6 -->
-<div class="question" data-answer="c">
-<p>6. A newly established healthcare organization outlines its aspiration to be the leading provider of quality healthcare in the country by 2035. What is this statement an example of?</p>
-<div class="options">
-<label><input type="radio" name="q6" value="a"> a. Organizational values.</label>
-<label><input type="radio" name="q6" value="b"> b. Mission statement</label>
-<label><input type="radio" name="q6" value="c"> c. Vision statement</label>
-<label><input type="radio" name="q6" value="d"> d. Strategic plan</label>
-</div>
-</div>
+{q:"A newly established healthcare organization outlines its aspiration to be the leading provider of quality healthcare in the country by 2035. What is this statement an example of?",
+o:["Organizational values.","Mission statement","Vision statement","Strategic plan"],a:2},
 
-<!-- Q7 -->
-<div class="question" data-answer="c">
-<p>7. A hospital implements a Management by Objectives (MBO) approach, requiring employees to strictly adhere to predefined performance goals. However, many employees struggle to adapt when unexpected challenges arise. What is the major limitation of MBO in this scenario?</p>
-<div class="options">
-<label><input type="radio" name="q7" value="a"> a. Unclear organizational actions</label>
-<label><input type="radio" name="q7" value="b"> b. Employee dissatisfaction</label>
-<label><input type="radio" name="q7" value="c"> c. Rigidity in adapting to changes</label>
-<label><input type="radio" name="q7" value="d"> d. Ineffective performance evaluation</label>
-</div>
-</div>
+{q:"A hospital implements a Management by Objectives (MBO) approach, requiring employees to strictly adhere to predefined performance goals. However, many employees struggle to adapt when unexpected challenges arise. What is the major limitation of MBO in this scenario?",
+o:["Unclear organizational actions","Employee dissatisfaction","Rigidity in adapting to changes","Ineffective performance evaluation"],a:2},
 
-<!-- Q8 -->
-<div class="question" data-answer="b">
-<p>8. Which of the following best describes Neglected Tropical Diseases (NTDs)?</p>
-<div class="options">
-<label><input type="radio" name="q8" value="a"> a. Highly contagious diseases affecting only developed countries</label>
-<label><input type="radio" name="q8" value="b"> b. A group of infectious diseases prevalent in tropical and subtropical regions, often linked to poverty</label>
-<label><input type="radio" name="q8" value="c"> c. Diseases with high mortality but no global health impact</label>
-<label><input type="radio" name="q8" value="d"> d. Genetic disorders found in low-income populations</label>
-</div>
-</div>
+{q:"Which of the following best describes Neglected Tropical Diseases (NTDs)?",
+o:["Highly contagious diseases affecting only developed countries","A group of infectious diseases prevalent in tropical and subtropical regions, often linked to poverty","Diseases with high mortality but no global health impact","Genetic disorders found in low-income populations"],a:1},
 
-<!-- Q9 -->
-<div class="question" data-answer="b">
-<p>9. Which of the following best describes process evaluation in public health programs?</p>
-<div class="options">
-<label><input type="radio" name="q9" value="a"> a. Assessing the final impact of an intervention</label>
-<label><input type="radio" name="q9" value="b"> b. Measuring how well a program is implemented compared to its original plan</label>
-<label><input type="radio" name="q9" value="c"> c. Comparing different intervention strategies</label>
-<label><input type="radio" name="q9" value="d"> d. Determining the long-term sustainability of a program</label>
-</div>
-</div>
+{q:"Which of the following best describes process evaluation in public health programs?",
+o:["Assessing the final impact of an intervention","Measuring how well a program is implemented compared to its original plan","Comparing different intervention strategies","Determining the long-term sustainability of a program Rationale & Explanation"],a:1},
 
-<!-- Q10 -->
-<div class="question" data-answer="b">
-<p>10. In which condition does increased TSH (Thyroid- Stimulating Hormone) and decreased TH (Thyroid Hormones T3/T4) occur, leading to cold intolerance?</p>
-<div class="options">
-<label><input type="radio" name="q10" value="a"> a. Hyperthyroidism</label>
-<label><input type="radio" name="q10" value="b"> b. Hypothyroidism.</label>
-<label><input type="radio" name="q10" value="c"> c. Addison's disease</label>
-<label><input type="radio" name="q10" value="d"> d. Cushing's syndrome</label>
-</div>
-</div>
+{q:"In which condition does increased TSH (Thyroid- Stimulating Hormone) and decreased TH (Thyroid Hormones T3/T4) occur, leading to cold intolerance?",
+o:["Hyperthyroidism","Hypothyroidism.","Addison's disease","Cushing's syndrome"],a:1},
 
-<button type="button" onclick="submitQuiz()">Submit</button>
+{q:"What is the most common cause of anemia among reproductive age women in Nepal ?",
+o:["Frequent pregnancy","Iron deficiency","Vitamin B12 deficiency","Vitamin A deficiency"],a:1},
+
+{q:"Which of the following helps in iron absorption?",
+o:["Vitamin C","Vitamin D","Vitamin E","Vitamin B"],a:0},
+
+{q:"Vitamin deficit in vegans is:",
+o:["Vitamin B3","Vitamin B7","Vitamin B9","Vitamin B12"],a:3},
+
+{q:"Prevalence of Cataract at one point of time can be determined by,",
+o:["Cohort Study","Surveillance","Cross Sectional study","Longitudinal study"],a:2},
+
+{q:"Which of the following is related to minimizing malnutrition in family level?",
+o:["Food fortification","Nutritional surveillance","Exclusive Breastfeeding","Vitamin D and calcium supplementation"],a:2},
+
+{q:"Which of the following supplements is generally contraindicated in the first trimester of pregnancy due to potential teratogenic effects?",
+o:["Vitamin D","Albendazole","Iron","Iodine"],a:1},
+
+{q:"Which of the following statements best describes a nested case-control study?",
+o:["It is a type of case-control study conducted within a cohort study.","It is a study where cases and controls are selected at the same time from a population.","It is a prospective study that follows individuals for disease development.","It is a randomized controlled trial evaluating interventions."],a:0},
+
+{q:"A public health researcher is studying the prevalence of non-communicable diseases (NCDs) in rural Nepal. He collects survey data, analyzes risk factors, and interprets the findings to recommend interventions. What is the final step in this research process called?",
+o:["Hypothesis testing","Data analysis","Interpretation and conclusion","Literature review"],a:2},
+
+{q:"Nepal is experiencing a rise in inflation (7%) and unemployment (6%), leading to increased food insecurity and malnutrition among low-income families. Which of the following best describes inflation and unemployment in this context?",
+o:["Health determinants","Economic determinants of health","Political determinants of health","Household-level risk factors"],a:1},
+
+{q:"A study on air pollution and respiratory illnesses in Kathmandu reports a p-value of 0.03 when analyzing the association at 95% confidence interval and 5% level of significance. What does this signify?",
+o:["Strong evidence against the null hypothesis","No statistical significance as p > 0.01but clinically significant","Statistically significant at a 5% level but not necessarily clinically significant","No association exists"],a:2}
+];
+
+quizData.forEach((item, index) => {
+document.write(`<div class="card">
+<div class="question">${index+1}. ${item.q}</div>
+${item.o.map((opt,i)=>`
+<div class="option">
+<input type="radio" name="q${index}" value="${i}"> ${opt}
+</div>`).join("")}
+</div>`);
+});
+</script>
+
+<button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
 </form>
 
-<div id="score"></div>
+<div class="score" id="score"></div>
+
 </div>
 
 <script>
-function submitQuiz() {
+function submitQuiz(){
     let score = 0;
-    const questions = document.querySelectorAll('.question');
-
-    questions.forEach((question) => {
-        const correctAnswer = question.dataset.answer;
-        const options = question.querySelectorAll('input[type="radio"]');
-
-        options.forEach(option => {
-            const label = option.parentElement;
-            if (option.checked) {
-                if (option.value === correctAnswer) {
+    quizData.forEach((item, index) => {
+        const options = document.getElementsByName("q"+index);
+        options.forEach((opt,i)=>{
+            const parent = opt.parentElement;
+            if(i === item.a){
+                parent.classList.add("correct");
+            }
+            if(opt.checked){
+                if(i === item.a){
                     score++;
-                    label.classList.add('correct');
                 } else {
-                    label.classList.add('wrong');
+                    parent.classList.add("wrong");
                 }
             }
-            if (option.value === correctAnswer) {
-                label.classList.add('correct');
-            }
-            option.disabled = true;
         });
     });
-
-    document.getElementById('score').innerText = "Your Score: " + score + " / 10";
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
 }
 </script>
 
