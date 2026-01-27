@@ -1,1 +1,133 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg,#e3f2fd,#ede7f6);
+    padding:20px;
+}
+h1{
+    text-align:center;
+    color:#4a148c;
+    margin-bottom:25px;
+}
+.quiz-box{
+    max-width:950px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:14px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.12);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.option{
+    padding:8px 10px;
+    margin:6px 0;
+    border-radius:6px;
+}
+.correct{
+    background:#c8e6c9;
+    border:1px solid #2e7d32;
+}
+.wrong{
+    background:#ffcdd2;
+    border:1px solid #c62828;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 40px;
+    font-size:16px;
+    background:#6a1b9a;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#4a148c;
+}
+#score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+<h1>Multiple Choice Quiz</h1>
+
+<div class="quiz-box">
+<form id="quizForm">
+
+<script>
+const quiz = [
+{q:"In an accidents, an adult burns to his entire back and left arm. Using the rule of Nines, health service provider calculate that he has sustained burns on what percentage of his body?",o:["9%","13.5%","27%","36%"],a:2},
+{q:"Protein synthesis takes place in which of the following organelles",o:["Mitochondrial","Endoplasmic reticulum.","Lysosomes","Golgi apparatus"],a:1},
+{q:"Which is the immediate source of energy for muscle contraction?",o:["ATP","Glucose","GTP","Creatine"],a:0},
+{q:"When was maternal and neonatal tetanus eliminated In Nepal?",o:["2002 AD","2004 AD","2005 AD","2006 AD"],a:2},
+{q:"Monopoly, duopoly and oligopoly all falls under",o:["Perfect competition","Imperfect competition.","Mixed market","Health market"],a:1},
+{q:"What is the shape of AR and MR curve under monopoly market?",o:["Vertical","Positively sloped","Negatively sloped","None"],a:2},
+{q:"Temporary hardness of water is primarily due to the presence of:",o:["Calcium and magnesium sulphates","Calcium and magnesium chlorides","Calcium and magnesium bicarbonates","Calcium and magnesium nitrates"],a:2},
+{q:"Conventional contraceptives includes one of the following:",o:["Condom","Copper-T","Oral pills","Tubectomy"],a:0},
+{q:"Which level is Bachelor of Public Health registered to:",o:["First category class A","Second category class B","Third category class 'C'","Third category class B"],a:0},
+{q:"Which is not included in sociology?",o:["Social Institutions","Social Relationships","Biological Processes","Cultural Norms"],a:2},
+{q:"When the United Nations International Children's Emergency Fund (UNICEF) was established?",o:["1946 AD","1947 AD","1948 AD","1953 AD"],a:0},
+{q:"Which particles size are most dangerous",o:["0.5-3.0 micron","5-10 micron","0.5-5 micron","1-3 micron"],a:0},
+{q:"A consumer experiences a 20% increase in income, leading to a 30% increase in their demand for designer handbags. Based on this information, what can be concluded about designer handbags?",o:["They are inferior goods because demand increases with income.","They are necessity goods because income elasticity is equal to 1.","They are luxury goods because income elasticity is greater than 1.","They are Giffen goods because demand rises despite a price increase."],a:2},
+{q:"Community physicians take action based on",o:["Population attributable risk","Odd ratio","Relative risk","Attributable risk"],a:0},
+{q:"The systematic study of human disease and social condition/factor is known as:",o:["Social physiology","Social pathology","Socialized medicine","Social medicine"],a:1},
+{q:"What holds the primary structure of a protein together?",o:["hydrogen bonds","covalent bonds","peptide bonds","ionic bonds"],a:2},
+{q:"Best test to detect iron deficiency in community is:",o:["Trasferrin","Serum ferritin","Serum iron","Hemoglobin"],a:1},
+{q:"Which of the following management theorists is recognized for developing the administrative theory and defining key principles of management?",o:["Elton Mayo","Douglas McGregor","FW. Taylor","Henri Fayol"],a:3},
+{q:"The correct sequence is:",o:["Impairment-disease-disability-handicap","Disease-impairment-disability-handicap","Disease-impairment-handicap-disability","Disease-disability-impairment-handicap"],a:1},
+{q:"The most essential fatty acid is",o:["Linoleic acid","Arachidonic acid","Stearic acid","Riboflavin"],a:0}
+];
+
+quiz.forEach((item,i)=>{
+document.write(`<div class="card">
+<div class="question">${i+1}. ${item.q}</div>
+${item.o.map((op,j)=>`
+<div class="option">
+<input type="radio" name="q${i}" value="${j}"> ${op}
+</div>`).join("")}
+</div>`);
+});
+</script>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+</form>
+<div id="score"></div>
+</div>
+
+<script>
+function submitQuiz(){
+let score=0;
+quiz.forEach((item,i)=>{
+const options=document.getElementsByName("q"+i);
+options.forEach((opt,j)=>{
+const div=opt.parentElement;
+if(j===item.a){ div.classList.add("correct"); }
+if(opt.checked && j!==item.a){ div.classList.add("wrong"); }
+if(opt.checked && j===item.a){ score++; }
+});
+});
+document.getElementById("score").innerText="Your Score: "+score+" / 20";
+}
+</script>
+
+</body>
+</html>
