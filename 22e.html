@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #e3f2fd);
+    padding: 20px;
+}
+
+.quiz-container{
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.question{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 18px;
+}
+
+.options label{
+    display: block;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.correct{
+    background-color: #c8e6c9;
+    border-radius: 5px;
+}
+
+.wrong{
+    background-color: #ffcdd2;
+    border-radius: 5px;
+}
+
+button{
+    display: block;
+    margin: 30px auto;
+    padding: 12px 40px;
+    font-size: 16px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #0d47a1;
+}
+
+#score{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h1>Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question" data-answer="c">
+<p>1. A research paper is a brief report of research work based on:</p>
+<label><input type="radio" name="q1" value="a"> a. Primary data only</label>
+<label><input type="radio" name="q1" value="b"> b. Secondary data only</label>
+<label><input type="radio" name="q1" value="c"> c. Both Primary and secondary data</label>
+<label><input type="radio" name="q1" value="d"> d. None of the above</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>2. The standard error is a statistical measure of:</p>
+<label><input type="radio" name="q2" value="a"> a. The normal distribution of scores around the sample mean</label>
+<label><input type="radio" name="q2" value="b"> b. The extent to which a sample mean is likely to differ from the population mean</label>
+<label><input type="radio" name="q2" value="c"> c. The clustering of scores at each end of a survey scale</label>
+<label><input type="radio" name="q2" value="d"> d. The degree to which a sample has been accurately stratified</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>3. When we say that "the difference is significant", it means that:</p>
+<label><input type="radio" name="q3" value="a"> a. It is likely by chance and when p > 0.05</label>
+<label><input type="radio" name="q3" value="b"> b. It is unlikely by chance and when p > 0.05</label>
+<label><input type="radio" name="q3" value="c"> c. It is unlikely by chance and when p < 0.05</label>
+<label><input type="radio" name="q3" value="d"> d. It is likely by chance and when p < 0.05</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>4. Demographic process does not include:</p>
+<label><input type="radio" name="q4" value="a"> a. Fertility</label>
+<label><input type="radio" name="q4" value="c"> c. Mortality</label>
+<label><input type="radio" name="q4" value="b"> b. Morbidity</label>
+<label><input type="radio" name="q4" value="d"> d. Social mobility</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>5. Which of the following is used in the denominator of Maternal Mortality Ratio:</p>
+<label><input type="radio" name="q5" value="a"> a. Live births</label>
+<label><input type="radio" name="q5" value="b"> b. Mid-year population</label>
+<label><input type="radio" name="q5" value="c"> c. Reproductive women in the age group 15-49 mid-year population</label>
+<label><input type="radio" name="q5" value="d"> d. Married women in the age group 15-49</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>6. Which of the following is used for the effectiveness of birth control method:</p>
+<label><input type="radio" name="q6" value="a"> a. Pearl Index</label>
+<label><input type="radio" name="q6" value="c"> c. Chandler Inex</label>
+<label><input type="radio" name="q6" value="b"> b. Hookworm Index</label>
+<label><input type="radio" name="q6" value="d"> d. Broca Index</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>7. third generation IUCD acts as:</p>
+<label><input type="radio" name="q7" value="a"> a. Strong anti-fertility effect of metallic copper</label>
+<label><input type="radio" name="q7" value="b"> b. By altering the composition of cervical mucous</label>
+<label><input type="radio" name="q7" value="c"> c. Hormonal effect on mucosa of endometrium</label>
+<label><input type="radio" name="q7" value="d"> d. Enhanced cellular response on endometrium</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>8. Strategic planning originated from?</p>
+<label><input type="radio" name="q8" value="a"> a. Standford University</label>
+<label><input type="radio" name="q8" value="b"> b. Harvard University</label>
+<label><input type="radio" name="q8" value="c"> c. Wolverhampton University</label>
+<label><input type="radio" name="q8" value="d"> d. Coventry University</label>
+</div>
+
+<div class="question" data-answer="d">
+<p>9. Contingent plan to meet environmental pressure?</p>
+<label><input type="radio" name="q9" value="a"> a. Policies</label>
+<label><input type="radio" name="q9" value="c"> c. Goal</label>
+<label><input type="radio" name="q9" value="b"> b. Missions</label>
+<label><input type="radio" name="q9" value="d"> d. Strategies</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>10. The best parameter for assessment of chronic malnutrition is:</p>
+<label><input type="radio" name="q10" value="a"> a. Weight for height</label>
+<label><input type="radio" name="q10" value="c"> c. Height for age</label>
+<label><input type="radio" name="q10" value="b"> b. Weight for age</label>
+<label><input type="radio" name="q10" value="d"> d. Any of the above</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>11. Which cranial nerve is originated from posterior part of brain?</p>
+<label><input type="radio" name="q11" value="a"> a. Vestibulocochlear</label>
+<label><input type="radio" name="q11" value="c"> c. Trigeminal</label>
+<label><input type="radio" name="q11" value="b"> b. Trochlear</label>
+<label><input type="radio" name="q11" value="d"> d. Vagus</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>12. All are true about growth chart except:</p>
+<label><input type="radio" name="q12" value="a"> a. The position of dots is more important than direction</label>
+<label><input type="radio" name="q12" value="b"> b. It is a tool for educating mother</label>
+<label><input type="radio" name="q12" value="c"> c. Between top 2 lines, it shows 'road to health' or 'zone of normality'</label>
+<label><input type="radio" name="q12" value="d"> d. Lowermost line corresponds to children below 3 percentile</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>13. Child complains of fever is a kind of which sinusitis?</p>
+<label><input type="radio" name="q13" value="a"> a. Frontal Sinus</label>
+<label><input type="radio" name="q13" value="c"> c. Spheroidal sinus</label>
+<label><input type="radio" name="q13" value="b"> b. Maxillary Sinus</label>
+<label><input type="radio" name="q13" value="d"> d. Ethmoidal sinus</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>14. Primary health care now more than ever slogan comes from which World health report?</p>
+<label><input type="radio" name="q14" value="a"> a. 2002</label>
+<label><input type="radio" name="q14" value="c"> c. 2012</label>
+<label><input type="radio" name="q14" value="b"> b. 2008</label>
+<label><input type="radio" name="q14" value="d"> d. 2006</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>15. Facemask was advised in COVID- 19 pandemic to prevent entry of virus from:</p>
+<label><input type="radio" name="q15" value="a"> a. Host susceptibility</label>
+<label><input type="radio" name="q15" value="b"> b. Etiological agent prevention</label>
+<label><input type="radio" name="q15" value="c"> c. Portal entry</label>
+<label><input type="radio" name="q15" value="d"> d. Portal exit</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>16. A new discovered treatment module had to be used in 5000 people. If the size of population as decreased to 500, what may be the result?</p>
+<label><input type="radio" name="q16" value="a"> a. Type I error</label>
+<label><input type="radio" name="q16" value="c"> c. Sensitivity</label>
+<label><input type="radio" name="q16" value="b"> b. Type II error</label>
+<label><input type="radio" name="q16" value="d"> d. Specificity</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>17. Which test is applicable if sample size is less than 30 in 2 different groups?</p>
+<label><input type="radio" name="q17" value="a"> a. Unpaired t test</label>
+<label><input type="radio" name="q17" value="c"> c. Z test</label>
+<label><input type="radio" name="q17" value="b"> b. Paired t test</label>
+<label><input type="radio" name="q17" value="d"> d. Chi square test</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>18. A pregnant women of 7 month comes to health care for the first time, which vaccine is advised?</p>
+<label><input type="radio" name="q18" value="a"> A BCG</label>
+<label><input type="radio" name="q18" value="b"> b. Tetanus Toxoid</label>
+<label><input type="radio" name="q18" value="c"> c. Tetanus Immunoglobin</label>
+<label><input type="radio" name="q18" value="d"> d. Rota virus</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>19. A boy comes to health care without BCG scar on his shoulder, what is recommended?</p>
+<label><input type="radio" name="q19" value="a"> a. Administer BCG immediately</label>
+<label><input type="radio" name="q19" value="b"> b. Test Mantox if positive administer BCG</label>
+<label><input type="radio" name="q19" value="c"> c. Test Mantoux if negative administer BCG</label>
+<label><input type="radio" name="q19" value="d"> d. Administer Tetanus toxoid</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>20. A hair dresser complains of Flakes in his hand working inside but doesn't get outside work place. What is the most appropriate therapy?</p>
+<label><input type="radio" name="q20" value="a"> a. Administer Prednisolone</label>
+<label><input type="radio" name="q20" value="b"> b. Wet work is not preferable</label>
+<label><input type="radio" name="q20" value="c"> c. Use globes whole day</label>
+<label><input type="radio" name="q20" value="d"> d. Get a skin patch test</label>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+<div id="score"></div>
+
+</form>
+</div>
+
+<script>
+function submitQuiz(){
+    let score = 0;
+    const questions = document.querySelectorAll(".question");
+
+    questions.forEach(q=>{
+        const correct = q.dataset.answer;
+        const selected = q.querySelector("input[type=radio]:checked");
+
+        q.querySelectorAll("label").forEach(l=>{
+            l.classList.remove("correct","wrong");
+        });
+
+        if(selected){
+            if(selected.value === correct){
+                score++;
+                selected.parentElement.classList.add("correct");
+            }else{
+                selected.parentElement.classList.add("wrong");
+                q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+            }
+        }else{
+            q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+        }
+    });
+
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
+}
+</script>
+
+</body>
+</html>
