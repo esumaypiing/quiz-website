@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz – 20 Questions</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6fb;
+    margin:0;
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+h1{
+    text-align:center;
+}
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:8px;
+    background:#f9f9f9;
+}
+.options label{
+    display:block;
+    margin:6px 0;
+    cursor:pointer;
+}
+button{
+    display:block;
+    margin:20px auto;
+    padding:12px 25px;
+    font-size:16px;
+    background:#4a67f5;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+button:hover{
+    background:#3a54d6;
+}
+.correct{
+    background:#d4edda;
+    border-left:5px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border-left:5px solid #dc3545;
+}
+.score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+<h1>Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question" data-answer="b">
+<p>1. Probability of committing type 2 error?</p>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> α</label>
+<label><input type="radio" name="q1" value="b"> β</label>
+<label><input type="radio" name="q1" value="c"> (γ)</label>
+<label><input type="radio" name="q1" value="d"> (χ)</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>2. Which of the following is the formula for sample size calculation using mean and standard deviation?</p>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> n = z<sup>2</sup> σ<sup>2</sup>/d<sup>2</sup></label>
+<label><input type="radio" name="q2" value="b"> n = (Z₀ + d)<sup>2</sup>/d<sup>2</sup></label>
+<label><input type="radio" name="q2" value="c"> n = z − (1−p)p / d<sup>2</sup></label>
+<label><input type="radio" name="q2" value="d"> n = (2−0)/4</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>3. A research team is conducting a study to assess the effect of a smoking cessation program on lung cancer incidence...</p>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> Chi-square test for independence</label>
+<label><input type="radio" name="q3" value="b"> McNemar's test</label>
+<label><input type="radio" name="q3" value="c"> Fisher's exact test</label>
+<label><input type="radio" name="q3" value="d"> Logistic regression</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>4. Which is the most difficult criteria in hills criteria for causation?</p>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> Specificity</label>
+<label><input type="radio" name="q4" value="b"> Strength</label>
+<label><input type="radio" name="q4" value="c"> Dose-response</label>
+<label><input type="radio" name="q4" value="d"> Temporality</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>5. The lower-level supervisory employee requires which skill most?</p>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> Conceptual skill</label>
+<label><input type="radio" name="q5" value="b"> Human skill</label>
+<label><input type="radio" name="q5" value="c"> Technical skill</label>
+<label><input type="radio" name="q5" value="d"> None</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>6. Which micronutrient is associated with neural tube defect?</p>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> Vitamin A</label>
+<label><input type="radio" name="q6" value="b"> Vitamin K</label>
+<label><input type="radio" name="q6" value="c"> Folate</label>
+<label><input type="radio" name="q6" value="d"> Vitamin D</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>7. A public health research team aims to evaluate the effectiveness of a newly developed vaccine...</p>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> Case-control study</label>
+<label><input type="radio" name="q7" value="b"> Cross-sectional study</label>
+<label><input type="radio" name="q7" value="c"> Randomized controlled trial</label>
+<label><input type="radio" name="q7" value="d"> Ecological study</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>8. Which sampling technique is most appropriate?</p>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> Simple random sampling</label>
+<label><input type="radio" name="q8" value="b"> Systematic sampling</label>
+<label><input type="radio" name="q8" value="c"> Snowball sampling</label>
+<label><input type="radio" name="q8" value="d"> Stratified sampling</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>9. Which research method is being used?</p>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> Inductive reasoning</label>
+<label><input type="radio" name="q9" value="b"> Deductive reasoning</label>
+<label><input type="radio" name="q9" value="c"> Qualitative research</label>
+<label><input type="radio" name="q9" value="d"> Grounded theory</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>10. One DALY signifies:</p>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> One year of disease free life</label>
+<label><input type="radio" name="q10" value="b"> One lost year of healthy life</label>
+<label><input type="radio" name="q10" value="c"> One month of bedridden life</label>
+<label><input type="radio" name="q10" value="d"> One year of happy life lost</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>11. Best indicator of availability, utilization & effectiveness of health services:</p>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> IMR</label>
+<label><input type="radio" name="q11" value="b"> MMR</label>
+<label><input type="radio" name="q11" value="c"> Hospital bed occupancy rate</label>
+<label><input type="radio" name="q11" value="d"> DALY</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>12. Mean output of breast milk per day is maximum during the following months of lactation?</p>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> 0-2 months</label>
+<label><input type="radio" name="q12" value="b"> 3-4 months</label>
+<label><input type="radio" name="q12" value="c"> 5-6 months</label>
+<label><input type="radio" name="q12" value="d"> 7-8 month</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>13. The extra calorie needed during the lactation period of 6-12 months is:</p>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> 600</label>
+<label><input type="radio" name="q13" value="b"> 520</label>
+<label><input type="radio" name="q13" value="c"> 350</label>
+<label><input type="radio" name="q13" value="d"> 450</label>
+</div>
+</div>
+
+<div class="question" data-answer="c">
+<p>14. A hospital administrator is responsible for ensuring the availability of essential resources such as skilled personnel, medical equipment, and financial resources The administrator actively engages in hiring staff, procuring medical supplies, and securing funding to ensure smooth hospital operations. Which function of management does this process represent?</p>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> Cooperating</label>
+<label><input type="radio" name="q14" value="b"> Organizing</label>
+<label><input type="radio" name="q14" value="c"> Acquisition</label>
+<label><input type="radio" name="q14" value="d"> Controlling</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>15. Who Introduced the concept of the Policy Rainbow?</p>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> Dahlgren and Whitehead</label>
+<label><input type="radio" name="q15" value="b"> Henry Mintzberg</label>
+<label><input type="radio" name="q15" value="c"> Talcott Parsons</label>
+<label><input type="radio" name="q15" value="d"> Michael Porter</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>16. A business organization is preparing its financial plan for the upcoming fiscal year. The finance department consolidates various departmental budgets, including sales, production, and operating expenses, into a comprehensive financial plan that serves as the organization's primary budgeting document. What is this consolidated financial document called?</p>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> Cash Budget</label>
+<label><input type="radio" name="q16" value="b"> Master Budget</label>
+<label><input type="radio" name="q16" value="c"> Flexible Budget</label>
+<label><input type="radio" name="q16" value="d"> Capital Budget</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>17. Variance of the Poisson distribution is given by:</p>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> npq</label>
+<label><input type="radio" name="q17" value="b"> λ</label>
+<label><input type="radio" name="q17" value="c"> λ /2</label>
+<label><input type="radio" name="q17" value="d"> λ<sup>2</sup></label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>18. A research team is conducting a qualitative study where multiple observers are rating the same set of patient behaviors using a standardized checklist. To ensure consistency in ratings across different observers, the team decides to assess the level of agreement between them. Which statistical measure is most commonly used to evaluate inter-rater reliability?</p>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> Pearson Correlation Coefficient</label>
+<label><input type="radio" name="q18" value="b"> Cohen's Kappa</label>
+<label><input type="radio" name="q18" value="c"> Independent t-test</label>
+<label><input type="radio" name="q18" value="d"> One-Way ANOVA</label>
+</div>
+</div>
+
+<div class="question" data-answer="b">
+<p>19. A public health researcher explains that three key risk factors (tobacco use, poor diet, and lack of physical activity) contribute to four major chronic diseases (heart disease, cancer, diabetes, and respiratory illness), which together account for 50% of global deaths. What is this public health principle called?</p>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> Epidemiological Triad</label>
+<label><input type="radio" name="q19" value="b"> 3-4-50 Concept</label>
+<label><input type="radio" name="q19" value="c"> Web of Causation</label>
+<label><input type="radio" name="q19" value="d"> Social Determinants Model</label>
+</div>
+</div>
+
+<div class="question" data-answer="a">
+<p>20. A healthcare organization is launching a vaccination campaign. The team considers the cost of the vaccine, the location of distribution centers, how to advertise the campaign, and ways to make the vaccine accessible to the public. Which marketing concept does this strategy align with?</p>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> 4P's of Marketing</label>
+<label><input type="radio" name="q20" value="b"> SWOT Analysis</label>
+<label><input type="radio" name="q20" value="c"> Porter's Five Forces</label>
+<label><input type="radio" name="q20" value="d"> Branding Strategy</label>
+</div>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit Quiz</button>
+</form>
+
+<div id="score" class="score"></div>
+</div>
+
+<script>
+function submitQuiz(){
+    let score = 0;
+    const questions = document.querySelectorAll(".question");
+
+    questions.forEach(q=>{
+        const correct = q.dataset.answer;
+        const selected = q.querySelector("input:checked");
+
+        if(selected){
+            if(selected.value === correct){
+                score++;
+                q.classList.add("correct");
+            }else{
+                q.classList.add("wrong");
+                q.querySelector(`input[value="${correct}"]`).parentElement.style.fontWeight="bold";
+            }
+        }else{
+            q.classList.add("wrong");
+        }
+    });
+
+    document.getElementById("score").innerText =
+        `Your Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
