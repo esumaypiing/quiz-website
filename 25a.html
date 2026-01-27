@@ -2,57 +2,61 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Quiz – 20 Questions</title>
+<title>MCQ Quiz</title>
 <style>
 body{
     font-family: Arial, sans-serif;
-    background:#f4f6fb;
-    margin:0;
+    background: linear-gradient(135deg,#f3e5f5,#e1f5fe);
     padding:20px;
+}
+h1{
+    text-align:center;
+    margin-bottom:25px;
 }
 .quiz-container{
     max-width:900px;
     margin:auto;
-    background:#fff;
+}
+.card{
+    background:#ffffff;
     padding:20px;
-    border-radius:10px;
+    margin-bottom:15px;
+    border-radius:12px;
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
-h1{
-    text-align:center;
-}
 .question{
-    margin-bottom:20px;
-    padding:15px;
-    border-radius:8px;
-    background:#f9f9f9;
+    font-weight:bold;
+    margin-bottom:10px;
 }
-.options label{
-    display:block;
+.option{
+    padding:8px;
     margin:6px 0;
-    cursor:pointer;
-}
-button{
-    display:block;
-    margin:20px auto;
-    padding:12px 25px;
-    font-size:16px;
-    background:#4a67f5;
-    color:#fff;
-    border:none;
     border-radius:6px;
-    cursor:pointer;
 }
-button:hover{
-    background:#3a54d6;
+.option input{
+    margin-right:8px;
 }
 .correct{
-    background:#d4edda;
-    border-left:5px solid #28a745;
+    background:#c8e6c9;
+    border:1px solid #2e7d32;
 }
 .wrong{
-    background:#f8d7da;
-    border-left:5px solid #dc3545;
+    background:#ffcdd2;
+    border:1px solid #c62828;
+}
+.submit-btn{
+    display:block;
+    margin:30px auto;
+    padding:12px 35px;
+    font-size:16px;
+    background:#8e24aa;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.submit-btn:hover{
+    background:#6a1b9a;
 }
 .score{
     text-align:center;
@@ -62,245 +66,72 @@ button:hover{
 }
 </style>
 </head>
-
 <body>
+<h1>Multiple Choice Quiz</h1>
 <div class="quiz-container">
-<h1>Quiz</h1>
-
 <form id="quizForm">
+<script>
+const quizData = [
+{q:"Probability of committing type 2 error?", o:["α","β","γ","χ"], a:1},
+{q:"Which of the following is the formula for sample size calculation using mean and standard deviation?", o:["n=z<sup>2</sup> o<sup>2</sup>/d<sup>2</sup>","n=(Zo+d)<sup>2</sup>/d<sup>2</sup>","n=z-(1-p)p/d<sup>2</sup>","n-(2-0)/4"], a:0},
+{q:"A research team is conducting a study to assess the effect of a smoking cessation program on lung cancer incidence. The study follows a pre-post design, where the same group of individuals is observed before and alter the intervention. Smoking status (Yes/No) and lung cancer diagnosis (Yes/No) are recorded at both time points. Which statistical test is most appropriate to analyze the difference in smoking status and lung cancer Occurrence before and after the intervention?", o:["Chi-square test for independence","McNemar's test","Fisher's exact test","Logistic regression"], a:1},
+{q:"Which is the most difficult criteria in hills criteria for causation?", o:["Specificity","Strength","Dose-response","Temporality"], a:0},
+{q:"The lower-level supervisory employee requires which skill most?", o:["Conceptual skill","Human skill","Technical skill","None"], a:2},
+{q:"Which micronutrient is associated with neural tube defect?", o:["Vitamin A","Vitamin K","Folate","Vitamin D"], a:2},
+{q:"A public health research team aims to evaluate the effectiveness of a newly developed vaccine for preventing a viral disease. They divide participants into two groups: one receives the vaccine, while the other receives a placebo. The incidence of the disease is then compared between the two groups after a defined follow-up period. Which study design is most appropriate for assessing vaccine effectiveness?", o:["Case-control study","Cross-sectional study","Randomized controlled trial","Ecological study"], a:2},
+{q:"A researcher is conducting a study to understand HIV prevalence among people who inject drugs (PWID., a hidden and hard-to-reach population. Since random sampling is impractical, the researcher uses a technique where participants recruit others from their network to participate in the study. Which sampling technique is most appropriate for this study?", o:["Simple random sampling","Systematic sampling","Snowball sampling","Stratified sampling"], a:2},
+{q:"A researcher is conducting a theory-driven study, starting with a broad hypothesis on social determinants of health and then systematically testing it using quantitative data. This approach moves from general principles to specific findings. Which research method is being used?", o:["Inductive reasoning","Deductive reasoning","Qualitative research","Grounded theory"], a:1},
+{q:"One DALY signifies:", o:["One year of disease free life","One lost year of healthy life","One month of bedridden life","One year of happy life lost"], a:1},
+{q:"Best indicator of availability, utilization & effectiveness of health services:", o:["IMR","MMR","Hospital bed occupancy rate","DALY"], a:0},
+{q:"Mean output of breast milk per day is maximum during the following months of lactation?", o:["0-2 months","3-4 months","5-6 months","7-8 month"], a:2},
+{q:"The extra calorie needed during the lactation period of 6-12 months is:", o:["600","520","350","450"], a:1},
+{q:"A hospital administrator is responsible for ensuring the availability of essential resources such as skilled personnel, medical equipment, and financial resources The administrator actively engages in hiring staff, procuring medical supplies, and securing funding to ensure smooth hospital operations. Which function of management does this process represent?", o:["Cooperating","Organizing","Acquisition","Controlling"], a:2},
+{q:"Who Introduced the concept of the Policy Rainbow?", o:["Dahlgren and Whitehead","Henry Mintzberg","Talcott Parsons","Michael Porter"], a:0},
+{q:"A business organization is preparing its financial plan for the upcoming fiscal year. The finance department consolidates various departmental budgets, including sales, production, and operating expenses, into a comprehensive financial plan that serves as the organization's primary budgeting document. What is this consolidated financial document called?", o:["Cash Budget","Master Budget","Flexible Budget","Capital Budget"], a:1},
+{q:"Variance of the Poisson distribution is given by:", o:["npq","λ","λ /2","λ<sup>2</sup>"], a:1},
+{q:"A research team is conducting a qualitative study where multiple observers are rating the same set of patient behaviors using a standardized checklist. To ensure consistency in ratings across different observers, the team decides to assess the level of agreement between them. Which statistical measure is most commonly used to evaluate inter-rater reliability?", o:["Pearson Correlation Coefficient","Cohen's Kappa","Independent t-test","One-Way ANOVA"], a:1},
+{q:"A public health researcher explains that three key risk factors (tobacco use, poor diet, and lack of physical activity) contribute to four major chronic diseases (heart disease, cancer, diabetes, and respiratory illness), which together account for 50% of global deaths. What is this public health principle called?", o:["Epidemiological Triad","3-4-50 Concept","Web of Causation","Social Determinants Model"], a:1},
+{q:"A healthcare organization is launching a vaccination campaign. The team considers the cost of the vaccine, the location of distribution centers, how to advertise the campaign, and ways to make the vaccine accessible to the public. Which marketing concept does this strategy align with?", o:["4P's of Marketing","Porter's Five Forces Rationale & Explanation","SWOT Analysis","Branding Strategy"], a:0}
+];
 
-<div class="question" data-answer="b">
-<p>1. Probability of committing type 2 error?</p>
-<div class="options">
-<label><input type="radio" name="q1" value="a"> α</label>
-<label><input type="radio" name="q1" value="b"> β</label>
-<label><input type="radio" name="q1" value="c"> (γ)</label>
-<label><input type="radio" name="q1" value="d"> (χ)</label>
+quizData.forEach((item,index)=>{
+document.write(`
+<div class="card">
+<div class="question">${index+1}. ${item.q}</div>
+${item.o.map((opt,i)=>`
+<div class="option">
+<input type="radio" name="q${index}" value="${i}"> ${opt}
+</div>`).join("")}
 </div>
-</div>
+`);
+});
+</script>
 
-<div class="question" data-answer="a">
-<p>2. Which of the following is the formula for sample size calculation using mean and standard deviation?</p>
-<div class="options">
-<label><input type="radio" name="q2" value="a"> n = z<sup>2</sup> σ<sup>2</sup>/d<sup>2</sup></label>
-<label><input type="radio" name="q2" value="b"> n = (Z₀ + d)<sup>2</sup>/d<sup>2</sup></label>
-<label><input type="radio" name="q2" value="c"> n = z − (1−p)p / d<sup>2</sup></label>
-<label><input type="radio" name="q2" value="d"> n = (2−0)/4</label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>3. A research team is conducting a study to assess the effect of a smoking cessation program on lung cancer incidence...</p>
-<div class="options">
-<label><input type="radio" name="q3" value="a"> Chi-square test for independence</label>
-<label><input type="radio" name="q3" value="b"> McNemar's test</label>
-<label><input type="radio" name="q3" value="c"> Fisher's exact test</label>
-<label><input type="radio" name="q3" value="d"> Logistic regression</label>
-</div>
-</div>
-
-<div class="question" data-answer="a">
-<p>4. Which is the most difficult criteria in hills criteria for causation?</p>
-<div class="options">
-<label><input type="radio" name="q4" value="a"> Specificity</label>
-<label><input type="radio" name="q4" value="b"> Strength</label>
-<label><input type="radio" name="q4" value="c"> Dose-response</label>
-<label><input type="radio" name="q4" value="d"> Temporality</label>
-</div>
-</div>
-
-<div class="question" data-answer="c">
-<p>5. The lower-level supervisory employee requires which skill most?</p>
-<div class="options">
-<label><input type="radio" name="q5" value="a"> Conceptual skill</label>
-<label><input type="radio" name="q5" value="b"> Human skill</label>
-<label><input type="radio" name="q5" value="c"> Technical skill</label>
-<label><input type="radio" name="q5" value="d"> None</label>
-</div>
-</div>
-
-<div class="question" data-answer="c">
-<p>6. Which micronutrient is associated with neural tube defect?</p>
-<div class="options">
-<label><input type="radio" name="q6" value="a"> Vitamin A</label>
-<label><input type="radio" name="q6" value="b"> Vitamin K</label>
-<label><input type="radio" name="q6" value="c"> Folate</label>
-<label><input type="radio" name="q6" value="d"> Vitamin D</label>
-</div>
-</div>
-
-<div class="question" data-answer="c">
-<p>7. A public health research team aims to evaluate the effectiveness of a newly developed vaccine...</p>
-<div class="options">
-<label><input type="radio" name="q7" value="a"> Case-control study</label>
-<label><input type="radio" name="q7" value="b"> Cross-sectional study</label>
-<label><input type="radio" name="q7" value="c"> Randomized controlled trial</label>
-<label><input type="radio" name="q7" value="d"> Ecological study</label>
-</div>
-</div>
-
-<div class="question" data-answer="c">
-<p>8. Which sampling technique is most appropriate?</p>
-<div class="options">
-<label><input type="radio" name="q8" value="a"> Simple random sampling</label>
-<label><input type="radio" name="q8" value="b"> Systematic sampling</label>
-<label><input type="radio" name="q8" value="c"> Snowball sampling</label>
-<label><input type="radio" name="q8" value="d"> Stratified sampling</label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>9. Which research method is being used?</p>
-<div class="options">
-<label><input type="radio" name="q9" value="a"> Inductive reasoning</label>
-<label><input type="radio" name="q9" value="b"> Deductive reasoning</label>
-<label><input type="radio" name="q9" value="c"> Qualitative research</label>
-<label><input type="radio" name="q9" value="d"> Grounded theory</label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>10. One DALY signifies:</p>
-<div class="options">
-<label><input type="radio" name="q10" value="a"> One year of disease free life</label>
-<label><input type="radio" name="q10" value="b"> One lost year of healthy life</label>
-<label><input type="radio" name="q10" value="c"> One month of bedridden life</label>
-<label><input type="radio" name="q10" value="d"> One year of happy life lost</label>
-</div>
-</div>
-
-<div class="question" data-answer="a">
-<p>11. Best indicator of availability, utilization & effectiveness of health services:</p>
-<div class="options">
-<label><input type="radio" name="q11" value="a"> IMR</label>
-<label><input type="radio" name="q11" value="b"> MMR</label>
-<label><input type="radio" name="q11" value="c"> Hospital bed occupancy rate</label>
-<label><input type="radio" name="q11" value="d"> DALY</label>
-</div>
-</div>
-
-<div class="question" data-answer="c">
-<p>12. Mean output of breast milk per day is maximum during the following months of lactation?</p>
-<div class="options">
-<label><input type="radio" name="q12" value="a"> 0-2 months</label>
-<label><input type="radio" name="q12" value="b"> 3-4 months</label>
-<label><input type="radio" name="q12" value="c"> 5-6 months</label>
-<label><input type="radio" name="q12" value="d"> 7-8 month</label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>13. The extra calorie needed during the lactation period of 6-12 months is:</p>
-<div class="options">
-<label><input type="radio" name="q13" value="a"> 600</label>
-<label><input type="radio" name="q13" value="b"> 520</label>
-<label><input type="radio" name="q13" value="c"> 350</label>
-<label><input type="radio" name="q13" value="d"> 450</label>
-</div>
-</div>
-
-<div class="question" data-answer="c">
-<p>14. A hospital administrator is responsible for ensuring the availability of essential resources such as skilled personnel, medical equipment, and financial resources The administrator actively engages in hiring staff, procuring medical supplies, and securing funding to ensure smooth hospital operations. Which function of management does this process represent?</p>
-<div class="options">
-<label><input type="radio" name="q14" value="a"> Cooperating</label>
-<label><input type="radio" name="q14" value="b"> Organizing</label>
-<label><input type="radio" name="q14" value="c"> Acquisition</label>
-<label><input type="radio" name="q14" value="d"> Controlling</label>
-</div>
-</div>
-
-<div class="question" data-answer="a">
-<p>15. Who Introduced the concept of the Policy Rainbow?</p>
-<div class="options">
-<label><input type="radio" name="q15" value="a"> Dahlgren and Whitehead</label>
-<label><input type="radio" name="q15" value="b"> Henry Mintzberg</label>
-<label><input type="radio" name="q15" value="c"> Talcott Parsons</label>
-<label><input type="radio" name="q15" value="d"> Michael Porter</label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>16. A business organization is preparing its financial plan for the upcoming fiscal year. The finance department consolidates various departmental budgets, including sales, production, and operating expenses, into a comprehensive financial plan that serves as the organization's primary budgeting document. What is this consolidated financial document called?</p>
-<div class="options">
-<label><input type="radio" name="q16" value="a"> Cash Budget</label>
-<label><input type="radio" name="q16" value="b"> Master Budget</label>
-<label><input type="radio" name="q16" value="c"> Flexible Budget</label>
-<label><input type="radio" name="q16" value="d"> Capital Budget</label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>17. Variance of the Poisson distribution is given by:</p>
-<div class="options">
-<label><input type="radio" name="q17" value="a"> npq</label>
-<label><input type="radio" name="q17" value="b"> λ</label>
-<label><input type="radio" name="q17" value="c"> λ /2</label>
-<label><input type="radio" name="q17" value="d"> λ<sup>2</sup></label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>18. A research team is conducting a qualitative study where multiple observers are rating the same set of patient behaviors using a standardized checklist. To ensure consistency in ratings across different observers, the team decides to assess the level of agreement between them. Which statistical measure is most commonly used to evaluate inter-rater reliability?</p>
-<div class="options">
-<label><input type="radio" name="q18" value="a"> Pearson Correlation Coefficient</label>
-<label><input type="radio" name="q18" value="b"> Cohen's Kappa</label>
-<label><input type="radio" name="q18" value="c"> Independent t-test</label>
-<label><input type="radio" name="q18" value="d"> One-Way ANOVA</label>
-</div>
-</div>
-
-<div class="question" data-answer="b">
-<p>19. A public health researcher explains that three key risk factors (tobacco use, poor diet, and lack of physical activity) contribute to four major chronic diseases (heart disease, cancer, diabetes, and respiratory illness), which together account for 50% of global deaths. What is this public health principle called?</p>
-<div class="options">
-<label><input type="radio" name="q19" value="a"> Epidemiological Triad</label>
-<label><input type="radio" name="q19" value="b"> 3-4-50 Concept</label>
-<label><input type="radio" name="q19" value="c"> Web of Causation</label>
-<label><input type="radio" name="q19" value="d"> Social Determinants Model</label>
-</div>
-</div>
-
-<div class="question" data-answer="a">
-<p>20. A healthcare organization is launching a vaccination campaign. The team considers the cost of the vaccine, the location of distribution centers, how to advertise the campaign, and ways to make the vaccine accessible to the public. Which marketing concept does this strategy align with?</p>
-<div class="options">
-<label><input type="radio" name="q20" value="a"> 4P's of Marketing</label>
-<label><input type="radio" name="q20" value="b"> SWOT Analysis</label>
-<label><input type="radio" name="q20" value="c"> Porter's Five Forces</label>
-<label><input type="radio" name="q20" value="d"> Branding Strategy</label>
-</div>
-</div>
-
-<button type="button" onclick="submitQuiz()">Submit Quiz</button>
+<button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
 </form>
-
-<div id="score" class="score"></div>
+<div class="score" id="score"></div>
 </div>
 
 <script>
 function submitQuiz(){
-    let score = 0;
-    const questions = document.querySelectorAll(".question");
-
-    questions.forEach(q=>{
-        const correct = q.dataset.answer;
-        const selected = q.querySelector("input:checked");
-
-        if(selected){
-            if(selected.value === correct){
-                score++;
-                q.classList.add("correct");
-            }else{
-                q.classList.add("wrong");
-                q.querySelector(`input[value="${correct}"]`).parentElement.style.fontWeight="bold";
+    let score=0;
+    quizData.forEach((item,index)=>{
+        const options=document.getElementsByName("q"+index);
+        options.forEach((opt,i)=>{
+            const parent=opt.parentElement;
+            if(i===item.a){
+                parent.classList.add("correct");
             }
-        }else{
-            q.classList.add("wrong");
-        }
+            if(opt.checked && i!==item.a){
+                parent.classList.add("wrong");
+            }
+            if(opt.checked && i===item.a){
+                score++;
+            }
+        });
     });
-
-    document.getElementById("score").innerText =
-        `Your Score: ${score} / ${questions.length}`;
+    document.getElementById("score").innerText="Your Score: "+score+" / 20";
 }
 </script>
-
 </body>
 </html>
