@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e3f2fd, #fce4ec);
+    padding: 20px;
+}
+
+.quiz-box{
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.question{
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+.options label{
+    display: block;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.correct{
+    background-color: #c8e6c9;
+    border-radius: 5px;
+}
+
+.wrong{
+    background-color: #ffcdd2;
+    border-radius: 5px;
+}
+
+button{
+    display: block;
+    margin: 30px auto;
+    padding: 12px 35px;
+    font-size: 16px;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #0d47a1;
+}
+
+#score{
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+<h1>Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question" data-answer="a">
+<p>1. Gram's negative organism gives Stain due to presence of peptidoglycan in cell wall</p>
+<label><input type="radio" name="q1" value="a"> a. Red/pink</label>
+<label><input type="radio" name="q1" value="c"> c. Blue/Purple</label>
+<label><input type="radio" name="q1" value="b"> b. Black</label>
+<label><input type="radio" name="q1" value="d"> d. Yellow</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>2. For disease like hypertension showing iceberg phenomenon of disease following test is best for submerged portion:</p>
+<label><input type="radio" name="q2" value="a"> a. Screening test</label>
+<label><input type="radio" name="q2" value="c"> C ROC</label>
+<label><input type="radio" name="q2" value="b"> b. Diagnostic test</label>
+<label><input type="radio" name="q2" value="d"> d. None</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>3. Relative risk is:</p>
+<label><input type="radio" name="q3" value="a"> a Risk among exposed/ Risk among non-exposed</label>
+<label><input type="radio" name="q3" value="b"> b. Risk among exposed/Risk in total population</label>
+<label><input type="radio" name="q3" value="c"> c. Risk among exposed/ Risk among exposed Risk in unexposed</label>
+<label><input type="radio" name="q3" value="d"> d. All of the following</label>
+</div>
+
+<div class="question" data-answer="d">
+<p>4. Current smokers are at higher risk of developing lung cancer as compared to ex-smokers, critically of causality satisfied here is:</p>
+<label><input type="radio" name="q4" value="a"> a. Temporal relationship</label>
+<label><input type="radio" name="q4" value="b"> b. Consistency</label>
+<label><input type="radio" name="q4" value="c"> c. Strength of association</label>
+<label><input type="radio" name="q4" value="d"> d. Reversibility or reversible association</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>5. The ability of test to correctly diagnose the percentage of sick people who are having the condition is called as:</p>
+<label><input type="radio" name="q5" value="a"> a. Sensitivity</label>
+<label><input type="radio" name="q5" value="c"> c. Positive predictive value</label>
+<label><input type="radio" name="q5" value="d"> d. Negative predictive value</label>
+<label><input type="radio" name="q5" value="b"> b. Specificity</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>6. Missing cases are detected by:</p>
+<label><input type="radio" name="q6" value="a"> a. Active surveillance</label>
+<label><input type="radio" name="q6" value="b"> b. Passive surveillance</label>
+<label><input type="radio" name="q6" value="c"> c. Sentinel Surveillance</label>
+<label><input type="radio" name="q6" value="d"> d. Prevalence rate</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>7. The term disease control describes ongoing operations aimed at reducing the following except:</p>
+<label><input type="radio" name="q7" value="a"> a. Incidence of disease</label>
+<label><input type="radio" name="q7" value="b"> b. Financial burden to community</label>
+<label><input type="radio" name="q7" value="c"> c. Virulence of disease agent</label>
+<label><input type="radio" name="q7" value="d"> d. Disease duration</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>8. Dietary changes advocated by WHO for the prevention of heart diseases include all of the following except:</p>
+<label><input type="radio" name="q8" value="a"> a. Decrease in complex carbohydrate consumption</label>
+<label><input type="radio" name="q8" value="b"> b. Reduction in fat intake to 20-30% of calorie intake</label>
+<label><input type="radio" name="q8" value="c"> c. Consumption of saturated fat be limited to less than 7% of total energy intake</label>
+<label><input type="radio" name="q8" value="d"> d. Reduction of cholesterol to below 100 per 1000 kcal per day</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>9. During disaster management the following condition would be classified under international code green signal:</p>
+<label><input type="radio" name="q9" value="a"> a. High priority treatment</label>
+<label><input type="radio" name="q9" value="b"> b. Medium priority treatment</label>
+<label><input type="radio" name="q9" value="c"> c. Ambulatory patient</label>
+<label><input type="radio" name="q9" value="d"> d. Dead patients</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>10. If a researcher is studying the effects of using projector in his classroom to ascertain their merit and worth, he is likely conducting which type of research?</p>
+<label><input type="radio" name="q10" value="a"> a. Basic</label>
+<label><input type="radio" name="q10" value="c"> c. Evaluation</label>
+<label><input type="radio" name="q10" value="b"> b. Exploratory</label>
+<label><input type="radio" name="q10" value="d"> d. Experimental</label>
+</div>
+
+<div class="question" data-answer="d">
+<p>11. Randomization procedures ensures:</p>
+<label><input type="radio" name="q11" value="a"> a. Allocation of sample to experimental groups</label>
+<label><input type="radio" name="q11" value="b"> b. Internal validity</label>
+<label><input type="radio" name="q11" value="c"> c. Elimination of self-selection</label>
+<label><input type="radio" name="q11" value="d"> d. All of the above</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>12. Which of the following is not advised when planning the question order of a structured interview?</p>
+<label><input type="radio" name="q12" value="a"> a. Be wary of asking an earlier question that alters the salience of later questions</label>
+<label><input type="radio" name="q12" value="b"> b. Expect some variations in the order in which questions are asked</label>
+<label><input type="radio" name="q12" value="c"> c. Leave questions about sensitive or embarrassing issues until later in the interview</label>
+<label><input type="radio" name="q12" value="d"> d. Group the questions into logically organized sections</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>13. Which of the following is not an advantage of using closed questions in a survey?</p>
+<label><input type="radio" name="q13" value="a"> a. It reduces the risk of variability in the way answers are recorded</label>
+<label><input type="radio" name="q13" value="b"> b. It makes answer easier to process and analyze</label>
+<label><input type="radio" name="q13" value="c"> c. They prevent respondents from giving spontaneous, unexpected answers</label>
+<label><input type="radio" name="q13" value="d"> d. Closed questions are quicker and easier for respondents to complete</label>
+</div>
+
+<div class="question" data-answer="d">
+<p>14. Hypothesis refers to:</p>
+<label><input type="radio" name="q14" value="a"> 2. The outcome of an experiment</label>
+<label><input type="radio" name="q14" value="b"> b. A conclusion from an experiment</label>
+<label><input type="radio" name="q14" value="c"> c. A form of bias in which subjects tries to outguess the experimenter</label>
+<label><input type="radio" name="q14" value="d"> d. A tentative statement about a relationship</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>15. One of the preoccupations of quantitative researchers is with generalization, which is a sign of:</p>
+<label><input type="radio" name="q15" value="a"> a. External validity</label>
+<label><input type="radio" name="q15" value="c"> c. External reliability</label>
+<label><input type="radio" name="q15" value="b"> b. Internal reliability</label>
+<label><input type="radio" name="q15" value="d"> d. Internal validity</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>16. When there is a need to apply different data collection methods to different parts of populations, the best sampling method would be:</p>
+<label><input type="radio" name="q16" value="a"> a. Stratified clustered sampling</label>
+<label><input type="radio" name="q16" value="b"> b. Double sampling</label>
+<label><input type="radio" name="q16" value="c"> c. Cluster sampling</label>
+<label><input type="radio" name="q16" value="d"> d. Snowball sampling</label>
+</div>
+
+<div class="question" data-answer="c">
+<p>17. Tabulation is an operation carried in the analysis of data step of the research process, it involves:</p>
+<label><input type="radio" name="q17" value="a"> a. Arranging data in groups on the basis of common characteristics</label>
+<label><input type="radio" name="q17" value="b"> b. Examining the collected raw data to detect errors and correct them</label>
+<label><input type="radio" name="q17" value="c"> c. Summarizing raw data and displaying them in compact form for further analysis</label>
+<label><input type="radio" name="q17" value="d"> d. All of the above</label>
+</div>
+
+<div class="question" data-answer="a">
+<p>18. The purpose of research proposal is:</p>
+<label><input type="radio" name="q18" value="a"> a. To generate monetary sources for the organization.</label>
+<label><input type="radio" name="q18" value="b"> b. To present management questions to be researchable and its importance</label>
+<label><input type="radio" name="q18" value="c"> c. To discuss the research efforts of other who have worked on related management questions</label>
+<label><input type="radio" name="q18" value="d"> d. None of the above</label>
+</div>
+
+<div class="question" data-answer="b">
+<p>19. A model in theoretical framework:</p>
+<label><input type="radio" name="q19" value="a"> a. Elaborates the relationship among the variables</label>
+<label><input type="radio" name="q19" value="b"> b. Explains the logic underlying relationship</label>
+<label><input type="radio" name="q19" value="c"> c. Describes the nature and direction of the relationship</label>
+<label><input type="radio" name="q19" value="d"> d. All of the above</label>
+</div>
+
+<div class="question" data-answer="d">
+<p>20. In analyzing data steps of the research process, operations are involved in the following sequence:</p>
+<label><input type="radio" name="q20" value="a"> a. Tabulation, classification and editing</label>
+<label><input type="radio" name="q20" value="b"> b. Analysis, Classification and tabulation</label>
+<label><input type="radio" name="q20" value="c"> c. Tabulation, editing and classification</label>
+<label><input type="radio" name="q20" value="d"> d. None of the above</label>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+<div id="score"></div>
+
+</form>
+</div>
+
+<script>
+function submitQuiz(){
+    let score = 0;
+    const questions = document.querySelectorAll(".question");
+
+    questions.forEach(q=>{
+        const correct = q.dataset.answer;
+        const selected = q.querySelector("input[type=radio]:checked");
+
+        q.querySelectorAll("label").forEach(l=>{
+            l.classList.remove("correct","wrong");
+        });
+
+        if(selected){
+            if(selected.value === correct){
+                score++;
+                selected.parentElement.classList.add("correct");
+            }else{
+                selected.parentElement.classList.add("wrong");
+                q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+            }
+        }else{
+            q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+        }
+    });
+
+    document.getElementById("score").innerText = "Your Score: " + score + " / 20";
+}
+</script>
+
+</body>
+</html>
