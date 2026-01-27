@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#e1f5fe,#fce4ec);
+    padding:20px;
+}
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#006064;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.option{
+    padding:8px;
+    margin:6px 0;
+    border-radius:6px;
+    cursor:pointer;
+}
+.option input{
+    margin-right:8px;
+}
+.correct{
+    background:#c8e6c9;
+    border:1px solid #2e7d32;
+}
+.wrong{
+    background:#ffcdd2;
+    border:1px solid #c62828;
+}
+.submit-btn{
+    display:block;
+    margin:30px auto;
+    padding:12px 35px;
+    font-size:16px;
+    background:#d81b60;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.submit-btn:hover{
+    background:#ad1457;
+}
+.score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+<body>
+<h1>Multiple Choice Quiz</h1>
+<div class="quiz-container">
+<form id="quizForm">
+<script>
+const quizData = [
+{q:"A 45-year-old male underwent a minor surgical procedure and developed a severe infection at the surgical site due to non-sterile instruments. What type of infection is this?", o:["Nosocomial","Opportunistic","Iatrogenic","Infectious"], a:2},
+{q:"The government is planning to introduce a policy to allocate resources for maternal health services in rural areas. What aspect of health governance does this represent?", o:["Allocation of resources for stakeholders interested in intervention","Allocation of resources for basic health services","Policy decision-making in health care","Health system reforms"], a:2},
+{q:"During an 1854 cholera outbreak, a physician mapped cases in London and linked them to a contaminated water pump. Who conducted this study?", o:["Louis Pasteur","John Snow","Edward Jenner","Robert Koch"], a:1},
+{q:"A government official in the 19th century advocated for urban sanitation, leading to laws on clean water, sewage, and housing conditions. Who was this reformer?", o:["William Farr","William Chadwick","Edwin Chadwick","John Snow"], a:2},
+{q:"A health assistant is recording data on children receiving Vitamin A supplements. Under which HMIS register should this data be recorded?", o:["2.3","4.1","3.1","5.1"], a:0},
+{q:"A researcher observes a cell undergoing a controlled process of self-destruction without inflammation. What Is this process called?", o:["Apoptosis","Necrosis","Autophagy","Atrophy"], a:0},
+{q:"Which of the following is not included in the standard Indicators for safe motherhood?", o:["% of ANC checkups","% of mothers taking mebendazole","% of institutional deliveries","Maternal mortality rate"], a:1},
+{q:"Ratio of incidence among exposed to incidence among non-exposed is", o:["Attributable risk","Relative risk","Odds ratio","Risk difference"], a:1},
+{q:"Increased body temperature during ovulation is due to an increase in", o:["Estrogen","Progesterone","Luteinizing hormone","Follicle stimulating hormone (FSH)"], a:1},
+{q:"A researcher is conducting a clinical trial on a new drug. During the study, a participant reports severe side effects, but the researcher continues the trial without intervention. Which ethical principle has the researcher violated?", o:["Non-maleficence","Beneficence","Autonomy","Justice"], a:0},
+{q:"A large hospital is facing financial constraints and needs to decide on budget cuts while maintaining quality healthcare services. Who should be primarily responsible for making this decision?", o:["High-level managers","Low-level managers","Middle-level managers","Supervisors"], a:0},
+{q:"A country is working to achieve Universal Health Coverage (UHC) by 2030. Which of the following initiatives would not directly contribute to this goal?", o:["Expanding genetic services to all","Ensuring financial risk protection","Access to quality essential healthcare services","Access to safe, effective, quality, and affordable essential medicines"], a:0},
+{q:"A health program aimed at reducing child malnutrition has been running for two years. The government wants to determine if the program has successfully improved nutritional outcomes. What process should they use?", o:["Evaluation","Supervision","Monitoring","Quality control"], a:0},
+{q:"Using Gambusia fish to control mosquitoes is an example of:", o:["Biological control","Environmental control","Chemical control","Mechanical control"], a:0},
+{q:"Which of the following diseases is NOT transmitted through vectors?", o:["Malaria","Dengue","Tuberculosis","Japanese encephalitis"], a:2},
+{q:"Which is the leading cause of maternal mortality globally?", o:["Hemorrhage","Eclampsia","Sepsis","Obstructed labor"], a:0},
+{q:"Which of the following is an example of secondary prevention?", o:["Immunization","Blood pressure screening","Health education","Rehabilitation"], a:1},
+{q:"The term \"cold chain\" refers to:", o:["Storage and transportation of vaccines","Cooling system in hospitals","Chain of communication in an emergency","Cold weather preparedness"], a:0},
+{q:"The main steps in the PROCEED/PRECEED model are:", o:["Planning, Implementation, Evaluation","Assessment, Planning, Implementation, Evaluation","Implementation, Monitoring, Feedback","Diagnosis, Planning Evaluation"], a:1},
+{q:"Submerged portion of an iceberg does not denote......", o:["Subclinical cases","Carriers","Clinical cases","In apparent cases"], a:2}
+];
+
+quizData.forEach((item,index)=>{
+document.write(`
+<div class="card">
+<div class="question">${index+1}. ${item.q}</div>
+${item.o.map((opt,i)=>`
+<div class="option">
+<input type="radio" name="q${index}" value="${i}"> ${opt}
+</div>`).join("")}
+</div>
+`);
+});
+</script>
+
+<button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
+</form>
+<div class="score" id="score"></div>
+</div>
+
+<script>
+function submitQuiz(){
+    let score=0;
+    quizData.forEach((item,index)=>{
+        const options=document.getElementsByName("q"+index);
+        options.forEach((opt,i)=>{
+            const parent=opt.parentElement;
+            if(i===item.a){
+                parent.classList.add("correct");
+            }
+            if(opt.checked && i!==item.a){
+                parent.classList.add("wrong");
+            }
+            if(opt.checked && i===item.a){
+                score++;
+            }
+        });
+    });
+    document.getElementById("score").innerText="Your Score: "+score+" / 20";
+}
+</script>
+</body>
+</html>
