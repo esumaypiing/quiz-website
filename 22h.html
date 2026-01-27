@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Set</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg,#e3f2fd,#ffffff);
+    padding:20px;
+}
+
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    color:#0d47a1;
+}
+
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #e0e0e0;
+}
+
+.question p{
+    font-weight:600;
+}
+
+.options label{
+    display:block;
+    padding:8px 12px;
+    margin:6px 0;
+    border-radius:6px;
+    cursor:pointer;
+    border:1px solid transparent;
+}
+
+.options input{
+    margin-right:8px;
+}
+
+.correct{
+    background:#c8e6c9;
+    border:1px solid #2e7d32;
+    color:#1b5e20;
+}
+
+.wrong{
+    background:#ffcdd2;
+    border:1px solid #c62828;
+    color:#b71c1c;
+}
+
+button{
+    display:block;
+    margin:25px auto;
+    padding:12px 30px;
+    font-size:16px;
+    background:#1976d2;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+#score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<h1>MCQ Quiz</h1>
+
+<form id="quizForm">
+
+<!-- QUESTIONS START -->
+
+<script>
+const questions = [
+{ q:`Shakir's tape is a useful method employed in the field to measure:`,
+o:["Head circumference","Mid arm circumference","Height/ Length","Chest circumference"], a:1 },
+
+{ q:`Vitamin that is related to coagulation is:`,
+o:["Vitamin C","Vitamin K","Vitamin E","Vitamin A"], a:1 },
+
+{ q:`Vitamin A deficiency is considered a public health problem if prevalence rate of night blindness in children between 6 months to 6 years is more than:`,
+o:["0.01 %","0.05%","0.1%","1.0%"], a:3 },
+
+{ q:`The systematic study of human disease and social condition/ factor is known as:`,
+o:["Social physiology","Social pathology","Socialized medicine","Social medicine"], a:1 },
+
+{ q:`Tendency of some members of a group to identify and interact with selected members only, leads to the formation of subgroup, this is called as:`,
+o:["Cohesion","Sociometry","Group structure","Group dynamics"], a:1 },
+
+{ q:`Which of the following is an example of primary social relationship?`,
+o:["Husband and wife","Author and publisher","Both","None"], a:0 },
+
+{ q:`Acculturation is:`,
+o:["Cultural contact","Study of various culture","Cultural history of health and disease","Exchange of ideas"], a:0 },
+
+{ q:`A primitive man, feeling thinking deals with:`,
+o:["Social psychology","Sociometry","Socipathy","Sociotherapy"], a:0 },
+
+{ q:`Increased drug compliance can be seen with:`,
+o:["Frequent dosing","Longer duration of treatment","Multiple drugs","Involving family members in observation"], a:3 },
+
+{ q:`Average mental IQ according to Wechsler's scale:`,
+o:["70-79","80-89","90-109","110-119"], a:2 },
+
+{ q:`All the following statements are true about break point chlorination, except:`,
+o:["Free chlorine is released in water after break point chlorination","Chlorine demand is the amount needed to kill bacteria, oxidize organic matter and neutralize ammonia","1 PPM free chlorine should be present in water after break point has reached","Contact period of 1 hour is necessary"], a:2 },
+
+{ q:`Temporary hardness of water is primarily due to the presence of:`,
+o:["Calcium and magnesium sulphates","Calcium and magnesium chlorides","Calcium and magnesium bicarbonates","Calcium and magnesium nitrates"], a:2 },
+
+{ q:`Most rellable evidence of fecal contamination of water:`,
+o:["Coliform bacteria","Cl. perfringens","St. fecalis","Cl. Welchil"], a:0 },
+
+{ q:`MPN Multiple Tube method is done to:`,
+o:["Detect the presence of coliform organism in a sample of water","Detect the presence of fecal streptococci in a sample of water","Detect the presence of Cl. Perfringens in a sample of water","Do the colony count of bacteria"], a:0 },
+
+{ q:`In winter, water vapor and pollutants comes to lie in the lowermost layer of atmosphere by:`,
+o:["Acid rain","Greenhouse gas","Temperature inversion","Ocean effect"], a:2 },
+
+{ q:`10-days rule is related to`,
+o:["Sewage disposal","Air quality","Radiation protection in pregnancy","Water quality"], a:2 },
+
+{ q:`Strength of sewage is expressed in terms of all except:`,
+o:["E. coli count","Suspended particles","Chemical oxygen demand","Biological oxygen demand"], a:0 },
+
+{ q:`Example of cyclopropagative transmission is:`,
+o:["Plague bacilli in rat flea","Malaria parasite in mosquito","Microfilaria in mosquito","Guineaworm embryo in Cyclops"], a:1 },
+
+{ q:`Lead poisoning in industries commonly occurs by:`,
+o:["Inhalation","Ingestion","Skin absorption","Conjunctival route"], a:0 },
+
+{ q:`A 40 year old man working in a coal mine since 15 years developed cough, dyspnea on exertion and chest pain. His X-ray shows "snow-storm" appearance in lungs fields. The most likely diagnosis is:`,
+o:["Anthracosis","Silicosis","Asbestosis","Siderosis"], a:1 }
+];
+
+document.write(
+questions.map((q,i)=>`
+<div class="question" data-answer="${q.a}">
+<p>${i+1}. ${q.q}</p>
+<div class="options">
+${q.o.map((opt,j)=>`
+<label>
+<input type="radio" name="q${i}" value="${j}"> ${String.fromCharCode(97+j)}. ${opt}
+</label>`).join("")}
+</div>
+</div>
+`).join("")
+);
+</script>
+
+<button type="button" onclick="checkAnswers()">Submit</button>
+<div id="score"></div>
+
+</form>
+</div>
+
+<script>
+function checkAnswers(){
+    let score = 0;
+    const questions = document.querySelectorAll(".question");
+
+    questions.forEach((q,i)=>{
+        const correct = q.dataset.answer;
+        const options = q.querySelectorAll("label");
+        const selected = q.querySelector("input:checked");
+
+        options.forEach((opt,idx)=>{
+            opt.classList.remove("correct","wrong");
+            if(idx == correct){
+                opt.classList.add("correct");
+            }
+        });
+
+        if(selected){
+            if(selected.value == correct){
+                score++;
+            }else{
+                selected.parentElement.classList.add("wrong");
+            }
+        }
+    });
+
+    document.getElementById("score").innerText =
+        `Your Score: ${score} / 20`;
+}
+</script>
+
+</body>
+</html>
