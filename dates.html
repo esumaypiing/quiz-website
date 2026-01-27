@@ -8,13 +8,13 @@
 <style>
 body{
     font-family: Arial, sans-serif;
-    background:#f2f5fa;
+    background:#eef2f7;
     padding:20px;
 }
 .quiz-container{
     max-width:900px;
     margin:auto;
-    background:#ffffff;
+    background:#fff;
     padding:25px;
     border-radius:12px;
     box-shadow:0 8px 20px rgba(0,0,0,0.1);
@@ -24,23 +24,20 @@ h1{
     margin-bottom:30px;
 }
 .question{
-    border:1px solid #ddd;
-    padding:15px;
-    border-radius:8px;
     margin-bottom:20px;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
 }
 .question p{
     font-weight:bold;
 }
-.options label{
+label{
     display:block;
-    padding:8px 10px;
+    padding:8px;
     margin:6px 0;
     border-radius:6px;
     cursor:pointer;
-}
-.options input{
-    margin-right:8px;
 }
 .correct{
     background:#d4edda;
@@ -64,10 +61,10 @@ button:hover{
     background:#0056b3;
 }
 #score{
-    margin-top:25px;
+    margin-top:20px;
+    text-align:center;
     font-size:20px;
     font-weight:bold;
-    text-align:center;
 }
 @media(max-width:600px){
     body{padding:10px;}
@@ -82,301 +79,222 @@ button:hover{
 
 <form id="quizForm">
 
-<!-- Q1 -->
+<!-- QUESTIONS START -->
+
 <div class="question" data-correct="c">
 <p>1. World Diabetes Day is observed on which of the following dates?</p>
-<div class="options">
-<label><input type="radio" name="q1" value="a"> A. 12th October</label>
-<label><input type="radio" name="q1" value="b"> B. 20th November</label>
+<label><input type="radio" name="q1" value="a"> A. 24th March</label>
+<label><input type="radio" name="q1" value="b"> B. 31st May</label>
 <label><input type="radio" name="q1" value="c"> C. 14th November</label>
-<label><input type="radio" name="q1" value="d"> D. 5th September</label>
-</div>
+<label><input type="radio" name="q1" value="d"> D. 7th April</label>
 </div>
 
-<!-- Q2 -->
 <div class="question" data-correct="b">
 <p>2. World Leprosy Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q2" value="a"> A. First Sunday of February</label>
+<label><input type="radio" name="q2" value="a"> A. First Tuesday of May</label>
 <label><input type="radio" name="q2" value="b"> B. Last Sunday of January</label>
-<label><input type="radio" name="q2" value="c"> C. Second Sunday of March</label>
-<label><input type="radio" name="q2" value="d"> D. Last Sunday of December</label>
-</div>
+<label><input type="radio" name="q2" value="c"> C. 8th March</label>
+<label><input type="radio" name="q2" value="d"> D. 24th October</label>
 </div>
 
-<!-- Q3 -->
 <div class="question" data-correct="b">
 <p>3. World Pneumonia Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q3" value="a"> A. 11th October</label>
+<label><input type="radio" name="q3" value="a"> A. 10th October</label>
 <label><input type="radio" name="q3" value="b"> B. 12th November</label>
-<label><input type="radio" name="q3" value="c"> C. 15th December</label>
-<label><input type="radio" name="q3" value="d"> D. 20th September</label>
-</div>
+<label><input type="radio" name="q3" value="c"> C. 4th February</label>
+<label><input type="radio" name="q3" value="d"> D. 5th June</label>
 </div>
 
-<!-- Q4 -->
 <div class="question" data-correct="b">
 <p>4. Iodine Deficiency Disorders control activities are emphasized during:</p>
-<div class="options">
-<label><input type="radio" name="q4" value="a"> A. June</label>
+<label><input type="radio" name="q4" value="a"> A. April</label>
 <label><input type="radio" name="q4" value="b"> B. February</label>
-<label><input type="radio" name="q4" value="c"> C. September</label>
-<label><input type="radio" name="q4" value="d"> D. April</label>
-</div>
+<label><input type="radio" name="q4" value="c"> C. August</label>
+<label><input type="radio" name="q4" value="d"> D. May</label>
 </div>
 
-<!-- Q5 -->
 <div class="question" data-correct="b">
 <p>5. World Mental Health Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q5" value="a"> A. 8th September</label>
+<label><input type="radio" name="q5" value="a"> A. 5th June</label>
 <label><input type="radio" name="q5" value="b"> B. 10th October</label>
-<label><input type="radio" name="q5" value="c"> C. 15th November</label>
-<label><input type="radio" name="q5" value="d"> D. 5th August</label>
-</div>
+<label><input type="radio" name="q5" value="c"> C. 14th November</label>
+<label><input type="radio" name="q5" value="d"> D. 24th March</label>
 </div>
 
-<!-- Q6 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="c">
 <p>6. International Red Cross Day is observed on:</p>
-<div class="options">
 <label><input type="radio" name="q6" value="a"> A. 7th April</label>
-<label><input type="radio" name="q6" value="b"> B. 10th June</label>
-<label><input type="radio" name="q6" value="c"> C. 5th March</label>
-<label><input type="radio" name="q6" value="d"> D. 8th May</label>
-</div>
+<label><input type="radio" name="q6" value="b"> B. 31st May</label>
+<label><input type="radio" name="q6" value="c"> C. 8th May</label>
+<label><input type="radio" name="q6" value="d"> D. 25th April</label>
 </div>
 
-<!-- Q7 -->
-<div class="question" data-correct="c">
+<div class="question" data-correct="b">
 <p>7. Safe Motherhood Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q7" value="a"> A. 24th April</label>
-<label><input type="radio" name="q7" value="b"> B. 1st May</label>
-<label><input type="radio" name="q7" value="c"> C. 8th March</label>
-<label><input type="radio" name="q7" value="d"> D. 7th June</label>
-</div>
+<label><input type="radio" name="q7" value="a"> A. 28th May</label>
+<label><input type="radio" name="q7" value="b"> B. 8th March</label>
+<label><input type="radio" name="q7" value="c"> C. 14th August</label>
+<label><input type="radio" name="q7" value="d"> D. 4th February</label>
 </div>
 
-<!-- Q8 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="b">
 <p>8. World Rabies Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q8" value="a"> A. 27th August</label>
-<label><input type="radio" name="q8" value="b"> B. 30th October</label>
-<label><input type="radio" name="q8" value="c"> C. 25th July</label>
-<label><input type="radio" name="q8" value="d"> D. 28th September</label>
-</div>
+<label><input type="radio" name="q8" value="a"> A. 24th October</label>
+<label><input type="radio" name="q8" value="b"> B. 28th September</label>
+<label><input type="radio" name="q8" value="c"> C. 10th November</label>
+<label><input type="radio" name="q8" value="d"> D. 3rd December</label>
 </div>
 
-<!-- Q9 -->
-<div class="question" data-correct="c">
+<div class="question" data-correct="b">
 <p>9. World Health Day is celebrated annually on:</p>
-<div class="options">
-<label><input type="radio" name="q9" value="a"> A. 5th March</label>
-<label><input type="radio" name="q9" value="b"> B. 1st May</label>
-<label><input type="radio" name="q9" value="c"> C. 7th April</label>
-<label><input type="radio" name="q9" value="d"> D. 10th February</label>
-</div>
+<label><input type="radio" name="q9" value="a"> A. 31st May</label>
+<label><input type="radio" name="q9" value="b"> B. 7th April</label>
+<label><input type="radio" name="q9" value="c"> C. 5th June</label>
+<label><input type="radio" name="q9" value="d"> D. 10th October</label>
 </div>
 
-<!-- Q10 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="b">
 <p>10. World No Tobacco Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q10" value="a"> A. 1st March</label>
-<label><input type="radio" name="q10" value="b"> B. 5th June</label>
-<label><input type="radio" name="q10" value="c"> C. 30th April</label>
-<label><input type="radio" name="q10" value="d"> D. 31st May</label>
-</div>
+<label><input type="radio" name="q10" value="a"> A. 25th April</label>
+<label><input type="radio" name="q10" value="b"> B. 31st May</label>
+<label><input type="radio" name="q10" value="c"> C. 24th March</label>
+<label><input type="radio" name="q10" value="d"> D. 20th November</label>
 </div>
 
-<!-- Q11 -->
-<div class="question" data-correct="c">
+<div class="question" data-correct="b">
 <p>11. World AIDS Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q11" value="a"> A. 30th November</label>
-<label><input type="radio" name="q11" value="b"> B. 2nd December</label>
-<label><input type="radio" name="q11" value="c"> C. 1st December</label>
-<label><input type="radio" name="q11" value="d"> D. 15th October</label>
-</div>
+<label><input type="radio" name="q11" value="a"> A. 14th November</label>
+<label><input type="radio" name="q11" value="b"> B. 1st December</label>
+<label><input type="radio" name="q11" value="c"> C. 3rd December</label>
+<label><input type="radio" name="q11" value="d"> D. 24th October</label>
 </div>
 
-<!-- Q12 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="c">
 <p>12. World Tuberculosis Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q12" value="a"> A. 22nd February</label>
-<label><input type="radio" name="q12" value="b"> B. 25th April</label>
-<label><input type="radio" name="q12" value="c"> C. 31st January</label>
-<label><input type="radio" name="q12" value="d"> D. 24th March</label>
-</div>
+<label><input type="radio" name="q12" value="a"> A. 7th April</label>
+<label><input type="radio" name="q12" value="b"> B. 28th May</label>
+<label><input type="radio" name="q12" value="c"> C. 24th March</label>
+<label><input type="radio" name="q12" value="d"> D. 4th February</label>
 </div>
 
-<!-- Q13 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="b">
 <p>13. Menstrual Hygiene Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q13" value="a"> A. 27th April</label>
-<label><input type="radio" name="q13" value="b"> B. 30th June</label>
-<label><input type="radio" name="q13" value="c"> C. 26th March</label>
-<label><input type="radio" name="q13" value="d"> D. 28th May</label>
-</div>
+<label><input type="radio" name="q13" value="a"> A. 8th March</label>
+<label><input type="radio" name="q13" value="b"> B. 28th May</label>
+<label><input type="radio" name="q13" value="c"> C. 31st May</label>
+<label><input type="radio" name="q13" value="d"> D. 5th June</label>
 </div>
 
-<!-- Q14 -->
 <div class="question" data-correct="c">
 <p>14. International Women’s Day is celebrated on:</p>
-<div class="options">
-<label><input type="radio" name="q14" value="a"> A. 10th April</label>
-<label><input type="radio" name="q14" value="b"> B. 15th January</label>
+<label><input type="radio" name="q14" value="a"> A. 14th August</label>
+<label><input type="radio" name="q14" value="b"> B. 24th October</label>
 <label><input type="radio" name="q14" value="c"> C. 8th March</label>
-<label><input type="radio" name="q14" value="d"> D. 5th February</label>
-</div>
+<label><input type="radio" name="q14" value="d"> D. 10th October</label>
 </div>
 
-<!-- Q15 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="a">
 <p>15. World Immunization Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q15" value="a"> A. 12th December</label>
-<label><input type="radio" name="q15" value="b"> B. 8th October</label>
-<label><input type="radio" name="q15" value="c"> C. 5th September</label>
-<label><input type="radio" name="q15" value="d"> D. 10th November</label>
-</div>
+<label><input type="radio" name="q15" value="a"> A. 10th November</label>
+<label><input type="radio" name="q15" value="b"> B. 5th June</label>
+<label><input type="radio" name="q15" value="c"> C. 25th April</label>
+<label><input type="radio" name="q15" value="d"> D. 24th March</label>
 </div>
 
-<!-- Q16 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="a">
 <p>16. Public Health Day (Nepal) is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q16" value="a"> A. 10th July</label>
-<label><input type="radio" name="q16" value="b"> B. 5th September</label>
-<label><input type="radio" name="q16" value="c"> C. 1st June</label>
-<label><input type="radio" name="q16" value="d"> D. 14th August</label>
-</div>
+<label><input type="radio" name="q16" value="a"> A. 14th August</label>
+<label><input type="radio" name="q16" value="b"> B. 7th April</label>
+<label><input type="radio" name="q16" value="c"> C. 28th September</label>
+<label><input type="radio" name="q16" value="d"> D. 1st December</label>
 </div>
 
-<!-- Q17 -->
-<div class="question" data-correct="c">
+<div class="question" data-correct="b">
 <p>17. World Cancer Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q17" value="a"> A. 10th January</label>
-<label><input type="radio" name="q17" value="b"> B. 15th April</label>
-<label><input type="radio" name="q17" value="c"> C. 4th February</label>
-<label><input type="radio" name="q17" value="d"> D. 7th March</label>
-</div>
+<label><input type="radio" name="q17" value="a"> A. 24th October</label>
+<label><input type="radio" name="q17" value="b"> B. 4th February</label>
+<label><input type="radio" name="q17" value="c"> C. 25th April</label>
+<label><input type="radio" name="q17" value="d"> D. 8th May</label>
 </div>
 
-<!-- Q18 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="b">
 <p>18. World Polio Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q18" value="a"> A. 25th November</label>
-<label><input type="radio" name="q18" value="b"> B. 22nd September</label>
-<label><input type="radio" name="q18" value="c"> C. 20th August</label>
-<label><input type="radio" name="q18" value="d"> D. 24th October</label>
-</div>
+<label><input type="radio" name="q18" value="a"> A. 3rd December</label>
+<label><input type="radio" name="q18" value="b"> B. 24th October</label>
+<label><input type="radio" name="q18" value="c"> C. 10th November</label>
+<label><input type="radio" name="q18" value="d"> D. 31st May</label>
 </div>
 
-<!-- Q19 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="a">
 <p>19. World Malaria Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q19" value="a"> A. 26th May</label>
-<label><input type="radio" name="q19" value="b"> B. 24th March</label>
-<label><input type="radio" name="q19" value="c"> C. 30th June</label>
-<label><input type="radio" name="q19" value="d"> D. 25th April</label>
-</div>
+<label><input type="radio" name="q19" value="a"> A. 25th April</label>
+<label><input type="radio" name="q19" value="b"> B. 5th June</label>
+<label><input type="radio" name="q19" value="c"> C. 7th April</label>
+<label><input type="radio" name="q19" value="d"> D. 28th May</label>
 </div>
 
-<!-- Q20 -->
 <div class="question" data-correct="b">
 <p>20. International Breastfeeding Week is observed during:</p>
-<div class="options">
-<label><input type="radio" name="q20" value="a"> A. Second week of July</label>
+<label><input type="radio" name="q20" value="a"> A. Last week of April</label>
 <label><input type="radio" name="q20" value="b"> B. First week of August</label>
-<label><input type="radio" name="q20" value="c"> C. Third week of September</label>
-<label><input type="radio" name="q20" value="d"> D. Last week of June</label>
-</div>
+<label><input type="radio" name="q20" value="c"> C. Second week of May</label>
+<label><input type="radio" name="q20" value="d"> D. Third week of February</label>
 </div>
 
-<!-- Q21 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="a">
 <p>21. World Asthma Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q21" value="a"> A. Second Monday of April</label>
-<label><input type="radio" name="q21" value="b"> B. Fixed date in March</label>
-<label><input type="radio" name="q21" value="c"> C. Third Tuesday of June</label>
-<label><input type="radio" name="q21" value="d"> D. First Tuesday of May</label>
-</div>
+<label><input type="radio" name="q21" value="a"> A. First Tuesday of May</label>
+<label><input type="radio" name="q21" value="b"> B. Second Monday of April</label>
+<label><input type="radio" name="q21" value="c"> C. Fixed date in March</label>
+<label><input type="radio" name="q21" value="d"> D. Third Tuesday of June</label>
 </div>
 
-<!-- Q22 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="c">
 <p>22. World Hypertension Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q22" value="a"> A. 20th June</label>
-<label><input type="radio" name="q22" value="b"> B. 14th April</label>
-<label><input type="radio" name="q22" value="c"> C. 10th March</label>
-<label><input type="radio" name="q22" value="d"> D. 17th May</label>
-</div>
+<label><input type="radio" name="q22" value="a"> A. 31st May</label>
+<label><input type="radio" name="q22" value="b"> B. 17th April</label>
+<label><input type="radio" name="q22" value="c"> C. 17th May</label>
+<label><input type="radio" name="q22" value="d"> D. 5th June</label>
 </div>
 
-<!-- Q23 -->
 <div class="question" data-correct="c">
 <p>23. World Disability Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q23" value="a"> A. 1st November</label>
+<label><input type="radio" name="q23" value="a"> A. 1st December</label>
 <label><input type="radio" name="q23" value="b"> B. 10th October</label>
 <label><input type="radio" name="q23" value="c"> C. 3rd December</label>
-<label><input type="radio" name="q23" value="d"> D. 5th September</label>
-</div>
+<label><input type="radio" name="q23" value="d"> D. 14th November</label>
 </div>
 
-<!-- Q24 -->
-<div class="question" data-correct="c">
+<div class="question" data-correct="a">
 <p>24. World Environment Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q24" value="a"> A. 10th July</label>
-<label><input type="radio" name="q24" value="b"> B. 1st April</label>
-<label><input type="radio" name="q24" value="c"> C. 5th June</label>
-<label><input type="radio" name="q24" value="d"> D. 4th May</label>
-</div>
+<label><input type="radio" name="q24" value="a"> A. 5th June</label>
+<label><input type="radio" name="q24" value="b"> B. 31st May</label>
+<label><input type="radio" name="q24" value="c"> C. 25th April</label>
+<label><input type="radio" name="q24" value="d"> D. 6th june</label>
 </div>
 
-<!-- Q25 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="b">
 <p>25. Universal Children’s Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q25" value="a"> A. 14th October</label>
-<label><input type="radio" name="q25" value="b"> B. 1st December</label>
-<label><input type="radio" name="q25" value="c"> C. 10th September</label>
-<label><input type="radio" name="q25" value="d"> D. 20th November</label>
-</div>
+<label><input type="radio" name="q25" value="a"> A. 14th November</label>
+<label><input type="radio" name="q25" value="b"> B. 20th November</label>
+<label><input type="radio" name="q25" value="c"> C. 1st December</label>
+<label><input type="radio" name="q25" value="d"> D. 3rd December</label>
 </div>
 
-<!-- Q26 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="a">
 <p>26. World Immunization Week is observed during:</p>
-<div class="options">
-<label><input type="radio" name="q26" value="a"> A. First week of March</label>
-<label><input type="radio" name="q26" value="b"> B. Second week of May</label>
-<label><input type="radio" name="q26" value="c"> C. Third week of February</label>
-<label><input type="radio" name="q26" value="d"> D. Last week of April</label>
-</div>
+<label><input type="radio" name="q26" value="a"> A. Last week of April</label>
+<label><input type="radio" name="q26" value="b"> B. First week of August</label>
+<label><input type="radio" name="q26" value="c"> C. Second week of May</label>
+<label><input type="radio" name="q26" value="d"> D. Third week of February</label>
 </div>
 
-<!-- Q27 -->
-<div class="question" data-correct="d">
+<div class="question" data-correct="a">
 <p>27. World Mental Health Day is observed on:</p>
-<div class="options">
-<label><input type="radio" name="q27" value="a"> A. 5th August</label>
-<label><input type="radio" name="q27" value="b"> B. 15th November</label>
-<label><input type="radio" name="q27" value="c"> C. 8th September</label>
-<label><input type="radio" name="q27" value="d"> D. 10th October</label>
-</div>
+<label><input type="radio" name="q27" value="a"> A. 10th October</label>
+<label><input type="radio" name="q27" value="b"> B. 14th November</label>
+<label><input type="radio" name="q27" value="c"> C. 7th April</label>
+<label><input type="radio" name="q27" value="d"> D. 31st october</label>
 </div>
 
 <button type="submit">Submit Quiz</button>
