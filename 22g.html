@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MCQ Quiz (1–20)</title>
+<title>Quiz</title>
 
 <style>
     body {
@@ -16,50 +16,38 @@
         margin: auto;
         background: #ffffff;
         padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
     h1 {
         text-align: center;
-        margin-bottom: 25px;
-        color: #2c3e50;
+        margin-bottom: 30px;
     }
 
     .question {
         margin-bottom: 20px;
         padding: 15px;
         border-radius: 8px;
-        background: #f9fbfd;
-    }
-
-    .question p {
-        font-weight: bold;
-        margin-bottom: 10px;
+        border: 1px solid #ddd;
     }
 
     .options label {
         display: block;
-        padding: 8px;
-        border-radius: 6px;
+        padding: 6px;
         cursor: pointer;
-        margin-bottom: 5px;
-    }
-
-    .options input {
-        margin-right: 8px;
     }
 
     .correct {
-        background-color: #d4edda;
-        border: 1px solid #28a745;
-        color: #155724;
+        background-color: #c8f7c5;
+        border-radius: 5px;
+        padding: 5px;
     }
 
     .wrong {
-        background-color: #f8d7da;
-        border: 1px solid #dc3545;
-        color: #721c24;
+        background-color: #f7c5c5;
+        border-radius: 5px;
+        padding: 5px;
     }
 
     button {
@@ -68,22 +56,21 @@
         padding: 12px 30px;
         font-size: 16px;
         border: none;
-        border-radius: 8px;
-        background: #007bff;
+        background: #4CAF50;
         color: white;
+        border-radius: 8px;
         cursor: pointer;
     }
 
     button:hover {
-        background: #0056b3;
+        background: #45a049;
     }
 
-    .score {
+    #score {
         text-align: center;
         font-size: 20px;
         font-weight: bold;
         margin-top: 20px;
-        color: #2c3e50;
     }
 </style>
 </head>
@@ -91,23 +78,23 @@
 <body>
 
 <div class="quiz-container">
-<h1>MCQ Quiz (1–20)</h1>
+<h1>Quiz</h1>
 
 <form id="quizForm">
 
 <!-- 1 -->
-<div class="question">
+<div class="question" data-answer="b">
 <p>1. In an out break out of 100000 population 60000 cases have occurred and 30000 have died. case fatality rate is:</p>
 <div class="options">
 <label><input type="radio" name="q1" value="a"> a. 33%</label>
-<label><input type="radio" name="q1" value="b"> b. 50%</label>
 <label><input type="radio" name="q1" value="c"> C. 40%</label>
+<label><input type="radio" name="q1" value="b"> b. 50%</label>
 <label><input type="radio" name="q1" value="d"> d. 60%</label>
 </div>
 </div>
 
 <!-- 2 -->
-<div class="question">
+<div class="question" data-answer="a">
 <p>2. Best indicator to predict virulence of short term, acute diseases is:</p>
 <div class="options">
 <label><input type="radio" name="q2" value="a"> a. Case fatality rate</label>
@@ -118,18 +105,18 @@
 </div>
 
 <!-- 3 -->
-<div class="question">
+<div class="question" data-answer="a">
 <p>3. Which bacteria cause UTI?</p>
 <div class="options">
 <label><input type="radio" name="q3" value="a"> a. E-Coli</label>
-<label><input type="radio" name="q3" value="b"> b. Salmonella</label>
 <label><input type="radio" name="q3" value="c"> c. Bacillus</label>
+<label><input type="radio" name="q3" value="b"> b. Salmonella</label>
 <label><input type="radio" name="q3" value="d"> d. Cyanobacteria</label>
 </div>
 </div>
 
 <!-- 4 -->
-<div class="question">
+<div class="question" data-answer="a">
 <p>4. Ebola is transmitted by:</p>
 <div class="options">
 <label><input type="radio" name="q4" value="a"> a. Direct contact with blood or other body fluids</label>
@@ -140,7 +127,7 @@
 </div>
 
 <!-- 5 -->
-<div class="question">
+<div class="question" data-answer="c">
 <p>5. Ottawa charter of health promotion incorporates all of the following key action areas except:</p>
 <div class="options">
 <label><input type="radio" name="q5" value="a"> a. Build healthy public policy</label>
@@ -151,7 +138,7 @@
 </div>
 
 <!-- 6 -->
-<div class="question">
+<div class="question" data-answer="b">
 <p>6. Gross income generated within the country which include domestic and other domestic revenue is called:</p>
 <div class="options">
 <label><input type="radio" name="q6" value="a"> a. Gross national product</label>
@@ -162,7 +149,7 @@
 </div>
 
 <!-- 7 -->
-<div class="question">
+<div class="question" data-answer="a">
 <p>7. August Comte father of sociology defines sociology as:</p>
 <div class="options">
 <label><input type="radio" name="q7" value="a"> a. Science of social phenomenon</label>
@@ -173,18 +160,18 @@
 </div>
 
 <!-- 8 -->
-<div class="question">
+<div class="question" data-answer="a">
 <p>8. Which of the following is not transmitted by mosquito:</p>
 <div class="options">
 <label><input type="radio" name="q8" value="a"> a. Leishmania</label>
-<label><input type="radio" name="q8" value="b"> b. Yellow fever</label>
 <label><input type="radio" name="q8" value="c"> c. Dengue</label>
+<label><input type="radio" name="q8" value="b"> b. Yellow fever</label>
 <label><input type="radio" name="q8" value="d"> d. West Nile fever</label>
 </div>
 </div>
 
 <!-- 9 -->
-<div class="question">
+<div class="question" data-answer="a">
 <p>9. The milestone of development not matched correctly with age:</p>
 <div class="options">
 <label><input type="radio" name="q9" value="a"> a. Holds head erect: 6months</label>
@@ -195,52 +182,159 @@
 </div>
 
 <!-- 10 -->
-<div class="question">
+<div class="question" data-answer="b">
 <p>10. Puise protein is deficient in which of the following essential amino acid?</p>
 <div class="options">
 <label><input type="radio" name="q10" value="a"> a Lysine</label>
-<label><input type="radio" name="q10" value="b"> b. Methionine</label>
 <label><input type="radio" name="q10" value="c"> c. Threonine</label>
+<label><input type="radio" name="q10" value="b"> b. Methionine</label>
 <label><input type="radio" name="q10" value="d"> d. Tryptophan</label>
 </div>
 </div>
 
-<!-- Remaining questions 11–20 continue exactly the same structure -->
+<!-- 11 -->
+<div class="question" data-answer="b">
+<p>11. Which method of assessment of quality of protein gives more complete assessment of protein quality?</p>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> a. Biological value</label>
+<label><input type="radio" name="q11" value="b"> b. Net protein utilization</label>
+<label><input type="radio" name="q11" value="c"> c. Digestibility coefficient</label>
+<label><input type="radio" name="q11" value="d"> d. Amino acid score</label>
+</div>
+</div>
 
-<button type="button" onclick="checkAnswers()">Submit</button>
+<!-- 12 -->
+<div class="question" data-answer="a">
+<p>12. Minimum amount of sunlight exposure necessary for adequate synthesis of vitamin-D in the human body is?</p>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> a. 5 min</label>
+<label><input type="radio" name="q12" value="c"> c. 2 hours</label>
+<label><input type="radio" name="q12" value="b"> b. 30 min</label>
+<label><input type="radio" name="q12" value="d"> d. 5 hours</label>
+</div>
+</div>
 
-<div class="score" id="score"></div>
+<!-- 13 -->
+<div class="question" data-answer="c">
+<p>13. Decreased level of serum vitamin B6 is seen in:</p>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> a. CRF</label>
+<label><input type="radio" name="q13" value="c"> C. INH therapy</label>
+<label><input type="radio" name="q13" value="b"> b. CHF</label>
+<label><input type="radio" name="q13" value="d"> d. Alcohol</label>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="question" data-answer="d">
+<p>14. Adultpregnant female requires, calcium per day:</p>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> a. 400mg</label>
+<label><input type="radio" name="q14" value="c"> c. 800 mg</label>
+<label><input type="radio" name="q14" value="b"> b. 600 mg</label>
+<label><input type="radio" name="q14" value="d"> d. 1000 mg</label>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="question" data-answer="d">
+<p>15. Which of the following is not used in testing for adequate pasteurization of milk?</p>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> a. Phosphatase test</label>
+<label><input type="radio" name="q15" value="c"> c. Standard plate count</label>
+<label><input type="radio" name="q15" value="b"> b. Coliform count</label>
+<label><input type="radio" name="q15" value="d"> d. Methylene blue reduction test.</label>
+</div>
+</div>
+
+<!-- 16 -->
+<div class="question" data-answer="c">
+<p>16. Which of the following bacteria can survive in Holder method of pasteurization?</p>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> a. Salmonella typhi</label>
+<label><input type="radio" name="q16" value="c"> c. Coxiellaburnetii</label>
+<label><input type="radio" name="q16" value="b"> b. Mycobacterium bovis</label>
+<label><input type="radio" name="q16" value="d"> d. Brucellamelitenis</label>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="question" data-answer="c">
+<p>17. Milk is deficient in the following:</p>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> a. Tryptophan containing amino acid</label>
+<label><input type="radio" name="q17" value="b"> b. Linoleic acid</label>
+<label><input type="radio" name="q17" value="c"> c. Ascorbic acid</label>
+<label><input type="radio" name="q17" value="d"> d. Calceferol</label>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="question" data-answer="d">
+<p>18. Fermentation of pulses increases following except:</p>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> a. Thiamin</label>
+<label><input type="radio" name="q18" value="b"> b. Riboflavin</label>
+<label><input type="radio" name="q18" value="c"> c. Niacin</label>
+<label><input type="radio" name="q18" value="d"> d. Ascorbic acid</label>
+</div>
+</div>
+
+<!-- 19 -->
+<div class="question" data-answer="a">
+<p>19. A 42 year old women from a dry state who ingested rye for long time presented with complaints of weakness in both the lower limbs, nausea and fatigue. Over due course of time she is completely unable to walk. What is the likely cause?</p>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> a. Lathyrussativus</label>
+<label><input type="radio" name="q19" value="c"> c. Argemone Mexicana</label>
+<label><input type="radio" name="q19" value="b"> b. Amanita</label>
+<label><input type="radio" name="q19" value="d"> d. Ergot alkaloids</label>
+</div>
+</div>
+
+<!-- 20 -->
+<div class="question" data-answer="b">
+<p>20. Which of the following statement about recommended dietary allowance is false?</p>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> a. RDA is decided by the panel of experts and is based on scientific research</label>
+<label><input type="radio" name="q20" value="b"> b. RDA caters to dietary requirements of all people</label>
+<label><input type="radio" name="q20" value="c"> c. RDA is often higher than the recommended minimum requirement</label>
+<label><input type="radio" name="q20" value="d"> d. RDA is based on estimated average requirement</label>
+</div>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+
+<div id="score"></div>
 
 </form>
 </div>
 
 <script>
-function checkAnswers() {
-    const answers = {
-        q1: "b", q2: "a", q3: "a", q4: "a", q5: "c",
-        q6: "b", q7: "a", q8: "a", q9: "a", q10: "b"
-    };
-
+function submitQuiz() {
     let score = 0;
+    const questions = document.querySelectorAll('.question');
 
-    for (let q in answers) {
-        const options = document.getElementsByName(q);
-        options.forEach(option => {
-            const label = option.parentElement;
-            if (option.value === answers[q]) {
-                label.classList.add("correct");
-            }
-            if (option.checked && option.value !== answers[q]) {
-                label.classList.add("wrong");
-            }
-            if (option.checked && option.value === answers[q]) {
+    questions.forEach((q, index) => {
+        const correct = q.getAttribute('data-answer');
+        const selected = q.querySelector('input[type="radio"]:checked');
+
+        const options = q.querySelectorAll('label');
+        options.forEach(opt => opt.classList.remove('correct', 'wrong'));
+
+        if (selected) {
+            if (selected.value === correct) {
                 score++;
+                selected.parentElement.classList.add('correct');
+            } else {
+                selected.parentElement.classList.add('wrong');
+                q.querySelector(`input[value="${correct}"]`).parentElement.classList.add('correct');
             }
-        });
-    }
+        } else {
+            q.querySelector(`input[value="${correct}"]`).parentElement.classList.add('correct');
+        }
+    });
 
-    document.getElementById("score").innerText =
-        "Your Score: " + score + " / 20";
+    document.getElementById('score').innerText = "Your Score: " + score + " / 20";
 }
 </script>
 
