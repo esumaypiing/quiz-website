@@ -2,270 +2,180 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Public Health Quiz</title>
+<title>MCQ Quiz</title>
 
 <style>
-body {
+body{
     font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    padding: 15px;
+    background: linear-gradient(135deg,#e8f5e9,#e3f2fd);
+    padding:20px;
 }
-
-.container {
-    max-width: 900px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
+h1{
+    text-align:center;
+    margin-bottom:25px;
 }
-
-h1 {
-    text-align: center;
+.quiz-container{
+    max-width:900px;
+    margin:auto;
 }
-
-.question {
-    margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
-
-.options label {
-    display: block;
-    margin: 6px 0;
-    cursor: pointer;
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
 }
-
-.correct {
-    background-color: #d4edda;
-    border-color: #28a745;
+.option{
+    padding:8px;
+    margin:6px 0;
+    border-radius:6px;
 }
-
-.wrong {
-    background-color: #f8d7da;
-    border-color: #dc3545;
+.option input{
+    margin-right:8px;
 }
-
-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+.correct{
+    background:#c8e6c9;
+    border:1px solid #2e7d32;
 }
-
-button:hover {
-    background: #0056b3;
+.wrong{
+    background:#ffcdd2;
+    border:1px solid #c62828;
 }
-
-#score {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
+.submit-btn{
+    display:block;
+    margin:30px auto;
+    padding:12px 35px;
+    font-size:16px;
+    background:#1976d2;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.submit-btn:hover{
+    background:#0d47a1;
+}
+.score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-<h1>Quiz</h1>
 
+<h1>Multiple Choice Quiz</h1>
+
+<div class="quiz-container">
 <form id="quizForm">
 
-<div class="question" data-answer="b">
-<p>1. A researcher is studying the relationship between air pollution and respiratory illnesses. The study considers multiple environmental, genetic, and behavioral factors that contribute to disease development rather than a single cause. Which epidemiological model does this study follow?</p>
-<label><input type="radio" name="q1" value="a"> Germ Theory</label>
-<label><input type="radio" name="q1" value="b"> Causal Model of Disease</label>
-<label><input type="radio" name="q1" value="c"> Risk Factor Model</label>
-<label><input type="radio" name="q1" value="d"> Immunological Theory.</label>
-</div>
+<script>
+const quizData = [
+{q:"A researcher is studying the relationship between air pollution and respiratory illnesses. The study considers multiple environmental, genetic, and behavioral factors that contribute to disease development rather than a single cause. Which epidemiological model does this study follow?",
+o:["Germ Theory","Causal Model of Disease","Risk Factor Model","Immunological Theory."],a:1},
 
-<div class="question" data-answer="a">
-<p>2. A researcher is developing a survey questionnaire to assess patient satisfaction in hospitals. To ensure that the questionnaire items are internally consistent and reliable, she calculates a statistical measure to test how well the items measure the same concept. Which reliability measure is most appropriate for this purpose?</p>
-<label><input type="radio" name="q2" value="a"> Cronbach's Alpha</label>
-<label><input type="radio" name="q2" value="b"> Spearman's Rank Correlation</label>
-<label><input type="radio" name="q2" value="c"> Chi-Square Test</label>
-<label><input type="radio" name="q2" value="d"> Kaplan-Meier Estimate</label>
-</div>
+{q:"A researcher is developing a survey questionnaire to assess patient satisfaction in hospitals. To ensure that the questionnaire items are internally consistent and reliable, she calculates a statistical measure to test how well the items measure the same concept. Which reliability measure is most appropriate for this purpose?",
+o:["Cronbach's Alpha","Spearman's Rank Correlation","Chi-Square Test","Kaplan-Meier Estimate"],a:0},
 
-<div class="question" data-answer="c">
-<p>3. Which chapter deals with Provisions Relating to Occupation Safety and Health as per the Labour act of Nepal 2074?</p>
-<label><input type="radio" name="q3" value="a"> Chapter 5</label>
-<label><input type="radio" name="q3" value="b"> Chapter 8</label>
-<label><input type="radio" name="q3" value="c"> Chapter 12</label>
-<label><input type="radio" name="q3" value="d"> Chapter 16</label>
-</div>
+{q:"Which chapter deals with Provisions Relating to Occupation Safety and Health as per the Labour act of Nepal 2074?",
+o:["Chapter 5","Chapter 8","Chapter 12","Chapter 16"],a:2},
 
-<div class="question" data-answer="d">
-<p>4. The first Indicator of PEM is</p>
-<label><input type="radio" name="q4" value="a"> Stunting</label>
-<label><input type="radio" name="q4" value="b"> Marasmus</label>
-<label><input type="radio" name="q4" value="c"> Underweight for height</label>
-<label><input type="radio" name="q4" value="d"> Underweight for age</label>
-</div>
+{q:"The first Indicator of PEM is",
+o:["Stunting","Marasmus","Underweight for height","Underweight for age"],a:3},
 
-<div class="question" data-answer="b">
-<p>5. Which of the following is an example of personal prevention through immunization?</p>
-<label><input type="radio" name="q5" value="a"> Wearing a seatbelt</label>
-<label><input type="radio" name="q5" value="b"> Receiving the influenza vaccine</label>
-<label><input type="radio" name="q5" value="c"> Washing hands regularly</label>
-<label><input type="radio" name="q5" value="d"> Maintaining a balanced diet</label>
-</div>
+{q:"Which of the following is an example of personal prevention through immunization?",
+o:["Wearing a seatbelt","Receiving the influenza vaccine","Washing hands regularly","Maintaining a balanced diet"],a:1},
 
-<div class="question" data-answer="b">
-<p>6. Under which Sustainable Development Goal (SDG) is "Good Health and Well-being" categorized?</p>
-<label><input type="radio" name="q6" value="a"> SDG 1</label>
-<label><input type="radio" name="q6" value="b"> SDG 3</label>
-<label><input type="radio" name="q6" value="c"> SDG 5</label>
-<label><input type="radio" name="q6" value="d"> SDG 7</label>
-</div>
+{q:"Under which Sustainable Development Goal (SDG) is \"Good Health and Well-being\" categorized?",
+o:["SDG 1","SDG 3","SDG 5","SDG 7"],a:1},
 
-<div class="question" data-answer="b">
-<p>7. Which conference is associated with providing guidance on public health?</p>
-<label><input type="radio" name="q7" value="a"> COP21</label>
-<label><input type="radio" name="q7" value="b"> Alma-Ata Conference</label>
-<label><input type="radio" name="q7" value="c"> Kyoto Protocol</label>
-<label><input type="radio" name="q7" value="d"> Montreal Protocol</label>
-</div>
+{q:"Which conference is associated with providing guidance on public health?",
+o:["COP21","Alma-Ata Conference","Kyoto Protocol","Montreal Protocol"],a:1},
 
-<div class="question" data-answer="a">
-<p>8. Which international agreement focuses on responding to climate change?</p>
-<label><input type="radio" name="q8" value="a"> Paris Agreement</label>
-<label><input type="radio" name="q8" value="b"> Geneva Convention</label>
-<label><input type="radio" name="q8" value="c"> Basel Convention</label>
-<label><input type="radio" name="q8" value="d"> Vienna Convention</label>
-</div>
+{q:"Which international agreement focuses on responding to climate change?",
+o:["Paris Agreement","Geneva Convention","Basel Convention","Vienna Convention"],a:0},
 
-<div class="question" data-answer="c">
-<p>9. MMR as per NDHS-2022:</p>
-<label><input type="radio" name="q9" value="a"> 161</label>
-<label><input type="radio" name="q9" value="b"> 141</label>
-<label><input type="radio" name="q9" value="c"> 151</label>
-<label><input type="radio" name="q9" value="d"> 171</label>
-</div>
+{q:"MMR as per NDHS-2022:",
+o:["161","141","151","171"],a:2},
 
-<div class="question" data-answer="c">
-<p>10. Among the routine vaccine of EPI, which one is most sensitive to heat?</p>
-<label><input type="radio" name="q10" value="a"> TT</label>
-<label><input type="radio" name="q10" value="b"> Measles</label>
-<label><input type="radio" name="q10" value="c"> Polio</label>
-<label><input type="radio" name="q10" value="d"> DPT</label>
-</div>
+{q:"Among the routine vaccine of EPI, which one is most sensitive to heat?",
+o:["TT","Measles","Polio","DPT"],a:2},
 
-<div class="question" data-answer="a">
-<p>11. Relative risk is:</p>
-<label><input type="radio" name="q11" value="a"> Risk among exposed/ Risk among non-exposed</label>
-<label><input type="radio" name="q11" value="b"> Risk among exposed/ Risk in total population</label>
-<label><input type="radio" name="q11" value="c"> Risk among exposed/ Risk among exposed - Risk in unexposed</label>
-<label><input type="radio" name="q11" value="d"> All of the following</label>
-</div>
+{q:"Relative risk is:",
+o:["Risk among exposed/ Risk among non-exposed","Risk among exposed/ Risk in total population","Risk among exposed/ Risk among exposed - Risk in unexposed","All of the following"],a:0},
 
-<div class="question" data-answer="b">
-<p>12. Which of the following defines the eligible couple age for family planning services?</p>
-<label><input type="radio" name="q12" value="a"> 10-45 years</label>
-<label><input type="radio" name="q12" value="b"> 15-49 years</label>
-<label><input type="radio" name="q12" value="c"> 20-55 years</label>
-<label><input type="radio" name="q12" value="d"> 21-40 years</label>
-</div>
+{q:"Which of the following defines the eligible couple age for family planning services?",
+o:["10-45 years","15-49 years","20-55 years","21-40 years"],a:1},
 
-<div class="question" data-answer="b">
-<p>13. What is the primary objective of public health surveillance?</p>
-<label><input type="radio" name="q13" value="a"> To collect data for academic research</label>
-<label><input type="radio" name="q13" value="b"> To monitor and prevent disease outbreaks</label>
-<label><input type="radio" name="q13" value="c"> To record patient visits in hospitals</label>
-<label><input type="radio" name="q13" value="d"> To provide treatment for infectious diseases</label>
-</div>
+{q:"What is the primary objective of public health surveillance?",
+o:["To collect data for academic research","To monitor and prevent disease outbreaks","To record patient visits in hospitals","To provide treatment for infectious diseases Rationale & Explanation"],a:1},
 
-<div class="question" data-answer="c">
-<p>14. The WHO defines six building blocks of a health system. Which of the following is not one of them?</p>
-<label><input type="radio" name="q14" value="a"> Health service delivery</label>
-<label><input type="radio" name="q14" value="b"> Health workforce</label>
-<label><input type="radio" name="q14" value="c"> Environmental protection</label>
-<label><input type="radio" name="q14" value="d"> Leadership and governance</label>
-</div>
+{q:"The WHO defines six building blocks of a health system. Which of the following is not one of them?",
+o:["Health service delivery","Health workforce","Environmental protection","Leadership and governance"],a:2},
 
-<div class="question" data-answer="c">
-<p>15. When was the Integrated Health Management Information System established in Nepal?</p>
-<label><input type="radio" name="q15" value="a"> 1985</label>
-<label><input type="radio" name="q15" value="b"> 1990</label>
-<label><input type="radio" name="q15" value="c"> 1994</label>
-<label><input type="radio" name="q15" value="d"> 2000</label>
-</div>
+{q:"When was the Integrated Health Management Information System established in Nepal?",
+o:["1985","1990","1994","2000"],a:2},
 
-<div class="question" data-answer="c">
-<p>16. GATHER techniques is related to:</p>
-<label><input type="radio" name="q16" value="a"> Group dynamics</label>
-<label><input type="radio" name="q16" value="b"> Community organization</label>
-<label><input type="radio" name="q16" value="c"> Counselling</label>
-<label><input type="radio" name="q16" value="d"> None of the above</label>
-</div>
+{q:"GATHER techniques is related to:",
+o:["Group dynamics","Community organization","Counselling","None of the above"],a:2},
 
-<div class="question" data-answer="c">
-<p>17. Borderline mental IQ according to Wechsler's scale:</p>
-<label><input type="radio" name="q17" value="a"> 70-79</label>
-<label><input type="radio" name="q17" value="b"> 80-89</label>
-<label><input type="radio" name="q17" value="c"> 90-109</label>
-<label><input type="radio" name="q17" value="d"> 110-119</label>
-</div>
+{q:"Borderline mental IQ according to Wechsler's scale:",
+o:["70-79","80-89","90-109","110-119"],a:2},
 
-<div class="question" data-answer="d">
-<p>18. Which part of the management process includes measuring results, comparing results to expectations and taking corrective action to bring results into line?</p>
-<label><input type="radio" name="q18" value="a"> Planning</label>
-<label><input type="radio" name="q18" value="b"> Organizing</label>
-<label><input type="radio" name="q18" value="c"> Leading</label>
-<label><input type="radio" name="q18" value="d"> Controlling</label>
-</div>
+{q:"Which part of the management process includes measuring results, comparing results to expectations and taking corrective action to bring results into line?",
+o:["Planning","Organizing","Leading","Controlling"],a:3},
 
-<div class="question" data-answer="b">
-<p>19. Process of estimating the additional cost per unit of outcome achieved when comparing one intervention with other is known as......</p>
-<label><input type="radio" name="q19" value="a"> Economic evaluation</label>
-<label><input type="radio" name="q19" value="b"> Incremental Cost-Effectiveness Ratio</label>
-<label><input type="radio" name="q19" value="c"> Average cost-effectiveness rate.</label>
-<label><input type="radio" name="q19" value="d"> Cost-effectiveness ratio</label>
-</div>
+{q:"Process of estimating the additional cost per unit of outcome achieved when comparing one intervention with other is known as......",
+o:["Economic evaluation","Incremental Cost-Effectiveness Ratio","Average cost-effectiveness rate.","Cost-effectiveness ratio"],a:1},
 
-<div class="question" data-answer="b">
-<p>20. Which of the following approaches to health education is 'radically new approach"?</p>
-<label><input type="radio" name="q20" value="a"> Regulatory approach</label>
-<label><input type="radio" name="q20" value="b"> Primary Health Care approach</label>
-<label><input type="radio" name="q20" value="c"> Service approach</label>
-<label><input type="radio" name="q20" value="d"> Health education approach</label>
-</div>
+{q:"Which of the following approaches to health education is 'radically new approach\"?",
+o:["Regulatory approach","Primary Health Care approach","Service approach","Health education approach"],a:1}
+];
 
-<button type="button" onclick="checkAnswers()">Submit</button>
+quizData.forEach((item,index)=>{
+document.write(`
+<div class="card">
+<div class="question">${index+1}. ${item.q}</div>
+${item.o.map((opt,i)=>`
+<div class="option">
+<input type="radio" name="q${index}" value="${i}"> ${opt}
+</div>`).join("")}
+</div>
+`);
+});
+</script>
+
+<button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
 </form>
 
-<div id="score"></div>
+<div class="score" id="score"></div>
 </div>
 
 <script>
-function checkAnswers() {
-    let score = 0;
-    const questions = document.querySelectorAll('.question');
-
-    questions.forEach(q => {
-        const correct = q.dataset.answer;
-        const selected = q.querySelector('input[type="radio"]:checked');
-
-        if (selected) {
-            if (selected.value === correct) {
-                q.classList.add('correct');
-                score++;
-            } else {
-                q.classList.add('wrong');
+function submitQuiz(){
+    let score=0;
+    quizData.forEach((item,index)=>{
+        const options=document.getElementsByName("q"+index);
+        options.forEach((opt,i)=>{
+            const parent=opt.parentElement;
+            if(i===item.a){
+                parent.classList.add("correct");
             }
-        } else {
-            q.classList.add('wrong');
-        }
+            if(opt.checked && i!==item.a){
+                parent.classList.add("wrong");
+            }
+            if(opt.checked && i===item.a){
+                score++;
+            }
+        });
     });
-
-    document.getElementById('score').innerText =
-        "Your Score: " + score + " / 20";
+    document.getElementById("score").innerText="Your Score: "+score+" / 20";
 }
 </script>
 
