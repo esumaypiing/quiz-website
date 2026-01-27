@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#f9fbe7,#e3f2fd);
+    padding:20px;
+}
+h1{
+    text-align:center;
+    margin-bottom:25px;
+    color:#1a237e;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.option{
+    padding:8px;
+    margin:6px 0;
+    border-radius:6px;
+    cursor:pointer;
+}
+.option input{
+    margin-right:8px;
+}
+.correct{
+    background:#c8e6c9;
+    border:1px solid #2e7d32;
+}
+.wrong{
+    background:#ffcdd2;
+    border:1px solid #c62828;
+}
+.submit-btn{
+    display:block;
+    margin:30px auto;
+    padding:12px 35px;
+    font-size:16px;
+    background:#8e24aa;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.submit-btn:hover{
+    background:#6a1b9a;
+}
+.score{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+<body>
+<h1>Multiple Choice Quiz</h1>
+<div class="quiz-container">
+<form id="quizForm">
+<script>
+const quizData = [
+{q:"A 15-month-old child can walk alone, babble words, and use a pincer grasp but is unable to point to objects when named. Which milestone is most likely delayed?", o:["Gross motor development","Fine motor development","Language and cognitive development","Social development"], a:2},
+{q:"A 45-year-old man in Karnali Province presents with bleeding gums, fatigue, and slow wound healing. His diet lacks fresh fruits and vegetables. Which vitamin deficiency is most likely responsible?", o:["Vitamin D","Vitamin C","Vitamin B12","Iron"], a:1},
+{q:"In a hospital-acquired infection study, the probability of getting pneumonia is 0.24 and of getting a urinary tract infection (UTI) is 0.36. If they are mutually exclusive, what is the probability of a patient developing either?", o:["0.60","0.50","0.86","0.24"], a:0},
+{q:"A study reports hemoglobin levels in pregnant women with a median of 11.2 g/dl. and an interquartile range (IQR) of 3.1 g/dl. What does this IQR indicate?", o:["The dataset is symmetrically distributed","50% of values lie within a 3.1 g/dL range around the median","The standard deviation is equal to 3.1 g/dL","There are no outliers"], a:1},
+{q:"In a dataset of newborn weights, the mean is 3.2 kg and the standard deviation (SD) is 0.5 kg. What percentage of newborns weigh within one standard deviation (+-1 SD) of the mean?", o:["50%","68%","95%","99.7%"], a:1},
+{q:"A community in Terai reports a diarrheal outbreak after monsoon flooding. Water samples confirm Vibrio cholerae. Which disease is most likely responsible?", o:["Typhoid fever","Hepatitis B","Cholera","Tuberculosis"], a:2},
+{q:"A municipality in Sudurpashchim Province has a high prevalence of chronic stunting (45-9%) among children under five. A new project is planned to reduce malnutrition at the local level. Which intervention would be the most effective at preventing stunting?", o:["Providing school meals to children","Supplementing mothers with iron and folic acid during pregnancy","Increasing agricultural production","Monthly deworming campaigns for children under five"], a:1},
+{q:"A pregnant woman in her first trimester was prescribed a medication for epilepsy. At 20 weeks, an ultrasound reveals congenital malformations in the fetus. Which of the following drugs is most likely responsible?", o:["Paracetamol","Valproic acid","Metformin","Amoxicillin"], a:1},
+{q:"A farmer in rural Nepal presents with fever, headache, and a rash after cleaning his barn. Blood tests confirm typhus. What is the most likely mode of transmission?", o:["Contaminated water","Mosquito bite","Larval mites","Direct human-to-human contact"], a:2},
+{q:"In a study of post-operative infections, researchers find that the probability of infection is 0.1 across 10,000 surgical patients. Which of the following is true about the binomial distribution in this case?", o:["Mean is always equal to variance","Mean is greater than variance","Variance is greater than mean","Mean and variance are unrelated"], a:1},
+{q:"A dataset on age at first childbirth in Nepalese women shows a long tail on the right side. Which measure is most affected by negative skewness?", o:["Mean","Median","Mode","Standard deviation"], a:0},
+{q:"A dataset of birth weights shows the following values; Mean = 3.2 kg, Median = 3.1 kg and Mode = 3.0 kg. What does this distribution suggest?", o:["It is symmetrical","It is positively skewed","It is negatively skewed","It follows a binomial distribution"], a:1},
+{q:"A hospital receives an average of 4 emergency cases per hour. Which probability distribution is most appropriate to model this data?", o:["Normal","Binomial","Poisson","Exponential"], a:2},
+{q:"A logistic regression model predicts the odds of hypertension based on BMI. The odds ratio (OR) for BMI is 1.5 (p<0.05). What does this indicate?", o:["BMI is not a significant predictor of hypertension","For every unit increase in BMI, odds of hypertension increase by 50%","Hypertension is negatively associated with BMI","The model is not valid"], a:1},
+{q:"A public health researcher is designing a newborn health intervention. To assess current neonatal mortality trends, he reviews NDIS 2022 data. What is the neonatal mortality rate (NMR) per 1,000 live births in Nepal?", o:["18","21","28","35"], a:1},
+{q:"A factory worker has been exposed to industrial noise daily. The workplace health officer advises noise control measures to prevent occupational hearing loss. According to Wito and OSHA guidelines, what is the recommended maximum permissible noise level for 8-hour exposure?", o:["75 dB","80 dB","85 dB","95 dB"], a:2},
+{q:"A researcher analyzes a dataset where the mean weight of a sample population is 10 kg, and the standard deviation (SD) is 2 kg. What is the variance of the dataset?", o:["2","4","6","8"], a:1},
+{q:"A health intervention in Nepal aims to increase COVID-19 vaccine uptake by addressing people's perceived severity, benefits, and barriers. Which behavioral theory is best suited to design this intervention?", o:["Theory of Planned Behavior","Health Belief Model","Transtheoretical Model","Social Cognitive Theory"], a:1},
+{q:"A mother in Nepal has a 6-month-old infant suffering from diarrhea. She asks whether she should continue breastfeeding while giving medicine. What is the best WHO-recommended practice?", o:["Stop breastfeeding and only provide oral rehydration solution (ORS)","Give water and medicine but limit breastfeeding","Continue exclusive breastfeeding along with the prescribed medicine","Replace breastfeeding with formula milk"], a:2},
+{q:"A 45-year-old man undergoes a lipid profile test after consuming full-cream milk daily for three months. Which lipid component is most likely to increase due to high saturated fat intake?", o:["HDL (High-Density Lipoprotein)","Triglycerides","LDL (Low-Density Lipoprotein)","None of the above"], a:2}
+];
+
+quizData.forEach((item,index)=>{
+document.write(`
+<div class="card">
+<div class="question">${index+1}. ${item.q}</div>
+${item.o.map((opt,i)=>`
+<div class="option">
+<input type="radio" name="q${index}" value="${i}"> ${opt}
+</div>`).join("")}
+</div>
+`);
+});
+</script>
+
+<button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
+</form>
+<div class="score" id="score"></div>
+</div>
+
+<script>
+function submitQuiz(){
+    let score=0;
+    quizData.forEach((item,index)=>{
+        const options=document.getElementsByName("q"+index);
+        options.forEach((opt,i)=>{
+            const parent=opt.parentElement;
+            if(i===item.a){
+                parent.classList.add("correct");
+            }
+            if(opt.checked && i!==item.a){
+                parent.classList.add("wrong");
+            }
+            if(opt.checked && i===item.a){
+                score++;
+            }
+        });
+    });
+    document.getElementById("score").innerText="Your Score: "+score+" / 20";
+}
+</script>
+</body>
+</html>
