@@ -3,169 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Quiz</title>
+<title>Health Days Quiz</title>
+
 <style>
-  body { font-family: Arial, sans-serif; background: #f2f7f7; margin: 0; padding: 0; }
-  .container { max-width: 900px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);}
-  h1 { text-align: center; color: #333; }
-  .question-card { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; }
-  .question { font-weight: bold; margin-bottom: 10px; }
-  .options label { display: block; margin-bottom: 5px; cursor: pointer; padding: 6px 10px; border-radius: 6px; }
-  .options input[type="radio"] { margin-right: 10px; }
-  .correct { background-color: #c8e6c9 !important; } /* Green for correct */
-  .incorrect { background-color: #ffcdd2 !important; } /* Red for wrong */
-  #submitBtn { display: block; margin: 20px auto; padding: 10px 20px; font-size: 18px; background: #2196f3; color: white; border: none; border-radius: 8px; cursor: pointer; }
-  #submitBtn:hover { background: #1976d2; }
-  #score { text-align: center; font-size: 22px; font-weight: bold; margin-top: 20px; }
+body{
+  font-family: "Segoe UI", sans-serif;
+  background:#eef2f7;
+  margin:0;
+  padding:0;
+}
+.container{
+  max-width:900px;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+h1{
+  text-align:center;
+  margin-bottom:25px;
+}
+.question-box{
+  margin-bottom:20px;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+.question{
+  font-weight:600;
+  margin-bottom:12px;
+}
+.option{
+  display:block;
+  padding:8px 12px;
+  border-radius:6px;
+  margin-bottom:6px;
+  cursor:pointer;
+}
+.option input{
+  margin-right:8px;
+}
+.correct{
+  background:#d4edda;
+}
+.wrong{
+  background:#f8d7da;
+}
+button{
+  width:100%;
+  padding:14px;
+  font-size:18px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+button:hover{
+  background:#1e4fd4;
+}
+#score{
+  margin-top:20px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
 </style>
 </head>
+
 <body>
 
 <div class="container">
-  <h1>Health Awareness Quiz</h1>
-  <form id="quizForm"></form>
-  <button id="submitBtn">Submit</button>
-  <div id="score"></div>
+<h1>Health Days Quiz</h1>
+
+<form id="quizForm"></form>
+
+<button type="button" onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
 </div>
 
 <script>
-const quizData = [
-  {
-    question: "1. World Diabetes Day is observed on which of the following dates?",
-    options: ["24th March","31st May","14th November","7th April"],
-    answer: 2
-  },
-  {
-    question: "2. World Leprosy Day is observed on:",
-    options: ["First Tuesday of May","Last Sunday of January","8th March","24th October"],
-    answer: 1
-  },
-  {
-    question: "3. World Pneumonia Day is observed on:",
-    options: ["10th October","12th November","4th February","5th June"],
-    answer: 1
-  },
-  {
-    question: "4. Iodine Deficiency Disorders control activities are emphasized during:",
-    options: ["April","February","August","May"],
-    answer: 1
-  },
-  {
-    question: "5. World Mental Health Day is observed on:",
-    options: ["5th June","10th October","14th November","24th March"],
-    answer: 1
-  },
-  {
-    question: "6. International Red Cross Day is observed on:",
-    options: ["7th April","31st May","8th May","25th April"],
-    answer: 2
-  },
-  {
-    question: "7. Safe Motherhood Day is observed on:",
-    options: ["28th May","8th March","14th August","4th February"],
-    answer: 1
-  },
-  {
-    question: "8. World Rabies Day is observed on:",
-    options: ["24th October","28th September","10th November","3rd December"],
-    answer: 1
-  },
-  {
-    question: "9. World Health Day is celebrated annually on:",
-    options: ["31st May","7th April","5th June","10th October"],
-    answer: 1
-  },
-  {
-    question: "10. World No Tobacco Day is observed on:",
-    options: ["25th April","31st May","24th March","20th November"],
-    answer: 1
-  },
-  {
-    question: "11. World AIDS Day is observed on:",
-    options: ["14th November","1st December","3rd December","24th October"],
-    answer: 1
-  },
-  {
-    question: "12. World Tuberculosis Day is observed on:",
-    options: ["7th April","28th May","24th March","4th February"],
-    answer: 2
-  },
-  {
-    question: "13. Menstrual Hygiene Day is observed on:",
-    options: ["8th March","28th May","31st May","5th June"],
-    answer: 1
-  },
-  {
-    question: "14. International Women’s Day is celebrated on:",
-    options: ["14th August","24th October","8th March","10th October"],
-    answer: 2
-  },
-  {
-    question: "15. World Immunization Day is observed on:",
-    options: ["10th November","5th June","25th April","24th March"],
-    answer: 0
-  },
-  {
-    question: "16. Public Health Day (Nepal) is observed on:",
-    options: ["14th August","7th April","28th September","1st December"],
-    answer: 0
-  },
-  {
-    question: "17. World Cancer Day is observed on:",
-    options: ["24th October","4th February","25th April","8th May"],
-    answer: 1
-  },
-  {
-    question: "18. World Polio Day is observed on:",
-    options: ["3rd December","24th October","10th November","31st May"],
-    answer: 1
-  },
-  {
-    question: "19. World Malaria Day is observed on:",
-    options: ["25th April","5th June","7th April","28th May"],
-    answer: 0
-  },
-  {
-    question: "20. International Breastfeeding Week is observed during:",
-    options: ["Last week of April","First week of August","Second week of May","Third week of February"],
-    answer: 1
-  }
-  // You can continue adding questions 21-200 here using the same format
+const questions = [
+{
+q:"World Diabetes Day is observed on which of the following dates?",
+options:["24th March","31st May","14th November","7th April"],
+answer:2
+},
+{
+q:"World Leprosy Day is observed on:",
+options:["First Tuesday of May","Last Sunday of January","8th March","24th October"],
+answer:1
+},
+{
+q:"World Pneumonia Day is observed on:",
+options:["10th October","12th November","4th February","5th June"],
+answer:1
+},
+{
+q:"Iodine Deficiency Disorders control activities are emphasized during:",
+options:["April","February","August","May"],
+answer:1
+},
+{
+q:"World Mental Health Day is observed on:",
+options:["5th June","10th October","14th November","24th March"],
+answer:1
+},
+{
+q:"International Red Cross Day is observed on:",
+options:["7th April","31st May","8th May","25th April"],
+answer:2
+},
+{
+q:"Safe Motherhood Day is observed on:",
+options:["28th May","8th March","14th August","4th February"],
+answer:1
+},
+{
+q:"World Rabies Day is observed on:",
+options:["24th October","28th September","10th November","3rd December"],
+answer:1
+},
+{
+q:"World Health Day is celebrated annually on:",
+options:["31st May","7th April","5th June","10th October"],
+answer:1
+},
+{
+q:"World No Tobacco Day is observed on:",
+options:["25th April","31st May","24th March","20th November"],
+answer:1
+},
+{
+q:"World AIDS Day is observed on:",
+options:["14th November","1st December","3rd December","24th October"],
+answer:1
+},
+{
+q:"World Tuberculosis Day is observed on:",
+options:["7th April","28th May","24th March","4th February"],
+answer:2
+},
+{
+q:"Menstrual Hygiene Day is observed on:",
+options:["8th March","28th May","31st May","5th June"],
+answer:1
+},
+{
+q:"International Women’s Day is celebrated on:",
+options:["14th August","24th October","8th March","10th October"],
+answer:2
+},
+{
+q:"World Immunization Day is observed on:",
+options:["10th November","5th June","25th April","24th March"],
+answer:0
+}
 ];
 
-// Render the quiz
-const quizForm = document.getElementById('quizForm');
-quizData.forEach((q, index) => {
-  const div = document.createElement('div');
-  div.classList.add('question-card');
-  let optionsHtml = '';
-  q.options.forEach((opt, i) => {
-    optionsHtml += `<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`;
+// 🔀 Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quizForm = document.getElementById("quizForm");
+
+questions.forEach((item,index)=>{
+  const div = document.createElement("div");
+  div.className="question-box";
+
+  let html = `<div class="question">${index+1}. ${item.q}</div>`;
+
+  item.options.forEach((opt,i)=>{
+    html += `
+      <label class="option">
+        <input type="radio" name="q${index}" value="${i}">
+        ${opt}
+      </label>
+    `;
   });
-  div.innerHTML = `<div class="question">${q.question}</div><div class="options">${optionsHtml}</div>`;
+
+  div.innerHTML = html;
   quizForm.appendChild(div);
 });
 
-document.getElementById('submitBtn').addEventListener('click', () => {
+function submitQuiz(){
   let score = 0;
-  quizData.forEach((q, index) => {
-    const selected = document.querySelector(`input[name="q${index}"]:checked`);
-    const div = document.getElementsByClassName('question-card')[index];
-    div.querySelectorAll('label').forEach((label, i) => {
-      label.classList.remove('correct', 'incorrect');
-      if (i === q.answer) label.classList.add('correct');
-    });
-    if (selected) {
-      if (parseInt(selected.value) === q.answer) {
-        score++;
-      } else {
-        selected.parentElement.classList.add('incorrect');
+
+  questions.forEach((q,i)=>{
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+    const options = document.querySelectorAll(`input[name="q${i}"]`);
+
+    options.forEach((opt,idx)=>{
+      const label = opt.parentElement;
+      if(idx === q.answer) label.classList.add("correct");
+      if(selected && idx == selected.value && idx !== q.answer){
+        label.classList.add("wrong");
       }
+    });
+
+    if(selected && Number(selected.value) === q.answer){
+      score++;
     }
   });
-  document.getElementById('score').textContent = `Your Score: ${score} / ${quizData.length}`;
-  window.scrollTo(0, 0);
-});
+
+  document.getElementById("score").innerText =
+    `Your Score: ${score} / ${questions.length}`;
+}
 </script>
 
 </body>
