@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Public Health Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f8;
+    margin:0;
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.question{
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:8px;
+    background:#fafafa;
+}
+.question h3{
+    margin:0 0 10px 0;
+}
+.options label{
+    display:block;
+    margin-bottom:6px;
+    cursor:pointer;
+}
+.correct{
+    background:#d4edda;
+    border-left:5px solid #28a745;
+    padding:5px;
+}
+.wrong{
+    background:#f8d7da;
+    border-left:5px solid #dc3545;
+    padding:5px;
+}
+button{
+    padding:12px 25px;
+    font-size:16px;
+    background:#007bff;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+}
+@media(max-width:600px){
+    body{padding:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+    <h2>Public Health Observance Quiz</h2>
+    <form id="quizForm"></form>
+    <div style="text-align:center;">
+        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+    <div id="score"></div>
+</div>
+
+<script>
+const questions = [
+{
+q:"Public Health Day (Nepal) is observed on:",
+options:["14th August","7th April","28th September","1st December"],
+answer:0
+},
+{
+q:"World Cancer Day is observed on:",
+options:["24th October","4th February","25th April","8th May"],
+answer:1
+},
+{
+q:"World Polio Day is observed on:",
+options:["3rd December","24th October","10th November","31st May"],
+answer:1
+},
+{
+q:"World Malaria Day is observed on:",
+options:["25th April","5th June","7th April","28th May"],
+answer:0
+},
+{
+q:"International Breastfeeding Week is observed during:",
+options:["Last week of April","First week of August","Second week of May","Third week of February"],
+answer:1
+},
+{
+q:"World Asthma Day is observed on:",
+options:["First Tuesday of May","Second Monday of April","Fixed date in March","Third Tuesday of June"],
+answer:0
+},
+{
+q:"World Hypertension Day is observed on:",
+options:["31st May","17th April","17th May","5th June"],
+answer:2
+},
+{
+q:"World Disability Day is observed on:",
+options:["1st December","10th October","3rd December","14th November"],
+answer:2
+},
+{
+q:"World Environment Day is observed on:",
+options:["5th June","31st May","25th April","6th June"],
+answer:0
+},
+{
+q:"Universal Children’s Day is observed on:",
+options:["14th November","20th November","1st December","3rd December"],
+answer:0
+},
+{
+q:"World Immunization Week is observed during:",
+options:["Last week of April","First week of August","Second week of May","Third week of February"],
+answer:0
+},
+{
+q:"World Mental Health Day is observed on:",
+options:["10th October","14th November","7th April","31st October"],
+answer:0
+},
+{
+q:"On which date is World Disability Day observed globally to promote inclusion and equal rights of persons with disabilities?",
+options:["28 July","15 Falgun","3 December","First week of Jestha"],
+answer:2
+},
+{
+q:"World AIDS Day is observed annually on which of the following dates?",
+options:["1 December","5 December","21 November","28 July"],
+answer:0
+},
+{
+q:"The global observance recognizing voluntary service and community contribution is celebrated on:",
+options:["15 Falgun","5 December","First week of Jestha","June (entire month)"],
+answer:1
+},
+{
+q:"In Nepal, School Health and Nutrition Day (SHND) is conducted nationally during:",
+options:["Mid-Falgun","Third week of November","First week of Jestha","28 July"],
+answer:2
+},
+{
+q:"National Health Service Day of Nepal is observed on which date according to the Nepali calendar?",
+options:["15 Falgun","1 December","3 December","5 December"],
+answer:0
+},
+{
+q:"World Hepatitis Day is observed every year on:",
+options:["21 November","28 July","First week of Jestha","June"],
+answer:1
+},
+{
+q:"Newborn Care Week is observed in Nepal during which period?",
+options:["1–7 August","15–21 November","1–5 December","10–16 June"],
+answer:1
+},
+{
+q:"Anti-Malaria Month is nationally observed during:",
+options:["July","November","June","December"],
+answer:2
+}
+];
+
+const quizForm = document.getElementById("quizForm");
+
+questions.forEach((item, index)=>{
+    const div = document.createElement("div");
+    div.className="question";
+    div.innerHTML = `<h3>${index+1}. ${item.q}</h3>`;
+    const optDiv = document.createElement("div");
+    optDiv.className="options";
+
+    item.options.forEach((opt,i)=>{
+        optDiv.innerHTML += `
+        <label>
+            <input type="radio" name="q${index}" value="${i}">
+            ${opt}
+        </label>`;
+    });
+
+    div.appendChild(optDiv);
+    quizForm.appendChild(div);
+});
+
+function submitQuiz(){
+    let score = 0;
+    questions.forEach((q,i)=>{
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const labels = document.querySelectorAll(`input[name="q${i}"]`);
+        labels.forEach((radio,idx)=>{
+            const parent = radio.parentElement;
+            parent.classList.remove("correct","wrong");
+            if(idx === q.answer){
+                parent.classList.add("correct");
+            }
+            if(selected && radio === selected && idx !== q.answer){
+                parent.classList.add("wrong");
+            }
+        });
+        if(selected && parseInt(selected.value) === q.answer){
+            score++;
+        }
+    });
+    document.getElementById("score").innerText =
+        `Your Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
