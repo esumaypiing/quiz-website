@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+
+<style>
+/* ===== MOBILE FIRST DESIGN ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    padding: 16px;
+}
+
+.container {
+    max-width: 100%;
+    margin: auto;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.options input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* Highlight AFTER submit */
+.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.wrong {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: #28a745;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+#score {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* ===== TABLET & DESKTOP ===== */
+@media (min-width: 768px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<form id="quizForm">
+
+<!-- 1 -->
+<div class="card">
+<h3>1. Astana declaration was held in:</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q1" value="a"> a. 2021</label>
+<label><input type="radio" name="q1" value="b"> b. 2018</label>
+<label><input type="radio" name="q1" value="c"> c. 2000</label>
+<label><input type="radio" name="q1" value="d"> d. 2016</label>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+<h3>2. Calculate variance with standard deviation 12:</h3>
+<div class="options" data-answer="c">
+<label><input type="radio" name="q2" value="a"> a. 184</label>
+<label><input type="radio" name="q2" value="b"> b. √12</label>
+<label><input type="radio" name="q2" value="c"> c. 144</label>
+<label><input type="radio" name="q2" value="d"> d. 0</label>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+<h3>3. The probability of getting all head while tossing 3 coins is:</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q3" value="a"> a. 1/6</label>
+<label><input type="radio" name="q3" value="b"> b. 1/8</label>
+<label><input type="radio" name="q3" value="c"> c. 1/3</label>
+<label><input type="radio" name="q3" value="d"> d. 1</label>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<h3>4. First international conference on health promotion is:</h3>
+<div class="options" data-answer="a">
+<label><input type="radio" name="q4" value="a"> a. Ottawa charter</label>
+<label><input type="radio" name="q4" value="b"> b. Jakarta declaration</label>
+<label><input type="radio" name="q4" value="c"> c. Global Health promotion conference</label>
+<label><input type="radio" name="q4" value="d"> d. Bangkok Charter</label>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+<h3>5. Fail to reject null hypothesis is:</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q5" value="a"> a. Type 1 error</label>
+<label><input type="radio" name="q5" value="b"> b. Type 2 error</label>
+<label><input type="radio" name="q5" value="c"> c. Random error</label>
+<label><input type="radio" name="q5" value="d"> d. Systematic error</label>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<h3>6. The disease in children which is caused by deficiency of vitamin D is:</h3>
+<div class="options" data-answer="c">
+<label><input type="radio" name="q6" value="a"> a. Survey</label>
+<label><input type="radio" name="q6" value="b"> b. Anemia</label>
+<label><input type="radio" name="q6" value="c"> c. Rickets</label>
+<label><input type="radio" name="q6" value="d"> d. Insomnia</label>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<h3>7. Which type of mosquito breed on dirty water collection?</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q7" value="a"> a. Anopheles</label>
+<label><input type="radio" name="q7" value="b"> b. Culex</label>
+<label><input type="radio" name="q7" value="c"> c. Aedes</label>
+<label><input type="radio" name="q7" value="d"> d. Mansoni</label>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<h3>8. Ergonomics is:</h3>
+<div class="options" data-answer="d">
+<label><input type="radio" name="q8" value="a"> a. Study of human behaviour</label>
+<label><input type="radio" name="q8" value="b"> b. Study of social mobility</label>
+<label><input type="radio" name="q8" value="c"> c. Study of health of female workers</label>
+<label><input type="radio" name="q8" value="d"> d. Adjusting the workers to his/her job</label>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<h3>9. Socratic method of education are all except:</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q9" value="a"> a. Group discussion</label>
+<label><input type="radio" name="q9" value="b"> b. Lecture</label>
+<label><input type="radio" name="q9" value="c"> c. Seminar</label>
+<label><input type="radio" name="q9" value="d"> d. Panel discussion</label>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<h3>10. The first indicator of PEM is:</h3>
+<div class="options" data-answer="d">
+<label><input type="radio" name="q10" value="a"> a. Stunting</label>
+<label><input type="radio" name="q10" value="b"> b. Marsmus</label>
+<label><input type="radio" name="q10" value="c"> c. Underweight for height</label>
+<label><input type="radio" name="q10" value="d"> d. Underweight for age</label>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="card">
+<h3>11. According to recommendations for nutritional management of diabetes, saturated fat intake should be:</h3>
+<div class="options" data-answer="a">
+<label><input type="radio" name="q11" value="a"> a. &lt;10% of total daily energy</label>
+<label><input type="radio" name="q11" value="b"> b. &lt;12%</label>
+<label><input type="radio" name="q11" value="c"> c. &lt;15%</label>
+<label><input type="radio" name="q11" value="d"> d. &lt;16%</label>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="card">
+<h3>12. Which of the following is not a cause of bias?</h3>
+<div class="options" data-answer="d">
+<label><input type="radio" name="q12" value="a"> a. Confounding</label>
+<label><input type="radio" name="q12" value="b"> b. Selection</label>
+<label><input type="radio" name="q12" value="c"> c. Misclassification</label>
+<label><input type="radio" name="q12" value="d"> d. Random error</label>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="card">
+<h3>13. The ratio between the incidence of disease among exposed and non-exposed is called:</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q13" value="a"> a. Causal risk</label>
+<label><input type="radio" name="q13" value="b"> b. Relative risk</label>
+<label><input type="radio" name="q13" value="c"> c. Attributable risk</label>
+<label><input type="radio" name="q13" value="d"> d. Odds ratio</label>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="card">
+<h3>14. All of the following come under random sampling method except:</h3>
+<div class="options" data-answer="a">
+<label><input type="radio" name="q14" value="a"> a. Quota sampling</label>
+<label><input type="radio" name="q14" value="b"> b. Cluster sampling</label>
+<label><input type="radio" name="q14" value="c"> c. Stratified sampling</label>
+<label><input type="radio" name="q14" value="d"> d. Simple random sampling</label>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="card">
+<h3>15. Child nutritional status is measured in terms of:</h3>
+<div class="options" data-answer="a">
+<label><input type="radio" name="q15" value="a"> a. Stunting, wasting and underweight</label>
+<label><input type="radio" name="q15" value="b"> b. Mortality, morbidity and underweight</label>
+<label><input type="radio" name="q15" value="c"> c. BMI, morbidity rate and dependency</label>
+<label><input type="radio" name="q15" value="d"> d. None of these</label>
+</div>
+</div>
+
+<!-- 16 -->
+<div class="card">
+<h3>16. Low weight for height is called:</h3>
+<div class="options" data-answer="a">
+<label><input type="radio" name="q16" value="a"> a. Wasting</label>
+<label><input type="radio" name="q16" value="b"> b. Stunting</label>
+<label><input type="radio" name="q16" value="c"> c. LBW</label>
+<label><input type="radio" name="q16" value="d"> d. Underweight</label>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="card">
+<h3>17. What is the full form of EOP in logistics?</h3>
+<div class="options" data-answer="a">
+<label><input type="radio" name="q17" value="a"> a. Emergency Order Point</label>
+<label><input type="radio" name="q17" value="b"> b. Emergency Operation Plan</label>
+<label><input type="radio" name="q17" value="c"> c. Emergency Operational Practices</label>
+<label><input type="radio" name="q17" value="d"> d. End Order Point</label>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="card">
+<h3>18. A “t” distribution is used to analyze:</h3>
+<div class="options" data-answer="a">
+<label><input type="radio" name="q18" value="a"> a. Very large sample</label>
+<label><input type="radio" name="q18" value="b"> b. Large sample</label>
+<label><input type="radio" name="q18" value="c"> c. Infinite sample</label>
+<label><input type="radio" name="q18" value="d"> d. Small sample</label>
+</div>
+</div>
+
+<!-- 19 -->
+<div class="card">
+<h3>19. When population is divided into subgroups and sample obtained is called:</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q19" value="a"> a. Random sampling</label>
+<label><input type="radio" name="q19" value="b"> b. Stratified sampling</label>
+<label><input type="radio" name="q19" value="c"> c. Systematic sampling</label>
+<label><input type="radio" name="q19" value="d"> d. Cluster sampling</label>
+</div>
+</div>
+
+<!-- 20 -->
+<div class="card">
+<h3>20. To see if two rankings are related, you can use:</h3>
+<div class="options" data-answer="b">
+<label><input type="radio" name="q20" value="a"> a. Runs test</label>
+<label><input type="radio" name="q20" value="b"> b. Spearman correlation coefficient</label>
+<label><input type="radio" name="q20" value="c"> c. Sign test</label>
+<label><input type="radio" name="q20" value="d"> d. Kruskal-Wallis test</label>
+</div>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+function checkAnswers() {
+    let score = 0;
+    const questions = document.querySelectorAll('.options');
+
+    questions.forEach(q => {
+        const correct = q.dataset.answer;
+        const selected = q.querySelector('input:checked');
+
+        q.querySelectorAll('label').forEach(label => {
+            const input = label.querySelector('input');
+            if (input.value === correct) {
+                label.classList.add('correct');
+            }
+            if (selected && input === selected && input.value !== correct) {
+                label.classList.add('wrong');
+            }
+        });
+
+        if (selected && selected.value === correct) {
+            score++;
+        }
+    });
+
+    document.getElementById('score').innerText =
+        "Your Score: " + score + " / 20";
+}
+</script>
+
+</body>
+</html>
