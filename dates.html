@@ -3,334 +3,289 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Health Days Quiz</title>
-
+<title>Comprehensive Quiz</title>
 <style>
-body{
+body {
     font-family: Arial, sans-serif;
-    background:#eef2f7;
-    padding:20px;
+    background: #f0f4f7;
+    margin: 0;
+    padding: 0;
 }
-.quiz-container{
-    max-width:900px;
-    margin:auto;
-    background:#fff;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-h1{
-    text-align:center;
-    margin-bottom:30px;
+h1 {
+    text-align: center;
+    color: #333;
 }
-.question{
-    margin-bottom:20px;
-    padding:15px;
-    border:1px solid #ddd;
-    border-radius:8px;
+.question-card {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #007BFF;
+    background: #f9f9f9;
+    border-radius: 8px;
 }
-.question p{
-    font-weight:bold;
+.question-card.correct {
+    border-left-color: #28a745;
+    background-color: #d4edda;
 }
-label{
-    display:block;
-    padding:8px;
-    margin:6px 0;
-    border-radius:6px;
-    cursor:pointer;
+.question-card.wrong {
+    border-left-color: #dc3545;
+    background-color: #f8d7da;
 }
-.correct{
-    background:#d4edda;
-    border:1px solid #28a745;
+.options label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
 }
-.wrong{
-    background:#f8d7da;
-    border:1px solid #dc3545;
+button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 16px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
-button{
-    width:100%;
-    padding:14px;
-    font-size:16px;
-    background:#007bff;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+button:hover {
+    background: #0056b3;
 }
-button:hover{
-    background:#0056b3;
-}
-#score{
-    margin-top:20px;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
-}
-@media(max-width:600px){
-    body{padding:10px;}
+#score {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 </style>
 </head>
-
 <body>
 
-<div class="quiz-container">
-<h1>Health Days Quiz</h1>
-
-<form id="quizForm">
-
-<!-- QUESTIONS START -->
-
-<div class="question" data-correct="c">
-<p>1. World Diabetes Day is observed on which of the following dates?</p>
-<label><input type="radio" name="q1" value="a"> A. 24th March</label>
-<label><input type="radio" name="q1" value="b"> B. 31st May</label>
-<label><input type="radio" name="q1" value="c"> C. 14th November</label>
-<label><input type="radio" name="q1" value="d"> D. 7th April</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>2. World Leprosy Day is observed on:</p>
-<label><input type="radio" name="q2" value="a"> A. First Tuesday of May</label>
-<label><input type="radio" name="q2" value="b"> B. Last Sunday of January</label>
-<label><input type="radio" name="q2" value="c"> C. 8th March</label>
-<label><input type="radio" name="q2" value="d"> D. 24th October</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>3. World Pneumonia Day is observed on:</p>
-<label><input type="radio" name="q3" value="a"> A. 10th October</label>
-<label><input type="radio" name="q3" value="b"> B. 12th November</label>
-<label><input type="radio" name="q3" value="c"> C. 4th February</label>
-<label><input type="radio" name="q3" value="d"> D. 5th June</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>4. Iodine Deficiency Disorders control activities are emphasized during:</p>
-<label><input type="radio" name="q4" value="a"> A. April</label>
-<label><input type="radio" name="q4" value="b"> B. February</label>
-<label><input type="radio" name="q4" value="c"> C. August</label>
-<label><input type="radio" name="q4" value="d"> D. May</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>5. World Mental Health Day is observed on:</p>
-<label><input type="radio" name="q5" value="a"> A. 5th June</label>
-<label><input type="radio" name="q5" value="b"> B. 10th October</label>
-<label><input type="radio" name="q5" value="c"> C. 14th November</label>
-<label><input type="radio" name="q5" value="d"> D. 24th March</label>
-</div>
-
-<div class="question" data-correct="c">
-<p>6. International Red Cross Day is observed on:</p>
-<label><input type="radio" name="q6" value="a"> A. 7th April</label>
-<label><input type="radio" name="q6" value="b"> B. 31st May</label>
-<label><input type="radio" name="q6" value="c"> C. 8th May</label>
-<label><input type="radio" name="q6" value="d"> D. 25th April</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>7. Safe Motherhood Day is observed on:</p>
-<label><input type="radio" name="q7" value="a"> A. 28th May</label>
-<label><input type="radio" name="q7" value="b"> B. 8th March</label>
-<label><input type="radio" name="q7" value="c"> C. 14th August</label>
-<label><input type="radio" name="q7" value="d"> D. 4th February</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>8. World Rabies Day is observed on:</p>
-<label><input type="radio" name="q8" value="a"> A. 24th October</label>
-<label><input type="radio" name="q8" value="b"> B. 28th September</label>
-<label><input type="radio" name="q8" value="c"> C. 10th November</label>
-<label><input type="radio" name="q8" value="d"> D. 3rd December</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>9. World Health Day is celebrated annually on:</p>
-<label><input type="radio" name="q9" value="a"> A. 31st May</label>
-<label><input type="radio" name="q9" value="b"> B. 7th April</label>
-<label><input type="radio" name="q9" value="c"> C. 5th June</label>
-<label><input type="radio" name="q9" value="d"> D. 10th October</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>10. World No Tobacco Day is observed on:</p>
-<label><input type="radio" name="q10" value="a"> A. 25th April</label>
-<label><input type="radio" name="q10" value="b"> B. 31st May</label>
-<label><input type="radio" name="q10" value="c"> C. 24th March</label>
-<label><input type="radio" name="q10" value="d"> D. 20th November</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>11. World AIDS Day is observed on:</p>
-<label><input type="radio" name="q11" value="a"> A. 14th November</label>
-<label><input type="radio" name="q11" value="b"> B. 1st December</label>
-<label><input type="radio" name="q11" value="c"> C. 3rd December</label>
-<label><input type="radio" name="q11" value="d"> D. 24th October</label>
-</div>
-
-<div class="question" data-correct="c">
-<p>12. World Tuberculosis Day is observed on:</p>
-<label><input type="radio" name="q12" value="a"> A. 7th April</label>
-<label><input type="radio" name="q12" value="b"> B. 28th May</label>
-<label><input type="radio" name="q12" value="c"> C. 24th March</label>
-<label><input type="radio" name="q12" value="d"> D. 4th February</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>13. Menstrual Hygiene Day is observed on:</p>
-<label><input type="radio" name="q13" value="a"> A. 8th March</label>
-<label><input type="radio" name="q13" value="b"> B. 28th May</label>
-<label><input type="radio" name="q13" value="c"> C. 31st May</label>
-<label><input type="radio" name="q13" value="d"> D. 5th June</label>
-</div>
-
-<div class="question" data-correct="c">
-<p>14. International Women’s Day is celebrated on:</p>
-<label><input type="radio" name="q14" value="a"> A. 14th August</label>
-<label><input type="radio" name="q14" value="b"> B. 24th October</label>
-<label><input type="radio" name="q14" value="c"> C. 8th March</label>
-<label><input type="radio" name="q14" value="d"> D. 10th October</label>
-</div>
-
-<div class="question" data-correct="a">
-<p>15. World Immunization Day is observed on:</p>
-<label><input type="radio" name="q15" value="a"> A. 10th November</label>
-<label><input type="radio" name="q15" value="b"> B. 5th June</label>
-<label><input type="radio" name="q15" value="c"> C. 25th April</label>
-<label><input type="radio" name="q15" value="d"> D. 24th March</label>
-</div>
-
-<div class="question" data-correct="a">
-<p>16. Public Health Day (Nepal) is observed on:</p>
-<label><input type="radio" name="q16" value="a"> A. 14th August</label>
-<label><input type="radio" name="q16" value="b"> B. 7th April</label>
-<label><input type="radio" name="q16" value="c"> C. 28th September</label>
-<label><input type="radio" name="q16" value="d"> D. 1st December</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>17. World Cancer Day is observed on:</p>
-<label><input type="radio" name="q17" value="a"> A. 24th October</label>
-<label><input type="radio" name="q17" value="b"> B. 4th February</label>
-<label><input type="radio" name="q17" value="c"> C. 25th April</label>
-<label><input type="radio" name="q17" value="d"> D. 8th May</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>18. World Polio Day is observed on:</p>
-<label><input type="radio" name="q18" value="a"> A. 3rd December</label>
-<label><input type="radio" name="q18" value="b"> B. 24th October</label>
-<label><input type="radio" name="q18" value="c"> C. 10th November</label>
-<label><input type="radio" name="q18" value="d"> D. 31st May</label>
-</div>
-
-<div class="question" data-correct="a">
-<p>19. World Malaria Day is observed on:</p>
-<label><input type="radio" name="q19" value="a"> A. 25th April</label>
-<label><input type="radio" name="q19" value="b"> B. 5th June</label>
-<label><input type="radio" name="q19" value="c"> C. 7th April</label>
-<label><input type="radio" name="q19" value="d"> D. 28th May</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>20. International Breastfeeding Week is observed during:</p>
-<label><input type="radio" name="q20" value="a"> A. Last week of April</label>
-<label><input type="radio" name="q20" value="b"> B. First week of August</label>
-<label><input type="radio" name="q20" value="c"> C. Second week of May</label>
-<label><input type="radio" name="q20" value="d"> D. Third week of February</label>
-</div>
-
-<div class="question" data-correct="a">
-<p>21. World Asthma Day is observed on:</p>
-<label><input type="radio" name="q21" value="a"> A. First Tuesday of May</label>
-<label><input type="radio" name="q21" value="b"> B. Second Monday of April</label>
-<label><input type="radio" name="q21" value="c"> C. Fixed date in March</label>
-<label><input type="radio" name="q21" value="d"> D. Third Tuesday of June</label>
-</div>
-
-<div class="question" data-correct="c">
-<p>22. World Hypertension Day is observed on:</p>
-<label><input type="radio" name="q22" value="a"> A. 31st May</label>
-<label><input type="radio" name="q22" value="b"> B. 17th April</label>
-<label><input type="radio" name="q22" value="c"> C. 17th May</label>
-<label><input type="radio" name="q22" value="d"> D. 5th June</label>
-</div>
-
-<div class="question" data-correct="c">
-<p>23. World Disability Day is observed on:</p>
-<label><input type="radio" name="q23" value="a"> A. 1st December</label>
-<label><input type="radio" name="q23" value="b"> B. 10th October</label>
-<label><input type="radio" name="q23" value="c"> C. 3rd December</label>
-<label><input type="radio" name="q23" value="d"> D. 14th November</label>
-</div>
-
-<div class="question" data-correct="a">
-<p>24. World Environment Day is observed on:</p>
-<label><input type="radio" name="q24" value="a"> A. 5th June</label>
-<label><input type="radio" name="q24" value="b"> B. 31st May</label>
-<label><input type="radio" name="q24" value="c"> C. 25th April</label>
-<label><input type="radio" name="q24" value="d"> D. 6th june</label>
-</div>
-
-<div class="question" data-correct="b">
-<p>25. Universal Children’s Day is observed on:</p>
-<label><input type="radio" name="q25" value="a"> A. 14th November</label>
-<label><input type="radio" name="q25" value="b"> B. 20th November</label>
-<label><input type="radio" name="q25" value="c"> C. 1st December</label>
-<label><input type="radio" name="q25" value="d"> D. 3rd December</label>
-</div>
-
-<div class="question" data-correct="a">
-<p>26. World Immunization Week is observed during:</p>
-<label><input type="radio" name="q26" value="a"> A. Last week of April</label>
-<label><input type="radio" name="q26" value="b"> B. First week of August</label>
-<label><input type="radio" name="q26" value="c"> C. Second week of May</label>
-<label><input type="radio" name="q26" value="d"> D. Third week of February</label>
-</div>
-
-<div class="question" data-correct="a">
-<p>27. World Mental Health Day is observed on:</p>
-<label><input type="radio" name="q27" value="a"> A. 10th October</label>
-<label><input type="radio" name="q27" value="b"> B. 14th November</label>
-<label><input type="radio" name="q27" value="c"> C. 7th April</label>
-<label><input type="radio" name="q27" value="d"> D. 31st october</label>
-</div>
-
-<button type="submit">Submit Quiz</button>
-</form>
-
+<div class="container">
+<h1>Comprehensive Quiz</h1>
+<div id="quiz"></div>
+<button onclick="submitQuiz()">Submit</button>
 <div id="score"></div>
 </div>
 
 <script>
-document.getElementById("quizForm").addEventListener("submit", function(e){
-    e.preventDefault();
+const quizData = [
+    {
+        question: "1. World Diabetes Day is observed on which of the following dates?",
+        options: ["24th March","31st May","14th November","7th April"],
+        answer: 2
+    },
+    {
+        question: "2. World Leprosy Day is observed on:",
+        options: ["First Tuesday of May","Last Sunday of January","8th March","24th October"],
+        answer: 1
+    },
+    {
+        question: "3. World Pneumonia Day is observed on:",
+        options: ["10th October","12th November","4th February","5th June"],
+        answer: 1
+    },
+    {
+        question: "4. Iodine Deficiency Disorders control activities are emphasized during:",
+        options: ["April","February","August","May"],
+        answer: 1
+    },
+    {
+        question: "5. World Mental Health Day is observed on:",
+        options: ["5th June","10th October","14th November","24th March"],
+        answer: 1
+    },
+    {
+        question: "6. International Red Cross Day is observed on:",
+        options: ["7th April","31st May","8th May","25th April"],
+        answer: 2
+    },
+    {
+        question: "7. Safe Motherhood Day is observed on:",
+        options: ["28th May","8th March","14th August","4th February"],
+        answer: 1
+    },
+    {
+        question: "8. World Rabies Day is observed on:",
+        options: ["24th October","28th September","10th November","3rd December"],
+        answer: 1
+    },
+    {
+        question: "9. World Health Day is celebrated annually on:",
+        options: ["31st May","7th April","5th June","10th October"],
+        answer: 1
+    },
+    {
+        question: "10. World No Tobacco Day is observed on:",
+        options: ["25th April","31st May","24th March","20th November"],
+        answer: 1
+    },
+    {
+        question: "11. World AIDS Day is observed on:",
+        options: ["14th November","1st December","3rd December","24th October"],
+        answer: 1
+    },
+    {
+        question: "12. World Tuberculosis Day is observed on:",
+        options: ["7th April","28th May","24th March","4th February"],
+        answer: 2
+    },
+    {
+        question: "13. Menstrual Hygiene Day is observed on:",
+        options: ["8th March","28th May","31st May","5th June"],
+        answer: 1
+    },
+    {
+        question: "14. International Women’s Day is celebrated on:",
+        options: ["14th August","24th October","8th March","10th October"],
+        answer: 2
+    },
+    {
+        question: "15. World Immunization Day is observed on:",
+        options: ["10th November","5th June","25th April","24th March"],
+        answer: 0
+    },
+    {
+        question: "16. Public Health Day (Nepal) is observed on:",
+        options: ["14th August","7th April","28th September","1st December"],
+        answer: 0
+    },
+    {
+        question: "17. World Cancer Day is observed on:",
+        options: ["24th October","4th February","25th April","8th May"],
+        answer: 1
+    },
+    {
+        question: "18. World Polio Day is observed on:",
+        options: ["3rd December","24th October","10th November","31st May"],
+        answer: 1
+    },
+    {
+        question: "19. World Malaria Day is observed on:",
+        options: ["25th April","5th June","7th April","28th May"],
+        answer: 0
+    },
+    {
+        question: "20. International Breastfeeding Week is observed during:",
+        options: ["Last week of April","First week of August","Second week of May","Third week of February"],
+        answer: 1
+    }
+{
+    question: "21. World Asthma Day is observed on:",
+    options: ["First Tuesday of May","Second Monday of April","Fixed date in March","Third Tuesday of June"],
+    answer: 0
+},
+{
+    question: "22. World Hypertension Day is observed on:",
+    options: ["31st May","17th April","17th May","5th June"],
+    answer: 2
+},
+{
+    question: "23. World Disability Day is observed on:",
+    options: ["1st December","10th October","3rd December","14th November"],
+    answer: 2
+},
+{
+    question: "24. World Environment Day is observed on:",
+    options: ["5th June","31st May","25th April","6th June"],
+    answer: 0
+},
+{
+    question: "25. Universal Children’s Day is observed on:",
+    options: ["14th November","20th November","1st December","3rd December"],
+    answer: 0
+},
+{
+    question: "26. World Immunization Week is observed during:",
+    options: ["Last week of April","First week of August","Second week of May","Third week of February"],
+    answer: 0
+},
+{
+    question: "27. World Mental Health Day is observed on:",
+    options: ["10th October","14th November","7th April","31st October"],
+    answer: 0
+},
+{
+    question: "28. On which date is World Disability Day observed globally to promote inclusion and equal rights of persons with disabilities?",
+    options: ["28 July","15 Falgun","3 December","First week of Jestha"],
+    answer: 2
+},
+{
+    question: "29. World AIDS Day is observed annually on which of the following dates?",
+    options: ["1 December","5 December","21 November","28 July"],
+    answer: 0
+},
+{
+    question: "30. The global observance recognizing voluntary service and community contribution is celebrated on:",
+    options: ["15 Falgun","5 December","First week of Jestha","June (entire month)"],
+    answer: 1
+},
+{
+    question: "31. In Nepal, School Health and Nutrition Day (SHND) is conducted nationally during:",
+    options: ["Mid-Falgun","Third week of November","First week of Jestha","28 July"],
+    answer: 2
+},
+{
+    question: "32. National Health Service Day of Nepal is observed on which date according to the Nepali calendar?",
+    options: ["15 Falgun","1 December","3 December","5 December"],
+    answer: 0
+},
+{
+    question: "33. World Hepatitis Day is observed every year on:",
+    options: ["21 November","28 July","First week of Jestha","June"],
+    answer: 1
+},
+{
+    question: "34. Newborn Care Week is observed in Nepal during which period?",
+    options: ["1–7 August","15–21 November","1–5 December","10–16 June"],
+    answer: 1
+},
+{
+    question: "35. Anti-Malaria Month is nationally observed during:",
+    options: ["July","November","June","December"],
+    answer: 2
+}];
+
+const quizContainer = document.getElementById('quiz');
+
+quizData.forEach((q, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.classList.add('question-card');
+    qDiv.innerHTML = `<p>${q.question}</p>`;
+    const optionsDiv = document.createElement('div');
+    optionsDiv.classList.add('options');
+    q.options.forEach((opt, i) => {
+        optionsDiv.innerHTML += `<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`;
+    });
+    qDiv.appendChild(optionsDiv);
+    quizContainer.appendChild(qDiv);
+});
+
+function submitQuiz() {
     let score = 0;
-
-    document.querySelectorAll(".question").forEach(q=>{
-        const correct = q.dataset.correct;
-        const selected = q.querySelector("input[type=radio]:checked");
-
-        q.querySelectorAll("label").forEach(l=>{
-            l.classList.remove("correct","wrong");
-        });
-
-        if(selected){
-            if(selected.value === correct){
+    const questionCards = document.querySelectorAll('.question-card');
+    quizData.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if(selected) {
+            if(parseInt(selected.value) === q.answer) {
+                questionCards[index].classList.add('correct');
                 score++;
-                selected.parentElement.classList.add("correct");
-            }else{
-                selected.parentElement.classList.add("wrong");
-                q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+            } else {
+                questionCards[index].classList.add('wrong');
             }
-        }else{
-            q.querySelector(`input[value="${correct}"]`).parentElement.classList.add("correct");
+        } else {
+            questionCards[index].classList.add('wrong');
         }
     });
-
-    document.getElementById("score").innerText = "Your Score: " + score + " / 27";
-});
+    document.getElementById('score').innerText = `Your score: ${score} / ${quizData.length}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 </script>
 
 </body>
