@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Set</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#e3f2fd,#fce4ec);
+    padding:20px;
+}
+
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.option{
+    margin:6px 0;
+    padding:8px;
+    border-radius:6px;
+}
+
+.correct{
+    background:#c8e6c9;
+    border:2px solid #2e7d32;
+}
+
+.wrong{
+    background:#ffcdd2;
+    border:2px solid #c62828;
+}
+
+button{
+    padding:12px 25px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    background:#1976d2;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+#score{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+<form id="quizForm">
+
+<!-- 1 -->
+<div class="card">
+<h3>1. Which of the following nutrients can be depleted by excessive alcohol intake?</h3>
+<label class="option"><input type="radio" name="q1" value="a"> a. Vitamin C</label><br>
+<label class="option"><input type="radio" name="q1" value="c"> c. iron</label><br>
+<label class="option"><input type="radio" name="q1" value="d"> d. Folate</label><br>
+<label class="option"><input type="radio" name="q1" value="b"> b. Vitamin B12</label>
+</div>
+
+<!-- 2 -->
+<div class="card">
+<h3>2. Denominator of Maternal Mortality Ratio is?</h3>
+<label class="option"><input type="radio" name="q2" value="a"> a. Total Women of reproductive age</label><br>
+<label class="option"><input type="radio" name="q2" value="b"> b. Total pregnant women</label><br>
+<label class="option"><input type="radio" name="q2" value="c"> c. Total live births</label><br>
+<label class="option"><input type="radio" name="q2" value="d"> d. Total births</label>
+</div>
+
+<!-- 3 -->
+<div class="card">
+<h3>3. For how long does the ovum survive after ovulation?</h3>
+<label class="option"><input type="radio" name="q3" value="a"> a. 24 hours</label><br>
+<label class="option"><input type="radio" name="q3" value="c"> c. 48 hours</label><br>
+<label class="option"><input type="radio" name="q3" value="b"> b. 7 days</label><br>
+<label class="option"><input type="radio" name="q3" value="d"> d. 5 days</label>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<h3>4. iUCD is not recommended for.........</h3>
+<label class="option"><input type="radio" name="q4" value="a"> a. Pelvic inflammatory diseases</label><br>
+<label class="option"><input type="radio" name="q4" value="b"> b. Breast feeding</label><br>
+<label class="option"><input type="radio" name="q4" value="c"> c. After abortion</label><br>
+<label class="option"><input type="radio" name="q4" value="d"> d. All of the above</label>
+</div>
+
+<!-- 5 -->
+<div class="card">
+<h3>5. Pap smear test is used for screen of</h3>
+<label class="option"><input type="radio" name="q5" value="a"> a. Breast cancer</label><br>
+<label class="option"><input type="radio" name="q5" value="c"> C. Lung cancer</label><br>
+<label class="option"><input type="radio" name="q5" value="b"> b. Cervical cancer</label><br>
+<label class="option"><input type="radio" name="q5" value="d"> d. Ovarian cancer</label>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<h3>6. As a HA periodic observation of record and report is:</h3>
+<label class="option"><input type="radio" name="q6" value="a"> a. Monitoring</label><br>
+<label class="option"><input type="radio" name="q6" value="c"> c. Evaluation</label><br>
+<label class="option"><input type="radio" name="q6" value="b"> b. Observation</label><br>
+<label class="option"><input type="radio" name="q6" value="d"> d. Supervision</label>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<h3>7. The Helsinki declaration was on......................</h3>
+<label class="option"><input type="radio" name="q7" value="a"> a Health Promotion</label><br>
+<label class="option"><input type="radio" name="q7" value="b"> b. Ethical principles for medical research involving human subjects</label><br>
+<label class="option"><input type="radio" name="q7" value="c"> c. Level of prevention</label><br>
+<label class="option"><input type="radio" name="q7" value="d"> d. Womens' right</label>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<h3>8. Cafeteria approach is effective for.................?</h3>
+<label class="option"><input type="radio" name="q8" value="a"> a Demonstration</label><br>
+<label class="option"><input type="radio" name="q8" value="b"> b. Family planning counseling</label><br>
+<label class="option"><input type="radio" name="q8" value="c"> C. FGD</label><br>
+<label class="option"><input type="radio" name="q8" value="d"> d. Group counseling</label>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<h3>9. When sample size increases, which of the following is true?</h3>
+<label class="option"><input type="radio" name="q9" value="a"> a. The sample mean tends to fall closer to the population mean</label><br>
+<label class="option"><input type="radio" name="q9" value="b"> b. The sampling distribution of the sample mean x approximates the population distribution</label><br>
+<label class="option"><input type="radio" name="q9" value="c"> c. The standard error decreases</label><br>
+<label class="option"><input type="radio" name="q9" value="d"> d. None of the above</label>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<h3>10. COVID-19 Crisis Management Coordination Center (CCMC) team is led by?</h3>
+<label class="option"><input type="radio" name="q10" value="a"> a Provincial Health Directorate</label><br>
+<label class="option"><input type="radio" name="q10" value="b"> b. Office of the Prime Minister & Council of Ministers</label><br>
+<label class="option"><input type="radio" name="q10" value="c"> c. Army</label><br>
+<label class="option"><input type="radio" name="q10" value="d"> d. CDO</label>
+</div>
+
+<!-- 11 -->
+<div class="card">
+<h3>11. When was the first COVID-19 case reported in Nepal?</h3>
+<label class="option"><input type="radio" name="q11" value="a"> a. 23 January 2020</label><br>
+<label class="option"><input type="radio" name="q11" value="c"> c. 15 April 2020</label><br>
+<label class="option"><input type="radio" name="q11" value="b"> b. 31 December 2019</label><br>
+<label class="option"><input type="radio" name="q11" value="d"> d. 2 January 2020</label>
+</div>
+
+<!-- 12 -->
+<div class="card">
+<h3>12. The WHO Director General declared that the Covid 19 outbreak constitutes a Public Health Emergency of International Concern (PHEIC) on:</h3>
+<label class="option"><input type="radio" name="q12" value="a"> a. 30 February 2019</label><br>
+<label class="option"><input type="radio" name="q12" value="c"> c. 30 January 2020</label><br>
+<label class="option"><input type="radio" name="q12" value="d"> d. 30 April 2020</label><br>
+<label class="option"><input type="radio" name="q12" value="b"> b.30 January 2019</label>
+</div>
+
+<!-- 13 -->
+<div class="card">
+<h3>13. Mass screening of TB is done by</h3>
+<label class="option"><input type="radio" name="q13" value="a"> a. Sputum test</label><br>
+<label class="option"><input type="radio" name="q13" value="b"> b. Mantoux tuberculin</label><br>
+<label class="option"><input type="radio" name="q13" value="c"> c. Xene expert</label><br>
+<label class="option"><input type="radio" name="q13" value="d"> d. All</label>
+</div>
+
+<!-- 14 -->
+<div class="card">
+<h3>14. ....................is used in abortion?</h3>
+<label class="option"><input type="radio" name="q14" value="a"> a. Metaprostol</label><br>
+<label class="option"><input type="radio" name="q14" value="c"> c. Mifepristone</label><br>
+<label class="option"><input type="radio" name="q14" value="b"> b. Misoprostol</label><br>
+<label class="option"><input type="radio" name="q14" value="d"> d. Both band c</label>
+</div>
+
+<!-- 15 -->
+<div class="card">
+<h3>15. World No Tobacco day is celebrated on ........</h3>
+<label class="option"><input type="radio" name="q15" value="a"> a. March 31</label><br>
+<label class="option"><input type="radio" name="q15" value="c"> c. May 31</label><br>
+<label class="option"><input type="radio" name="q15" value="b"> b. May 21</label><br>
+<label class="option"><input type="radio" name="q15" value="d"> d. June 21</label>
+</div>
+
+<!-- 16 -->
+<div class="card">
+<h3>16. How many rods are used in jadelle?</h3>
+<label class="option"><input type="radio" name="q16" value="a"> a. 5</label><br>
+<label class="option"><input type="radio" name="q16" value="c"> c. 2</label><br>
+<label class="option"><input type="radio" name="q16" value="b"> b. 3</label><br>
+<label class="option"><input type="radio" name="q16" value="d"> d. 1</label>
+</div>
+
+<!-- 17 -->
+<div class="card">
+<h3>17. Side effect of oral contraceptive pills</h3>
+<label class="option"><input type="radio" name="q17" value="a"> a. Spotting between periods.</label><br>
+<label class="option"><input type="radio" name="q17" value="b"> b. Infertility</label><br>
+<label class="option"><input type="radio" name="q17" value="c"> c. Pelvic pain</label><br>
+<label class="option"><input type="radio" name="q17" value="d"> d. All of the above</label>
+</div>
+
+<!-- 18 -->
+<div class="card">
+<h3>18. Limiting amino acid in Maize is?</h3>
+<label class="option"><input type="radio" name="q18" value="a"> a. Lysine</label><br>
+<label class="option"><input type="radio" name="q18" value="c"> c. Both A and B</label><br>
+<label class="option"><input type="radio" name="q18" value="b"> b. Tryptophan</label><br>
+<label class="option"><input type="radio" name="q18" value="d"> d. None</label>
+</div>
+
+<!-- 19 -->
+<div class="card">
+<h3>19. Bagassosis is caused by:</h3>
+<label class="option"><input type="radio" name="q19" value="a"> a. Thermoactinomyces Bacilli</label><br>
+<label class="option"><input type="radio" name="q19" value="b"> b. Thermoactinomyces Sacchari</label><br>
+<label class="option"><input type="radio" name="q19" value="c"> c. Thermoactinomyces Candidus</label><br>
+<label class="option"><input type="radio" name="q19" value="d"> d. All of the above</label>
+</div>
+
+<!-- 20 -->
+<div class="card">
+<h3>20. Pre-vitamin D is converted to..........................as a result of a health-dependent process:</h3>
+<label class="option"><input type="radio" name="q20" value="a"> a. Cholecalciferol</label><br>
+<label class="option"><input type="radio" name="q20" value="c"> c. Phosphorous</label><br>
+<label class="option"><input type="radio" name="q20" value="b"> b. Calcium</label><br>
+<label class="option"><input type="radio" name="q20" value="d"> d. None</label>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+const answers = {
+q1:'b', q2:'c', q3:'c', q4:'a', q5:'b',
+q6:'a', q7:'b', q8:'b', q9:'c', q10:'b',
+q11:'a', q12:'c', q13:'b', q14:'d', q15:'c',
+q16:'b', q17:'a', q18:'c', q19:'a', q20:'a'
+};
+
+function checkAnswers(){
+let score=0;
+
+for(let q in answers){
+let selected=document.querySelector(`input[name="${q}"]:checked`);
+let options=document.querySelectorAll(`input[name="${q}"]`);
+
+options.forEach(opt=>{
+opt.parentElement.classList.remove('correct','wrong');
+if(opt.value===answers[q]){
+opt.parentElement.classList.add('correct');
+}
+});
+
+if(selected){
+if(selected.value===answers[q]){
+score++;
+}else{
+selected.parentElement.classList.add('wrong');
+}
+}
+}
+
+document.getElementById('score').innerText="Your Score: "+score+"/20";
+}
+</script>
+
+</body>
+</html>
