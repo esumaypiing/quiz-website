@@ -1,104 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Question Sets</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Question Sets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f6f8;
-        }
+  <style>
+    :root {
+      --bg1: #020617;
+      --bg2: #0f172a;
+      --card-bg: #111827;
+      --accent: #38bdf8;
+      --text: #e5e7eb;
+    }
 
-        h1 {
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      padding: 30px 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+    h1 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      letter-spacing: 1px;
+    }
 
-        .card a {
-            display: block;
-            padding: 30px 10px;
-            text-decoration: none;
-            color: #333;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    .grid {
+      width: 100%;
+      max-width: 1300px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-        }
-    </style>
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 28px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(56,189,248,0.25),
+        transparent
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.55);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .card span {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>Question Sets</h1>
+  <h1>📚 Question Sets (1–40)</h1>
 
-    <div class="container">
-        <div class="card"><a href="set1.html">Set 1</a></div>
-        <div class="card"><a href="set2.html">Set 2</a></div>
-        <div class="card"><a href="set3.html">Set 3</a></div>
-        <div class="card"><a href="set4.html">Set 4</a></div>
-        <div class="card"><a href="set5.html">Set 5</a></div>
-        <div class="card"><a href="set6.html">Set 6</a></div>
-        <div class="card"><a href="set7.html">Set 7</a></div>
-        <div class="card"><a href="set8.html">Set 8</a></div>
-        <div class="card"><a href="set9.html">Set 9</a></div>
-        <div class="card"><a href="set10.html">Set 10</a></div>
+  <div class="grid" id="setsContainer"></div>
 
-        <div class="card"><a href="set11.html">Set 11</a></div>
-        <div class="card"><a href="set12.html">Set 12</a></div>
-        <div class="card"><a href="set13.html">Set 13</a></div>
-        <div class="card"><a href="set14.html">Set 14</a></div>
-        <div class="card"><a href="set15.html">Set 15</a></div>
-        <div class="card"><a href="set16.html">Set 16</a></div>
-        <div class="card"><a href="set17.html">Set 17</a></div>
-        <div class="card"><a href="set18.html">Set 18</a></div>
-        <div class="card"><a href="set19.html">Set 19</a></div>
-        <div class="card"><a href="set20.html">Set 20</a></div>
+  <footer>
+    Cards shuffle automatically on every refresh
+  </footer>
 
-        <div class="card"><a href="set21.html">Set 21</a></div>
-        <div class="card"><a href="set22.html">Set 22</a></div>
-        <div class="card"><a href="set23.html">Set 23</a></div>
-        <div class="card"><a href="set24.html">Set 24</a></div>
-        <div class="card"><a href="set25.html">Set 25</a></div>
-        <div class="card"><a href="set26.html">Set 26</a></div>
-        <div class="card"><a href="set27.html">Set 27</a></div>
-        <div class="card"><a href="set28.html">Set 28</a></div>
-        <div class="card"><a href="set29.html">Set 29</a></div>
-        <div class="card"><a href="set30.html">Set 30</a></div>
+  <script>
+    // Create 40 sets
+    const sets = [];
+    for (let i = 1; i <= 40; i++) {
+      sets.push({
+        title: `Set ${i}`,
+        link: `set-${i}.html`
+      });
+    }
 
-        <div class="card"><a href="set31.html">Set 31</a></div>
-        <div class="card"><a href="set32.html">Set 32</a></div>
-        <div class="card"><a href="set33.html">Set 33</a></div>
-        <div class="card"><a href="set34.html">Set 34</a></div>
-        <div class="card"><a href="set35.html">Set 35</a></div>
-        <div class="card"><a href="set36.html">Set 36</a></div>
-        <div class="card"><a href="set37.html">Set 37</a></div>
-        <div class="card"><a href="set38.html">Set 38</a></div>
-        <div class="card"><a href="set39.html">Set 39</a></div>
-        <div class="card"><a href="set40.html">Set 40</a></div>
-    </div>
+    // Shuffle function
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    const container = document.getElementById("setsContainer");
+    shuffle(sets);
+
+    sets.forEach(set => {
+      const card = document.createElement("a");
+      card.className = "card";
+      card.href = set.link;
+      card.innerHTML = `
+        <h2>${set.title}</h2>
+        <span>Click to open questions</span>
+      `;
+      container.appendChild(card);
+    });
+  </script>
 
 </body>
 </html>
