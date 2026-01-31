@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Module</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+}
+h1{
+    color:#fff;
+    text-align:center;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.options label{
+    display:block;
+    padding:8px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.options input{
+    margin-right:8px;
+}
+.correct{
+    background:#d4edda;
+    border-left:5px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border-left:5px solid #dc3545;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 40px;
+    font-size:16px;
+    background:#28a745;
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+button:hover{background:#218838;}
+.score{
+    text-align:center;
+    font-size:20px;
+    color:#fff;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+<h1>Quiz Module</h1>
+
+<form id="quizForm">
+
+<!-- 1 -->
+<div class="card">
+<div class="question">1. MMR is a:</div>
+<div class="options">
+<label><input type="radio" name="q1" value="a">a. Rate</label>
+<label><input type="radio" name="q1" value="b">b. Ratio</label>
+<label><input type="radio" name="q1" value="c">c. Proportion</label>
+<label><input type="radio" name="q1" value="d">d. None of the above</label>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+<div class="question">2. Parents are famous for saying, "Because I said so," when a child questions the reasons behind a rule. They are not interested in negotiating and their focus is on obedience.</div>
+<div class="options">
+<label><input type="radio" name="q2" value="a">a. Authoritarian</label>
+<label><input type="radio" name="q2" value="b">b. Authoritative</label>
+<label><input type="radio" name="q2" value="c">c. Permissive</label>
+<label><input type="radio" name="q2" value="d">d. Uninvolved</label>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+<div class="question">3. CB IMNCI addresses major childhood illnesses like :</div>
+<div class="options">
+<label><input type="radio" name="q3" value="a">a. Pneumonia, Diarrhea, Malaria, Measles and Malnutrition</label>
+<label><input type="radio" name="q3" value="b">b. Pneumonia, Diarrhea, Malaria, Rabies and Malnutrition</label>
+<label><input type="radio" name="q3" value="c">C. Pneumonia, Diarrhea, Malaria,Tetanus and Malnutrition</label>
+<label><input type="radio" name="q3" value="d">d. Pneumonia, Diarrhea, Malaria, Mumps and Malnutrition</label>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<div class="question">4. Any loss or abnormality of physiological or anatomical structure or function is</div>
+<div class="options">
+<label><input type="radio" name="q4" value="a">a. Impairment</label>
+<label><input type="radio" name="q4" value="b">b. Disability</label>
+<label><input type="radio" name="q4" value="c">c. Handicap</label>
+<label><input type="radio" name="q4" value="d">d. Disease</label>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+<div class="question">5. What should be done to pregnant women who recieved 1st dose TD 3 weeks earlier came for delivery?</div>
+<div class="options">
+<label><input type="radio" name="q5" value="a">a. provide 2nd dose before delivery</label>
+<label><input type="radio" name="q5" value="b">b. provide 2nd dose irrespective delivery on time</label>
+<label><input type="radio" name="q5" value="c">c. Skip 2nd dose</label>
+<label><input type="radio" name="q5" value="d">d. None</label>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<div class="question">6. Nyanojhola contains:</div>
+<div class="options">
+<label><input type="radio" name="q6" value="a">a. Bhoto, Daura</label>
+<label><input type="radio" name="q6" value="b">b. Napkin, cap</label>
+<label><input type="radio" name="q6" value="c">c. Mat,Gown</label>
+<label><input type="radio" name="q6" value="d">d. All of the above</label>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<div class="question">7. Which of the following is not a copper releasing IUD?</div>
+<div class="options">
+<label><input type="radio" name="q7" value="a">a. LNG 20</label>
+<label><input type="radio" name="q7" value="b">b. CuT</label>
+<label><input type="radio" name="q7" value="c">c. Lippes Loop</label>
+<label><input type="radio" name="q7" value="d">d. a and c</label>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<div class="question">8. Which technique is used to detect AIDS?</div>
+<div class="options">
+<label><input type="radio" name="q8" value="a">a. Northern blot and ELISA</label>
+<label><input type="radio" name="q8" value="b">b. Immunoblot and ELISA</label>
+<label><input type="radio" name="q8" value="c">c. Western blot and ELISA</label>
+<label><input type="radio" name="q8" value="d">d. Southern blot and ELISA</label>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<div class="question">9. The Human Papilloma Virus (HPV) vaccine is an effective means of preventing:</div>
+<div class="options">
+<label><input type="radio" name="q9" value="a">a. Breast cancer</label>
+<label><input type="radio" name="q9" value="b">b. Uterine cancer</label>
+<label><input type="radio" name="q9" value="c">c. Ovarian cancer</label>
+<label><input type="radio" name="q9" value="d">d. Cervical cancer</label>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<div class="question">10. What is the leading cause of death among 15-19 year old girls?</div>
+<div class="options">
+<label><input type="radio" name="q10" value="a">a. Diarrheal diseases</label>
+<label><input type="radio" name="q10" value="b">b. Pregnancy and childbirth complications</label>
+<label><input type="radio" name="q10" value="c">c. Road injury</label>
+<label><input type="radio" name="q10" value="d">d. Self-harm</label>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="card">
+<div class="question">11. The SDGs were set up in 2015 by:</div>
+<div class="options">
+<label><input type="radio" name="q11" value="a">a. The United Nations General Assembly</label>
+<label><input type="radio" name="q11" value="b">b. WHO</label>
+<label><input type="radio" name="q11" value="c">C. UNESCO</label>
+<label><input type="radio" name="q11" value="d">d. World Bank</label>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="card">
+<div class="question">12. World Health Day is celebrated on;</div>
+<div class="options">
+<label><input type="radio" name="q12" value="a">a. 1st December</label>
+<label><input type="radio" name="q12" value="b">b. 31st May</label>
+<label><input type="radio" name="q12" value="c">c. 7th April</label>
+<label><input type="radio" name="q12" value="d">d. 8th May</label>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="card">
+<div class="question">13. Anti malaria month is observed in</div>
+<div class="options">
+<label><input type="radio" name="q13" value="a">a. April</label>
+<label><input type="radio" name="q13" value="b">b. may</label>
+<label><input type="radio" name="q13" value="c">c. june</label>
+<label><input type="radio" name="q13" value="d">d. july</label>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="card">
+<div class="question">14. Global strategy for health for all was formulated and adopted by World Health Assembly in;</div>
+<div class="options">
+<label><input type="radio" name="q14" value="a">a. 1978</label>
+<label><input type="radio" name="q14" value="b">b. 1981</label>
+<label><input type="radio" name="q14" value="c">c. 1984</label>
+<label><input type="radio" name="q14" value="d">d. 1987</label>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="card">
+<div class="question">15. UNFPA established in</div>
+<div class="options">
+<label><input type="radio" name="q15" value="a">a. 1969</label>
+<label><input type="radio" name="q15" value="b">b. 1954</label>
+<label><input type="radio" name="q15" value="c">C. 1949</label>
+<label><input type="radio" name="q15" value="d">d. 1974</label>
+</div>
+</div>
+
+<!-- 16 -->
+<div class="card">
+<div class="question">16. Which government provides the largest amount of funding to address global health challenges around the world?</div>
+<div class="options">
+<label><input type="radio" name="q16" value="a">a. United States</label>
+<label><input type="radio" name="q16" value="b">b. United Kingdom</label>
+<label><input type="radio" name="q16" value="c">c. China</label>
+<label><input type="radio" name="q16" value="d">d. France</label>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="card">
+<div class="question">17. What is the leading cause of death in low-income countries?</div>
+<div class="options">
+<label><input type="radio" name="q17" value="a">a. Pneumonia and other lower respiratory infections</label>
+<label><input type="radio" name="q17" value="b">b. HIV/AIDS</label>
+<label><input type="radio" name="q17" value="c">c. Heart disease</label>
+<label><input type="radio" name="q17" value="d">d. Malaria</label>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="card">
+<div class="question">18. State of social dysfunction is known as;</div>
+<div class="options">
+<label><input type="radio" name="q18" value="a">a. Disease</label>
+<label><input type="radio" name="q18" value="b">b. illness</label>
+<label><input type="radio" name="q18" value="c">c. Sickness</label>
+<label><input type="radio" name="q18" value="d">d. None of the above</label>
+</div>
+</div>
+
+<!-- 19 -->
+<div class="card">
+<div class="question">19. Idiot is one with an IQ of:</div>
+<div class="options">
+<label><input type="radio" name="q19" value="a">a. 0-24</label>
+<label><input type="radio" name="q19" value="b">b. 25-49</label>
+<label><input type="radio" name="q19" value="c">c. 50-69</label>
+<label><input type="radio" name="q19" value="d">d. 70-79</label>
+</div>
+</div>
+
+<!-- 20 -->
+<div class="card">
+<div class="question">20. Phobia is exaggerated or unnecessary form of;</div>
+<div class="options">
+<label><input type="radio" name="q20" value="a">a. Fear</label>
+<label><input type="radio" name="q20" value="b">b. Anger</label>
+<label><input type="radio" name="q20" value="c">c. Anxiety</label>
+<label><input type="radio" name="q20" value="d">d. Love</label>
+</div>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div class="score" id="score"></div>
+</div>
+
+<script>
+const answers={
+q1:"b",q2:"a",q3:"a",q4:"a",q5:"b",
+q6:"d",q7:"d",q8:"c",q9:"d",q10:"b",
+q11:"a",q12:"c",q13:"c",q14:"b",q15:"a",
+q16:"a",q17:"a",q18:"c",q19:"a",q20:"a"
+};
+
+function checkAnswers(){
+let score=0;
+for(let q in answers){
+document.getElementsByName(q).forEach(opt=>{
+let label=opt.parentElement;
+if(opt.value===answers[q]) label.classList.add("correct");
+if(opt.checked && opt.value!==answers[q]) label.classList.add("wrong");
+if(opt.checked && opt.value===answers[q]) score++;
+opt.disabled=true;
+});
+}
+document.getElementById("score").innerText="Your Score: "+score+" / 20";
+}
+</script>
+
+</body>
+</html>
