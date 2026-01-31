@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#6a11cb,#2575fc);
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.options label{
+    display:block;
+    padding:10px;
+    margin-bottom:8px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.correct{
+    background:#d4edda;
+    border-color:#28a745;
+}
+
+.wrong{
+    background:#f8d7da;
+    border-color:#dc3545;
+}
+
+button{
+    display:block;
+    margin:30px auto;
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#28a745;
+    color:#fff;
+    cursor:pointer;
+}
+
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-top:20px;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<form id="quizForm">
+
+<div class="card">
+<h3>1. Area under standard normal distribution curve:</h3>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> a. 0.5</label>
+<label><input type="radio" name="q1" value="b"> b. 1</label>
+<label><input type="radio" name="q1" value="c"> c. 1.5</label>
+<label><input type="radio" name="q1" value="d"> d. 2</label>
+</div>
+</div>
+
+<div class="card">
+<h3>2.The acceptable level of iron in portable water is:</h3>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> a. 0.3mg/1</label>
+<label><input type="radio" name="q2" value="b"> b. 0.4mg/1</label>
+<label><input type="radio" name="q2" value="c"> c. 0.5mg/1</label>
+<label><input type="radio" name="q2" value="d"> d. 0.01mg/l</label>
+</div>
+</div>
+
+<div class="card">
+<h3>3.The sum of the absolute deviation about mean for the values: 2, 4, 6, 8, and 10 is always:</h3>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> a. positive</label>
+<label><input type="radio" name="q3" value="b"> b. 2</label>
+<label><input type="radio" name="q3" value="c"> c. 10</label>
+<label><input type="radio" name="q3" value="d"> d. Not possible.</label>
+</div>
+</div>
+
+<div class="card">
+<h3>4.The space for every worker employed in the factory should be ....cubic meters.</h3>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> a 9.9</label>
+<label><input type="radio" name="q4" value="b"> b. 10.2</label>
+<label><input type="radio" name="q4" value="c"> c. 14.2</label>
+<label><input type="radio" name="q4" value="d"> d. 13.2</label>
+</div>
+</div>
+
+<div class="card">
+<h3>5.Which of the following is not a cause of bias?</h3>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> a. Confounding</label>
+<label><input type="radio" name="q5" value="b"> b. Selection</label>
+<label><input type="radio" name="q5" value="c"> c. Misclassification</label>
+<label><input type="radio" name="q5" value="d"> d. Random error</label>
+</div>
+</div>
+
+<div class="card">
+<h3>6.Case control study is used for study of;</h3>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> a. Common disease</label>
+<label><input type="radio" name="q6" value="b"> b. Uncommon exposure</label>
+<label><input type="radio" name="q6" value="c"> c. Rare disease</label>
+<label><input type="radio" name="q6" value="d"> d. Unknown disease</label>
+</div>
+</div>
+
+<div class="card">
+<h3>7.Koplik spots are seen in ?</h3>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> a. Prodromal stage</label>
+<label><input type="radio" name="q7" value="b"> b. Incubation</label>
+<label><input type="radio" name="q7" value="c"> c. Eruptive</label>
+<label><input type="radio" name="q7" value="d"> d. Convalescent stage</label>
+</div>
+</div>
+
+<div class="card">
+<h3>8.Epidemiological triad includes;</h3>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> a. Agent</label>
+<label><input type="radio" name="q8" value="b"> b.Host</label>
+<label><input type="radio" name="q8" value="c"> c. Environment</label>
+<label><input type="radio" name="q8" value="d"> d. All of the above</label>
+</div>
+</div>
+
+<div class="card">
+<h3>9. Incubation period of Measles is?</h3>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> a. 10-14 days</label>
+<label><input type="radio" name="q9" value="b"> b 10-24 days</label>
+<label><input type="radio" name="q9" value="c"> c. 1-7 days</label>
+<label><input type="radio" name="q9" value="d"> d. None</label>
+</div>
+</div>
+
+<div class="card">
+<h3>10. Randomization is done in experimental study:</h3>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> a. To eliminate selection bias.</label>
+<label><input type="radio" name="q10" value="b"> b. To select control</label>
+<label><input type="radio" name="q10" value="c"> c. To eliminate confounding bias</label>
+<label><input type="radio" name="q10" value="d"> d. All of above</label>
+</div>
+</div>
+
+<div class="card">
+<h3>11. In quasi experimental study there is no :</h3>
+<div class="options">
+<label><input type="radio" name="q11" value="a"> a. no control</label>
+<label><input type="radio" name="q11" value="b"> b. no randomization</label>
+<label><input type="radio" name="q11" value="c"> c. neither randomization nor control</label>
+<label><input type="radio" name="q11" value="d"> d. both randomization and control</label>
+</div>
+</div>
+
+<div class="card">
+<h3>12. Which of the following is not the analytical study?</h3>
+<div class="options">
+<label><input type="radio" name="q12" value="a"> a. Cross sectional comparative study</label>
+<label><input type="radio" name="q12" value="b"> b. Case control study</label>
+<label><input type="radio" name="q12" value="c"> c. Cohort study</label>
+<label><input type="radio" name="q12" value="d"> d. Prevalence study</label>
+</div>
+</div>
+
+<div class="card">
+<h3>13. In an outbreak of COVID in a village of 2000 population 20 cases have occurred and 5 have died Case fatality rate is;</h3>
+<div class="options">
+<label><input type="radio" name="q13" value="a"> a. 1%</label>
+<label><input type="radio" name="q13" value="b"> b. 0.25%</label>
+<label><input type="radio" name="q13" value="c"> c. 5%</label>
+<label><input type="radio" name="q13" value="d"> d. 25%</label>
+</div>
+</div>
+
+<div class="card">
+<h3>14. A study revealed that in a study group, intake of beta-carotene decreases carcinoma of colon but it actually may be due to increased intake of dietary fiber. This is due to:</h3>
+<div class="options">
+<label><input type="radio" name="q14" value="a"> a. Confounding factor</label>
+<label><input type="radio" name="q14" value="b"> b. Misclassification bias</label>
+<label><input type="radio" name="q14" value="c"> c.Randomization</label>
+<label><input type="radio" name="q14" value="d"> d. Sampling error</label>
+</div>
+</div>
+
+<div class="card">
+<h3>15. Cross-sectional study is:</h3>
+<div class="options">
+<label><input type="radio" name="q15" value="a"> a. Longitudinal study</label>
+<label><input type="radio" name="q15" value="b"> b. Prospective study</label>
+<label><input type="radio" name="q15" value="c"> c. Retrospective study</label>
+<label><input type="radio" name="q15" value="d"> d. Prevalence study</label>
+</div>
+</div>
+
+<div class="card">
+<h3>16. 25% of disease is because of exposure is:</h3>
+<div class="options">
+<label><input type="radio" name="q16" value="a"> a. Population attributable risk</label>
+<label><input type="radio" name="q16" value="b"> b. Risk ratio</label>
+<label><input type="radio" name="q16" value="c"> c. Relative risk</label>
+<label><input type="radio" name="q16" value="d"> d. Attributable risk</label>
+</div>
+</div>
+
+<div class="card">
+<h3>17. Relative risk (RR)&lt;1 means:-</h3>
+<div class="options">
+<label><input type="radio" name="q17" value="a"> a. No association</label>
+<label><input type="radio" name="q17" value="b"> b. Positive association</label>
+<label><input type="radio" name="q17" value="c"> c. Strong association</label>
+<label><input type="radio" name="q17" value="d"> d. Negative association</label>
+</div>
+</div>
+
+<div class="card">
+<h3>18. Rashes in chickenpox are:</h3>
+<div class="options">
+<label><input type="radio" name="q18" value="a"> a. Centrifugal</label>
+<label><input type="radio" name="q18" value="b"> b. Centripetal</label>
+<label><input type="radio" name="q18" value="c"> c. On arms and legs</label>
+<label><input type="radio" name="q18" value="d"> d. All</label>
+</div>
+</div>
+
+<div class="card">
+<h3>19. If new effective treatment is initiated and all the other factors remain the same; which of the following is most likely to happen?</h3>
+<div class="options">
+<label><input type="radio" name="q19" value="a"> a. Incidence will not change</label>
+<label><input type="radio" name="q19" value="b"> b. Prevalence will not change.</label>
+<label><input type="radio" name="q19" value="c"> c. Neither incidence or prevalence will change</label>
+<label><input type="radio" name="q19" value="d"> d. Incidence and prevalence will change</label>
+</div>
+</div>
+
+<div class="card">
+<h3>20. Acute watery diarrhoea epidemic caused by contaminated well is a typical example of:</h3>
+<div class="options">
+<label><input type="radio" name="q20" value="a"> a. Propagated epidemic</label>
+<label><input type="radio" name="q20" value="b"> b Common single source for short period</label>
+<label><input type="radio" name="q20" value="c"> c. Common single source for a prolonged period</label>
+<label><input type="radio" name="q20" value="d"> d. Multiple source for a prolonged period</label>
+</div>
+</div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+const answers = {
+q1:"b", q2:"a", q3:"a", q4:"c", q5:"d",
+q6:"c", q7:"a", q8:"d", q9:"a", q10:"d",
+q11:"b", q12:"d", q13:"d", q14:"a", q15:"d",
+q16:"d", q17:"d", q18:"b", q19:"a", q20:"b"
+};
+
+function submitQuiz(){
+let score=0;
+for(let q in answers){
+let options=document.getElementsByName(q);
+options.forEach(opt=>{
+let label=opt.parentElement;
+if(opt.value===answers[q]){
+label.classList.add("correct");
+if(opt.checked) score++;
+}else if(opt.checked){
+label.classList.add("wrong");
+}
+opt.disabled=true;
+});
+}
+document.getElementById("score").innerText="Your Score: "+score+"/20";
+}
+</script>
+
+</body>
+</html>
