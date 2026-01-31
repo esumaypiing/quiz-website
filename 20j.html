@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#74ebd5,#acb6e5);
+    padding:20px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+h1{
+    text-align:center;
+    color:#fff;
+    margin-bottom:25px;
+}
+.card{
+    background:#fff;
+    padding:18px;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.option{
+    display:block;
+    padding:6px 10px;
+    margin:5px 0;
+    border-radius:6px;
+}
+.correct{
+    background:#d4edda;
+    border:2px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border:2px solid #dc3545;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#28a745;
+    color:#fff;
+    cursor:pointer;
+}
+button:hover{
+    background:#218838;
+}
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>MCQ Quiz</h1>
+<form id="quizForm">
+
+<div class="card">
+<div class="question">1.Mid-year population refers to population as on;</div>
+<label class="option"><input type="radio" name="q1" value="a">a. March 31</label>
+<label class="option"><input type="radio" name="q1" value="c">C. July 1</label>
+<label class="option"><input type="radio" name="q1" value="b">b. January 1</label>
+<label class="option"><input type="radio" name="q1" value="d">d. December 31</label>
+</div>
+
+<div class="card">
+<div class="question">2.Type of census currently used in Nepal</div>
+<label class="option"><input type="radio" name="q2" value="a">a. De-facto</label>
+<label class="option"><input type="radio" name="q2" value="c">c. Modified De-jure</label>
+<label class="option"><input type="radio" name="q2" value="b">b. De-Jure</label>
+<label class="option"><input type="radio" name="q2" value="d">d. Modified De-facto</label>
+</div>
+
+<div class="card">
+<div class="question">3.Net reproduction rate means:</div>
+<label class="option"><input type="radio" name="q3" value="a">a. Average no, of offspring a female would produce during her lifetime</label>
+<label class="option"><input type="radio" name="q3" value="b">b. Average no. of children per parents</label>
+<label class="option"><input type="radio" name="q3" value="c">c. No. of children per household</label>
+<label class="option"><input type="radio" name="q3" value="d">d. None</label>
+</div>
+
+<div class="card">
+<div class="question">4.Population growth rate of 1.5 denotes:</div>
+<label class="option"><input type="radio" name="q4" value="a">a. Rapid growth</label>
+<label class="option"><input type="radio" name="q4" value="b">b Very rapid growth</label>
+<label class="option"><input type="radio" name="q4" value="c">c. Slow growth</label>
+<label class="option"><input type="radio" name="q4" value="d">d. Explosive growth</label>
+</div>
+
+<div class="card">
+<div class="question">5.Which of the following stages of demographic transition best represents Nepal's current situation?</div>
+<label class="option"><input type="radio" name="q5" value="a">a. High stationary</label>
+<label class="option"><input type="radio" name="q5" value="c">c. Late expanding</label>
+<label class="option"><input type="radio" name="q5" value="b">b Early expanding</label>
+<label class="option"><input type="radio" name="q5" value="d">d. Low stationary</label>
+</div>
+
+<div class="card">
+<div class="question">6.Which of the following is known as "Father of public health"?</div>
+<label class="option"><input type="radio" name="q6" value="a">a. Tuberculosis</label>
+<label class="option"><input type="radio" name="q6" value="c">c. John Snow</label>
+<label class="option"><input type="radio" name="q6" value="b">b. Cholera</label>
+<label class="option"><input type="radio" name="q6" value="d">d. Louis Pasteur</label>
+</div>
+
+<div class="card">
+<div class="question">7.Which of the following is the social indicator?</div>
+<label class="option"><input type="radio" name="q7" value="a">a. CBR</label>
+<label class="option"><input type="radio" name="q7" value="c">C. CDR</label>
+<label class="option"><input type="radio" name="q7" value="b">b. IMR</label>
+<label class="option"><input type="radio" name="q7" value="d">d. None</label>
+</div>
+
+<div class="card">
+<div class="question">8.Which of the following is also known as a marker of social inequality?</div>
+<label class="option"><input type="radio" name="q8" value="a">a. HIV</label>
+<label class="option"><input type="radio" name="q8" value="c">c. Diarrhea</label>
+<label class="option"><input type="radio" name="q8" value="b">b. Tuberculosis</label>
+<label class="option"><input type="radio" name="q8" value="d">d. Leprosy</label>
+</div>
+
+<div class="card">
+<div class="question">9.The definition of public health was given by;</div>
+<label class="option"><input type="radio" name="q9" value="a">a.Robert Koch</label>
+<label class="option"><input type="radio" name="q9" value="b">b. Park JE</label>
+<label class="option"><input type="radio" name="q9" value="c">c. Leavell and clark</label>
+<label class="option"><input type="radio" name="q9" value="d">d. Winslow CEA</label>
+</div>
+
+<div class="card">
+<div class="question">10.Free health care program was launched in the year:</div>
+<label class="option"><input type="radio" name="q10" value="a">a. 1991AD</label>
+<label class="option"><input type="radio" name="q10" value="c">c. 2009 AD</label>
+<label class="option"><input type="radio" name="q10" value="b">b.2002 AD</label>
+<label class="option"><input type="radio" name="q10" value="d">d.2015 AD</label>
+</div>
+
+<div class="card">
+<div class="question">11.Which of the following is not present in HDI?</div>
+<label class="option"><input type="radio" name="q11" value="a">a. Education index</label>
+<label class="option"><input type="radio" name="q11" value="c">c. Mortality index</label>
+<label class="option"><input type="radio" name="q11" value="b">b. Income index</label>
+<label class="option"><input type="radio" name="q11" value="d">d. Life expectancy</label>
+</div>
+
+<div class="card">
+<div class="question">12.Latrine intended to use for camps of longer duration is:</div>
+<label class="option"><input type="radio" name="q12" value="a">a. shallow trench latrine</label>
+<label class="option"><input type="radio" name="q12" value="b">b. deep trench latrine</label>
+<label class="option"><input type="radio" name="q12" value="c">c. bore hole latrine</label>
+<label class="option"><input type="radio" name="q12" value="d">d. water seal latrine</label>
+</div>
+
+<div class="card">
+<div class="question">13.Acid rain due to</div>
+<label class="option"><input type="radio" name="q13" value="a">a. S02</label>
+<label class="option"><input type="radio" name="q13" value="b">b. H2S04</label>
+<label class="option"><input type="radio" name="q13" value="c">c. HCL</label>
+<label class="option"><input type="radio" name="q13" value="d">d. b. and c</label>
+</div>
+
+<div class="card">
+<div class="question">14.Green house gas-</div>
+<label class="option"><input type="radio" name="q14" value="a">a. Trap heat of planet</label>
+<label class="option"><input type="radio" name="q14" value="b">b. Reflects heat from the planet</label>
+<label class="option"><input type="radio" name="q14" value="c">c. Reduces temperature of atmosphere</label>
+<label class="option"><input type="radio" name="q14" value="d">d. All</label>
+</div>
+
+<div class="card">
+<div class="question">15.Common occupational disease in working place:</div>
+<label class="option"><input type="radio" name="q15" value="a">a. cardiovascular disease</label>
+<label class="option"><input type="radio" name="q15" value="b">b. skin disease</label>
+<label class="option"><input type="radio" name="q15" value="c">c. mental disease</label>
+<label class="option"><input type="radio" name="q15" value="d">d. endocrine disease</label>
+</div>
+
+<div class="card">
+<div class="question">16.Major source of ambient air pollution is:</div>
+<label class="option"><input type="radio" name="q16" value="a">a. Burning wood</label>
+<label class="option"><input type="radio" name="q16" value="c">c.automobiles</label>
+<label class="option"><input type="radio" name="q16" value="b">b. industries.</label>
+<label class="option"><input type="radio" name="q16" value="d">d.gas stove</label>
+</div>
+
+<div class="card">
+<div class="question">17.Process to remove temporary hardness of water:</div>
+<label class="option"><input type="radio" name="q17" value="a">a. Base exchange</label>
+<label class="option"><input type="radio" name="q17" value="c">c. Both</label>
+<label class="option"><input type="radio" name="q17" value="b">b Permutit</label>
+<label class="option"><input type="radio" name="q17" value="d">d. None</label>
+</div>
+
+<div class="card">
+<div class="question">18.Sugarcane dust causes:</div>
+<label class="option"><input type="radio" name="q18" value="a">a. Bagassosis</label>
+<label class="option"><input type="radio" name="q18" value="c">c. Silicosis</label>
+<label class="option"><input type="radio" name="q18" value="b">b Byssinosis</label>
+<label class="option"><input type="radio" name="q18" value="d">d. Anthracosis</label>
+</div>
+
+<div class="card">
+<div class="question">19.Fitting right man to the right jobis:</div>
+<label class="option"><input type="radio" name="q19" value="a">a. Occupational Health</label>
+<label class="option"><input type="radio" name="q19" value="c">c. Aesthetics</label>
+<label class="option"><input type="radio" name="q19" value="b">b Ergonomics</label>
+<label class="option"><input type="radio" name="q19" value="d">d. All</label>
+</div>
+
+<div class="card">
+<div class="question">20.Hospital infected amputated parts are kept in:</div>
+<label class="option"><input type="radio" name="q20" value="a">a. Red colour</label>
+<label class="option"><input type="radio" name="q20" value="c">c. Yellow colour</label>
+<label class="option"><input type="radio" name="q20" value="b">b Blue colour</label>
+<label class="option"><input type="radio" name="q20" value="d">d.Black colour</label>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+const answers={
+q1:"c",q2:"c",q3:"a",q4:"a",q5:"b",
+q6:"b",q7:"b",q8:"b",q9:"d",q10:"c",
+q11:"c",q12:"b",q13:"a",q14:"a",q15:"b",
+q16:"c",q17:"b",q18:"a",q19:"b",q20:"a"
+};
+
+function checkAnswers(){
+let score=0;
+for(let q in answers){
+let options=document.getElementsByName(q);
+options.forEach(opt=>{
+opt.parentElement.classList.remove("correct","wrong");
+if(opt.value===answers[q]){
+opt.parentElement.classList.add("correct");
+}
+if(opt.checked && opt.value!==answers[q]){
+opt.parentElement.classList.add("wrong");
+}
+if(opt.checked && opt.value===answers[q]){
+score++;
+}
+});
+}
+document.getElementById("score").innerHTML="Your Score: "+score+" / 20";
+}
+</script>
+</body>
+</html>
