@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Module</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    padding:20px;
+}
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+}
+h1{
+    color:#fff;
+    text-align:center;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.options label{
+    display:block;
+    padding:8px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.options input{
+    margin-right:8px;
+}
+.correct{
+    background:#d4edda;
+    border-left:5px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border-left:5px solid #dc3545;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 40px;
+    font-size:16px;
+    background:#28a745;
+    color:#fff;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+}
+button:hover{background:#218838;}
+.score{
+    text-align:center;
+    font-size:20px;
+    color:#fff;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+<h1>Quiz Module</h1>
+
+<form id="quizForm">
+
+<!-- 1 -->
+<div class="card">
+<div class="question">1. Acculturation may take place by:</div>
+<div class="options">
+<label><input type="radio" name="q1" value="a">a. Education</label>
+<label><input type="radio" name="q1" value="b">b. Industrialization</label>
+<label><input type="radio" name="q1" value="c">c. Trade and commerce</label>
+<label><input type="radio" name="q1" value="d">d. All of the above</label>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+<div class="question">2. When the balance between the material and nonmaterial culture is disrupted by rapid social change,the material culture changes rapidly and the non-material culture is left behind.This situation is called</div>
+<div class="options">
+<label><input type="radio" name="q2" value="a">a. Left culture</label>
+<label><input type="radio" name="q2" value="b">b. Far-culture</label>
+<label><input type="radio" name="q2" value="c">c. Cultural lags</label>
+<label><input type="radio" name="q2" value="d">d. Taken culture.</label>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+<div class="question">3. The stage where the person feels the reality that he/she is sick is:</div>
+<div class="options">
+<label><input type="radio" name="q3" value="a">a. The symptoms experience stage</label>
+<label><input type="radio" name="q3" value="b">b. Assumption of the sick role stage</label>
+<label><input type="radio" name="q3" value="c">c. Medical care contact stage</label>
+<label><input type="radio" name="q3" value="d">d. Recovery or, rehabilitation stage</label>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<div class="question">4. Characteristics of culture includes all EXCEPT:</div>
+<div class="options">
+<label><input type="radio" name="q4" value="a">a. Culture is changeable</label>
+<label><input type="radio" name="q4" value="b">b. Culture is learned</label>
+<label><input type="radio" name="q4" value="c">c. Culture is static</label>
+<label><input type="radio" name="q4" value="d">d. Culture is manmade</label>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+<div class="question">5. Dad, mom, children living together with grandparents is a type of:</div>
+<div class="options">
+<label><input type="radio" name="q5" value="a">a. Joint family</label>
+<label><input type="radio" name="q5" value="b">b. Extended family</label>
+<label><input type="radio" name="q5" value="c">c. Single family</label>
+<label><input type="radio" name="q5" value="d">d. Normal family</label>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<div class="question">6. When there is contact between two people with different types of culture, there is diffusion of culture both ways which is called:</div>
+<div class="options">
+<label><input type="radio" name="q6" value="a">a. Socialization</label>
+<label><input type="radio" name="q6" value="b">b. Acculturation</label>
+<label><input type="radio" name="q6" value="c">c. Assimilation</label>
+<label><input type="radio" name="q6" value="d">d. All of the above</label>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<div class="question">7. A person who joins a variety of social clubs and has a wide variety of friends is likely to be:</div>
+<div class="options">
+<label><input type="radio" name="q7" value="a">a. High in need for affiliation</label>
+<label><input type="radio" name="q7" value="b">b. Low in need for achievement</label>
+<label><input type="radio" name="q7" value="c">c. Low in need for affiliation</label>
+<label><input type="radio" name="q7" value="d">d. High in need for solitude</label>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<div class="question">8. When group do not became able to to make decision,then there should be:</div>
+<div class="options">
+<label><input type="radio" name="q8" value="a">a. Democratic decision</label>
+<label><input type="radio" name="q8" value="b">b. group should be dismissed</label>
+<label><input type="radio" name="q8" value="c">c. Hip pocket decision</label>
+<label><input type="radio" name="q8" value="d">d. Group decision</label>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<div class="question">9. Cognitive skills related to</div>
+<div class="options">
+<label><input type="radio" name="q9" value="a">a. knowledge</label>
+<label><input type="radio" name="q9" value="b">b. Attitude</label>
+<label><input type="radio" name="q9" value="c">c. behavior</label>
+<label><input type="radio" name="q9" value="d">d. None</label>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<div class="question">10. PERT is a technique of:</div>
+<div class="options">
+<label><input type="radio" name="q10" value="a">a. gender analysis</label>
+<label><input type="radio" name="q10" value="b">b. network analysis</label>
+<label><input type="radio" name="q10" value="c">c. statistical analysis</label>
+<label><input type="radio" name="q10" value="d">d. problem analysis</label>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="card">
+<div class="question">11. Negative growth rate was seen in ..... census of Nepal?</div>
+<div class="options">
+<label><input type="radio" name="q11" value="a">a. 1910</label>
+<label><input type="radio" name="q11" value="b">b. 1920 & 1930</label>
+<label><input type="radio" name="q11" value="c">c. 2011</label>
+<label><input type="radio" name="q11" value="d">d. 2001</label>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="card">
+<div class="question">12. In supervision the most appropriate word is</div>
+<div class="options">
+<label><input type="radio" name="q12" value="a">a. Enforcement</label>
+<label><input type="radio" name="q12" value="b">b. Reinforcement</label>
+<label><input type="radio" name="q12" value="c">c. Suggestion</label>
+<label><input type="radio" name="q12" value="d">d. Inspection</label>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="card">
+<div class="question">13. In which Year plan PHC was started in nepal?</div>
+<div class="options">
+<label><input type="radio" name="q13" value="a">a. 7th</label>
+<label><input type="radio" name="q13" value="b">b. 5th</label>
+<label><input type="radio" name="q13" value="c">c. 8th</label>
+<label><input type="radio" name="q13" value="d">d. 10th</label>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="card">
+<div class="question">14. Government of Nepal has taken vision of making malaria free by:</div>
+<div class="options">
+<label><input type="radio" name="q14" value="a">a. 2020</label>
+<label><input type="radio" name="q14" value="b">b. 2025</label>
+<label><input type="radio" name="q14" value="c">c. 2030</label>
+<label><input type="radio" name="q14" value="d">d. 2035</label>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="card">
+<div class="question">15. When Nepal's parliament approved a bill amending the law to permit abortion law:</div>
+<div class="options">
+<label><input type="radio" name="q15" value="a">a. March 2001</label>
+<label><input type="radio" name="q15" value="b">b. April 2002</label>
+<label><input type="radio" name="q15" value="c">c. March 2002</label>
+<label><input type="radio" name="q15" value="d">d. April 2001</label>
+</div>
+</div>
+
+<!-- 16 -->
+<div class="card">
+<div class="question">16. Government initiated FCHV programme in FY?.</div>
+<div class="options">
+<label><input type="radio" name="q16" value="a">a. 2045/46</label>
+<label><input type="radio" name="q16" value="b">b. 2046/47</label>
+<label><input type="radio" name="q16" value="c">c. 2044/45</label>
+<label><input type="radio" name="q16" value="d">d. 2047/48</label>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="card">
+<div class="question">17. Henry fayol POCCC stand for:</div>
+<div class="options">
+<label><input type="radio" name="q17" value="a">a. Planning Organizing Controlling Consulting Coordinating</label>
+<label><input type="radio" name="q17" value="b">b. Planning Organizing Commanding Coordinating Controlling</label>
+<label><input type="radio" name="q17" value="c">c. Planning Organizing Collaborating Commanding Controlling</label>
+<label><input type="radio" name="q17" value="d">d. None</label>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="card">
+<div class="question">18. What does A stand for in SMART objective?</div>
+<div class="options">
+<label><input type="radio" name="q18" value="a">a. Accessible,</label>
+<label><input type="radio" name="q18" value="b">b. Available</label>
+<label><input type="radio" name="q18" value="c">c. Attainable</label>
+<label><input type="radio" name="q18" value="d">d. Account</label>
+</div>
+</div>
+
+<!-- 19 -->
+<div class="card">
+<div class="question">19. Evaluation of a project during the implementation phase is also called as:</div>
+<div class="options">
+<label><input type="radio" name="q19" value="a">a. Summative evaluation</label>
+<label><input type="radio" name="q19" value="b">b. Diagnostic evaluation</label>
+<label><input type="radio" name="q19" value="c">c. Formative evaluation</label>
+<label><input type="radio" name="q19" value="d">d. Implementation evaluation</label>
+</div>
+</div>
+
+<!-- 20 -->
+<div class="card">
+<div class="question">20. Under which of the following conditions would teams be more effective than individuals?</div>
+<div class="options">
+<label><input type="radio" name="q20" value="a">a. When speed is important</label>
+<label><input type="radio" name="q20" value="b">b. When the activities involved in solving the problem are very detailed</label>
+<label><input type="radio" name="q20" value="c">c. When the actual document needs to be written</label>
+<label><input type="radio" name="q20" value="d">d. When innovation is required</label>
+</div>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div class="score" id="score"></div>
+</div>
+
+<script>
+const answers={
+q1:"d",q2:"c",q3:"b",q4:"c",q5:"b",
+q6:"b",q7:"a",q8:"c",q9:"a",q10:"b",
+q11:"b",q12:"b",q13:"b",q14:"b",q15:"c",
+q16:"a",q17:"b",q18:"c",q19:"c",q20:"d"
+};
+
+function checkAnswers(){
+let score=0;
+for(let q in answers){
+document.getElementsByName(q).forEach(opt=>{
+let label=opt.parentElement;
+if(opt.value===answers[q]) label.classList.add("correct");
+if(opt.checked && opt.value!==answers[q]) label.classList.add("wrong");
+if(opt.checked && opt.value===answers[q]) score++;
+opt.disabled=true;
+});
+}
+document.getElementById("score").innerText="Your Score: "+score+" / 20";
+}
+</script>
+
+</body>
+</html>
