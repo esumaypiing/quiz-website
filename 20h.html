@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg,#89f7fe,#66a6ff);
+    margin:0;
+    padding:20px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+h1{
+    text-align:center;
+    color:#fff;
+    margin-bottom:25px;
+}
+.card{
+    background:#ffffff;
+    border-radius:10px;
+    padding:18px;
+    margin-bottom:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.option{
+    display:block;
+    padding:6px 10px;
+    margin:5px 0;
+    border-radius:6px;
+}
+.correct{
+    background:#d4edda;
+    border:2px solid #28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border:2px solid #dc3545;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    background:#28a745;
+    color:white;
+    cursor:pointer;
+}
+button:hover{
+    background:#218838;
+}
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>MCQ Quiz</h1>
+
+<form id="quizForm">
+
+<div class="card">
+<div class="question">1. Preformed vitamin A is</div>
+<label class="option"><input type="radio" name="q1" value="a">a. Retinol</label>
+<label class="option"><input type="radio" name="q1" value="c">c. corticoids</label>
+<label class="option"><input type="radio" name="q1" value="b">b. Beta-carotene</label>
+<label class="option"><input type="radio" name="q1" value="d">d. None</label>
+</div>
+
+<div class="card">
+<div class="question">2. Limiting amino acids in wheat are:</div>
+<label class="option"><input type="radio" name="q2" value="a">a. Methionine and Lysine</label>
+<label class="option"><input type="radio" name="q2" value="b">b. Lysine and threonine</label>
+<label class="option"><input type="radio" name="q2" value="c">c. Threonine and methionine</label>
+<label class="option"><input type="radio" name="q2" value="d">d.</label>
+</div>
+
+<div class="card">
+<div class="question">3. Richest source of vitamin C is;</div>
+<label class="option"><input type="radio" name="q3" value="a">a. Orange</label>
+<label class="option"><input type="radio" name="q3" value="c">c. Amla</label>
+<label class="option"><input type="radio" name="q3" value="b">b. Lime</label>
+<label class="option"><input type="radio" name="q3" value="d">d. Cabbage</label>
+</div>
+
+<div class="card">
+<div class="question">4. Which of the following is also known for cancer prevention</div>
+<label class="option"><input type="radio" name="q4" value="a">a. Carrots</label>
+<label class="option"><input type="radio" name="q4" value="b">b Cabbage</label>
+<label class="option"><input type="radio" name="q4" value="c">c. Broccoli</label>
+<label class="option"><input type="radio" name="q4" value="d">d. Orange</label>
+</div>
+
+<div class="card">
+<div class="question">5. Most important Essential Fatty Acid is;</div>
+<label class="option"><input type="radio" name="q5" value="a">a. Linoleic Acid</label>
+<label class="option"><input type="radio" name="q5" value="b">b. Linolenic Acid</label>
+<label class="option"><input type="radio" name="q5" value="c">c. Arachidonic Acid</label>
+<label class="option"><input type="radio" name="q5" value="d">d. Eicosapentaenoic Acid</label>
+</div>
+
+<div class="card">
+<div class="question">6. All are antioxidants except:</div>
+<label class="option"><input type="radio" name="q6" value="a">a. Vitamin A</label>
+<label class="option"><input type="radio" name="q6" value="c">c. Vitamin C</label>
+<label class="option"><input type="radio" name="q6" value="b">b Vitamin E</label>
+<label class="option"><input type="radio" name="q6" value="d">d. Vitamin D</label>
+</div>
+
+<div class="card">
+<div class="question">7. The global annual temperature has increased at an average rate of:</div>
+<label class="option"><input type="radio" name="q7" value="a">a. 0.08°C per decade since 1880</label>
+<label class="option"><input type="radio" name="q7" value="b">b. 0.09°C per decade since 1880</label>
+<label class="option"><input type="radio" name="q7" value="c">c. 0.02°C per decade since 1880</label>
+<label class="option"><input type="radio" name="q7" value="d">d. 0.03°C per decade since 1880</label>
+</div>
+
+<div class="card">
+<div class="question">8. Recommended daily intake of sodium is not more than:</div>
+<label class="option"><input type="radio" name="q8" value="a">a. 2gm</label>
+<label class="option"><input type="radio" name="q8" value="c">c. 10gm</label>
+<label class="option"><input type="radio" name="q8" value="b">b 5gm</label>
+<label class="option"><input type="radio" name="q8" value="d">d. 20gm</label>
+</div>
+
+<div class="card">
+<div class="question">9. Respondents might behave differently when they know they are being observed is a type of:</div>
+<label class="option"><input type="radio" name="q9" value="a">a. Researcher bias</label>
+<label class="option"><input type="radio" name="q9" value="c">c. Random error</label>
+<label class="option"><input type="radio" name="q9" value="b">b Hawthorne effect</label>
+<label class="option"><input type="radio" name="q9" value="d">d. Confounding</label>
+</div>
+
+<div class="card">
+<div class="question">10. Which of the following does not affect sample size?</div>
+<label class="option"><input type="radio" name="q10" value="a">a. Prevalence of the disease</label>
+<label class="option"><input type="radio" name="q10" value="b">b Population</label>
+<label class="option"><input type="radio" name="q10" value="c">c. Time</label>
+<label class="option"><input type="radio" name="q10" value="d">d. All</label>
+</div>
+
+<div class="card">
+<div class="question">11. Validity means:</div>
+<label class="option"><input type="radio" name="q11" value="a">a.accuracy</label>
+<label class="option"><input type="radio" name="q11" value="c">c. consistency</label>
+<label class="option"><input type="radio" name="q11" value="b">b. reliability</label>
+<label class="option"><input type="radio" name="q11" value="d">d. All</label>
+</div>
+
+<div class="card">
+<div class="question">12. How to judge the depth of any research?</div>
+<label class="option"><input type="radio" name="q12" value="a">a. By research title</label>
+<label class="option"><input type="radio" name="q12" value="b">b. By research duration</label>
+<label class="option"><input type="radio" name="q12" value="c">c. By research objectives</label>
+<label class="option"><input type="radio" name="q12" value="d">d. By total expenditure on research</label>
+</div>
+
+<div class="card">
+<div class="question">13. Which one is called non-probability sampling?</div>
+<label class="option"><input type="radio" name="q13" value="a">a. Quota sampling</label>
+<label class="option"><input type="radio" name="q13" value="b">b. Cluster sampling</label>
+<label class="option"><input type="radio" name="q13" value="c">c. Systematic sampling</label>
+<label class="option"><input type="radio" name="q13" value="d">d. Stratified random sampling</label>
+</div>
+
+<div class="card">
+<div class="question">14. Research problem is selected from the standpoint of</div>
+<label class="option"><input type="radio" name="q14" value="a">a. Social relevance</label>
+<label class="option"><input type="radio" name="q14" value="b">b. Financial support</label>
+<label class="option"><input type="radio" name="q14" value="c">c. Researcher's interest</label>
+<label class="option"><input type="radio" name="q14" value="d">d. Availability of relevant literature</label>
+</div>
+
+<div class="card">
+<div class="question">15. Action-research can be understood as ...........</div>
+<label class="option"><input type="radio" name="q15" value="a">a. A longitudinal research</label>
+<label class="option"><input type="radio" name="q15" value="b">b. An applied research</label>
+<label class="option"><input type="radio" name="q15" value="c">c. A kind of research being carried out to solve a specific problem</label>
+<label class="option"><input type="radio" name="q15" value="d">d. All of the above</label>
+</div>
+
+<div class="card">
+<div class="question">16. Calculation of sample size with population parameter is best given by:</div>
+<label class="option"><input type="radio" name="q16" value="a">a.</label>
+<label class="option"><input type="radio" name="q16" value="b">b.</label>
+<label class="option"><input type="radio" name="q16" value="c">c.</label>
+<label class="option"><input type="radio" name="q16" value="d">d. None</label>
+</div>
+
+<div class="card">
+<div class="question">17. Which one among the following statements is true in the context of the testing of hypotheses?</div>
+<label class="option"><input type="radio" name="q17" value="a">a. It is only the alternative hypotheses that can be tested.</label>
+<label class="option"><input type="radio" name="q17" value="b">b. It is only the null hypotheses that can be tested.</label>
+<label class="option"><input type="radio" name="q17" value="c">c. Both the alternative and the null hypotheses can be tested.</label>
+<label class="option"><input type="radio" name="q17" value="d">d. Both the alternative and the null hypotheses cannot be tested.</label>
+</div>
+
+<div class="card">
+<div class="question">18. Free chlorine and combined chlorine test is done by:</div>
+<label class="option"><input type="radio" name="q18" value="a">a. Ortho-toluidine Test</label>
+<label class="option"><input type="radio" name="q18" value="c">c. Coliform test</label>
+<label class="option"><input type="radio" name="q18" value="b">b Horrok's apparatus</label>
+<label class="option"><input type="radio" name="q18" value="d">d. Calcium carbonate</label>
+</div>
+
+<div class="card">
+<div class="question">19. Solid waste from Kitchen is called:</div>
+<label class="option"><input type="radio" name="q19" value="a">a. Sewage</label>
+<label class="option"><input type="radio" name="q19" value="c">c. Sullage</label>
+<label class="option"><input type="radio" name="q19" value="b">b Sludge</label>
+<label class="option"><input type="radio" name="q19" value="d">d. Refuse</label>
+</div>
+
+<div class="card">
+<div class="question">20. Most common type of mosquito found in Nepal:</div>
+<label class="option"><input type="radio" name="q20" value="a">a. Culex</label>
+<label class="option"><input type="radio" name="q20" value="c">c. Falciparum.</label>
+<label class="option"><input type="radio" name="q20" value="b">b Aedes</label>
+<label class="option"><input type="radio" name="q20" value="d">d. Anopheles</label>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+const answers={
+q1:"a",q2:"b",q3:"c",q4:"c",q5:"a",
+q6:"d",q7:"a",q8:"a",q9:"b",q10:"c",
+q11:"a",q12:"c",q13:"a",q14:"a",q15:"c",
+q16:"a",q17:"b",q18:"a",q19:"d",q20:"d"
+};
+
+function checkAnswers(){
+let score=0;
+for(let q in answers){
+let opts=document.getElementsByName(q);
+opts.forEach(o=>{
+o.parentElement.classList.remove("correct","wrong");
+if(o.value===answers[q]){
+o.parentElement.classList.add("correct");
+}
+if(o.checked && o.value!==answers[q]){
+o.parentElement.classList.add("wrong");
+}
+if(o.checked && o.value===answers[q]){
+score++;
+}
+});
+}
+document.getElementById("score").innerHTML="Your Score: "+score+" / 20";
+}
+</script>
+
+</body>
+</html>
