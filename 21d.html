@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    padding:20px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.options label{
+    display:block;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:8px;
+    cursor:pointer;
+    border:1px solid #ddd;
+}
+.options input{
+    margin-right:10px;
+}
+.correct{
+    background:#d4edda;
+    border-color:#28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border-color:#dc3545;
+}
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#28a745;
+    color:#fff;
+    cursor:pointer;
+}
+button:hover{
+    background:#218838;
+}
+#score{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:20px;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<form id="quizForm">
+
+<div class="card">
+<div class="question">1. One mg. of Niacin is produced by.........mg of Tryptophan</div>
+<div class="options">
+<label><input type="radio" name="q1" value="a">a. 22</label>
+<label><input type="radio" name="q1" value="b">b. 37</label>
+<label><input type="radio" name="q1" value="c">C55</label>
+<label><input type="radio" name="q1" value="d">d 60</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">2. Common to both acute and chronic malnutrition is:</div>
+<div class="options">
+<label><input type="radio" name="q2" value="a">a. Weight for age Height for age</label>
+<label><input type="radio" name="q2" value="b">b. Weight for height.</label>
+<label><input type="radio" name="q2" value="c">c. </label>
+<label><input type="radio" name="q2" value="d">d. BMI</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">3. Coefficient of determination r value lies in between</div>
+<div class="options">
+<label><input type="radio" name="q3" value="a">a -1 to +1</label>
+<label><input type="radio" name="q3" value="b">b. 0 to 1</label>
+<label><input type="radio" name="q3" value="c">C-1 to 6</label>
+<label><input type="radio" name="q3" value="d">d. None</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">4. Process which results in an optimal choice.</div>
+<div class="options">
+<label><input type="radio" name="q4" value="a">a. Utility</label>
+<label><input type="radio" name="q4" value="b">b. Preference</label>
+<label><input type="radio" name="q4" value="c">c. Isoquant</label>
+<label><input type="radio" name="q4" value="d">d. Isocost</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">5. Shows different combination of goods or services that provide the same level of total utility to the consumer</div>
+<div class="options">
+<label><input type="radio" name="q5" value="a">a. Indifference curve</label>
+<label><input type="radio" name="q5" value="b">b. Marginal utility</label>
+<label><input type="radio" name="q5" value="c">c. Budget line</label>
+<label><input type="radio" name="q5" value="d">d. Ordinal utility</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">6. In long-Run production function</div>
+<div class="options">
+<label><input type="radio" name="q6" value="a">a. The capital is fixed whereas the labour is variable</label>
+<label><input type="radio" name="q6" value="b">b. Capital and labour both are variable</label>
+<label><input type="radio" name="q6" value="c">e. Capital is variable whereas the labour is fixed</label>
+<label><input type="radio" name="q6" value="d">d. None</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">7. Large number of buyer and sellers, homogeneous product with perfect knowledge are the features of</div>
+<div class="options">
+<label><input type="radio" name="q7" value="a">a. Perfect competition Market</label>
+<label><input type="radio" name="q7" value="b">b. Monopoly market</label>
+<label><input type="radio" name="q7" value="c">c. Monopolistic competition</label>
+<label><input type="radio" name="q7" value="d">d. Oligopoly</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">8. Rise in price level less than 3 percent per annum</div>
+<div class="options">
+<label><input type="radio" name="q8" value="a">a. Creeping inflation</label>
+<label><input type="radio" name="q8" value="b">b. Walking inflation</label>
+<label><input type="radio" name="q8" value="c">c. Running inflation</label>
+<label><input type="radio" name="q8" value="d">d. Hyperinflation</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">9. A single number that demonstrates a degree of inequality in a distribution of income/wealth.</div>
+<div class="options">
+<label><input type="radio" name="q9" value="a">a. Lorenz curve</label>
+<label><input type="radio" name="q9" value="b">b. Double difference</label>
+<label><input type="radio" name="q9" value="c">c. Gini coefficient</label>
+<label><input type="radio" name="q9" value="d">d. Concentration curve</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">10. In seven step of planning, annual work plan and budget should be published for public information by the end of</div>
+<div class="options">
+<label><input type="radio" name="q10" value="a">a. By the end of 15th shrawan</label>
+<label><input type="radio" name="q10" value="b">b. By the end of asadh</label>
+<label><input type="radio" name="q10" value="c">By the end of 15th jestha</label>
+<label><input type="radio" name="q10" value="d">d. By the end of Baisakh</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">11. The logistics management section started using electronic logistics management information system (eLMIS) from:</div>
+<div class="options">
+<label><input type="radio" name="q11" value="a">a. 2075B.S</label>
+<label><input type="radio" name="q11" value="b">b. 2050/51B.S</label>
+<label><input type="radio" name="q11" value="c">c. 2065/66B.S</label>
+<label><input type="radio" name="q11" value="d">d. 2073/74B.S</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">12. Tool that allows programs and projects to assess the quality of their data and strengthen their data management and reporting system.</div>
+<div class="options">
+<label><input type="radio" name="q12" value="a">a. EWARS</label>
+<label><input type="radio" name="q12" value="b">b. Routine data Quality assessment</label>
+<label><input type="radio" name="q12" value="c">c. Logical Framework</label>
+<label><input type="radio" name="q12" value="d">4 IHMIS</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">13. Budgeting should be done as recommended by WHO that should be:</div>
+<div class="options">
+<label><input type="radio" name="q13" value="a">a 5% of GDP in health sector</label>
+<label><input type="radio" name="q13" value="b">b.8% of GDP in health sector</label>
+<label><input type="radio" name="q13" value="c">c.10% of GDP in health sector</label>
+<label><input type="radio" name="q13" value="d">d. 6% of GDP in health sector</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">14. Use of system and softwares such as CIGAS AND SUTRA</div>
+<div class="options">
+<label><input type="radio" name="q14" value="a">a.FIMS</label>
+<label><input type="radio" name="q14" value="b">b. E-LMIS</label>
+<label><input type="radio" name="q14" value="c">c. LMIS</label>
+<label><input type="radio" name="q14" value="d">d. HMIS</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">15 Life Table consists of:</div>
+<div class="options">
+<label><input type="radio" name="q15" value="a">a. 9 columns</label>
+<label><input type="radio" name="q15" value="b">b. 10 column</label>
+<label><input type="radio" name="q15" value="c">C. 8columns</label>
+<label><input type="radio" name="q15" value="d">d. 7 columns</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">16. The extent to which an area is urbanized:</div>
+<div class="options">
+<label><input type="radio" name="q16" value="a">a Tempo of urbanization</label>
+<label><input type="radio" name="q16" value="b">b. Degree of urbanization</label>
+<label><input type="radio" name="q16" value="c">c. The concentration and dispersion of population</label>
+<label><input type="radio" name="q16" value="d">d. Speed of Urbanization</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">17. Population doubling time is the crude way of estimating future population size because:</div>
+<div class="options">
+<label><input type="radio" name="q17" value="a">a. It is calculated in the assumption that growth rate will be changing over the decade</label>
+<label><input type="radio" name="q17" value="b">b. It is calculated in the assumption that growth rate will be constant over the decade</label>
+<label><input type="radio" name="q17" value="c">c. It is calculated in the assumption that growth rate will be double over the decade</label>
+<label><input type="radio" name="q17" value="d">d. None of the above is correct</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">18. Theory encouraged industrialization rather than agriculture:</div>
+<div class="options">
+<label><input type="radio" name="q18" value="a">a. Pre-Malthusian thoughts</label>
+<label><input type="radio" name="q18" value="b">b. Malthusian theory</label>
+<label><input type="radio" name="q18" value="c">c. Neo-malthusianism</label>
+<label><input type="radio" name="q18" value="d">d. Modernization theory</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">19. A long term population perspective plan was adopted by Government of Nepal in</div>
+<div class="options">
+<label><input type="radio" name="q19" value="a">a. 2008</label>
+<label><input type="radio" name="q19" value="b">b. 2009</label>
+<label><input type="radio" name="q19" value="c">c. 2010</label>
+<label><input type="radio" name="q19" value="d">d. 2015</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">20. State characterized by a close ruling elite, authoritarian bureaucracy and state managed popular participation.</div>
+<div class="options">
+<label><input type="radio" name="q20" value="a">a. Liberal Democratic state</label>
+<label><input type="radio" name="q20" value="b">b. Egalitarian Authoritarian state</label>
+<label><input type="radio" name="q20" value="c">c. Traditional In-egalitarian State</label>
+<label><input type="radio" name="q20" value="d">d. Authoritarian In-egalitarian</label>
+</div>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+
+</div>
+
+<script>
+const answers = {
+q1:"d", q2:"a", q3:"b", q4:"b", q5:"a",
+q6:"b", q7:"a", q8:"a", q9:"c", q10:"a",
+q11:"a", q12:"b", q13:"a", q14:"a", q15:"c",
+q16:"b", q17:"b", q18:"d", q19:"c", q20:"d"
+};
+
+function checkAnswers(){
+let score=0;
+for(let q in answers){
+let selected=document.querySelector(`input[name="${q}"]:checked`);
+let options=document.querySelectorAll(`input[name="${q}"]`);
+options.forEach(opt=>{
+opt.parentElement.classList.remove("correct","wrong");
+if(opt.value===answers[q]){
+opt.parentElement.classList.add("correct");
+}
+});
+if(selected){
+if(selected.value===answers[q]){
+score++;
+}else{
+selected.parentElement.classList.add("wrong");
+}
+}
+}
+document.getElementById("score").innerText="Your Score: "+score+" / 20";
+}
+</script>
+
+</body>
+</html>
