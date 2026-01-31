@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1d2671,#c33764);
+    padding:20px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+.question{
+    font-weight:bold;
+    margin-bottom:12px;
+}
+.options label{
+    display:block;
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:8px;
+    cursor:pointer;
+    border:1px solid #ddd;
+}
+.options input{
+    margin-right:10px;
+}
+.correct{
+    background:#d4edda;
+    border-color:#28a745;
+}
+.wrong{
+    background:#f8d7da;
+    border-color:#dc3545;
+}
+button{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:12px;
+    background:#28a745;
+    color:#fff;
+    cursor:pointer;
+}
+button:hover{
+    background:#218838;
+}
+#score{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:25px;
+    color:#fff;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<form id="quizForm">
+
+<div class="card">
+<div class="question">1. International Health Partnership (IHP+) strongly builds on the core principles of the:</div>
+<div class="options">
+<label><input type="radio" name="q1" value="a">a. PARIS Declaration on Aid Effectiveness</label>
+<label><input type="radio" name="q1" value="b">b. Accra Agenda for Action</label>
+<label><input type="radio" name="q1" value="c">c.Both</label>
+<label><input type="radio" name="q1" value="d">d. None.</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">2. Convention protects the wounded, sick and ship- wrecked military personnel at sea during war.</div>
+<div class="options">
+<label><input type="radio" name="q2" value="a">a. The first Geneva Convention</label>
+<label><input type="radio" name="q2" value="b">b. The second Geneva Convention.</label>
+<label><input type="radio" name="q2" value="c">c. The third Geneva Convention</label>
+<label><input type="radio" name="q2" value="d">d. The fourth Geneva Convention</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">3. Which is the poor source of Iron:</div>
+<div class="options">
+<label><input type="radio" name="q3" value="a">a. Apple</label>
+<label><input type="radio" name="q3" value="b">b. Pulses</label>
+<label><input type="radio" name="q3" value="c">C. Milk</label>
+<label><input type="radio" name="q3" value="d">d. Chicken</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">4. The theme for World Health Day 2022 is:</div>
+<div class="options">
+<label><input type="radio" name="q4" value="a">a. Our planet, our health</label>
+<label><input type="radio" name="q4" value="b">b. Support nurses and midwives</label>
+<label><input type="radio" name="q4" value="c">e. Primary Health Care</label>
+<label><input type="radio" name="q4" value="d">d. Universal health coverage: everyone, everywhere'</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">5. Which nerve passes through the dorsal aspect of the brain?</div>
+<div class="options">
+<label><input type="radio" name="q5" value="a">a. Trochlear nerve</label>
+<label><input type="radio" name="q5" value="b">b. Optic nerve</label>
+<label><input type="radio" name="q5" value="c">c. Olfactory nerve</label>
+<label><input type="radio" name="q5" value="d">d. Facial nerve</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">6. Following are the milestones of child by the end of 15 months except:</div>
+<div class="options">
+<label><input type="radio" name="q6" value="a">a. Takes a few steps on his own</label>
+<label><input type="radio" name="q6" value="b">b. Learn to take backward steps</label>
+<label><input type="radio" name="q6" value="c">c. Tries to say one or two words</label>
+<label><input type="radio" name="q6" value="d">d. Points to ask for something or to get help</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">7. A random sample of n= 36 has a sample mean 50 and s= 8. Set up a 95% confidence interval for population mean.</div>
+<div class="options">
+<label><input type="radio" name="q7" value="a">a. In the range 47 to 53</label>
+<label><input type="radio" name="q7" value="b">b. In the range 57 to 63</label>
+<label><input type="radio" name="q7" value="c">c. In the range 77 to 83</label>
+<label><input type="radio" name="q7" value="d">d. In the range 75 to 80</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">8. Suppose a population has mean 8,Standard deviation 3, a random sample of size 36 What is the probability that the sample mean is between 7.8 and 8.27</div>
+<div class="options">
+<label><input type="radio" name="q8" value="a">a. 0.5</label>
+<label><input type="radio" name="q8" value="b">b. 0.7</label>
+<label><input type="radio" name="q8" value="c">c.0.1</label>
+<label><input type="radio" name="q8" value="d">d. 0.3</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">9. Correlation coefficient between X and Y 0.85, Cov (X,Y)= 6.5, Var (X)=6.1 Find the standard deviation of Y.</div>
+<div class="options">
+<label><input type="radio" name="q9" value="a">a. 3.1</label>
+<label><input type="radio" name="q9" value="b">b. 5.8</label>
+<label><input type="radio" name="q9" value="c">c. 1</label>
+<label><input type="radio" name="q9" value="d">d. 2.5</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">10. Most common side effect of DEPOT</div>
+<div class="options">
+<label><input type="radio" name="q10" value="a">a. Feeling sad or empty</label>
+<label><input type="radio" name="q10" value="b">b. Disruption of normal menstrual cycle</label>
+<label><input type="radio" name="q10" value="c">c. Thinning of hair</label>
+<label><input type="radio" name="q10" value="d">d. Lack of appetite</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">11. Growth rate 1.5-2.0% of population:</div>
+<div class="options">
+<label><input type="radio" name="q11" value="a">a Very rapid growth</label>
+<label><input type="radio" name="q11" value="b">b. Rapid growth rate</label>
+<label><input type="radio" name="q11" value="c">c. Slow growth rate</label>
+<label><input type="radio" name="q11" value="d">4d Moderate growth rate</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">12. No existing diagnostic test is capable of detecting HIV during:</div>
+<div class="options">
+<label><input type="radio" name="q12" value="a">a. Eclipse period</label>
+<label><input type="radio" name="q12" value="b">b. Window period</label>
+<label><input type="radio" name="q12" value="c">c. Both</label>
+<label><input type="radio" name="q12" value="d">d. None</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">13. Cronbach's alpha:</div>
+<div class="options">
+<label><input type="radio" name="q13" value="a">a Measurement of internal consistency or reliability</label>
+<label><input type="radio" name="q13" value="b">b. Measurement of construct validity</label>
+<label><input type="radio" name="q13" value="c">c Measurement of face validity</label>
+<label><input type="radio" name="q13" value="d">d. All of the above</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">14. For testing the statistical significance of the difference in heights of school children::</div>
+<div class="options">
+<label><input type="radio" name="q14" value="a">a. One way ANOVA</label>
+<label><input type="radio" name="q14" value="b">b. Z-test</label>
+<label><input type="radio" name="q14" value="c">c. T-test</label>
+<label><input type="radio" name="q14" value="d">d. Chi-square test</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">15. Recall bias is seen maximum in</div>
+<div class="options">
+<label><input type="radio" name="q15" value="a">a. Cross-sectional studies</label>
+<label><input type="radio" name="q15" value="b">b. Case control studies</label>
+<label><input type="radio" name="q15" value="c">c. Cohort studies</label>
+<label><input type="radio" name="q15" value="d">d. none</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">16. Screening is done during:</div>
+<div class="options">
+<label><input type="radio" name="q16" value="a">a. pathogenesis phase</label>
+<label><input type="radio" name="q16" value="b">b. pre-pathogenesis</label>
+<label><input type="radio" name="q16" value="c">c. Post-pathogenesis</label>
+<label><input type="radio" name="q16" value="d">d. Incubation</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">17. Healthy population can be best identified by:</div>
+<div class="options">
+<label><input type="radio" name="q17" value="a">a. Sensitivity</label>
+<label><input type="radio" name="q17" value="b">b. Specificity</label>
+<label><input type="radio" name="q17" value="c">c. Both</label>
+<label><input type="radio" name="q17" value="d">d. None</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">18. Difficult criteria to establish (Hill's Criteria ):</div>
+<div class="options">
+<label><input type="radio" name="q18" value="a">a. Specificity</label>
+<label><input type="radio" name="q18" value="b">b. Strength</label>
+<label><input type="radio" name="q18" value="c">c. Dose-response</label>
+<label><input type="radio" name="q18" value="d">d. Temporality</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">19. Old age allowance in Nepal:</div>
+<div class="options">
+<label><input type="radio" name="q19" value="a">a. 5000</label>
+<label><input type="radio" name="q19" value="b">b. 2000</label>
+<label><input type="radio" name="q19" value="c">C 3000</label>
+<label><input type="radio" name="q19" value="d">d. 4000</label>
+</div>
+</div>
+
+<div class="card">
+<div class="question">20. Asbestosis does not causes:</div>
+<div class="options">
+<label><input type="radio" name="q20" value="a">a. Shortness of breath</label>
+<label><input type="radio" name="q20" value="b">b. A persistent, dry cough</label>
+<label><input type="radio" name="q20" value="c">c Brain cancer</label>
+<label><input type="radio" name="q20" value="d">d.Chest tightness or pain.</label>
+</div>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+const answers={
+q1:"c",q2:"b",q3:"c",q4:"a",q5:"a",
+q6:"b",q7:"a",q8:"d",q9:"a",q10:"b",
+q11:"a",q12:"a",q13:"a",q14:"a",q15:"b",
+q16:"a",q17:"b",q18:"a",q19:"d",q20:"c"
+};
+
+function checkAnswers(){
+let score=0;
+for(let q in answers){
+let selected=document.querySelector(`input[name="${q}"]:checked`);
+let options=document.querySelectorAll(`input[name="${q}"]`);
+options.forEach(opt=>{
+opt.parentElement.classList.remove("correct","wrong");
+if(opt.value===answers[q]){
+opt.parentElement.classList.add("correct");
+}
+});
+if(selected){
+if(selected.value===answers[q]){
+score++;
+}else{
+selected.parentElement.classList.add("wrong");
+}
+}
+}
+document.getElementById("score").innerText="Your Score: "+score+" / 20";
+}
+</script>
+
+</body>
+</html>
