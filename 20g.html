@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+
+<style>
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#fff;
+    margin-bottom:25px;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.option{
+    display:block;
+    padding:8px 12px;
+    margin:6px 0;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.correct{
+    background:#d4edda;
+    border:2px solid #28a745;
+}
+
+.wrong{
+    background:#f8d7da;
+    border:2px solid #dc3545;
+}
+
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    background:#28a745;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#218838;
+}
+
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>MCQ Quiz</h1>
+
+<form id="quizForm">
+
+<!-- Q1 -->
+<div class="card">
+<div class="question">1. Storage at a Cool place means a temperature of:</div>
+<label class="option"><input type="radio" name="q1" value="a">a 0-2 °C</label>
+<label class="option"><input type="radio" name="q1" value="c">c. 8-15°C</label>
+<label class="option"><input type="radio" name="q1" value="b">b. 2-4°C</label>
+<label class="option"><input type="radio" name="q1" value="d">d. &lt;0°C</label>
+</div>
+
+<!-- Q2 -->
+<div class="card">
+<div class="question">2. When was FCTC put into action?</div>
+<label class="option"><input type="radio" name="q2" value="a">a. 2006</label>
+<label class="option"><input type="radio" name="q2" value="c">c. 2003</label>
+<label class="option"><input type="radio" name="q2" value="b">b. 2004</label>
+<label class="option"><input type="radio" name="q2" value="d">d. 2005</label>
+</div>
+
+<!-- Q3 -->
+<div class="card">
+<div class="question">3. When was Ottawa Charter for health promotion held?</div>
+<label class="option"><input type="radio" name="q3" value="a">a. 1978</label>
+<label class="option"><input type="radio" name="q3" value="c">c. 1986</label>
+<label class="option"><input type="radio" name="q3" value="b">b. 1998</label>
+<label class="option"><input type="radio" name="q3" value="d">d. 1968</label>
+</div>
+
+<!-- Q4 -->
+<div class="card">
+<div class="question">4. Vitamin A prophylaxis to a child is</div>
+<label class="option"><input type="radio" name="q4" value="a">a. Health promotion</label>
+<label class="option"><input type="radio" name="q4" value="c">c. primordial prevention</label>
+<label class="option"><input type="radio" name="q4" value="b">b. specific protection</label>
+<label class="option"><input type="radio" name="q4" value="d">d. Secondary prevention</label>
+</div>
+
+<!-- Q5 -->
+<div class="card">
+<div class="question">5. Which method is suitable for teaching mother group about preparation of superflour:</div>
+<label class="option"><input type="radio" name="q5" value="a">a. Demonstration</label>
+<label class="option"><input type="radio" name="q5" value="c">C. Role play</label>
+<label class="option"><input type="radio" name="q5" value="b">b. Group discussion</label>
+<label class="option"><input type="radio" name="q5" value="d">d. Exhibition</label>
+</div>
+
+<!-- Q6 -->
+<div class="card">
+<div class="question">6. Alma Ata conference on Health was held in</div>
+<label class="option"><input type="radio" name="q6" value="a">a. 6-12 September 1978</label>
+<label class="option"><input type="radio" name="q6" value="b">b. 8-14 September 1968</label>
+<label class="option"><input type="radio" name="q6" value="c">c. 6-14september 1978</label>
+<label class="option"><input type="radio" name="q6" value="d">d. None</label>
+</div>
+
+<!-- Q7 -->
+<div class="card">
+<div class="question">7. The most effective communication media for motivation of the people:</div>
+<label class="option"><input type="radio" name="q7" value="a">a. Radio</label>
+<label class="option"><input type="radio" name="q7" value="b">b. Newspaper</label>
+<label class="option"><input type="radio" name="q7" value="c">C. Tv</label>
+<label class="option"><input type="radio" name="q7" value="d">d. Interpersonal communication</label>
+</div>
+
+<!-- Q8 -->
+<div class="card">
+<div class="question">8. Which form of occupational disease is seen in Chimney sweepers?</div>
+<label class="option"><input type="radio" name="q8" value="a">a. Scrotal cancer</label>
+<label class="option"><input type="radio" name="q8" value="c">c. Skin disease</label>
+<label class="option"><input type="radio" name="q8" value="b">.b. Lungs cancer</label>
+<label class="option"><input type="radio" name="q8" value="d">d. All</label>
+</div>
+
+<!-- Q9 -->
+<div class="card">
+<div class="question">9. All are two way communication except:</div>
+<label class="option"><input type="radio" name="q9" value="a">a. Seminar</label>
+<label class="option"><input type="radio" name="q9" value="c">c. Lecture</label>
+<label class="option"><input type="radio" name="q9" value="b">b. Panel discussion</label>
+<label class="option"><input type="radio" name="q9" value="d">d. Demonstration</label>
+</div>
+
+<!-- Q10 -->
+<div class="card">
+<div class="question">10. The three laws of learning laws of readiness law of exercise law of effect is given by</div>
+<label class="option"><input type="radio" name="q10" value="a">a. IV Pavlov</label>
+<label class="option"><input type="radio" name="q10" value="c">c. Kurt lewin</label>
+<label class="option"><input type="radio" name="q10" value="b">b. Edward throndike</label>
+<label class="option"><input type="radio" name="q10" value="d">d. Skinner</label>
+</div>
+
+<!-- Q11 -->
+<div class="card">
+<div class="question">11. The leader who exercises absolute power and puts maximum control over the group is</div>
+<label class="option"><input type="radio" name="q11" value="a">a. Autocratic leader</label>
+<label class="option"><input type="radio" name="q11" value="c">c. Laissez Faire leader</label>
+<label class="option"><input type="radio" name="q11" value="b">b. Democratic leader</label>
+<label class="option"><input type="radio" name="q11" value="d">d. All of the above</label>
+</div>
+
+<!-- Q12 -->
+<div class="card">
+<div class="question">12. According to AH Maslow" Love is..............need"</div>
+<label class="option"><input type="radio" name="q12" value="a">a. Physiological need</label>
+<label class="option"><input type="radio" name="q12" value="c">c. Social need</label>
+<label class="option"><input type="radio" name="q12" value="b">b.Safety need</label>
+<label class="option"><input type="radio" name="q12" value="d">d. Self esteem need</label>
+</div>
+
+<!-- Q13 -->
+<div class="card">
+<div class="question">13. Which is the best way of changing the behavior?</div>
+<label class="option"><input type="radio" name="q13" value="a">a. Incentives</label>
+<label class="option"><input type="radio" name="q13" value="b">b. Internalization</label>
+<label class="option"><input type="radio" name="q13" value="c">c. Identification</label>
+<label class="option"><input type="radio" name="q13" value="d">d. Enforcement</label>
+</div>
+
+<!-- Q14 -->
+<div class="card">
+<div class="question">14. How many areas are mentioned in school health program in Nepal:</div>
+<label class="option"><input type="radio" name="q14" value="a">a. 7</label>
+<label class="option"><input type="radio" name="q14" value="c">c. 5</label>
+<label class="option"><input type="radio" name="q14" value="b">b. 6</label>
+<label class="option"><input type="radio" name="q14" value="d">d. 4</label>
+</div>
+
+<!-- Q15 -->
+<div class="card">
+<div class="question">15. For health education of general public most potent method is:</div>
+<label class="option"><input type="radio" name="q15" value="a">a. Television</label>
+<label class="option"><input type="radio" name="q15" value="c">c. Newspaper</label>
+<label class="option"><input type="radio" name="q15" value="b">b. Radio</label>
+<label class="option"><input type="radio" name="q15" value="d">d. Health Magazine</label>
+</div>
+
+<!-- Q16 -->
+<div class="card">
+<div class="question">16. Which of the following health Promotion event took place in 2005AD?</div>
+<label class="option"><input type="radio" name="q16" value="a">a. Bangkok Charter for Health promotion</label>
+<label class="option"><input type="radio" name="q16" value="b">b Sundlvall's statement</label>
+<label class="option"><input type="radio" name="q16" value="c">c. Alma-ata conference</label>
+<label class="option"><input type="radio" name="q16" value="d">d. International convention on population and development</label>
+</div>
+
+<!-- Q17 -->
+<div class="card">
+<div class="question">17. Which of the following has the highest amount of iron?</div>
+<label class="option"><input type="radio" name="q17" value="a">a. Apple</label>
+<label class="option"><input type="radio" name="q17" value="c">c. Lemon</label>
+<label class="option"><input type="radio" name="q17" value="b">b. Orange</label>
+<label class="option"><input type="radio" name="q17" value="d">d. Soyabean</label>
+</div>
+
+<!-- Q18 -->
+<div class="card">
+<div class="question">18. Calculate BMI of a person with height of 172 cm and weight 89 kg?</div>
+<label class="option"><input type="radio" name="q18" value="a">a. 30</label>
+<label class="option"><input type="radio" name="q18" value="b">b 27</label>
+<label class="option"><input type="radio" name="q18" value="d">d. 36</label>
+<label class="option"><input type="radio" name="q18" value="c">c. 33</label>
+</div>
+
+<!-- Q19 -->
+<div class="card">
+<div class="question">19. Which of the following protein is considered as reference protein.</div>
+<label class="option"><input type="radio" name="q19" value="a">a. Egg</label>
+<label class="option"><input type="radio" name="q19" value="c">c. milk</label>
+<label class="option"><input type="radio" name="q19" value="b">b. meat</label>
+<label class="option"><input type="radio" name="q19" value="d">d. all</label>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+</form>
+
+<div id="score"></div>
+</div>
+
+<script>
+const answers = {
+q1:"c", q2:"d", q3:"c", q4:"b", q5:"a",
+q6:"a", q7:"d", q8:"a", q9:"c", q10:"b",
+q11:"a", q12:"c", q13:"b", q14:"d", q15:"a",
+q16:"a", q17:"d", q18:"a", q19:"a"
+};
+
+function checkAnswers(){
+let score=0;
+
+for(let q in answers){
+let options=document.getElementsByName(q);
+options.forEach(opt=>{
+opt.parentElement.classList.remove("correct","wrong");
+if(opt.value===answers[q]){
+opt.parentElement.classList.add("correct");
+}
+if(opt.checked){
+if(opt.value===answers[q]){
+score++;
+}else{
+opt.parentElement.classList.add("wrong");
+}
+}
+});
+}
+
+document.getElementById("score").innerHTML=
+"Your Score: "+score+" / 20";
+}
+</script>
+
+</body>
+</html>
