@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f0f2f7;
+    padding: 20px;
+}
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #eef2f6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.option:hover {
+    background: #e0e6ef;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.wrong {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background: #084298;
+}
+.score {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+// Questions array
+const questions = [
+{q:"Sampling from heterogeneous population after dividing them into homogenous group is:", options:["Quota Sampling","Simple Random Sampling","Probability proportionate sampling","Stratified sampling"], answer:3},
+{q:"Type of sampling used in study of coverage of national immunization program:", options:["Cluster Sampling","Simple Random Sampling","Probability proportionate sampling","Stratified sampling"], answer:0},
+{q:"When confidence limit is increased, then the sample size:", options:["Increases","Decreases","Remains unchanged","Becomes irrelevant"], answer:0},
+{q:"Variance of the Poisson distribution is given by:", options:["npq","λ","λ/2","λ²"], answer:1},
+{q:"Variance is best given by:", options:["sqrt(sigma)","sigma²","sigma/N","x(bar)/(N-1)"], answer:1},
+{q:"Test of significance for comparing Means of 2 groups is:", options:["Paired t-test","Unpaired t-test","Chi-square test","ANOVA"], answer:1},
+{q:"Which of the following describe the middle part of a group of numbers?", options:["measures of central tendency","measures of variation","measures of association","measures of shape"], answer:0},
+{q:"The mean of a distribution is 14 and standard deviation is 5. Coefficient of variation is:", options:["60.4%","48.3%","27.8%","35.7%"], answer:3},
+{q:"'Sensitivity' of a screening test refers to:", options:["True negative","True positive","False negative","False positive"], answer:1},
+{q:"Leading risk factor for Chronic Obstructive Pulmonary Disease is:", options:["Smoking","Physical inactivity","High cholesterol","Poor sanitation"], answer:0},
+{q:"Key characteristic of disease elimination:", options:["Disease burden reduced to zero globally","Disease no longer exist in any region","Disease transmission stopped in specific region but monitored","Pathogen eradicated globally"], answer:2},
+{q:"'Demographic processes' does not include:", options:["Fertility","Morbidity","Mortality","Social mobility"], answer:1},
+{q:"Ability of test to correctly diagnose percentage of sick people:", options:["Sensitivity","Specificity","Positive predictive value","Negative predictive value"], answer:0},
+{q:"Missing cases are detected by:", options:["Active surveillance","Passive surveillance","Sentinel surveillance","Prevalence rate"], answer:2},
+{q:"The term 'disease control' describes operations aimed at reducing all except:", options:["Incidence of disease","Financial burden to community","Virulence of disease agent","Disease duration"], answer:2},
+{q:"Dietary changes advocated by WHO for prevention of heart diseases include all except:", options:["Decrease in complex carbohydrate consumption","Reduction in fat intake","Saturated fat <7% of total energy","Cholesterol <100 per 1000 kcal/day"], answer:0},
+{q:"When sample size increases:", options:["Sample mean closer to population mean","Sampling distribution approximates population","Standard error decreases","None of the above"], answer:2},
+{q:"COVID-19 CCMC team is led by:", options:["Provincial Health Directorate","Office of PM & Council of Ministers","Army","CDO"], answer:1},
+{q:"First COVID-19 case in Nepal reported:", options:["23 Jan 2020","31 Dec 2019","15 Apr 2020","2 Jan 2020"], answer:0},
+{q:"WHO Director General declared Covid-19 as PHEIC on:", options:["30 Feb 2019","30 Jan 2019","30 Jan 2020","30 Apr 2020"], answer:2}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+// Generate quiz
+const quiz = document.getElementById("quiz");
+questions.forEach((item,index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    let html = `<div class="question">${item.q}</div>`;
+    item.options.forEach((opt,i) => {
+        html += `<label class="option">
+                    <input type="radio" name="q${index}" value="${i}">${opt}
+                </label>`;
+    });
+    card.innerHTML = html;
+    quiz.appendChild(card);
+});
+
+// Submit function
+function submitQuiz(){
+    let score = 0;
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card,index) => {
+        const options = card.querySelectorAll(".option");
+        const selected = card.querySelector("input:checked");
+        options.forEach((opt,i) => {
+            opt.classList.remove("correct","wrong");
+            if(i === questions[index].answer) opt.classList.add("correct");
+        });
+        if(selected){
+            if(parseInt(selected.value) === questions[index].answer) score++;
+            else selected.parentElement.classList.add("wrong");
+        }
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
