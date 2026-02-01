@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Public Health Quiz</title>
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .quiz-container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .question-card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .question {
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .option {
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .option:hover {
+        background: #f1f5ff;
+    }
+
+    .option input {
+        margin-right: 10px;
+    }
+
+    .correct {
+        background: #d4edda !important;
+        border-color: #28a745;
+    }
+
+    .wrong {
+        background: #f8d7da !important;
+        border-color: #dc3545;
+    }
+
+    .submit-btn {
+        background: #2563eb;
+        color: #fff;
+        padding: 14px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block;
+        margin: 30px auto;
+    }
+
+    .submit-btn:hover {
+        background: #1e40af;
+    }
+
+    .score {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 30px;
+        color: #111827;
+    }
+</style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+
+<button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+    {
+        q: "In public health research, the highest priority is given to:",
+        options: ["Reduce error in statistics", "Generalizability", "Confidentiality and Anonymity", "None of the above"],
+        answer: 2
+    },
+    {
+        q: "In research, minimizing harm and maximizing benefits is related to:",
+        options: ["Beneficence", "Justice", "Respect for autonomy", "Non-maleficence"],
+        answer: 0
+    },
+    {
+        q: "Different stages of cancer are measured in which scale?",
+        options: ["Nominal", "Ordinal", "Ratio", "Interval"],
+        answer: 1
+    },
+    {
+        q: "Quarantine and isolation were started by which disease?",
+        options: ["Plague", "Smallpox", "Tuberculosis", "Chickenpox"],
+        answer: 0
+    },
+    {
+        q: "The described hypertensive drug study is:",
+        options: ["Double blind experiment", "Crossover design", "Single blind experiment", "Triple blind experiment"],
+        answer: 3
+    },
+    {
+        q: "Efficacy of vaccine is tested in:",
+        options: ["Phase I", "Phase III", "Phase II", "Phase IV"],
+        answer: 2
+    },
+    {
+        q: "Infection transmitted from animals to man:",
+        options: ["Zooanthroponosis", "Anthropozoonosis", "Amphixenosis", "Epizootic"],
+        answer: 1
+    },
+    {
+        q: "Visual acuity for blindness (WHO) is:",
+        options: ["2/60", "3/60", "6/60", "3/30"],
+        answer: 1
+    },
+    {
+        q: "Average of 4 emergency cases per hour follows which distribution?",
+        options: ["Normal", "Binomial", "Poisson", "Exponential"],
+        answer: 2
+    },
+    {
+        q: "Odds ratio of 1.5 for BMI indicates:",
+        options: [
+            "BMI is not significant",
+            "Odds increase by 50% per unit BMI",
+            "Negative association",
+            "Model is invalid"
+        ],
+        answer: 1
+    },
+    {
+        q: "Neonatal mortality rate in Nepal (NDIS 2022):",
+        options: ["18", "21", "28", "35"],
+        answer: 1
+    },
+    {
+        q: "Maximum permissible noise level for 8-hour exposure:",
+        options: ["75 dB", "80 dB", "85 dB", "95 dB"],
+        answer: 2
+    },
+    {
+        q: "Tobacco ban acceptance due to environment influence is explained by:",
+        options: ["HBM", "Transtheoretical", "Social cognitive", "Talcott"],
+        answer: 2
+    },
+    {
+        q: "Cronbach's alpha measures:",
+        options: [
+            "Internal consistency",
+            "Construct validity",
+            "Face validity",
+            "All of the above"
+        ],
+        answer: 0
+    },
+    {
+        q: "Recall bias is maximum in:",
+        options: ["Cross-sectional", "Case control", "Cohort", "None"],
+        answer: 1
+    },
+    {
+        q: "Screening is done during:",
+        options: ["Pathogenesis phase", "Pre-pathogenesis", "Post-pathogenesis", "Incubation"],
+        answer: 0
+    }
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, i) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+
+    let html = `<div class="question">${i + 1}. ${q.q}</div>`;
+    q.options.forEach((opt, idx) => {
+        html += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${idx}">
+            ${opt}
+        </label>`;
+    });
+
+    card.innerHTML = html;
+    quizDiv.appendChild(card);
+});
+
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((q, i) => {
+        const options = document.getElementsByName(`q${i}`);
+        options.forEach(opt => {
+            const parent = opt.parentElement;
+            if (parseInt(opt.value) === q.answer) {
+                parent.classList.add("correct");
+            }
+            if (opt.checked && parseInt(opt.value) !== q.answer) {
+                parent.classList.add("wrong");
+            }
+            opt.disabled = true;
+        });
+
+        const selected = [...options].find(o => o.checked);
+        if (selected && parseInt(selected.value) === q.answer) {
+            score++;
+        }
+    });
+
+    document.getElementById("score").innerText =
+        `Your Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
