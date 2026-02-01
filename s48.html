@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Questions array
+const questions = [
+  {q:"The definition of public health was given by;", o:["Robert Koch","Park JE","Leavell and Clark","Winslow CEA"], a:3},
+  {q:"Free health care program was launched in the year:", o:["1991 AD","2002 AD","2009 AD","2015 AD"], a:2},
+  {q:"Which of the following is not present in HDI?", o:["Education index","Income index","Mortality index","Life expectancy"], a:2},
+  {q:"Latrine intended to use for camps of longer duration is:", o:["shallow trench latrine","deep trench latrine","bore hole latrine","water seal latrine"], a:1},
+  {q:"'Management by exception' related to:", o:["Personal management","Material management","Time management","Stakeholder management"], a:2},
+  {q:"The first safe motherhood conference was held in Nairobi, Kenya in:", o:["1967","1977","1987","1997"], a:2},
+  {q:"When did MOHP decide to integrate CB-IMCI and CB-NCP into CB-IMNCI?", o:["2071/6/28","2071/7/28","2072/6/28","2072/7/28"], a:0},
+  {q:"National FCHV day is celebrated in:", o:["5th December","5th June","10th December","1st December"], a:0},
+  {q:"A researcher is conducting a theory-driven study... Which research method is being used?", o:["Inductive reasoning","Deductive reasoning","Qualitative research","Grounded theory"], a:1},
+  {q:"One DALY signifies:", o:["One year of disease free life","One lost year of healthy life","One month of bedridden life","One year of happy life lost"], a:1},
+  {q:"Best indicator of availability, utilization & effectiveness of health services:", o:["IMR","MMR","Hospital bed occupancy rate","DALY"], a:0},
+  {q:"Mean output of breast milk per day is maximum during the following months of lactation?", o:["0-2 months","3-4 months","5-6 months","7-8 months"], a:2},
+  {q:"Unmet need of family planning results in:", o:["Decrease in population","Unintentional pregnancy","Infertility","Rapid growth of population"], a:1},
+  {q:"Best communication for awareness of family planning:", o:["Symposium","Social Media","Group discussion","Counselling"], a:3},
+  {q:"Best method of mass health education:", o:["Television","Lecture","Radio","Poster"], a:0},
+  {q:"A woman has complication of hair fall since 3 months. She is pure vegan. Which deficiency is seen in her?", o:["Vitamin B12","Calcium","Vitamin C","Vitamin D"], a:0},
+  {q:"Fail to reject null hypothesis is:", o:["Type 1 error","Type 2 error","Random error","Systematic error"], a:1},
+  {q:"The disease in children caused by deficiency of vitamin D is:", o:["Survey","Anemia","Rickets","Insomnia"], a:2},
+  {q:"Which type of mosquito breed on dirty water collection?", o:["Anopheles","Aedes","Culex","Mansoni"], a:2},
+  {q:"Ergonomics is:", o:["Study of human behaviour","Study of social mobility","Study of health of female workers","Adjusting the workers to his/her job"], a:3}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render questions
+questions.forEach((q,i)=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${i+1}. ${q.q}</div>`;
+    q.o.forEach((opt,j)=>{
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit function
+function submitQuiz(){
+    let score = 0;
+    questions.forEach((q,i)=>{
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
