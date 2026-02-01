@@ -2,296 +2,153 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MCQ Quiz</title>
+<title>Professional Quiz</title>
 
 <style>
-    body {
-        font-family: "Segoe UI", sans-serif;
-        background: #f1f4f9;
-        padding: 30px;
-        margin: 0;
-    }
+body{
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f7fb;
+    margin:0;
+    padding:40px;
+}
 
-    .quiz-container {
-        max-width: 1000px;
-        margin: auto;
-    }
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+}
 
-    .question-card {
-        background: #ffffff;
-        padding: 22px 26px;
-        border-radius: 14px;
-        margin-bottom: 22px;
-        box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-    }
+.question-card{
+    background:#fff;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
 
-    .question {
-        font-weight: 600;
-        margin-bottom: 14px;
-        font-size: 17px;
-    }
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
 
-    .option {
-        border: 2px solid #ddd;
-        padding: 12px 16px;
-        border-radius: 8px;
-        margin: 8px 0;
-        cursor: pointer;
-        transition: 0.25s;
-    }
+.option{
+    padding:12px 15px;
+    border-radius:8px;
+    margin:8px 0;
+    border:2px solid #ddd;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-    .option:hover {
-        background: #eef3ff;
-    }
+.option:hover{
+    background:#f0f4ff;
+}
 
-    .option.selected {
-        border-color: #4a6cff;
-        background: #e8eeff;
-    }
+.option input{
+    margin-right:10px;
+}
 
-    .option.correct {
-        background: #d4edda;
-        border-color: #28a745;
-    }
+.correct{
+    border-color:#28a745;
+    background:#e8f7ee;
+}
 
-    .option.wrong {
-        background: #f8d7da;
-        border-color: #dc3545;
-    }
+.wrong{
+    border-color:#dc3545;
+    background:#fdeaea;
+}
 
-    .submit-btn {
-        width: 100%;
-        padding: 16px;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 10px;
-        border: none;
-        background: #4a6cff;
-        color: white;
-        cursor: pointer;
-        margin-top: 30px;
-    }
+.submit-btn{
+    display:block;
+    margin:40px auto;
+    padding:14px 40px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#4a6cf7;
+    color:#fff;
+}
 
-    .submit-btn:hover {
-        background: #324dcc;
-    }
-
-    .score {
-        text-align: center;
-        font-size: 22px;
-        font-weight: 700;
-        margin-top: 25px;
-    }
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:30px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="quiz-container" id="quiz"></div>
+
 <button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+
 <div class="score" id="score"></div>
 
 <script>
 const questions = [
-    {
-        q: "Appropriate intervention for nutrition deficiency among low-income population:",
-        options: [
-            "Provide cooking classes for affordable nutrient-rich foods",
-            "Ignore such population",
-            "Provide free processed foods",
-            "Subsidize fast food restaurants"
-        ],
-        answer: 0
-    },
-    {
-        q: "How does population momentum influence population projection?",
-        options: [
-            "Doesn't affect accuracy",
-            "Increases complexity of projections",
-            "Decreases reliability",
-            "Is irrelevant"
-        ],
-        answer: 1
-    },
-    {
-        q: "Causative agent of endemic typhus:",
-        options: ["R. typhi", "B. pertusis", "Yersinia pestis", "Salmonella typhi"],
-        answer: 0
-    },
-    {
-        q: "Spore-forming bacterium is:",
-        options: ["Pseudomonas", "Clostridium", "Vibrio", "Escherichia"],
-        answer: 1
-    },
-    {
-        q: "HPV vaccine prevents:",
-        options: ["Breast cancer", "Uterine cancer", "Ovarian cancer", "Cervical cancer"],
-        answer: 3
-    },
-    {
-        q: "Leading cause of death among 15–19-year-old girls:",
-        options: [
-            "Diarrheal diseases",
-            "Pregnancy and childbirth complications",
-            "Road injury",
-            "Self-harm"
-        ],
-        answer: 1
-    },
-    {
-        q: "SDGs were set up in 2015 by:",
-        options: [
-            "United Nations General Assembly",
-            "WHO",
-            "UNESCO",
-            "World Bank"
-        ],
-        answer: 0
-    },
-    {
-        q: "World Health Day is celebrated on:",
-        options: ["1st December", "31st May", "7th April", "8th May"],
-        answer: 2
-    },
-    {
-        q: "Emergency contraceptive pills are effective:",
-        options: [
-            "24–48 hours after ovulation",
-            "72–120 hours after coitus",
-            "Immediately after ovulation",
-            "Within 24 hours only"
-        ],
-        answer: 1
-    },
-    {
-        q: "According to Herzberg, which factor motivates employees?",
-        options: ["Job security", "Work conditions", "Recognition", "Salary"],
-        answer: 2
-    },
-    {
-        q: "Role of Mycobacterium tuberculosis in Rothman's model:",
-        options: [
-            "Necessary component cause",
-            "Sufficient cause alone",
-            "Incidental factor",
-            "Confounder"
-        ],
-        answer: 0
-    },
-    {
-        q: "BOAA symptoms after canned food are caused by:",
-        options: [
-            "Botulinum toxin",
-            "Tetanus toxin",
-            "Staphylococcal enterotoxin",
-            "Clostridium perfringens toxin"
-        ],
-        answer: 0
-    },
-    {
-        q: "Surveillance identifying missing cases:",
-        options: ["Active", "Passive", "Sentinel", "All"],
-        answer: 2
-    },
-    {
-        q: "Richest source of PUFA:",
-        options: [
-            "Sunflower oil",
-            "Safflower oil",
-            "Palmoline oil",
-            "Halibut liver oil"
-        ],
-        answer: 1
-    },
-    {
-        q: "Soiling index indicates:",
-        options: [
-            "Land pollution",
-            "Water pollution",
-            "Noise pollution",
-            "Air pollution"
-        ],
-        answer: 3
-    },
-    {
-        q: "Drug of choice for pertussis:",
-        options: ["Erythromycin", "Azithromycin", "Both", "None"],
-        answer: 0
-    },
-    {
-        q: "Chi-Square test measures:",
-        options: [
-            "Dependence of attributes",
-            "Difference between two means",
-            "Difference between mean and median",
-            "Difference between two proportions"
-        ],
-        answer: 3
-    },
-    {
-        q: "Mosquitoes decrease with height shows:",
-        options: [
-            "Positive correlation",
-            "Negative correlation",
-            "Weak positive correlation",
-            "No correlation"
-        ],
-        answer: 1
-    },
-    {
-        q: "Increasing confidence limit causes:",
-        options: [
-            "No change",
-            "Previously insignificant becomes significant",
-            "Objectives achieved",
-            "Previously significant becomes insignificant"
-        ],
-        answer: 3
-    },
-    {
-        q: "For ±2 SD, confidence limit covers:",
-        options: ["68%", "95%", "99.7%", "50%"],
-        answer: 1
-    }
+{q:"In the process of publishing research, the manuscript is sent to experts for review. This process is called:", options:["Peer review","Manuscript review","Journal review","Editorial review"], ans:0},
+{q:"Which vitamin is necessary for calcium absorption?", options:["Vitamin A","Vitamin D","Vitamin C","Vitamin K"], ans:1},
+{q:"The deficiency of vitamin C causes:", options:["Rickets","Blood clotting","Scurvy","Anemia"], ans:2},
+{q:"Vitamin C is necessary for:", options:["Water retention","Blood clotting","Immunity","Bone formation"], ans:2},
+{q:"What is the leading cause of death in low-income countries?", options:["Pneumonia and other lower respiratory infections","HIV/AIDS","Heart disease","Malaria"], ans:0},
+{q:"State of social dysfunction is known as:", options:["Disease","Illness","Sickness","None of the above"], ans:2},
+{q:"Idiot is one with an IQ of:", options:["0–24","25–49","50–69","70–79"], ans:0},
+{q:"Phobia is exaggerated or unnecessary form of:", options:["Fear","Anger","Anxiety","Love"], ans:0},
+{q:"Major players of economic globalization are:", options:["Bilateral and multilateral agencies","World Bank, IMF and WTO","World Bank and WTO","Multinational corporations"], ans:2},
+{q:"WHO recommended pH range of drinking water is:", options:["2.5–4.5","4.5–6.5","6.5–8.5","8.5–10.5"], ans:2},
+{q:"Goal of National Health Policy 2019 is ensured through:", options:["Partnerships","Technology","Innovations","Coordination"], ans:0},
+{q:"Graphical plan of all events and activities is:", options:["System analysis","Network analysis","Work sampling","Simulation model"], ans:1},
+{q:"Included in PEN protocol except:", options:["Diabetes and hypertension","Suicide","COPD and Asthma","Breast and Cervical cancer"], ans:1},
+{q:"Recall bias is most common with:", options:["Cohort study","Case-control study","Quasi experimental","Experimental study"], ans:1},
+{q:"Healthy population can best be identified by:", options:["Sensitivity","Specificity","Validity","Predictive value"], ans:1},
+{q:"SAARC TB Center is located in:", options:["India","Bangladesh","Nepal","Bhutan"], ans:2},
+{q:"Sex ratio of Nepal (Census 2021) is:", options:["94.4","95.91","98.8","99"], ans:1}
 ];
 
-// Shuffle
+// shuffle questions
 questions.sort(() => Math.random() - 0.5);
 
-const quiz = document.getElementById("quiz");
-const userAnswers = {};
+const quizDiv = document.getElementById("quiz");
 
-questions.forEach((q, index) => {
-    const card = document.createElement("div");
-    card.className = "question-card";
-    card.innerHTML = `<div class="question">${index + 1}. ${q.q}</div>`;
+questions.forEach((item, index) => {
+    let html = `<div class="question-card">
+        <div class="question">${index+1}. ${item.q}</div>`;
 
-    q.options.forEach((opt, i) => {
-        const div = document.createElement("div");
-        div.className = "option";
-        div.innerText = opt;
-        div.onclick = () => {
-            card.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
-            div.classList.add("selected");
-            userAnswers[index] = i;
-        };
-        card.appendChild(div);
+    item.options.forEach((opt, i) => {
+        html += `
+        <label class="option">
+            <input type="radio" name="q${index}" value="${i}">
+            ${opt}
+        </label>`;
     });
 
-    quiz.appendChild(card);
+    html += `</div>`;
+    quizDiv.innerHTML += html;
 });
 
-function submitQuiz() {
+function submitQuiz(){
     let score = 0;
 
-    document.querySelectorAll(".question-card").forEach((card, i) => {
-        const opts = card.querySelectorAll(".option");
-        opts.forEach((opt, j) => {
-            if (j === questions[i].answer) opt.classList.add("correct");
-            if (userAnswers[i] === j && j !== questions[i].answer)
-                opt.classList.add("wrong");
+    questions.forEach((item, index) => {
+        const options = document.getElementsByName(`q${index}`);
+        options.forEach(opt => {
+            const parent = opt.parentElement;
+            opt.disabled = true;
+
+            if(opt.checked && parseInt(opt.value) === item.ans){
+                parent.classList.add("correct");
+                score++;
+            }
+            else if(opt.checked && parseInt(opt.value) !== item.ans){
+                parent.classList.add("wrong");
+            }
+
+            if(parseInt(opt.value) === item.ans){
+                parent.classList.add("correct");
+            }
         });
-        if (userAnswers[i] === questions[i].answer) score++;
     });
 
     document.getElementById("score").innerText =
