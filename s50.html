@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Questions array
+const questions = [
+  {q:"The quantity supplied of a good or services is the quantity that a producer:", o:["Actually sells at a particular price","Should sell at a particular price","Is willing to sell at a particular price","Needs to sell at a particular price"], a:2},
+  {q:"If the demand curve for product A moves to the right, and the price of product B decreases, it can be concluded that:", o:["A and B are substitute goods","A and B are complementary goods","A is inferior, B is superior","Both goods A and B are inferior"], a:1},
+  {q:"Which of the following is not a function of health financing:", o:["Revenue collection","Financial protection","Pooling","Purchasing function"], a:1},
+  {q:"Which of the following is not true about Bismarck model:", o:["Involves government owned insurance program","Involves non-profit insurance system","Financed through payroll deduction","Tightly regulated"], a:0},
+  {q:"Process to remove temporary hardness of water:", o:["Base exchange","Permutit","Both","None"], a:1},
+  {q:"Sugarcane dust causes:", o:["Bagassosis","Byssinosis","Silicosis","Anthracosis"], a:0},
+  {q:"Fitting right man to the right job is:", o:["Occupational Health","Ergonomics","Aesthetics","All"], a:1},
+  {q:"Hospital infected amputated parts are kept in:", o:["Red colour","Blue colour","Yellow colour","Black colour"], a:0},
+  {q:"Probability of committing type 2 error?", o:["a","B","γ","χ"], a:1},
+  {q:"Formula for sample size calculation using mean and SD?", o:["n=z2 o2/d2","n=(Zo+d)2/d2","n=z-(1-p)p/d2","n-(2-0)/4"], a:0},
+  {q:"Statistical test for pre-post smoking cessation study:", o:["Chi-square test","McNemar's test","Fisher's exact test","Logistic regression"], a:1},
+  {q:"Most difficult criteria in Hill's criteria for causation:", o:["Specificity","Strength","Dose-response","Temporality"], a:0},
+  {q:"Food fortification is done for:", o:["Increase marketing","Increase nutritional value","Increase profit","Enhance taste"], a:1},
+  {q:"Food adulteration is done for:", o:["Increase marketing","Increase nutritional value","Increase profit","Enhance taste"], a:2},
+  {q:"First phase of project management?", o:["Initiating","Executing","Evaluating","Planning"], a:0},
+  {q:"Immediate source of energy for muscle contraction:", o:["ATP","GTP","Glucose","Creatine"], a:0}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render questions
+questions.forEach((q,i)=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${i+1}. ${q.q}</div>`;
+    q.o.forEach((opt,j)=>{
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit function
+function submitQuiz(){
+    let score = 0;
+    questions.forEach((q,i)=>{
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
