@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#eef2f6;
+    padding:30px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:12px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.08);
+}
+.question{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:14px;
+}
+.option{
+    display:block;
+    padding:12px;
+    margin-bottom:10px;
+    background:#f3f6fb;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.25s;
+}
+.option:hover{
+    background:#e4ebf7;
+}
+.option input{
+    margin-right:10px;
+}
+.correct{
+    background:#d4edda !important;
+    border-left:6px solid #28a745;
+}
+.incorrect{
+    background:#f8d7da !important;
+    border-left:6px solid #dc3545;
+}
+button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#0069d9;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+button:hover{
+    background:#004fa3;
+}
+#score{
+    margin-top:25px;
+    padding:20px;
+    background:#fff;
+    border-radius:12px;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Questions array
+const questions=[
+{q:"What is the full form of IPCC?",o:["International Public Climate Committee","Intergovernmental Panel on Climate Change","International Policy for Climate Control","Intercontinental Protocol on Climate Challenges"],a:1},
+{q:"Health education is:",o:["To give immunization to children","Secondary level of preventing health problem","Change in knowledge, Attitude and practice of people","Awareness about health problem"],a:2},
+{q:"Latest National HIV Strategic Plan period:",o:["2015-20 AD","2016-21 AD","2021-26 AD","2017-21 AD"],a:2},
+{q:"Most common cause of heart disease worldwide:",o:["Congenital heart anomaly","Rheumatic fever","Hypertension","Diabetes"],a:2},
+
+{q:"Health Promotion event in 2005 AD:",o:["Bangkok Charter for Health promotion","Sundlvall's statement","Alma-ata conference","International convention on population and development"],a:0},
+{q:"Highest amount of iron:",o:["Apple","Orange","Lemon","Soyabean"],a:0},
+{q:"Calculate BMI: height 172 cm, weight 89 kg:",o:["30","27","33","36"],a:0},
+{q:"Reference protein:",o:["Egg","Meat","Milk","All"],a:0},
+
+{q:"Project management technique for risk & decision-making:",o:["PERT Analysis","SWOT Analysis","Logic Model","All of the above"],a:3},
+{q:"Rabies outbreak from stray dogs: type of zoonosis:",o:["Zooanthroponoses","Amphixenoses","Anthropozoonoses","Epizoonoses"],a:2},
+{q:"Screening program targeting high prevalence women:",o:["Population-based screening","Selective screening","Opportunistic screening","Universal screening"],a:1},
+{q:"Health education to change water purification behaviors:",o:["Providing group discussions","Empowering people to make informed decisions","Acting as secondary prevention","Focusing on medical treatment"],a:1},
+
+{q:"Milk is deficient in:",o:["Tryptophan containing amino acid","Linoleic acid","Ascorbic acid","Calceferol"],a:2},
+{q:"Fermentation of pulses increases except:",o:["Thiamin","Riboflavin","Niacin","Ascorbic acid"],a:3},
+{q:"42-year-old woman with lower limb weakness due to rye consumption: cause?",o:["Lathyrussativus","Amanita","Argemone Mexicana","Ergot alkaloids"],a:0},
+{q:"False statement about RDA:",o:["RDA is decided by panel of experts","RDA caters to dietary requirements of all people","RDA is often higher than recommended minimum","RDA based on estimated average requirement"],a:1},
+
+{q:"Neurolathyrism prevented by:",o:["Steeping method","Parboiling method","Both","None"],a:2},
+{q:"Difference between type 1 and type 2 diabetes:",o:["Type 2 requires lower insulin doses","Type 1 develops complications rapidly","Autoimmune factors involved in type 1 not type 2","Type 1 can increase insulin with oral agents"],a:2},
+{q:"Highest caloric value:",o:["Carbohydrates","Fats","Proteins","Vitamins"],a:1},
+{q:"Daily requirement per kg body weight highest during:",o:["Infancy","Adolescence","Pregnancy","Lactation"],a:0}
+];
+
+// Shuffle questions
+questions.sort(()=>Math.random()-0.5);
+
+const quiz=document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i)=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j)=>{
+        card.innerHTML+=`
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit function
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        const selected=document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label=inp.parentElement;
+            if(j===q.a) label.classList.add("correct");
+            if(selected && j==selected.value && j!==q.a)
+                label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value)===q.a) score++;
+    });
+    document.getElementById("score").innerText=
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+</body>
+</html>
