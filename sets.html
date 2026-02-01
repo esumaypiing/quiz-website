@@ -1,149 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Question Sets</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Shuffled Cards</title>
 
-  <style>
-    :root {
-      --bg1: #020617;
-      --bg2: #0f172a;
-      --card-bg: #111827;
-      --accent: #38bdf8;
-      --text: #e5e7eb;
-    }
-
-    * {
-      box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, sans-serif;
-    }
-
+<style>
     body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      color: var(--text);
-      padding: 30px 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+        margin: 0;
+        padding: 40px;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #1d2671, #c33764);
+        min-height: 100vh;
     }
 
-    h1 {
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      letter-spacing: 1px;
-    }
-
-    .grid {
-      width: 100%;
-      max-width: 1300px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 25px;
     }
 
     .card {
-      background: var(--card-bg);
-      border-radius: 18px;
-      padding: 28px 20px;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text);
-      position: relative;
-      overflow: hidden;
-      transition: all 0.35s ease;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 40px 20px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.35s ease;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        position: relative;
+        overflow: hidden;
     }
 
     .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(56,189,248,0.25),
-        transparent
-      );
-      opacity: 0;
-      transition: opacity 0.4s ease;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+        transform: translateX(-100%);
+        transition: 0.6s;
     }
 
     .card:hover::before {
-      opacity: 1;
+        transform: translateX(100%);
     }
 
     .card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.55);
+        transform: translateY(-12px) scale(1.05);
+        box-shadow: 0 25px 45px rgba(0,0,0,0.4);
+        background: rgba(255, 255, 255, 0.25);
     }
 
-    .card h2 {
-      margin: 0;
-      font-size: 1.4rem;
+    .label {
+        letter-spacing: 1px;
     }
-
-    .card span {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 0.85rem;
-      opacity: 0.75;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.85rem;
-      opacity: 0.6;
-      text-align: center;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <h1>📚 Question Sets (1–40)</h1>
+<div class="container" id="cardContainer"></div>
 
-  <div class="grid" id="setsContainer"></div>
+<script>
+    const container = document.getElementById("cardContainer");
 
-  <footer>
-    Cards shuffle automatically on every refresh
-  </footer>
+    // create array 1–50
+    const cards = Array.from({ length: 50 }, (_, i) => i + 1);
 
-  <script>
-    // Create 40 sets
-    const sets = [];
-    for (let i = 1; i <= 40; i++) {
-      sets.push({
-        title: `Set ${i}`,
-        link: `set-${i}.html`
-      });
-    }
+    // shuffle cards
+    cards.sort(() => Math.random() - 0.5);
 
-    // Shuffle function
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    const container = document.getElementById("setsContainer");
-    shuffle(sets);
-
-    sets.forEach(set => {
-      const card = document.createElement("a");
-      card.className = "card";
-      card.href = set.link;
-      card.innerHTML = `
-        <h2>${set.title}</h2>
-        <span>Click to open questions</span>
-      `;
-      container.appendChild(card);
+    // generate cards
+    cards.forEach(num => {
+        const a = document.createElement("a");
+        a.href = `s${num}.html`;
+        a.className = "card";
+        a.innerHTML = `<div class="label">OPEN</div>`;
+        container.appendChild(a);
     });
-  </script>
+</script>
 
 </body>
 </html>
