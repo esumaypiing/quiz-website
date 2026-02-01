@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#eef2f7;
+    padding:30px;
+    margin:0;
+}
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:22px;
+    border-radius:14px;
+    margin-bottom:22px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.question{
+    font-weight:600;
+    margin-bottom:14px;
+}
+.option{
+    padding:12px 16px;
+    border:2px solid #dcdcdc;
+    border-radius:8px;
+    margin:8px 0;
+    cursor:pointer;
+    transition:.25s;
+}
+.option:hover{
+    background:#f1f4ff;
+}
+.option.selected{
+    background:#e7edff;
+    border-color:#4b6cff;
+}
+.option.correct{
+    background:#d4edda;
+    border-color:#28a745;
+}
+.option.wrong{
+    background:#f8d7da;
+    border-color:#dc3545;
+}
+button{
+    width:100%;
+    padding:16px;
+    font-size:18px;
+    font-weight:bold;
+    border:none;
+    border-radius:10px;
+    background:#4b6cff;
+    color:#fff;
+    cursor:pointer;
+}
+button:hover{
+    background:#334ecc;
+}
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+const questions = [
+{
+q:"In a community with nutrition deficiency among low-income population, appropriate intervention is:",
+options:[
+"Provide cooking classes for preparing affordable nutrient-rich foods",
+"Ignore such population",
+"Provide free processed foods",
+"Subsidize fast food restaurants"
+],
+answer:0
+},
+{
+q:"How does population momentum influence population projection?",
+options:[
+"Doesn't affect accuracy",
+"Increases complexity of projections",
+"Decreases reliability",
+"Irrelevant"
+],
+answer:1
+},
+{
+q:"Causative agent of endemic typhus:",
+options:["R. typhi","B. pertusis","Yersinia pestis","Salmonella typhi"],
+answer:0
+},
+{
+q:"Bacterium associated with spore-forming symptoms:",
+options:["Pseudomonas","Clostridium","Vibrio","Escherichia"],
+answer:1
+},
+{
+q:"HPV vaccine prevents:",
+options:["Breast cancer","Uterine cancer","Ovarian cancer","Cervical cancer"],
+answer:3
+},
+{
+q:"Leading cause of death among 15–19 year old girls:",
+options:[
+"Diarrheal diseases",
+"Pregnancy and childbirth complications",
+"Road injury",
+"Self-harm"
+],
+answer:1
+},
+{
+q:"SDGs were set up in 2015 by:",
+options:[
+"The United Nations General Assembly",
+"WHO",
+"UNESCO",
+"World Bank"
+],
+answer:0
+},
+{
+q:"World Health Day is celebrated on:",
+options:["1st December","31st May","7th April","8th May"],
+answer:2
+},
+{
+q:"Emergency contraceptive pills are effective:",
+options:[
+"24–48 hours after ovulation",
+"72–120 hours after coitus",
+"Immediately after ovulation",
+"Within 24 hours of intercourse"
+],
+answer:1
+},
+{
+q:"According to Herzberg’s theory, which factor motivates employees?",
+options:["Job security","Work conditions","Recognition","Salary"],
+answer:2
+},
+{
+q:"Role of Mycobacterium tuberculosis in TB causation:",
+options:[
+"Necessary component cause",
+"Sufficient cause alone",
+"Incidental factor",
+"Confounder"
+],
+answer:0
+},
+{
+q:"BOAA with descending paralysis is caused by:",
+options:[
+"Botulinum toxin",
+"Tetanus toxin",
+"Staphylococcal enterotoxin",
+"C. perfringens toxin"
+],
+answer:0
+},
+{
+q:"Surveillance concerned with identifying missing cases:",
+options:["Active","Passive","Sentinel","All"],
+answer:2
+},
+{
+q:"Richest source of PUFA:",
+options:[
+"Sunflower oil",
+"Safflower oil",
+"Palmoline oil",
+"Halibut liver oil"
+],
+answer:1
+},
+{
+q:"Soiling index indicates:",
+options:[
+"Land pollution",
+"Water pollution",
+"Noise pollution",
+"Air pollution"
+],
+answer:3
+},
+{
+q:"Drug of choice for pertussis:",
+options:["Erythromycin","Azithromycin","Both","None"],
+answer:0
+},
+{
+q:"Chi-Square test measures:",
+options:[
+"Dependence of attributes",
+"Difference between two means",
+"Difference between means & median",
+"Difference between two proportions"
+],
+answer:3
+},
+{
+q:"Mosquito density decreases with height – this is:",
+options:[
+"Positive correlation",
+"Negative correlation",
+"Weak positive correlation",
+"No correlation"
+],
+answer:1
+},
+{
+q:"Increasing confidence limit in research causes:",
+options:[
+"No change",
+"Previously insignificant becomes significant",
+"Objectives obtained",
+"Previously significant becomes insignificant"
+],
+answer:3
+},
+{
+q:"Mean ± 2SD covers:",
+options:["68%","95%","99.7%","50%"],
+answer:1
+}
+];
+
+// shuffle
+questions.sort(()=>Math.random()-0.5);
+
+const quiz=document.getElementById("quiz");
+const userAnswers={};
+
+questions.forEach((q,i)=>{
+const card=document.createElement("div");
+card.className="card";
+card.innerHTML=`<div class="question">${i+1}. ${q.q}</div>`;
+q.options.forEach((op,j)=>{
+const d=document.createElement("div");
+d.className="option";
+d.textContent=op;
+d.onclick=()=>{
+card.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
+d.classList.add("selected");
+userAnswers[i]=j;
+};
+card.appendChild(d);
+});
+quiz.appendChild(card);
+});
+
+function submitQuiz(){
+let score=0;
+document.querySelectorAll(".card").forEach((card,i)=>{
+const ops=card.querySelectorAll(".option");
+ops.forEach((op,j)=>{
+if(j===questions[i].answer) op.classList.add("correct");
+if(userAnswers[i]===j && j!==questions[i].answer) op.classList.add("wrong");
+});
+if(userAnswers[i]===questions[i].answer) score++;
+});
+document.getElementById("score").innerText=`Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
