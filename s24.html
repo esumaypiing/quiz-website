@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional MCQ Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#f3f6fb;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.quiz-card{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    margin-bottom:18px;
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.option{
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:8px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.option:hover{
+    background:#eef3ff;
+}
+
+.option.selected{
+    background:#e4ebff;
+    border-color:#4b6cff;
+}
+
+.option.correct{
+    background:#e7f8ef;
+    border-color:#2ecc71;
+}
+
+.option.wrong{
+    background:#fdecea;
+    border-color:#e74c3c;
+}
+
+#submitBtn{
+    display:block;
+    margin:30px auto;
+    padding:14px 45px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    background:#4b6cff;
+    color:white;
+    cursor:pointer;
+}
+
+#submitBtn:hover{
+    background:#364fe0;
+}
+
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>MCQ Quiz</h1>
+
+<div id="quiz"></div>
+
+<button id="submitBtn">Submit Quiz</button>
+<div id="score"></div>
+</div>
+
+<script>
+const questions = [
+{
+q:"In a program to promote the nutritional status of the elderly population:",
+options:["Promote processed foods","Promote high caloric intake","Promote nutrition-dense diet","None of the above"],
+answer:2
+},
+{
+q:"To prevent obesity in school-going children:",
+options:["Promote school nutrition programs with exercise and good diet","Promote processed food","Encourage sedentary lifestyle","None of the above"],
+answer:0
+},
+{
+q:"In a case-control study, what is done to limit confounding?",
+options:["Matching","Randomization","Stratification","Blinding"],
+answer:0
+},
+{
+q:"Most effective mortality rate indicator for comparison between populations:",
+options:["Crude death rate","Age-specific death rate","Proportional mortality rate","Infant mortality rate"],
+answer:1
+},
+{
+q:"In a COVID outbreak of 2000 population, 20 cases and 5 deaths. CFR is:",
+options:["1%","0.25%","5%","25%"],
+answer:3
+},
+{
+q:"Effect of beta-carotene reducing colon cancer due to fiber intake is:",
+options:["Confounding factor","Misclassification bias","Randomization","Sampling error"],
+answer:0
+},
+{
+q:"Cross-sectional study is:",
+options:["Longitudinal study","Prospective study","Retrospective study","Prevalence study"],
+answer:3
+},
+{
+q:"25% of disease due to exposure represents:",
+options:["Population attributable risk","Risk ratio","Relative risk","Attributable risk"],
+answer:3
+},
+{
+q:"Severe infection after surgery due to non-sterile instruments is:",
+options:["Nosocomial","Opportunistic","Iatrogenic","Infectious"],
+answer:2
+},
+{
+q:"Government allocating resources for maternal health services reflects:",
+options:["Allocation for stakeholders","Allocation for basic services","Policy decision-making","Health system reforms"],
+answer:2
+},
+{
+q:"Physician who linked cholera to contaminated water pump in 1854:",
+options:["Louis Pasteur","John Snow","Edward Jenner","Robert Koch"],
+answer:1
+},
+{
+q:"Reformer who advocated urban sanitation laws:",
+options:["William Farr","William Chadwick","Edwin Chadwick","John Snow"],
+answer:2
+},
+{
+q:"Child complains of fever – which sinusitis?",
+options:["Frontal sinus","Maxillary sinus","Spheroidal sinus","Ethmoidal sinus"],
+answer:0
+},
+{
+q:"“Primary Health Care – Now More Than Ever” slogan is from WHR:",
+options:["2002","2008","2012","2006"],
+answer:1
+},
+{
+q:"Face mask in COVID-19 prevents entry of virus from:",
+options:["Host susceptibility","Etiological agent","Portal of entry","Portal of exit"],
+answer:2
+},
+{
+q:"Using new treatment on 500 instead of planned 5000 leads to:",
+options:["Type I error","Type II error","Sensitivity","Specificity"],
+answer:1
+},
+{
+q:"Vital registration system started in Nepal in:",
+options:["1998","1999","2000","1977"],
+answer:3
+},
+{
+q:"International Day for Persons with Disability is on:",
+options:["March 15","December 3","September 20","None"],
+answer:1
+},
+{
+q:"Nepal recognizes senior citizens from age:",
+options:["60 years","65 years","70 years","80 years"],
+answer:0
+},
+{
+q:"WHO recommended minimum number of ANC visits:",
+options:["4 times","8 times","9 times","12 times"],
+answer:1
+}
+];
+
+// Shuffle questions every reload
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, index)=>{
+    const card = document.createElement("div");
+    card.className = "quiz-card";
+    card.innerHTML = `<div class="question">${index+1}. ${q.q}</div>`;
+
+    q.options.forEach((opt,i)=>{
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerText = opt;
+
+        div.onclick = ()=>{
+            if(card.classList.contains("submitted")) return;
+            card.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
+            div.classList.add("selected");
+            card.dataset.answer = i;
+        };
+
+        card.appendChild(div);
+    });
+
+    quizDiv.appendChild(card);
+});
+
+document.getElementById("submitBtn").onclick = ()=>{
+    let score = 0;
+    const cards = document.querySelectorAll(".quiz-card");
+
+    cards.forEach((card, index)=>{
+        card.classList.add("submitted");
+        const selected = card.dataset.answer;
+        const correct = questions[index].answer;
+
+        card.querySelectorAll(".option").forEach((opt,i)=>{
+            if(i === correct) opt.classList.add("correct");
+            if(i == selected && i != correct) opt.classList.add("wrong");
+        });
+
+        if(selected == correct) score++;
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+};
+</script>
+
+</body>
+</html>
