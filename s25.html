@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional MCQ Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#f4f7fc;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.quiz-card{
+    background:#ffffff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.option{
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:8px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:#eef3ff;
+}
+
+.option.selected{
+    background:#e7edff;
+    border-color:#4b6cff;
+}
+
+.option.correct{
+    background:#e6f7ee;
+    border-color:#2ecc71;
+}
+
+.option.wrong{
+    background:#fdeaea;
+    border-color:#e74c3c;
+}
+
+#submitBtn{
+    display:block;
+    margin:30px auto;
+    padding:14px 50px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    background:#4b6cff;
+    color:white;
+    cursor:pointer;
+}
+
+#submitBtn:hover{
+    background:#364fe0;
+}
+
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>MCQ Quiz</h1>
+
+<div id="quiz"></div>
+
+<button id="submitBtn">Submit Quiz</button>
+<div id="score"></div>
+</div>
+
+<script>
+const questions = [
+{
+q:"Reliability requires:",
+options:["Consistency","Systematic","Accuracy","None"],
+answer:0
+},
+{
+q:"A market situation where buyers control price is called:",
+options:["Monopolistic","Monopoly","Monopsony","Oligopoly"],
+answer:2
+},
+{
+q:"Imbalance of information between parties is called:",
+options:["Information equilibrium","Information imbalance","Information asymmetry","Information disparity"],
+answer:2
+},
+{
+q:"Emergency contraceptive pills are effective up to:",
+options:["48 hours after ovulation","72 hours after coitus","Immediately after ovulation","Within 24 hours"],
+answer:1
+},
+{
+q:"Relative risk (RR) < 1 indicates:",
+options:["No association","Positive association","Strong association","Negative association"],
+answer:3
+},
+{
+q:"Rashes in chickenpox are:",
+options:["Centrifugal","Centripetal","On arms and legs","All"],
+answer:1
+},
+{
+q:"If a new effective treatment is initiated, which is true?",
+options:["Incidence will not change","Prevalence will not change","Neither will change","Both will change"],
+answer:0
+},
+{
+q:"Acute watery diarrhoea due to contaminated well is:",
+options:["Propagated epidemic","Common single source for short period","Common single source prolonged","Multiple source prolonged"],
+answer:1
+},
+{
+q:"Mean = 10, SD = 2. What is variance?",
+options:["2","4","6","8"],
+answer:1
+},
+{
+q:"Behavioral theory addressing perceived severity and benefits:",
+options:["Theory of Planned Behavior","Health Belief Model","Transtheoretical Model","Social Cognitive Theory"],
+answer:1
+},
+{
+q:"WHO advice for breastfeeding during infant diarrhea:",
+options:["Stop breastfeeding","Limit breastfeeding","Continue breastfeeding with medicine","Replace with formula"],
+answer:2
+},
+{
+q:"High saturated fat intake increases which lipid?",
+options:["HDL","Triglycerides","LDL","None"],
+answer:2
+},
+{
+q:"Test used when sample size <30 in two groups:",
+options:["Unpaired t-test","Paired t-test","Z test","Chi-square test"],
+answer:0
+},
+{
+q:"7-month pregnant woman coming first time should receive:",
+options:["BCG","Tetanus Toxoid","Tetanus Immunoglobulin","Rota virus"],
+answer:1
+},
+{
+q:"No BCG scar in child – recommendation:",
+options:["Administer BCG","Mantoux positive give BCG","Mantoux negative give BCG","Give TT"],
+answer:2
+},
+{
+q:"Hairdresser with hand flakes only at workplace – best therapy:",
+options:["Prednisolone","Avoid wet work","Use gloves all day","Skin patch test"],
+answer:1
+},
+{
+q:"Healthy population best identified by:",
+options:["Sensitivity","Specificity","Both","None"],
+answer:1
+},
+{
+q:"Most difficult Hill’s criterion to establish:",
+options:["Specificity","Strength","Dose-response","Temporality"],
+answer:0
+},
+{
+q:"Old age allowance in Nepal is:",
+options:["5000","2000","3000","4000"],
+answer:3
+},
+{
+q:"Asbestosis does NOT cause:",
+options:["Shortness of breath","Persistent dry cough","Brain cancer","Chest tightness"],
+answer:2
+}
+];
+
+// Shuffle questions on reload
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, index)=>{
+    const card = document.createElement("div");
+    card.className = "quiz-card";
+    card.innerHTML = `<div class="question">${index+1}. ${q.q}</div>`;
+
+    q.options.forEach((opt,i)=>{
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerText = opt;
+
+        div.onclick = ()=>{
+            if(card.classList.contains("submitted")) return;
+            card.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
+            div.classList.add("selected");
+            card.dataset.answer = i;
+        };
+
+        card.appendChild(div);
+    });
+
+    quizDiv.appendChild(card);
+});
+
+document.getElementById("submitBtn").onclick = ()=>{
+    let score = 0;
+    const cards = document.querySelectorAll(".quiz-card");
+
+    cards.forEach((card, index)=>{
+        card.classList.add("submitted");
+        const selected = card.dataset.answer;
+        const correct = questions[index].answer;
+
+        card.querySelectorAll(".option").forEach((opt,i)=>{
+            if(i === correct) opt.classList.add("correct");
+            if(i == selected && i != correct) opt.classList.add("wrong");
+        });
+
+        if(selected == correct) score++;
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+};
+</script>
+
+</body>
+</html>
