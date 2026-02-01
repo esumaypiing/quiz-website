@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional MCQ Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#f2f5fa;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.quiz-card{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    margin-bottom:18px;
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:14px;
+}
+
+.option{
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:8px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.option:hover{
+    background:#f4f7ff;
+}
+
+.option.selected{
+    background:#e8eeff;
+    border-color:#4b6cff;
+}
+
+.option.correct{
+    background:#e6f8ee;
+    border-color:#2ecc71;
+}
+
+.option.wrong{
+    background:#fdecea;
+    border-color:#e74c3c;
+}
+
+#submitBtn{
+    display:block;
+    margin:30px auto;
+    padding:14px 45px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    background:#4b6cff;
+    color:white;
+    cursor:pointer;
+}
+
+#submitBtn:hover{
+    background:#364fe0;
+}
+
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>MCQ Quiz</h1>
+<div id="quiz"></div>
+
+<button id="submitBtn">Submit Quiz</button>
+<div id="score"></div>
+</div>
+
+<script>
+const questions = [
+{
+q:"A school health programme is conducted to measure the attitude of children. The tool used is:",
+options:["Likert scale","Observation checklist","Physical fitness test","Structured KII schedule"],
+answer:0
+},
+{
+q:"A tool is developed to measure nutrition of school children. What is most important?",
+options:["Inter-rater reliability","Internal consistency","Construct validity","Criterion validity"],
+answer:2
+},
+{
+q:"Power of a test is affected by:",
+options:["Sample size","Relative risk","Both a and b","Confidence level"],
+answer:0
+},
+{
+q:"Which pollutant mixed with ozone affects our health?",
+options:["CFC","Nitrous oxides","Methane","Sulphur dioxide"],
+answer:0
+},
+{
+q:"Incubation period of measles is:",
+options:["10–14 days","10–24 days","1–7 days","None"],
+answer:0
+},
+{
+q:"Randomization in experimental study is done to:",
+options:["Eliminate selection bias","Select control","Eliminate confounding bias","All of the above"],
+answer:3
+},
+{
+q:"In quasi experimental study there is no:",
+options:["Control","Randomization","Both control and randomization","Neither"],
+answer:1
+},
+{
+q:"Which of the following is not an analytical study?",
+options:["Cross-sectional comparative study","Case control study","Cohort study","Prevalence study"],
+answer:3
+},
+{
+q:"Vitamin A supplementation data is recorded under which HMIS register?",
+options:["2.3","4.1","3.1","5.1"],
+answer:0
+},
+{
+q:"Controlled process of cell self-destruction without inflammation is:",
+options:["Apoptosis","Necrosis","Autophagy","Atrophy"],
+answer:0
+},
+{
+q:"Which is NOT a standard indicator for safe motherhood?",
+options:["% of ANC checkups","% of mothers taking mebendazole","% of institutional deliveries","Maternal mortality rate"],
+answer:1
+},
+{
+q:"Ratio of incidence among exposed to non-exposed is:",
+options:["Attributable risk","Relative risk","Odds ratio","Risk difference"],
+answer:1
+},
+{
+q:"Contingent plan to meet environmental pressure is:",
+options:["Policies","Missions","Goal","Strategies"],
+answer:3
+},
+{
+q:"Best parameter to assess chronic malnutrition is:",
+options:["Weight for height","Weight for age","Height for age","Any of the above"],
+answer:2
+},
+{
+q:"Which cranial nerve originates from posterior part of brain?",
+options:["Vestibulocochlear","Trochlear","Trigeminal","Vagus"],
+answer:1
+},
+{
+q:"All are true about growth chart EXCEPT:",
+options:["Position of dots more important than direction","Tool for educating mother","Road to health zone","Lowermost line is <3 percentile"],
+answer:0
+},
+{
+q:"Most effective contraception also preventing STDs is:",
+options:["Condom","Injectables","Pills","All of the above"],
+answer:0
+},
+{
+q:"Additional protein needed during lactation is:",
+options:["19 g","29 g","12 g","None"],
+answer:0
+},
+{
+q:"Health insurance financed jointly by employer and employee is:",
+options:["Beveridge model","Social health insurance","Bismarck model","Out-of-pocket"],
+answer:2
+},
+{
+q:"Pigeon chest can be observed in:",
+options:["Vitamin B12 deficiency","Vitamin D deficiency","Calcium deficiency","All of the above"],
+answer:3
+}
+];
+
+// shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, index)=>{
+    const card = document.createElement("div");
+    card.className = "quiz-card";
+    card.innerHTML = `<div class="question">${index+1}. ${q.q}</div>`;
+
+    q.options.forEach((opt,i)=>{
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerText = opt;
+
+        div.onclick = ()=>{
+            if(card.classList.contains("submitted")) return;
+            card.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
+            div.classList.add("selected");
+            card.dataset.answer = i;
+        };
+
+        card.appendChild(div);
+    });
+
+    quizDiv.appendChild(card);
+});
+
+document.getElementById("submitBtn").onclick = ()=>{
+    let score = 0;
+    const cards = document.querySelectorAll(".quiz-card");
+
+    cards.forEach((card, index)=>{
+        card.classList.add("submitted");
+        const selected = card.dataset.answer;
+        const correct = questions[index].answer;
+
+        card.querySelectorAll(".option").forEach((opt,i)=>{
+            if(i === correct) opt.classList.add("correct");
+            if(i == selected && i != correct) opt.classList.add("wrong");
+        });
+
+        if(selected == correct) score++;
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+};
+</script>
+
+</body>
+</html>
