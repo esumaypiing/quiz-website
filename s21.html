@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional MCQ Quiz</title>
+
+<style>
+body{
+    font-family:Segoe UI, sans-serif;
+    background:linear-gradient(135deg,#141e30,#243b55);
+    padding:30px;
+}
+.quiz-container{
+    max-width:1000px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+.question{
+    font-weight:600;
+    margin-bottom:12px;
+}
+.option{
+    border:2px solid #ddd;
+    border-radius:8px;
+    padding:10px 14px;
+    margin:8px 0;
+    cursor:pointer;
+    transition:0.3s;
+}
+.option:hover{
+    background:#f1f1f1;
+}
+.option.selected{
+    background:#e7f0ff;
+    border-color:#0d6efd;
+}
+.correct{
+    background:#d4edda !important;
+    border-color:#28a745 !important;
+}
+.wrong{
+    background:#f8d7da !important;
+    border-color:#dc3545 !important;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 40px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    background:#ffc107;
+    font-weight:600;
+    cursor:pointer;
+}
+button:hover{
+    background:#e0a800;
+}
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+let questions = [
+{q:"The case first recognized by health institution is:",options:["Index case","Secondary case","Primary case","Tertiary case"],answer:0},
+{q:"Acute watery diarrhoea epidemic by contaminated water is:",options:["Common single source (short period)","Common single source (long period)","Propagated epidemic","Multiple sources"],answer:0},
+{q:"Model containing phases of habit change:",options:["Health Belief Model","Social phase change","Trans-theoretical model","None"],answer:2},
+{q:"Correlation coefficient measures:",options:["Strength of association","Direction of one variable","Magnitude of difference","Rate of change"],answer:0},
+
+{q:"Area under standard normal curve:",options:["0.5","1","1.5","2"],answer:1},
+{q:"Acceptable iron level in drinking water:",options:["0.3 mg/L","0.4 mg/L","0.5 mg/L","0.01 mg/L"],answer:0},
+{q:"Sum of absolute deviation about mean is always:",options:["Positive","2","10","Not possible"],answer:0},
+{q:"Minimum space per factory worker (cubic meters):",options:["9.9","10.2","14.2","13.2"],answer:2},
+
+{q:"Process to judge success of nutrition program:",options:["Evaluation","Monitoring","Supervision","Quality control"],answer:0},
+{q:"Using Gambusia fish to control mosquitoes is:",options:["Biological control","Environmental control","Chemical control","Mechanical control"],answer:0},
+{q:"Disease NOT transmitted by vectors:",options:["Malaria","Dengue","Tuberculosis","Japanese encephalitis"],answer:2},
+{q:"Leading global cause of maternal mortality:",options:["Hemorrhage","Eclampsia","Sepsis","Obstructed labor"],answer:0},
+
+{q:"Research paper is based on:",options:["Primary data","Secondary data","Both","None"],answer:2},
+{q:"Standard error measures:",options:["Normal distribution","Difference of sample mean from population mean","Clustering of scores","Accuracy of stratification"],answer:1},
+{q:"Significant difference means:",options:["p > 0.05 by chance","p > 0.05 unlikely","p < 0.05 unlikely by chance","p < 0.05 by chance"],answer:2},
+{q:"Demographic process does NOT include:",options:["Fertility","Morbidity","Mortality","Social mobility"],answer:1},
+
+{q:"Contraceptive recommended for obese women:",options:["Injectables","Hormonal","IUCD","Implant"],answer:2},
+{q:"When SD is given, test for population mean:",options:["Z-test","t-test","F-test","ANOVA"],answer:0},
+{q:"Hormone responsible for milk secretion:",options:["Prolactin","Oestrogen","Progesterone","LH"],answer:0},
+{q:"Breast screening is:",options:["Rehabilitation","Primary prevention","Secondary prevention","Primordial prevention"],answer:2}
+];
+
+// Shuffle questions
+questions.sort(()=>Math.random()-0.5);
+
+let userAnswers = [];
+
+function loadQuiz(){
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML="";
+    questions.forEach((q,i)=>{
+        let card=document.createElement("div");
+        card.className="card";
+        card.innerHTML=`<div class="question">${i+1}. ${q.q}</div>`;
+        q.options.forEach((opt,j)=>{
+            let div=document.createElement("div");
+            div.className="option";
+            div.innerText=opt;
+            div.onclick=()=>selectOption(i,j,div);
+            card.appendChild(div);
+        });
+        quiz.appendChild(card);
+    });
+}
+
+function selectOption(qi,oi,el){
+    let options = el.parentNode.querySelectorAll(".option");
+    options.forEach(o=>o.classList.remove("selected"));
+    el.classList.add("selected");
+    userAnswers[qi]=oi;
+}
+
+function submitQuiz(){
+    let score=0;
+    document.querySelectorAll(".card").forEach((card,i)=>{
+        let opts = card.querySelectorAll(".option");
+        opts.forEach((opt,j)=>{
+            if(j===questions[i].answer) opt.classList.add("correct");
+            if(userAnswers[i]===j && j!==questions[i].answer) opt.classList.add("wrong");
+        });
+        if(userAnswers[i]===questions[i].answer) score++;
+    });
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+
+loadQuiz();
+</script>
+
+</body>
+</html>
