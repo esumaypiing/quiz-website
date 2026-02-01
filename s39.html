@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{q:"Standard of living (WHO) indicates all excepts", o:["Income","Sanitation and nutrition","Level of provision of health","Human right"], a:3},
+{q:"Arsenic content in water as per National water quality guidelines of Nepal 2005?", o:["0.1","0.01","0.5","0.05"], a:3},
+{q:"Quasi experimental study use:", o:["randomization","do not use randomization","both a and b","none"], a:1},
+{q:"Which group is particularly vulnerable to the toxic effects of lead?", o:["Children","Adults","Old aged","None"], a:0},
+{q:"Which one is called non-probability sampling?", o:["Quota sampling","Cluster sampling","Systematic sampling","Stratified random sampling"], a:0},
+{q:"Research problem is selected from the standpoint of", o:["Social relevance","Financial support","Researcher's interest","Availability of relevant literature"], a:0},
+{q:"Action-research can be understood as ...........", o:["A longitudinal research","An applied research","A kind of research being carried out to solve a specific problem","All of the above"], a:2},
+{q:"Calculation of sample size with population parameter is best given by:", o:["Z²PQ / d²","22/N","22 PQ","None"], a:0},
+{q:"According to Rogers's model of adoption, people pass through a series for adoption:", o:["Awareness, evaluation, trial, interest and adoption","Awareness, interest, evaluation, trial","Awareness, interest, trial, evaluation","Interest, evaluation, trial, awareness"], a:1},
+{q:"Which of the following was not included when PHC was initially introduced?", o:["Maternal and child health","Immunization","Mental health","Health education"], a:2},
+{q:"Health promotion includes all except:", o:["Nutrition","Immunization","Treatment of disease","Health education"], a:2},
+{q:"Energy provided by human milk (per 100 gm) is:", o:["50 kcal","65 kcal","90 kcal","120 kcal"], a:1},
+{q:"Most reliable evidence of fecal contamination of water:", o:["Coliform bacteria","St. fecalis","Cl. perfringens","Cl. Welchil"], a:0},
+{q:"MPN Multiple Tube method is done to:", o:["Detect the presence of coliform organism in a sample of water","Detect the presence of fecal streptococci in a sample of water","Detect the presence of Cl. Perfringens in a sample of water","Do the colony count of bacteria"], a:0},
+{q:"In winter, water vapor and pollutants comes to lie in the lowermost layer of atmosphere by:", o:["Acid rain","Greenhouse gas","Temperature inversion","Ocean effect"], a:2},
+{q:"10-days rule is related to", o:["Sewage disposal","Air quality","Radiation protection in pregnancy","Water quality"], a:2},
+{q:"Positive Predictive value of a test does not depend upon:", o:["Sensitivity","Specificity","Prevalence of disease","Incidence of disease"], a:3},
+{q:"Strongest evidence is yield from:", o:["Case-control study","Meta-analysis","Systematic review","Cohort study"], a:1},
+{q:"Salk vaccine is a:", o:["Live vaccine","Live attenuated vaccine","Killed vaccine","Toxoid"], a:2},
+{q:"In establishing causal association the most important criteria is:", o:["Duration of relationship","Temporality","Strength of association","Consistency"], a:1}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
