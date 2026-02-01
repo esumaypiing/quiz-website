@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Public Health Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#f1f5f9;
+    padding:20px;
+}
+
+.quiz-container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:14px;
+}
+
+.option{
+    border:1px solid #cbd5e1;
+    padding:10px 14px;
+    border-radius:6px;
+    margin-bottom:8px;
+    cursor:pointer;
+    display:block;
+}
+
+.option:hover{
+    background:#e0e7ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.correct{
+    background:#d1fae5 !important;
+    border-color:#10b981;
+}
+
+.wrong{
+    background:#fee2e2 !important;
+    border-color:#ef4444;
+}
+
+button{
+    display:block;
+    margin:30px auto;
+    padding:14px 34px;
+    font-size:16px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e40af;
+}
+
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+{
+q:"Social marketing approach is used to:",
+options:[
+"Promote use of healthcare facilities",
+"Promote use of soaps, condoms, etc.",
+"Increase healthcare costs",
+"Encourage unhealthy behaviours"
+],
+answer:1
+},
+{
+q:"Research is NOT selected based on:",
+options:[
+"Not-novel",
+"Feasibility",
+"Funding",
+"Researcher's experience"
+],
+answer:0
+},
+{
+q:"Successful community intervention program in Nepal:",
+options:[
+"Alcohol rehabilitation program",
+"Crisis counselling service",
+"National Vitamin A supplementation program",
+"Maternal and child health program"
+],
+answer:2
+},
+{
+q:"Continuous value is best described in:",
+options:[
+"Bar diagram",
+"Histogram",
+"Pie chart",
+"All of the above"
+],
+answer:1
+},
+{
+q:"Salk vaccine is a:",
+options:[
+"Live vaccine",
+"Live attenuated vaccine",
+"Killed vaccine",
+"Toxoid"
+],
+answer:2
+},
+{
+q:"Sterilization of plastic material infected with sputum is done by:",
+options:[
+"Autoclave",
+"Chlorine",
+"Incineration",
+"All"
+],
+answer:0
+},
+{
+q:"Strongest evidence is yielded from:",
+options:[
+"Case-control study",
+"Meta-analysis",
+"Systematic review",
+"Cohort study"
+],
+answer:1
+},
+{
+q:"Yellow fever is caused by:",
+options:[
+"Flavivirus",
+"Paramyxovirus",
+"Orthoparamyxovirus",
+"All"
+],
+answer:0
+},
+{
+q:"Percentage within ±1 SD of mean:",
+options:[
+"50%",
+"68%",
+"95%",
+"99.7%"
+],
+answer:1
+},
+{
+q:"Disease caused by Vibrio cholerae:",
+options:[
+"Typhoid fever",
+"Hepatitis B",
+"Cholera",
+"Tuberculosis"
+],
+answer:2
+},
+{
+q:"Most effective intervention to prevent stunting:",
+options:[
+"School meals",
+"Iron & folic acid to mothers",
+"Increasing agriculture",
+"Deworming campaigns"
+],
+answer:1
+},
+{
+q:"Drug causing congenital malformations:",
+options:[
+"Paracetamol",
+"Valproic acid",
+"Metformin",
+"Amoxicillin"
+],
+answer:1
+},
+{
+q:"Sampling method for finite population:",
+options:[
+"Snowball sampling",
+"Systematic sampling",
+"Convenience sampling",
+"Quota sampling"
+],
+answer:1
+},
+{
+q:"Indicator of age heaping:",
+options:[
+"Moviers Index",
+"Whipple's Index",
+"HDI",
+"PQLI"
+],
+answer:1
+},
+{
+q:"Formula of geometric growth model:",
+options:[
+"Pt = P(1+r)t",
+"Pt = P(1+t)r",
+"Pt = P(1+t)t",
+"Pt = P(1+r)r"
+],
+answer:0
+},
+{
+q:"Best indicator of fertility:",
+options:[
+"GRR",
+"CBR",
+"NRR",
+"TMFR"
+],
+answer:2
+},
+{
+q:"Nerve passing through dorsal aspect of brain:",
+options:[
+"Trochlear nerve",
+"Optic nerve",
+"Olfactory nerve",
+"Facial nerve"
+],
+answer:0
+},
+{
+q:"Milestone NOT achieved by 15 months:",
+options:[
+"Takes steps independently",
+"Backward steps",
+"Says one or two words",
+"Points to ask for help"
+],
+answer:1
+},
+{
+q:"95% CI for population mean:",
+options:[
+"47 to 53",
+"57 to 63",
+"77 to 83",
+"75 to 80"
+],
+answer:0
+},
+{
+q:"Probability that sample mean lies between 7.8 and 8.27:",
+options:[
+"0.5",
+"0.7",
+"0.1",
+"0.3"
+],
+answer:3
+}
+];
+
+// shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+    const card=document.createElement("div");
+    card.className="card";
+    let html=`<div class="question">${i+1}. ${q.q}</div>`;
+    q.options.forEach((opt,idx)=>{
+        html+=`
+        <label class="option">
+            <input type="radio" name="q${i}" value="${idx}">
+            ${opt}
+        </label>`;
+    });
+    card.innerHTML=html;
+    quiz.appendChild(card);
+});
+
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        const opts=document.getElementsByName(`q${i}`);
+        opts.forEach(o=>{
+            const parent=o.parentElement;
+            if(parseInt(o.value)===q.answer){
+                parent.classList.add("correct");
+            }
+            if(o.checked && parseInt(o.value)!==q.answer){
+                parent.classList.add("wrong");
+            }
+            o.disabled=true;
+        });
+        const selected=[...opts].find(o=>o.checked);
+        if(selected && parseInt(selected.value)===q.answer){
+            score++;
+        }
+    });
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
