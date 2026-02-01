@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional MCQ Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#f4f6fb;
+    padding:40px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:#ffffff;
+    padding:24px;
+    margin-bottom:24px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.question{
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:14px;
+}
+
+.option{
+    display:block;
+    padding:12px 16px;
+    margin:8px 0;
+    border-radius:8px;
+    border:2px solid #ddd;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.option:hover{
+    background:#eef2ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.correct{
+    background:#e8f8ef;
+    border-color:#28a745;
+}
+
+.wrong{
+    background:#fdeaea;
+    border-color:#dc3545;
+}
+
+button{
+    display:block;
+    margin:40px auto;
+    padding:14px 45px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#4f46e5;
+    color:#fff;
+    cursor:pointer;
+}
+
+.score{
+    text-align:center;
+    font-size:24px;
+    font-weight:700;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="quiz"></div>
+
+<button onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+{q:"Which health insurance model has aided low-income Nepali citizens?",o:["Social health insurance","Out-of-pocket model","Universal coverage scheme","None"],a:0},
+{q:"Denominator of Total Fertility Rate?",o:["Women of reproductive age","Married women of reproductive age","Total population","Total live births"],a:0},
+{q:"Which vaccine is given intradermally?",o:["JE","Measles","BCG","DPT-HepB-Hib"],a:2},
+{q:"MUAC 12 cm in a child belongs to which category?",o:["Red","Yellow","Green","Black"],a:1},
+
+{q:"Parents, children and grandparents living together is:",o:["Joint family","Extended family","Single family","Normal family"],a:1},
+{q:"Diffusion of culture in both directions is:",o:["Socialization","Acculturation","Assimilation","All"],a:1},
+{q:"Person with many friends likely has:",o:["High need for affiliation","Low achievement","Low affiliation","High solitude"],a:0},
+{q:"When group cannot decide, decision type is:",o:["Democratic","Dismiss group","Hip pocket decision","Group decision"],a:2},
+
+{q:"PHEIC diseases include all EXCEPT:",o:["Smallpox","Polio","Malaria","SARS"],a:2},
+{q:"Primary advantage of national health insurance:",o:["Service provision","Risk pooling","Third party payment","Regulation"],a:1},
+{q:"IFA tablets per year for adolescent girls:",o:["13","24","26","30"],a:2},
+{q:"First step in behavior change:",o:["Knowledge","Attitude","Practice","None"],a:0},
+
+{q:"Types of learning except:",o:["Cognitive","Psychomotor","Affective","Skills"],a:3},
+{q:"Mild mental retardation IQ range:",o:["IQ 70","IQ 50-69","IQ 21-34","IQ below 20"],a:1},
+{q:"Protein breaks down to form:",o:["Amino acids","Keto acids","Ketone bodies","Keto acetones"],a:0},
+{q:"Most effective refuse disposal method:",o:["Controlled tipping","Incineration","Dumping","Composting"],a:0},
+
+{q:"HIV stage undetectable by any test:",o:["Window","Eclipse","Acute","Chronic"],a:1},
+{q:"Usual frequency of disease in population:",o:["Endemic","Epidemic","Pandemic","Sporadic"],a:0},
+{q:"False statement in cohort study:",o:["Identified before disease","Observed over time","Expensive","Less expensive than case-control"],a:3},
+{q:"Most difficult criterion for causation:",o:["Temporal","Biological plausibility","Coherence","Specificity"],a:3}
+];
+
+// shuffle on reload
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+    let html = `<div class="card">
+        <div class="question">${i+1}. ${q.q}</div>`;
+    q.o.forEach((opt,idx)=>{
+        html += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${idx}">
+            ${opt}
+        </label>`;
+    });
+    html += `</div>`;
+    quiz.innerHTML += html;
+});
+
+function submitQuiz(){
+    let score = 0;
+
+    questions.forEach((q,i)=>{
+        const opts = document.getElementsByName(`q${i}`);
+        opts.forEach(o=>{
+            const box = o.parentElement;
+            o.disabled = true;
+
+            if(+o.value === q.a){
+                box.classList.add("correct");
+                if(o.checked) score++;
+            } else if(o.checked){
+                box.classList.add("wrong");
+            }
+        });
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
