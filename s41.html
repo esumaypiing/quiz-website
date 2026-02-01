@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{q:"A graphical representation of cumulative frequency distribution is", o:["Pareto curve","Bar diagram","Pie chart","Ogive curve"], a:3},
+{q:"A community has 60% Hindu, 20% Muslim, 10% Christian, 10% Buddhist. Which sampling?", o:["Snow ball sampling","Quota sampling","Simple random sampling","Stratified random sampling"], a:3},
+{q:"Calculate specificity from Disease (6+2) and No disease (10+10)", o:["37.5%","75%","91%","98%"], a:2},
+{q:"Infant mortality rate for 1000 live births, 11 stillbirths, 11 die within 1 month, 5 die within a year", o:["16 per 1000","5 per 1000","11 per 1000","27 per 1000"], a:0},
+{q:"Most appropriate approach for hospital waste management is:", o:["Autoclave","Incineration","Chlorine disinfection","Dumping"], a:1},
+{q:"Power of study is given by:", o:["1-Alpha","1-Beta","1+Alpha","1+Beta"], a:1},
+{q:"Critical feature in qualitative research:", o:["Collecting data with standardized tools","Design sampling with probability","Collecting data with bottom-up empirical evidence","Gathering data with top-down schematic evidence"], a:2},
+{q:"Prior requirement to pursue research:", o:["Developing research design","Formulating research question","Deciding data analysis procedure","Formulating research hypothesis"], a:1},
+{q:"Primary objective of public health surveillance:", o:["Collect data for research","Monitor and prevent disease outbreaks","Record patient visits","Provide treatment for infectious diseases"], a:1},
+{q:"WHO defines six building blocks of health system. Which is NOT one?", o:["Health service delivery","Health workforce","Environmental protection","Leadership and governance"], a:2},
+{q:"When was the Integrated Health Management Information System established in Nepal?", o:["1985","1990","1994","2000"], a:2},
+{q:"GATHER technique is related to:", o:["Group dynamics","Community organization","Counselling","None of the above"], a:2},
+{q:"Environmental manipulation enabling genes to express themselves readily is known as:", o:["Positive eugenics","Negative eugenics","Euthenics","Genetic counselling"], a:2},
+{q:"Correct sequence of communication process components:", o:["Message, sender, channel, feedback, receiver","Receiver, message, channel, feedback, sender","Sender, feedback, message, channel, receiver","Sender, message, channel, receiver, feedback"], a:3},
+{q:"Example of two way discussion:", o:["Seminar","Television","Symposium","Group discussion"], a:3},
+{q:"Tool for increasing consensus among large number of people:", o:["Chalk and talk","Delphi method","Television","Interpersonal communication"], a:1},
+{q:"Latrine intended for camps of longer duration:", o:["Shallow trench latrine","Deep trench latrine","Bore hole latrine","Water seal latrine"], a:1},
+{q:"Which is the social indicator?", o:["CBR","IMR","CDR","None"], a:1},
+{q:"Type of census currently used in Nepal:", o:["De-facto","De-jure","Modified De-jure","Modified De-facto"], a:2},
+{q:"Best to detect iron deficiency in community:", o:["Serum transferrin","Serum ferritin","Serum iron","Hemoglobin"], a:1}
+];
+
+// Shuffle questions randomly
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
