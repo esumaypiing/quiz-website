@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#eef2f6;
+    padding:30px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:12px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.08);
+}
+.question{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:14px;
+}
+.option{
+    display:block;
+    padding:12px;
+    margin-bottom:10px;
+    background:#f3f6fb;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.25s;
+}
+.option:hover{
+    background:#e4ebf7;
+}
+.option input{
+    margin-right:10px;
+}
+.correct{
+    background:#d4edda !important;
+    border-left:6px solid #28a745;
+}
+.incorrect{
+    background:#f8d7da !important;
+    border-left:6px solid #dc3545;
+}
+button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#0069d9;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+button:hover{
+    background:#004fa3;
+}
+#score{
+    margin-top:25px;
+    padding:20px;
+    background:#ffffff;
+    border-radius:12px;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+const questions = [
+{q:"Which lipid is highly associated with coronary heart disease?",o:["HDL","VLDL","LDL","Chylomicrons"],a:2},
+{q:"Upper limit of noise tolerance without hearing damage:",o:["60 dB","85 dB","90 dB","100 dB"],a:1},
+{q:"Shortest incubation period is of:",o:["Diphtheria","Rubella","Smallpox","Chickenpox"],a:0},
+{q:"Pyrethrum is a:",o:["Contact poison","Stomach poison","Both","Space poison"],a:0},
+
+{q:"All are two-way communication except:",o:["Seminar","Panel discussion","Lecture","Demonstration"],a:2},
+{q:"Laws of learning were given by:",o:["Pavlov","Edward Thorndike","Kurt Lewin","Skinner"],a:1},
+{q:"Leader with absolute power:",o:["Autocratic","Democratic","Laissez-faire","All"],a:0},
+{q:"According to Maslow, love is a:",o:["Physiological need","Safety need","Social need","Self-esteem need"],a:2},
+
+{q:"10-year national health plan is responsibility of:",o:["Operational level","Middle level","Subordinate level","High level management"],a:3},
+{q:"Aspiration to be best healthcare provider by 2035 is:",o:["Values","Mission","Vision","Strategic plan"],a:2},
+{q:"Major limitation of MBO:",o:["Unclear actions","Employee dissatisfaction","Rigidity to change","Poor evaluation"],a:2},
+{q:"Neglected Tropical Diseases are:",o:["Developed country diseases","Infectious diseases linked to poverty","High mortality only","Genetic disorders"],a:1},
+
+{q:"Incorrect developmental milestone match:",o:["Holds head erect: 6 months","Sits without support: 6–8 months","Holds head erect: 6 months","Transfers objects: 6–8 months"],a:0},
+{q:"Pulse protein deficient in:",o:["Lysine","Methionine","Threonine","Tryptophan"],a:1},
+{q:"Best assessment of protein quality:",o:["Biological value","Net protein utilization","Digestibility coefficient","Amino acid score"],a:1},
+{q:"Minimum sunlight exposure for vitamin D synthesis:",o:["5 minutes","30 minutes","2 hours","5 hours"],a:0},
+
+{q:"Curve showing equal utility combinations:",o:["Indifference curve","Marginal utility","Budget line","Ordinal utility"],a:0},
+{q:"In long run production function:",o:["Capital fixed","Both capital and labour variable","Labour fixed","None"],a:1},
+{q:"Market with many buyers and sellers:",o:["Perfect competition","Monopoly","Monopolistic competition","Oligopoly"],a:0},
+{q:"Price rise <3% per annum is:",o:["Creeping inflation","Walking inflation","Running inflation","Hyperinflation"],a:0}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j)=>{
+        card.innerHTML+=`
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        const selected=document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label=inp.parentElement;
+            if(j===q.a) label.classList.add("correct");
+            if(selected && j==selected.value && j!==q.a)
+                label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value)===q.a) score++;
+    });
+    document.getElementById("score").innerText=
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
