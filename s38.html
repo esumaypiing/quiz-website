@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{q:"Which of the following statements reflects the pre-contemplation stage of the behavior change model?", o:[
+`"I stopped using butter on my sandwiches to help lower my cholesterol."`,
+`"I think I will join a fitness club next month because exercise is going to reduce my risk of having a heart attack."`,
+`"I don't think I can change my cholesterol levels with my diet. High cholesterol runs in my family."`,
+`"I don't worry about my cholesterol anymore. It has been controlled well with a low-fat diet and exercise plan for 6 months."`
+], a:2},
+
+{q:"What does universal health coverage (UHC) mean?", o:[
+"UHC means that all individuals and communities receive the health services they need, when and where they need them",
+"UHC prevents people from being pushed into poverty when paying for health services out of their own pockets",
+"UHC enables everyone to access the services that address the most important causes of disease and death",
+"UHC is about health services for individuals and populations, such as controlling mosquito breeding grounds"
+], a:0},
+
+{q:"Catch up, keep up and follow up is the strategy for:", o:[
+"Polio eradication",
+"Measles elimination",
+"Malaria control",
+"Leprosy elimination"
+], a:1},
+
+{q:".......... is the achievement of objective with least amount of resources", o:[
+"Effectiveness","Efficiency","Validity","Accuracy"
+], a:1},
+
+{q:"Respondents might behave differently when they know they are being observed is a type of:", o:[
+"Researcher bias","Hawthorne effect","Random error","Confounding"
+], a:1},
+
+{q:"Which of the following does not affect sample size?", o:[
+"Prevalence of the disease","Population","Time","All"
+], a:2},
+
+{q:"Validity means:", o:["accuracy","reliability","consistency","All"], a:0},
+
+{q:"How to judge the depth of any research?", o:[
+"By research title","By research duration","By research objectives","By total expenditure on research"
+], a:2},
+
+{q:"What is not included in CBIMNCI?", o:[
+"Case Management","Family planning","Immunization","Maternal Nutrition"
+], a:1},
+
+{q:"Which terminology is used to describe interruption on transmission?", o:[
+"Elimination","Control","Prevention","Promotion"
+], a:0},
+
+{q:"Stunting is a sign of:", o:[
+"Severe under nutrition","Chronic under nutrition","Acute malnutrition","None of the above"
+], a:1},
+
+{q:"Iceberg phenomena of disease is not shown by:", o:[
+"HIV/AIDS","Tuberculosis","Leprosy","Rabies"
+], a:3},
+
+{q:"Increased drug compliance can be seen with:", o:[
+"Frequent dosing","Longer duration of treatment","Multiple drugs","Involving family members in observation"
+], a:3},
+
+{q:"Average mental IQ according to Wechsler's scale:", o:[
+"70-79","80-89","90-109","110-119"
+], a:2},
+
+{q:"All the following statements are true about break point chlorination, except:", o:[
+"Free chlorine is released in water after break point chlorination",
+"Chlorine demand is the amount needed to kill bacteria, oxidize organic matter and neutralize ammonia",
+"1 PPM free chlorine should be present in water after break point has reached",
+"Contact period of 1 hour is necessary"
+], a:2},
+
+{q:"Temporary hardness of water is primarily due to the presence of:", o:[
+"Calcium and magnesium sulphates","Calcium and magnesium chlorides","Calcium and magnesium bicarbonates","Calcium and magnesium nitrates"
+], a:2},
+
+{q:"Efficacy of vaccine is tested in:", o:[
+"Phase I","Phase II","Phase III","Phase IV"
+], a:2},
+
+{q:"Relative risk (RR)<1 means:", o:[
+"No association","Positive association","Strong association","Negative association"
+], a:3},
+
+{q:"Incubation period of Measles is?", o:[
+"10-14 days","10-24 days","1-7 days","None"
+], a:0},
+
+{q:"Sampling from heterogenous population after dividing them into homogenous group is:", o:[
+"Quota Sampling","Simple Random Sampling","Probability proportionate sampling","Stratified sampling"
+], a:3}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
