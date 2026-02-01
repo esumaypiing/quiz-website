@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#eef2f7;
+    padding:40px;
+}
+
+.quiz-wrapper{
+    max-width:950px;
+    margin:auto;
+}
+
+.card{
+    background:#fff;
+    padding:22px;
+    margin-bottom:22px;
+    border-radius:14px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.08);
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.option{
+    display:block;
+    padding:12px 15px;
+    margin:8px 0;
+    border-radius:8px;
+    border:2px solid #ddd;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:#f1f4ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.correct{
+    background:#e6f6ed;
+    border-color:#28a745;
+}
+
+.wrong{
+    background:#fdeaea;
+    border-color:#dc3545;
+}
+
+button{
+    display:block;
+    margin:35px auto;
+    padding:14px 42px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#4a6cf7;
+    color:#fff;
+    cursor:pointer;
+}
+
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-wrapper" id="quiz"></div>
+
+<button onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+{q:"What term describes the system that binds together different religious institutions?", options:["Ethnocentrism","Social structure","Interfaith dialogue","Religious affiliation"], ans:2},
+{q:"What is the term for the process of lending and borrowing culture?", options:["Assimilation","Acculturation","Cultural exchange","Cultural diffusion"], ans:1},
+{q:"The process of making medicine using herbal traditional plants according to a particular culture is known as:", options:["Ethnobotany","Herbalism","Traditional pharmacology","Medicinal ethnography"], ans:0},
+{q:"In the PRECEED-PROCEED model, the PROCEED part is mainly used for:", options:["Evaluation","Surveillance","Monitoring","Policy development"], ans:0},
+{q:"Acculturation may take place by:", options:["Education","Industrialization","Trade and commerce","All of the above"], ans:3},
+{q:"Rapid material culture change leaving non-material culture behind is called:", options:["Left culture","Cultural lags","Far culture","Taken culture"], ans:1},
+{q:"Stage where a person realizes he/she is sick:", options:["Symptom experience","Assumption of sick role","Medical care contact","Recovery stage"], ans:1},
+{q:"Characteristics of culture include all EXCEPT:", options:["Culture is changeable","Culture is learned","Culture is static","Culture is manmade"], ans:2},
+{q:"Healthcare financing mechanism with least pooling:", options:["General tax revenue","Out-of-pocket payments","External financing","Provider payments"], ans:1},
+{q:"Primary purpose of healthcare needs assessment:", options:["Determine workload","Identify healthcare services needed","Promote curative services","Reduce healthcare cost"], ans:1},
+{q:"Main objective of cost-effectiveness analysis:", options:["Compare costs","Assess monetary benefits","Determine relative efficiency","Study social determinants"], ans:2},
+{q:"When kappa statistics = 0, it means:", options:["No agreement","Agreement due to chance","Perfect agreement","Average agreement"], ans:1},
+{q:"Goal of National Safe Motherhood Program:", options:["Reduce MMR","Reduce MMR and NMR","Reduce CDR","Improve maternal health"], ans:1},
+{q:"TB patient on ATT for 5 months with positive sputum indicates:", options:["Drug resistance","Relapse","Treatment failure","None"], ans:2},
+{q:"Best indicator of socio-economic development:", options:["U5 mortality rate","IMR","U4 mortality rate","Neonatal mortality rate"], ans:0},
+{q:"Screening is conducted in which phase?", options:["Pre-pathogenesis","Pathogenesis","Incubation","Infective"], ans:1},
+{q:"Transition from communicable to non-communicable diseases:", options:["Epidemiological transition","Pandemic transition","Endemic transition","Man-made transition"], ans:0},
+{q:"Calories in 1 gm of glucose:", options:["3.8 Kcals","4.0 Kcals","5.2 Kcals","5.0 Kcals"], ans:1}
+];
+
+// Shuffle questions every reload
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, i) => {
+    let html = `<div class="card">
+        <div class="question">${i+1}. ${q.q}</div>`;
+    q.options.forEach((opt, idx) => {
+        html += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${idx}">
+            ${opt}
+        </label>`;
+    });
+    html += `</div>`;
+    quizDiv.innerHTML += html;
+});
+
+function submitQuiz(){
+    let score = 0;
+
+    questions.forEach((q, i) => {
+        const options = document.getElementsByName(`q${i}`);
+        options.forEach(opt => {
+            const box = opt.parentElement;
+            opt.disabled = true;
+
+            if(parseInt(opt.value) === q.ans){
+                box.classList.add("correct");
+                if(opt.checked) score++;
+            } 
+            else if(opt.checked){
+                box.classList.add("wrong");
+            }
+        });
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
