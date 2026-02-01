@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+body{
+    margin:0;
+    padding:30px;
+    font-family:Segoe UI, sans-serif;
+    background:linear-gradient(135deg,#1f4037,#99f2c8);
+}
+.quiz-container{
+    max-width:1000px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:12px;
+    box-shadow:0 8px 22px rgba(0,0,0,.15);
+}
+.question{
+    font-weight:600;
+    margin-bottom:14px;
+}
+.option{
+    padding:10px 14px;
+    margin:8px 0;
+    border-radius:8px;
+    border:2px solid #ddd;
+    cursor:pointer;
+    transition:.3s;
+}
+.option:hover{
+    background:#f3f3f3;
+}
+.option.selected{
+    background:#e7f1ff;
+    border-color:#0d6efd;
+}
+.correct{
+    background:#d4edda !important;
+    border-color:#28a745 !important;
+}
+.wrong{
+    background:#f8d7da !important;
+    border-color:#dc3545 !important;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 40px;
+    font-size:16px;
+    border:none;
+    border-radius:30px;
+    background:#ffc107;
+    cursor:pointer;
+    font-weight:600;
+}
+button:hover{
+    background:#e0a800;
+}
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+let questions = [
+{q:"Kappa statistic = 0 means:",options:["Agreement due to chance","Perfect agreement","No correlation","Undefined relationship"],answer:0},
+{q:"Outflow of healthy population affects prevalence how?",options:["Increases","Decreases","No change","Irrelevant"],answer:0},
+{q:"If incidence increases, prevalence will:",options:["Increase","Decrease","No change","Irrelevant"],answer:0},
+{q:"Case fatality rate if 50 ill & 2 die:",options:["4%","8%","5%","9%"],answer:0},
+
+{q:"Statistical approach deciding chance vs design:",options:["Descriptive","Inferential","Normal distribution","Standard deviation"],answer:1},
+{q:"Sampling for national immunization coverage:",options:["Cluster sampling","Simple random","PPS","Stratified"],answer:0},
+{q:"Mean becomes if 5 added to all observations:",options:["0","Same as 10","15","5"],answer:2},
+{q:"Sample space when coin tossed 3 times:",options:["0","6","8","10"],answer:2},
+
+{q:"Example of secondary prevention:",options:["Immunization","BP screening","Health education","Rehabilitation"],answer:1},
+{q:"Cold chain refers to:",options:["Vaccine storage & transport","Hospital cooling","Emergency communication","Cold weather prep"],answer:0},
+{q:"Main steps in PRECEDE–PROCEED model:",options:["Planning, Implementation, Evaluation","Assessment, Planning, Implementation, Evaluation","Implementation, Monitoring","Diagnosis, Planning"],answer:1},
+{q:"Submerged portion of iceberg does NOT denote:",options:["Subclinical cases","Carriers","Clinical cases","Inapparent cases"],answer:2},
+
+{q:"Tabulation involves:",options:["Arranging data","Detecting errors","Summarizing & compact display","All of the above"],answer:2},
+{q:"Purpose of research proposal:",options:["Generate monetary sources","Present researchable questions","Discuss past research","None"],answer:0},
+{q:"Model in theoretical framework:",options:["Elaborates relationships","Explains underlying logic","Describes direction","All"],answer:1},
+{q:"Correct sequence of data analysis operations:",options:["Tabulation, classification, editing","Analysis, classification, tabulation","Tabulation, editing, classification","None"],answer:3},
+
+{q:"Guideline for cross-sectional study:",options:["STROBE","CONSORT","PRISMA","MOOSE"],answer:0},
+{q:"Eligible health post in-charge:",options:["HA","Sr ANM","Sr AHW","All"],answer:3},
+{q:"Premedical checkup before recruitment:",options:["Physical exam","Vision & color test","Chest X-ray","All"],answer:3},
+{q:"Risk factors for type 2 diabetes include:",options:["Family history","Overweight","High fat diet","All of the above"],answer:3}
+];
+
+// Shuffle questions on reload
+questions.sort(()=>Math.random()-0.5);
+
+let userAnswers=[];
+
+function loadQuiz(){
+    const quiz=document.getElementById("quiz");
+    quiz.innerHTML="";
+    questions.forEach((q,i)=>{
+        let card=document.createElement("div");
+        card.className="card";
+        card.innerHTML=`<div class="question">${i+1}. ${q.q}</div>`;
+        q.options.forEach((opt,j)=>{
+            let div=document.createElement("div");
+            div.className="option";
+            div.innerText=opt;
+            div.onclick=()=>selectOption(i,j,div);
+            card.appendChild(div);
+        });
+        quiz.appendChild(card);
+    });
+}
+
+function selectOption(qi,oi,el){
+    let opts=el.parentNode.querySelectorAll(".option");
+    opts.forEach(o=>o.classList.remove("selected"));
+    el.classList.add("selected");
+    userAnswers[qi]=oi;
+}
+
+function submitQuiz(){
+    let score=0;
+    document.querySelectorAll(".card").forEach((card,i)=>{
+        let opts=card.querySelectorAll(".option");
+        opts.forEach((opt,j)=>{
+            if(j===questions[i].answer) opt.classList.add("correct");
+            if(userAnswers[i]===j && j!==questions[i].answer) opt.classList.add("wrong");
+        });
+        if(userAnswers[i]===questions[i].answer) score++;
+    });
+    document.getElementById("score").innerText=`Score: ${score} / ${questions.length}`;
+}
+
+loadQuiz();
+</script>
+
+</body>
+</html>
