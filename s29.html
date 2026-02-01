@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Public Health Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f3f6fb;
+    padding:20px;
+}
+
+.quiz-container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:10px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
+
+.question{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:14px;
+}
+
+.option{
+    border:1px solid #d1d5db;
+    padding:10px 14px;
+    border-radius:6px;
+    margin-bottom:8px;
+    cursor:pointer;
+    display:block;
+}
+
+.option:hover{
+    background:#eef2ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.correct{
+    background:#dcfce7 !important;
+    border-color:#22c55e;
+}
+
+.wrong{
+    background:#fee2e2 !important;
+    border-color:#ef4444;
+}
+
+button{
+    display:block;
+    margin:30px auto;
+    padding:14px 36px;
+    font-size:16px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e40af;
+}
+
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+{
+q:"Variation of sample mean from population mean is:",
+options:[
+"Coefficient of variance",
+"Standard error of proportion",
+"Standard error of mean",
+"Standard error of difference between two mean"
+],
+answer:2
+},
+{
+q:"Case fatality rate when 20 cases and 5 deaths occur:",
+options:[
+"1%",
+"0.25%",
+"5%",
+"25%"
+],
+answer:3
+},
+{
+q:"Confidence limit includes:",
+options:[
+"Range and standard deviation",
+"Median and standard error",
+"Mean and standard error",
+"Mode and standard deviation"
+],
+answer:2
+},
+{
+q:"Appropriate statistical test to compare two categorical variables:",
+options:[
+"Chi-square test",
+"Student's t test",
+"ANOVA test",
+"McNemar test"
+],
+answer:0
+},
+{
+q:"Hospital acquired infection is:",
+options:[
+"Nosocomial infection",
+"Primary infection",
+"Secondary infection",
+"Iatrogenic infection"
+],
+answer:0
+},
+{
+q:"High false positive rate occurs when there is:",
+options:[
+"High prevalence",
+"Low prevalence",
+"High sensitivity",
+"High specificity"
+],
+answer:1
+},
+{
+q:"Effect of beta-carotene confounded by fiber intake is due to:",
+options:[
+"Confounding factor",
+"Randomization",
+"Misclassification",
+"Sampling error"
+],
+answer:0
+},
+{
+q:"Web of disease causation was given by:",
+options:[
+"Mac Mohan and Pugh",
+"Patenkoffer",
+"Louis Pasteur",
+"Austin Bradford Hill"
+],
+answer:0
+},
+{
+q:"Delayed milestone in 15-month child unable to point objects:",
+options:[
+"Gross motor development",
+"Fine motor development",
+"Language and cognitive development",
+"Social development"
+],
+answer:2
+},
+{
+q:"Vitamin deficiency causing bleeding gums:",
+options:[
+"Vitamin D",
+"Vitamin C",
+"Vitamin B12",
+"Iron"
+],
+answer:1
+},
+{
+q:"Probability of pneumonia OR UTI (mutually exclusive):",
+options:[
+"0.60",
+"0.50",
+"0.86",
+"0.24"
+],
+answer:0
+},
+{
+q:"Interquartile range indicates:",
+options:[
+"Symmetrical distribution",
+"50% values lie within the IQR",
+"SD equals IQR",
+"No outliers"
+],
+answer:1
+},
+{
+q:"First phase of project management:",
+options:[
+"Initiating",
+"Executing",
+"Evaluating",
+"Planning"
+],
+answer:0
+},
+{
+q:"Correlation between ranked variables is measured by:",
+options:[
+"Karl Pearson coefficient",
+"Spearman correlation coefficient",
+"ANOVA",
+"Coefficient of kurtosis"
+],
+answer:1
+},
+{
+q:"Degree of freedom n-1 is used in:",
+options:[
+"One sample data",
+"Two sample data",
+"Unpaired t test",
+"Chi square test"
+],
+answer:0
+},
+{
+q:"Correct binomial probability formula:",
+options:[
+"P(X=x)=nCx p^x q^(n-x)",
+"P(X=x)=nCx p^x q^x",
+"P(X=x)=nCx p^x q^(n-x)^2",
+"P(X=x)=nCx p^x q^n"
+],
+answer:0
+},
+{
+q:"IHP+ builds on principles of:",
+options:[
+"Paris Declaration",
+"Accra Agenda",
+"Both",
+"None"
+],
+answer:2
+},
+{
+q:"Geneva convention protecting wounded at sea:",
+options:[
+"First Geneva Convention",
+"Second Geneva Convention",
+"Third Geneva Convention",
+"Fourth Geneva Convention"
+],
+answer:1
+},
+{
+q:"Poor source of iron:",
+options:[
+"Apple",
+"Pulses",
+"Milk",
+"Chicken"
+],
+answer:2
+},
+{
+q:"Theme of World Health Day 2022:",
+options:[
+"Our planet, our health",
+"Support nurses and midwives",
+"Primary Health Care",
+"Universal health coverage"
+],
+answer:0
+}
+];
+
+// Shuffle questions on reload
+questions.sort(() => Math.random() - 0.5);
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+    const card=document.createElement("div");
+    card.className="card";
+    let html=`<div class="question">${i+1}. ${q.q}</div>`;
+    q.options.forEach((opt,idx)=>{
+        html+=`
+        <label class="option">
+            <input type="radio" name="q${i}" value="${idx}">
+            ${opt}
+        </label>`;
+    });
+    card.innerHTML=html;
+    quiz.appendChild(card);
+});
+
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        const opts=document.getElementsByName(`q${i}`);
+        opts.forEach(o=>{
+            const box=o.parentElement;
+            if(parseInt(o.value)===q.answer){
+                box.classList.add("correct");
+            }
+            if(o.checked && parseInt(o.value)!==q.answer){
+                box.classList.add("wrong");
+            }
+            o.disabled=true;
+        });
+        const selected=[...opts].find(o=>o.checked);
+        if(selected && parseInt(selected.value)===q.answer){
+            score++;
+        }
+    });
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
