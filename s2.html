@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+
+<style>
+body{
+    margin:0;
+    padding:30px;
+    background:#f2f4f8;
+    font-family:Segoe UI, sans-serif;
+}
+
+.quiz-container{
+    max-width:950px;
+    margin:auto;
+}
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:22px;
+    margin-bottom:22px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.08);
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.options label{
+    display:block;
+    padding:12px 16px;
+    margin-bottom:10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    cursor:pointer;
+    transition:0.25s;
+}
+
+.options label:hover{
+    background:#eef2ff;
+}
+
+.options input{
+    display:none;
+}
+
+.correct{
+    background:#d6f5df !important;
+    border-color:#2ecc71 !important;
+}
+
+.wrong{
+    background:#fbdede !important;
+    border-color:#e74c3c !important;
+}
+
+.submit-btn{
+    display:block;
+    margin:35px auto 15px;
+    padding:14px 45px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#4b6cff;
+    color:#fff;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#354ee0;
+}
+
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+
+<button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="score" id="score"></div>
+
+<script>
+const quizData = [
+ {q:"A specific achievement set to be reached within a defined time frame is called:", 
+  o:["Target","Goal","Aim","Objective"], a:0},
+
+ {q:"WHO slogan for the year 2022 was:", 
+  o:["Support nurses and midwives","Our planet, Our health",
+     "Health for All – Everyone, Everywhere",
+     "Universal health coverage: everyone, everywhere"], a:1},
+
+ {q:"Providing vaccines to a community is an example of:", 
+  o:["Primordial prevention","Primary prevention","Secondary prevention","Tertiary prevention"], a:1},
+
+ {q:"Intervention when >30% iron deficiency in women of reproductive age:", 
+  o:["Iron tablets, mass deworming, monitoring & health education",
+     "Deworming in children, iron tablet supplementation & health education",
+     "Iron-fortified food, prenatal care & vaccination",
+     "Water, sanitation & hygiene education"], a:1},
+
+ {q:"Pregnant woman received first dose of TD 3 weeks earlier and came for delivery. What should be done?", 
+  o:["Provide 2nd dose before delivery",
+     "Provide 2nd dose irrespective of delivery timing",
+     "Skip 2nd dose","None"], a:1},
+
+ {q:"Nyanojhola contains:", 
+  o:["Bhoto, Daura","Napkin, cap","Mat, gown","All of the above"], a:3},
+
+ {q:"Which of the following is NOT a copper-releasing IUD?", 
+  o:["LNG 20","CuT","Lippes Loop","a and c"], a:3},
+
+ {q:"Technique used to detect AIDS:", 
+  o:["Northern blot and ELISA","Immunoblot and ELISA",
+     "Western blot and ELISA","Southern blot and ELISA"], a:2},
+
+ {q:"Which is NOT a service utilization indicator?", 
+  o:["Hospital admission rate","Outpatient visit rate",
+     "Immunization coverage rate","Health facility density"], a:3},
+
+ {q:"Providing corrective lenses to a myopic patient is an example of:", 
+  o:["Primary prevention","Secondary prevention",
+     "Tertiary prevention","Quaternary prevention"], a:2},
+
+ {q:"If a confidence interval widens, what happens to statistical significance?", 
+  o:["Previously insignificant data becomes significant",
+     "Previously significant data becomes insignificant",
+     "Point estimate becomes more precise",
+     "No effect on significance"], a:1},
+
+ {q:"Treatment of MDR-TB typically falls under:", 
+  o:["Emergency health services","Free health services",
+     "Out-of-pocket services","Private health services"], a:1},
+
+ {q:"Most effective method for controlling urban rabies:", 
+  o:["Vaccination of street dogs","Treatment of rabid animals",
+     "Isolation of rabid animals","Quarantine of suspected animals"], a:0},
+
+ {q:"Excluded in intervention of watery diarrhoea:", 
+  o:["Normal saline","Zinc supplement","Potassium supplement","IV albumin"], a:3},
+
+ {q:"Iceberg phenomenon is best demonstrated by:", 
+  o:["Tetanus","Malnutrition","Rabies","JE"], a:1},
+
+ {q:"Zero incidence of disease refers to:", 
+  o:["Eradication","Control","Elimination","All of the above"], a:0},
+
+ {q:"Pearson coefficient is best used for evaluation of:", 
+  o:["Association","Relative risk","Risk factors","Correlation"], a:3},
+
+ {q:"Classifying cancer as mild, moderate, severe uses which scale?", 
+  o:["Nominal","Ratio","Interval","Ordinal"], a:3},
+
+ {q:"Standard deviation measures:", 
+  o:["Deviation from mean value","Deviation from median value",
+     "Deviation from mode value","None"], a:0},
+
+ {q:"Statistical test for difference in heights of school children:", 
+  o:["Chi square test","Paired t test","ANOVA","Yate’s correction"], a:2}
+];
+
+// shuffle questions
+quizData.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+quizData.forEach((item, index) => {
+    quiz.innerHTML += `
+    <div class="card">
+        <div class="question">${index + 1}. ${item.q}</div>
+        <div class="options">
+            ${item.o.map((opt,i)=>`
+                <label>
+                    <input type="radio" name="q${index}" value="${i}">
+                    ${opt}
+                </label>`).join("")}
+        </div>
+    </div>`;
+});
+
+function submitQuiz(){
+    let score = 0;
+
+    quizData.forEach((item,index)=>{
+        const options = document.getElementsByName(`q${index}`);
+        options.forEach(opt=>{
+            const label = opt.parentElement;
+            if(parseInt(opt.value) === item.a){
+                label.classList.add("correct");
+            }
+            if(opt.checked){
+                if(parseInt(opt.value) === item.a){
+                    score++;
+                } else {
+                    label.classList.add("wrong");
+                }
+            }
+            opt.disabled = true;
+        });
+    });
+
+    document.getElementById("score").innerText =
+        `Your Score: ${score} / ${quizData.length}`;
+}
+</script>
+
+</body>
+</html>
