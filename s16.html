@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f0f2f7;
+    padding: 20px;
+}
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #eef2f6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.option:hover {
+    background: #e0e6ef;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.wrong {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background: #084298;
+}
+.score {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+// Questions array
+const questions = [
+{q:"The physical, biological, chemical factors are generally defined under:", options:["Agent","Host","Environment","All of the above"], answer:2},
+{q:"Vitamin A supplementation required for reproductive-age women when there is 30% prevalence of night blindness among children is:", options:["25,000 IU","5,000 IU","100,000 IU","50,000 IU"], answer:0},
+{q:"Likert Scale is a type of:", options:["Nominal Scale","Ordinal Scale","Interval Scale","Ratio scale"], answer:1},
+{q:"Vitamin A deficiency or presence of night blindness is seen as public health problem when prevalence is:", options:["1.0%","0.01%","0.1%","5.0%"], answer:0},
+{q:"Scatter diagram is used to describe:", options:["Regression","Correlation","Standard Deviation","All"], answer:1},
+{q:"Variation of Sample mean from population mean is:", options:["Coefficient of Variance","Standard error of proportion","Standard error of mean","Standard error of difference between two mean"], answer:2},
+{q:"For positively skewed data:", options:["Mean Median","Mean<Median","Mean>Median","Mean<Mode"], answer:2},
+{q:"If the birth weight of each of the 10 babies born in a hospital in a day is 2.8 kg, the standard deviation of this sample will be:", options:["2.8","0","1","0.28"], answer:1},
+{q:"Chi-Square test is used to measure:", options:["Significance of difference between three means","Significance of difference between two means","Significance of difference between two means and median","Significance of difference between two proportions"], answer:3},
+{q:"SAFE strategy is related to elimination of Trachoma. SAFE strategy Includes all except:", options:["Screening","Antibiotics","Face washing","Environmental improvement"], answer:0},
+{q:"Idea that knowledge comes from experience is called:", options:["Rationalism","Logic","Inductive and deductive reasoning","Empiricism"], answer:3},
+{q:"Process used to obtain a child's agreement for participation in a study:", options:["Assent","Consent of minor","Minor agreement","None of the above"], answer:0},
+{q:"Gram's negative organism gives stain due to peptidoglycan in cell wall:", options:["Red/pink","Blue/Purple","Black","Yellow"], answer:0},
+{q:"For hypertension showing iceberg phenomenon of disease, best test for submerged portion:", options:["Screening test","ROC","Diagnostic test","None"], answer:0},
+{q:"Relative risk is:", options:["Risk among exposed/ Risk among non-exposed","Risk among exposed/Risk in total population","Risk among exposed/ Risk among exposed Risk in unexposed","All of the following"], answer:0},
+{q:"Current smokers are at higher risk of developing lung cancer compared to ex-smokers, causality criterion satisfied:", options:["Temporal relationship","Consistency","Strength of association","Reversibility or reversible association"], answer:3},
+{q:"Mass screening of TB is done by:", options:["Sputum test","Mantoux tuberculin","Xene expert","All"], answer:1},
+{q:"Used in abortion:", options:["Metaprostol","Mifepristone","Misoprostol","Both b and c"], answer:3},
+{q:"World No Tobacco day is celebrated on:", options:["March 31","May 21","May 31","June 21"], answer:2},
+{q:"How many rods are used in jadelle?", options:["5","3","2","1"], answer:2}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+// Generate quiz
+const quiz = document.getElementById("quiz");
+questions.forEach((item,index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    let html = `<div class="question">${item.q}</div>`;
+    item.options.forEach((opt,i) => {
+        html += `<label class="option">
+                    <input type="radio" name="q${index}" value="${i}">${opt}
+                </label>`;
+    });
+    card.innerHTML = html;
+    quiz.appendChild(card);
+});
+
+// Submit function
+function submitQuiz(){
+    let score = 0;
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card,index) => {
+        const options = card.querySelectorAll(".option");
+        const selected = card.querySelector("input:checked");
+        options.forEach((opt,i) => {
+            opt.classList.remove("correct","wrong");
+            if(i === questions[index].answer) opt.classList.add("correct");
+        });
+        if(selected){
+            if(parseInt(selected.value) === questions[index].answer) score++;
+            else selected.parentElement.classList.add("wrong");
+        }
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
