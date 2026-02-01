@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MCQ Quiz</title>
+
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f1f4f9;
+        padding: 30px;
+        margin: 0;
+    }
+
+    .quiz-container {
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .question-card {
+        background: #ffffff;
+        padding: 22px 26px;
+        border-radius: 14px;
+        margin-bottom: 22px;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
+
+    .question {
+        font-weight: 600;
+        margin-bottom: 14px;
+        font-size: 17px;
+    }
+
+    .option {
+        border: 2px solid #ddd;
+        padding: 12px 16px;
+        border-radius: 8px;
+        margin: 8px 0;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .option:hover {
+        background: #eef3ff;
+    }
+
+    .option.selected {
+        border-color: #4a6cff;
+        background: #e8eeff;
+    }
+
+    .option.correct {
+        background: #d4edda;
+        border-color: #28a745;
+    }
+
+    .option.wrong {
+        background: #f8d7da;
+        border-color: #dc3545;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        background: #4a6cff;
+        color: white;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+
+    .submit-btn:hover {
+        background: #324dcc;
+    }
+
+    .score {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        margin-top: 25px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+    {
+        q: "Appropriate intervention for nutrition deficiency among low-income population:",
+        options: [
+            "Provide cooking classes for affordable nutrient-rich foods",
+            "Ignore such population",
+            "Provide free processed foods",
+            "Subsidize fast food restaurants"
+        ],
+        answer: 0
+    },
+    {
+        q: "How does population momentum influence population projection?",
+        options: [
+            "Doesn't affect accuracy",
+            "Increases complexity of projections",
+            "Decreases reliability",
+            "Is irrelevant"
+        ],
+        answer: 1
+    },
+    {
+        q: "Causative agent of endemic typhus:",
+        options: ["R. typhi", "B. pertusis", "Yersinia pestis", "Salmonella typhi"],
+        answer: 0
+    },
+    {
+        q: "Spore-forming bacterium is:",
+        options: ["Pseudomonas", "Clostridium", "Vibrio", "Escherichia"],
+        answer: 1
+    },
+    {
+        q: "HPV vaccine prevents:",
+        options: ["Breast cancer", "Uterine cancer", "Ovarian cancer", "Cervical cancer"],
+        answer: 3
+    },
+    {
+        q: "Leading cause of death among 15–19-year-old girls:",
+        options: [
+            "Diarrheal diseases",
+            "Pregnancy and childbirth complications",
+            "Road injury",
+            "Self-harm"
+        ],
+        answer: 1
+    },
+    {
+        q: "SDGs were set up in 2015 by:",
+        options: [
+            "United Nations General Assembly",
+            "WHO",
+            "UNESCO",
+            "World Bank"
+        ],
+        answer: 0
+    },
+    {
+        q: "World Health Day is celebrated on:",
+        options: ["1st December", "31st May", "7th April", "8th May"],
+        answer: 2
+    },
+    {
+        q: "Emergency contraceptive pills are effective:",
+        options: [
+            "24–48 hours after ovulation",
+            "72–120 hours after coitus",
+            "Immediately after ovulation",
+            "Within 24 hours only"
+        ],
+        answer: 1
+    },
+    {
+        q: "According to Herzberg, which factor motivates employees?",
+        options: ["Job security", "Work conditions", "Recognition", "Salary"],
+        answer: 2
+    },
+    {
+        q: "Role of Mycobacterium tuberculosis in Rothman's model:",
+        options: [
+            "Necessary component cause",
+            "Sufficient cause alone",
+            "Incidental factor",
+            "Confounder"
+        ],
+        answer: 0
+    },
+    {
+        q: "BOAA symptoms after canned food are caused by:",
+        options: [
+            "Botulinum toxin",
+            "Tetanus toxin",
+            "Staphylococcal enterotoxin",
+            "Clostridium perfringens toxin"
+        ],
+        answer: 0
+    },
+    {
+        q: "Surveillance identifying missing cases:",
+        options: ["Active", "Passive", "Sentinel", "All"],
+        answer: 2
+    },
+    {
+        q: "Richest source of PUFA:",
+        options: [
+            "Sunflower oil",
+            "Safflower oil",
+            "Palmoline oil",
+            "Halibut liver oil"
+        ],
+        answer: 1
+    },
+    {
+        q: "Soiling index indicates:",
+        options: [
+            "Land pollution",
+            "Water pollution",
+            "Noise pollution",
+            "Air pollution"
+        ],
+        answer: 3
+    },
+    {
+        q: "Drug of choice for pertussis:",
+        options: ["Erythromycin", "Azithromycin", "Both", "None"],
+        answer: 0
+    },
+    {
+        q: "Chi-Square test measures:",
+        options: [
+            "Dependence of attributes",
+            "Difference between two means",
+            "Difference between mean and median",
+            "Difference between two proportions"
+        ],
+        answer: 3
+    },
+    {
+        q: "Mosquitoes decrease with height shows:",
+        options: [
+            "Positive correlation",
+            "Negative correlation",
+            "Weak positive correlation",
+            "No correlation"
+        ],
+        answer: 1
+    },
+    {
+        q: "Increasing confidence limit causes:",
+        options: [
+            "No change",
+            "Previously insignificant becomes significant",
+            "Objectives achieved",
+            "Previously significant becomes insignificant"
+        ],
+        answer: 3
+    },
+    {
+        q: "For ±2 SD, confidence limit covers:",
+        options: ["68%", "95%", "99.7%", "50%"],
+        answer: 1
+    }
+];
+
+// Shuffle
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+const userAnswers = {};
+
+questions.forEach((q, index) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+    card.innerHTML = `<div class="question">${index + 1}. ${q.q}</div>`;
+
+    q.options.forEach((opt, i) => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerText = opt;
+        div.onclick = () => {
+            card.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+            div.classList.add("selected");
+            userAnswers[index] = i;
+        };
+        card.appendChild(div);
+    });
+
+    quiz.appendChild(card);
+});
+
+function submitQuiz() {
+    let score = 0;
+
+    document.querySelectorAll(".question-card").forEach((card, i) => {
+        const opts = card.querySelectorAll(".option");
+        opts.forEach((opt, j) => {
+            if (j === questions[i].answer) opt.classList.add("correct");
+            if (userAnswers[i] === j && j !== questions[i].answer)
+                opt.classList.add("wrong");
+        });
+        if (userAnswers[i] === questions[i].answer) score++;
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
