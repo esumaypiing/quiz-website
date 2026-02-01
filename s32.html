@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Public Health Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#eef2f7;
+    padding:30px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+.question{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+.option{
+    display:block;
+    padding:12px;
+    margin-bottom:10px;
+    background:#f1f4f9;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.25s;
+}
+.option:hover{
+    background:#e0e7f1;
+}
+.option input{
+    margin-right:10px;
+}
+.correct{
+    background:#d4edda !important;
+    border-left:6px solid #28a745;
+}
+.incorrect{
+    background:#f8d7da !important;
+    border-left:6px solid #dc3545;
+}
+button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#007bff;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    margin-top:25px;
+    padding:20px;
+    font-size:22px;
+    font-weight:bold;
+    background:#fff;
+    border-radius:12px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+const questions = [
+{q:"When was the Skilled Birth Attendant (SBA) policy enacted in Nepal?",
+o:["2009","2006","2000","2001"],a:1},
+{q:"2025 target for TB incidence is:",
+o:["<55 per 10⁵","<100 per 10⁵","<150 per 10⁵","<200 per 10⁵"],a:0},
+{q:"Total Fertility Rate (NDHS 2022):",
+o:["2.1","2.8","3.5","4.2"],a:0},
+{q:"Oral polio vaccine is also known as:",
+o:["Salk","Sabin","Inactivated vaccine","All"],a:1},
+
+{q:"Best method for teaching mothers super flour preparation:",
+o:["Demonstration","Group discussion","Role play","Exhibition"],a:0},
+{q:"Alma Ata conference held on:",
+o:["6–12 Sept 1978","8–14 Sept 1968","6–14 Sept 1978","None"],a:0},
+{q:"Most effective communication for motivation:",
+o:["Radio","Newspaper","TV","Interpersonal communication"],a:3},
+{q:"Occupational disease in chimney sweepers:",
+o:["Scrotal cancer","Lung cancer","Skin disease","All"],a:0},
+
+{q:"Process evaluation means:",
+o:["Final impact assessment","Assessing implementation","Comparing strategies","Sustainability"],a:1},
+{q:"High TSH and low T3/T4 indicates:",
+o:["Hyperthyroidism","Hypothyroidism","Addison’s","Cushing’s"],a:1},
+{q:"Most common cause of anemia in Nepalese women:",
+o:["Frequent pregnancy","Iron deficiency","Vitamin B12","Vitamin A"],a:1},
+{q:"Helps iron absorption:",
+o:["Vitamin C","Vitamin D","Vitamin E","Vitamin B"],a:0},
+
+{q:"Ottawa Charter does NOT include:",
+o:["Healthy public policy","Community action","Social security system","Reorient services"],a:2},
+{q:"Gross income generated within country is:",
+o:["GNP","GDP","National income","NNP"],a:1},
+{q:"Auguste Comte defined sociology as:",
+o:["Science of social phenomena","Behavioral science","Political science","Economic science"],a:0},
+{q:"Not transmitted by mosquito:",
+o:["Leishmania","Yellow fever","Dengue","West Nile fever"],a:0},
+
+{q:"Single number showing income inequality:",
+o:["Lorenz curve","Double difference","Gini coefficient","Concentration curve"],a:2},
+{q:"Annual work plan published by end of:",
+o:["15th Shrawan","Asadh","15th Jestha","Baisakh"],a:0},
+{q:"eLMIS started in:",
+o:["2075 BS","2050/51 BS","2065/66 BS","2073/74 BS"],a:0},
+{q:"Tool for assessing data quality:",
+o:["EWARS","RDQA","Logical Framework","HMIS"],a:1}
+];
+
+// Shuffle questions
+questions.sort(()=>Math.random()-0.5);
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j)=>{
+        card.innerHTML+=`
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        const selected=document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label=inp.parentElement;
+            if(j===q.a) label.classList.add("correct");
+            if(selected && j==selected.value && j!==q.a)
+                label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value)===q.a) score++;
+    });
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
