@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#eef2f6;
+    padding:30px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#ffffff;
+    padding:20px;
+    margin-bottom:18px;
+    border-radius:12px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.08);
+}
+.question{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:14px;
+}
+.option{
+    display:block;
+    padding:12px;
+    margin-bottom:10px;
+    background:#f3f6fb;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.25s;
+}
+.option:hover{
+    background:#e4ebf7;
+}
+.option input{
+    margin-right:10px;
+}
+.correct{
+    background:#d4edda !important;
+    border-left:6px solid #28a745;
+}
+.incorrect{
+    background:#f8d7da !important;
+    border-left:6px solid #dc3545;
+}
+button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#0069d9;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+}
+button:hover{
+    background:#004fa3;
+}
+#score{
+    margin-top:25px;
+    padding:20px;
+    background:#ffffff;
+    border-radius:12px;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Questions array
+const questions = [
+{q:"The best parameter for assessment of chronic malnutrition is:",o:["Weight for height","Weight for age","Height for age","Any of the above"],a:2},
+{q:"A good is a luxury good if income elasticity is:",o:["0","Less than 1","Greater than 1","1"],a:2},
+{q:"The latrine of choice for camps of few months duration is:",o:["Bore hole","Deep trench","Dug well","Shallow trench"],a:1},
+{q:"Defined age for infants:",o:["Less than 28 days","More than 1 year","0-1 year","Under 5 years"],a:2},
+
+{q:"Best way of changing behavior:",o:["Incentives","Internalization","Identification","Enforcement"],a:1},
+{q:"Number of areas in school health program in Nepal:",o:["7","5","6","4"],a:3},
+{q:"For health education of general public most potent method:",o:["Television","Newspaper","Radio","Health Magazine"],a:0},
+
+{q:"Best method to teach young children brushing teeth:",o:["Pamphlets","Lecture","Role-play activity","Demonstration"],a:3},
+{q:"Doctor struggles in remote village due to cultural differences:",o:["Cultural superiority","Failure to recognize cultural differences","Cultural shock","Imposing one's culture"],a:2},
+{q:"Most effective medium in nationwide COVID campaign:",o:["Health magazines","Radio","Newspapers","Television"],a:3},
+{q:"Primary objective of health promotion campaign for healthy eating:",o:["Generating interest","Providing information, motivating change, guiding action","Evaluating effectiveness","Reinforcing traditional food"],a:1},
+
+{q:"Decreased serum vitamin B6 seen in:",o:["CRF","CHF","INH therapy","Alcohol"],a:2},
+{q:"Adult pregnant female calcium requirement per day:",o:["400 mg","600 mg","800 mg","1000 mg"],a:3},
+{q:"Not used to test adequate pasteurization of milk:",o:["Phosphatase test","Standard plate count","Coliform count","Methylene blue reduction test"],a:3},
+{q:"Bacteria surviving Holder method pasteurization:",o:["Salmonella typhi","Mycobacterium bovis","Coxiella burnetii","Brucella melitenis"],a:2},
+
+{q:"1 mg Niacin produced by ... mg Tryptophan:",o:["22","37","55","60"],a:3},
+{q:"Common to both acute and chronic malnutrition:",o:["Weight for height","Height for age","Weight for age","BMI"],a:2},
+{q:"Coefficient of determination r value lies in:",o:["-1 to +1","0 to 1","-1 to 6","None"],a:1},
+{q:"Process resulting in optimal choice:",o:["Utility","Preference","Isoquant","Isocost"],a:1}
+];
+
+// Shuffle questions randomly
+questions.sort(()=>Math.random()-0.5);
+
+const quiz=document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i)=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j)=>{
+        card.innerHTML+=`
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit function
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        const selected=document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label=inp.parentElement;
+            if(j===q.a) label.classList.add("correct");
+            if(selected && j==selected.value && j!==q.a)
+                label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value)===q.a) score++;
+    });
+    document.getElementById("score").innerText=
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+</body>
+</html>
