@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Medical Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background:#f2f4f8;
+    padding:30px;
+}
+.quiz-wrapper{
+    max-width:900px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+.question{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+.option{
+    display:block;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+    background:#eef1f5;
+    cursor:pointer;
+    transition:.3s;
+}
+.option:hover{
+    background:#dfe5ee;
+}
+.option input{
+    margin-right:10px;
+}
+.correct{
+    background:#d4edda !important;
+    border-left:6px solid #28a745;
+}
+.incorrect{
+    background:#f8d7da !important;
+    border-left:6px solid #dc3545;
+}
+button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#007bff;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+#score{
+    margin-top:25px;
+    padding:20px;
+    font-size:22px;
+    font-weight:bold;
+    background:#fff;
+    border-radius:10px;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-wrapper" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+const questions = [
+{q:"What holds the primary structure of a protein together?",
+o:["Hydrogen bonds","Covalent bonds","Peptide bonds","Ionic bonds"],a:2},
+{q:"Incorrect muscle type grouping is:",
+o:["Skeletal, striated, voluntary","Smooth, visceral, involuntary","Cardiac, striated, voluntary","Skeletal, striated, syncytium"],a:2},
+{q:"Hospice is related to:",
+o:["Health service at distant location","Palliative care","Immunization","Preventive care"],a:1},
+{q:"FAST technique is used for:",
+o:["Diabetes","Stroke","Tuberculosis","Cancer"],a:1},
+{q:"Cool place storage temperature:",
+o:["0–2°C","2–4°C","8–15°C","<0°C"],a:2},
+{q:"FCTC came into action in:",
+o:["2006","2004","2003","2005"],a:3},
+{q:"Ottawa Charter held in:",
+o:["1978","1998","1986","1968"],a:2},
+{q:"Vitamin A prophylaxis is:",
+o:["Health promotion","Specific protection","Primordial prevention","Secondary prevention"],a:1},
+{q:"Vitamin deficient in vegans:",
+o:["Vitamin B3","Vitamin B7","Vitamin B9","Vitamin B12"],a:3},
+{q:"Point prevalence of cataract determined by:",
+o:["Cohort study","Surveillance","Cross-sectional study","Longitudinal study"],a:2},
+{q:"Minimizing malnutrition at family level:",
+o:["Food fortification","Nutritional surveillance","Exclusive breastfeeding","Vitamin D & calcium"],a:2},
+{q:"Contraindicated supplement in first trimester:",
+o:["Vitamin D","Albendazole","Iron","Iodine"],a:1},
+{q:"CFR when 60000 cases & 30000 deaths:",
+o:["33%","50%","40%","60%"],a:1},
+{q:"Best indicator of virulence:",
+o:["Case fatality rate","Proportional mortality","Survival rate","Exposure rate"],a:0},
+{q:"Most common cause of UTI:",
+o:["E-Coli","Salmonella","Bacillus","Cyanobacteria"],a:0},
+{q:"Ebola transmission occurs via:",
+o:["Blood/body fluids","Air/food/water","Casual contact","Dead body only"],a:0},
+{q:"WHO recommended health budget:",
+o:["5% of GDP","8% of GDP","10% of GDP","6% of GDP"],a:0},
+{q:"CIGAS & SUTRA are:",
+o:["FIMS","E-LMIS","LMIS","HMIS"],a:0},
+{q:"Life table consists of:",
+o:["9 columns","10 columns","8 columns","7 columns"],a:2},
+{q:"Extent of urbanization is:",
+o:["Tempo","Degree","Concentration","Speed"],a:1}
+];
+
+// Shuffle
+questions.sort(()=>Math.random()-0.5);
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+    let div=document.createElement("div");
+    div.className="card";
+    div.innerHTML=`<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j)=>{
+        div.innerHTML+=`
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(div);
+});
+
+function submitQuiz(){
+    let score=0;
+    questions.forEach((q,i)=>{
+        const sel=document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            let label=inp.parentElement;
+            if(j===q.a) label.classList.add("correct");
+            if(sel && j==sel.value && j!==q.a)
+                label.classList.add("incorrect");
+        });
+        if(sel && Number(sel.value)===q.a) score++;
+    });
+    document.getElementById("score").innerText=
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
