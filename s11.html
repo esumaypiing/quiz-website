@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f0f4f8;
+    padding: 20px;
+}
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #eef1f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.option:hover {
+    background: #e0e6ef;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.wrong {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+button:hover {
+    background: #084298;
+}
+.score {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+// All questions in array
+const questions = [
+{
+q:"Type I error occurs when:",
+options:["Rejecting a true null hypothesis","Failing to reject a true null hypothesis","Accepting an alternative hypothesis when the null hypothesis is true","Incorrectly interpreting statistical significance"],
+answer:0
+},
+{
+q:"If you are a health officer developing a program in a low-economic condition community, you will:",
+options:["Understand the situation of the area and develop the program accordingly","Ignore the economic situation of the area and develop a program","Focus solely on considering the community's socio-economic context","Implement a program designed for a higher-income community without modifications"],
+answer:0
+},
+{
+q:"To develop an educational program in Jajarkot for prevention of sexual harassment, the responsible organization would likely be:",
+options:["NHEICC","NHTC","NPHL","NTCC"],
+answer:0
+},
+{
+q:"In an earthquake-affected area, to conduct a program, what would you do?",
+options:["Analyse the situation, talk with locals, spend time to understand","Distribute pamphlets from USAID","Organize a large meeting without prior investigation","Organize a fundraising event for victims"],
+answer:0
+},
+{
+q:"Which of the following is typically a written document that defines what work will be accomplished by the end of the project?",
+options:["Scope of work (SOW)","Milestone schedule","Project logic diagram","Ballpark estimate"],
+answer:0
+},
+{
+q:"Dimensions that must be managed on a project except:",
+options:["Time","Quality","Quantity","Cost"],
+answer:2
+},
+{
+q:"Developing a technology is an example of:",
+options:["Process","Project","Scope","All of the above"],
+answer:1
+},
+{
+q:"A set of activities networked in an order to achieve project goals is:",
+options:["Project","Project management","Process","Project cycle"],
+answer:0
+},
+{
+q:"A 20% income increase leads to 30% increase in demand for designer handbags. Conclusion?",
+options:["Inferior goods","Necessity goods","Luxury goods","Giffen goods"],
+answer:2
+},
+{
+q:"Community physicians take action based on:",
+options:["Population attributable risk","Odd ratio","Relative risk","Attributable risk"],
+answer:0
+},
+{
+q:"Psychosocial developmental stage of a preschooler?",
+options:["Initiative vs Guilt","Industry vs Inferiority","Trust vs Mistrust","Autonomy vs Shame"],
+answer:0
+},
+{
+q:"Amount of bleaching powder used for disinfection of well:",
+options:["2.5 g for 500 ml","5 g for 500 ml","2.5 g for 1000 L","5 g for 1000 L"],
+answer:2
+},
+{
+q:"An adverse effect of preventive, therapeutic or diagnostic procedure causing disability/death is:",
+options:["Opportunistic disease","Nosocomial Infection","Latrogenic disease","All of the above"],
+answer:2
+},
+{
+q:"Systematic study of human disease & social condition/factor is known as:",
+options:["Social physiology","Social pathology","Socialized medicine","Social medicine"],
+answer:1
+},
+{
+q:"What holds the primary structure of a protein together?",
+options:["Hydrogen bonds","Covalent bonds","Peptide bonds","Ionic bonds"],
+answer:2
+},
+{
+q:"Iodine can be used to test the presence of:",
+options:["Glucose","Starch","Protein","Fats"],
+answer:1
+},
+{
+q:"Which of the following is true about prevalence:",
+options:["Rate","Ratio","Proportion","Both rate and proportion"],
+answer:2
+},
+{
+q:"Sensitivity is most affected by:",
+options:["Prevalence","Secondary Attack Rate","Proportion","Case fatality Rate"],
+answer:0
+},
+{
+q:"Marriage is related to:",
+options:["Religious Institution","Social Institution","Family Institution","Education Institution"],
+answer:1
+}
+];
+
+// Shuffle questions on every reload
+questions.sort(() => Math.random() - 0.5);
+
+// Generate quiz
+const quiz = document.getElementById("quiz");
+questions.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    let html = `<div class="question">${item.q}</div>`;
+    item.options.forEach((opt, i) => {
+        html += `
+        <label class="option">
+            <input type="radio" name="q${index}" value="${i}">
+            ${opt}
+        </label>`;
+    });
+    card.innerHTML = html;
+    quiz.appendChild(card);
+});
+
+// Submit & Validate
+function submitQuiz() {
+    let score = 0;
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card, index) => {
+        const options = card.querySelectorAll(".option");
+        const selected = card.querySelector("input:checked");
+        options.forEach((opt, i) => {
+            opt.classList.remove("correct","wrong");
+            if(i === questions[index].answer) opt.classList.add("correct");
+        });
+        if(selected) {
+            if(parseInt(selected.value) === questions[index].answer) score++;
+            else selected.parentElement.classList.add("wrong");
+        }
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
