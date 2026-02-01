@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{q:"The theory of Cognitive Dissonance has been introduced by:", o:["Winn Eger","Fastinger","Lawrence co green","None of the above"], a:1},
+{q:"Pre-obese according to the BMI is:", o:["<18.50 BMI","18.5-24.99 BMI","25-29.99 BMI","30-34.99 BMI"], a:2},
+{q:"Example of an essential healthcare service typically included in primary care:", o:["Cosmetic surgery","Routine vaccinations","Laser eye surgery","Hair transplant"], a:1},
+{q:"Planning of health education except:", o:["Using simple words","Cover felt needs","Ensuring participation","Catchy slogans"], a:3},
+{q:"Most important Essential Fatty Acid is:", o:["Linoleic Acid","Linolenic Acid","Arachidonic Acid","Eicosapentaenoic Acid"], a:0},
+{q:"All are antioxidants except:", o:["Vitamin A","Vitamin C","Vitamin E","Vitamin D"], a:3},
+{q:"Global annual temperature increased at average rate of:", o:["0.08°C per decade","0.09°C per decade","0.02°C per decade","0.03°C per decade"], a:0},
+{q:"Recommended daily intake of sodium is not more than:", o:["2 gm","5 gm","10 gm","20 gm"], a:0},
+{q:"WHO defines blindness if visual acuity is:", o:["3/60","18/38","9/60","3/6"], a:0},
+{q:"Most important vitamin for a baby suffering from measles:", o:["Vitamin A","Vitamin B","Vitamin D","Vitamin C"], a:0},
+{q:"Statistical test for difference in weight loss among 3 groups:", o:["Chi-squared test","T-test","ANOVA","Correlation analysis"], a:2},
+{q:"Statistical test for before and after treatment BP difference:", o:["Independent t-test","Chi-squared test","Paired t-test","One way ANOVA"], a:2},
+{q:"Tendency of subgroup formation in a group:", o:["Cohesion","Sociometry","Group structure","Group dynamics"], a:1},
+{q:"Example of primary social relationship:", o:["Husband and wife","Author and publisher","Both","None"], a:0},
+{q:"Acculturation is:", o:["Cultural contact","Study of various cultures","Cultural history of health and disease","Exchange of ideas"], a:0},
+{q:"Primitive man, feeling thinking deals with:", o:["Social psychology","Sociometry","Sociopathy","Sociotherapy"], a:0},
+{q:"Variance is best given by:", o:["√(sigma)","(sigma)^2","(sigma)/n","x/(N-1)"], a:1},
+{q:"Variation of Sample mean from population mean is:", o:["Coefficient of Variance","Standard error of proportion","Standard error of mean","Standard error of difference"], a:2},
+{q:"All are nominal scale except:", o:["Race","Blood Pressure","Sex","Type of cancer"], a:1},
+{q:"Burden of disease is measured by:", o:["Disability Adjusted Life Years (DALY)","Physical Quality of Life Years (PQLY)","Health Adjusted Life Years (HALE)","All of the above"], a:0}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
