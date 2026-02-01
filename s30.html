@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 30px;
+}
+
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.question-card {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.options label {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #eef1f5;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.options input {
+    margin-right: 10px;
+}
+
+.options label:hover {
+    background: #dde3ec;
+}
+
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #007bff;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+.score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+{
+q:"Calculate specificity:",
+options:[
+"True Negative/(False positive+ True Negative)",
+"True Positive/(False positive+ True Negative)",
+"True Negative/(False Negative+ True Negative)",
+"True Negative/(False positive + True Positive)"
+],
+answer:0
+},
+{
+q:"For testing the statistical significance of difference in heights of different age of school children:",
+options:["ANOVA","Chi-square test","Z test","T test"],
+answer:0
+},
+{
+q:"The process of paying fixed amount by the insured at the time of receiving healthcare services is:",
+options:["Co-payment","Capitalization","Premium payment","Deductible"],
+answer:0
+},
+{
+q:"Variance in cholesterol before and after giving a drug is tested using:",
+options:["Unpaired test","Fisher test","Paired test","Chi-square test"],
+answer:2
+},
+{
+q:"Study design that best explains natural history of disease:",
+options:["Cross-sectional","Case control","Cohort","Case report"],
+answer:2
+},
+{
+q:"Sentinel surveillance indicates:",
+options:["Identifying the missing cases","Identifying high risk group","Surveillance of water population","Environmental control"],
+answer:0
+},
+{
+q:"Positive predictive value does NOT depend upon:",
+options:["Sensitivity","Specificity","Prevalence","Incidence"],
+answer:3
+},
+{
+q:"10 cases studied together is an example of:",
+options:["Case report","Ecological study","Case-series","None"],
+answer:2
+},
+{
+q:"Nested case-control study is:",
+options:[
+"Case-control study within a cohort",
+"Cases and controls selected simultaneously",
+"Prospective cohort study",
+"Randomized controlled trial"
+],
+answer:0
+},
+{
+q:"Final step of public health research process:",
+options:["Hypothesis testing","Data analysis","Interpretation and conclusion","Literature review"],
+answer:2
+},
+{
+q:"Hypothesis testing is:",
+options:["Descriptive statistics","Inferential statistics","Experimental statistics","Parameter"],
+answer:1
+},
+{
+q:"Longest network path is:",
+options:["Network analysis","Critical path method","Interrelation diagram","Problem tree"],
+answer:1
+},
+{
+q:"Least effective managerial power:",
+options:["Coercive","Reward","Expertise","Penalty"],
+answer:3
+},
+{
+q:"Odds ratio of 1 indicates:",
+options:["Strong association","No association","Weak association","Both a and c"],
+answer:1
+},
+{
+q:"Inflation and unemployment are:",
+options:["Health determinants","Economic determinants","Political determinants","Household risk factors"],
+answer:1
+},
+{
+q:"p-value of 0.03 at 5% significance means:",
+options:[
+"Strong evidence against null",
+"Not statistically significant",
+"Statistically significant at 5%",
+"No association"
+],
+answer:2
+},
+{
+q:"Population doubling time is crude because:",
+options:[
+"Growth rate changes",
+"Growth rate assumed constant",
+"Growth rate doubles",
+"None"
+],
+answer:1
+},
+{
+q:"Theory encouraging industrialization:",
+options:[
+"Pre-Malthusian",
+"Malthusian",
+"Neo-Malthusian",
+"Modernization"
+],
+answer:3
+},
+{
+q:"Nepal adopted long term population perspective plan in:",
+options:["2008","2009","2010","2015"],
+answer:2
+},
+{
+q:"State with ruling elite and authoritarian bureaucracy:",
+options:[
+"Liberal democratic",
+"Egalitarian authoritarian",
+"Traditional in-egalitarian",
+"Authoritarian in-egalitarian"
+],
+answer:3
+}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, i) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+
+    let html = `<div class="question">${q.q}</div><div class="options">`;
+
+    q.options.forEach((opt, j) => {
+        html += `
+        <label>
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+
+    html += `</div>`;
+    card.innerHTML = html;
+    quizDiv.appendChild(card);
+});
+
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((q, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const labels = document.querySelectorAll(`input[name="q${i}"]`);
+
+        labels.forEach((input, idx) => {
+            const label = input.parentElement;
+            if (idx === q.answer) label.classList.add("correct");
+            if (selected && idx == selected.value && idx !== q.answer)
+                label.classList.add("incorrect");
+        });
+
+        if (selected && Number(selected.value) === q.answer) score++;
+    });
+
+    document.getElementById("score").innerText =
+        `Your Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
