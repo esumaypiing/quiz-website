@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{q:"Recommended lodine level in consumer level is:", o:["2 ppm","6 ppm","12 ppm","15 ppm"], a:3},
+{q:"A 5 year old child was not vaccinated. Which vaccine should be given?", o:["DPT-HepB-HIB","MR and OPV","PCV, OPV, MR","All"], a:1},
+{q:"Recommended dose of anti-rabies serum for adult dog bite:", o:["20iu/40iu","60iu","80iu","70 iu"], a:0},
+{q:"Germ theory of disease was given by:", o:["Robert Koch","Louis Pasteur","Ronald Ross","Walter Reed"], a:1},
+{q:"MMR as per NDHS-2022:", o:["161","141","151","171"], a:2},
+{q:"Among routine EPI vaccines, most sensitive to heat:", o:["TT","Measles","Polio","DPT"], a:2},
+{q:"Relative risk is:", o:["Risk among exposed / Risk among non-exposed","Risk among exposed / Risk in total population","Risk among exposed / Risk among exposed - Risk in unexposed","All of the following"], a:0},
+{q:"Eligible couple age for family planning services:", o:["10-45 years","15-49 years","20-55 years","21-40 years"], a:1},
+{q:"Value of coefficient of correlation is:", o:["either 1 or -1","0","-1 to +1","0 to 1"], a:2},
+{q:"From Standard deviation, which can be calculated:", o:["Mean","Median","Standard error","Variance"], a:3},
+{q:"Community A has 28 cases, B has 57 cases, C has 26 cases. Community A is:", o:["Hyperendemic","Epidemic","Pandemic","Endemic"], a:1},
+{q:"Which of the following is not neglected tropical disease:", o:["Malaria","Dengue","Influenza","Lymphatic filariasis"], a:2},
+{q:"Best method to teach urban slum about ORS:", o:["Lecture","Role play","Demonstration","Flash cards"], a:2},
+{q:"All true about panel discussion except:", o:["Panel of 4-8 experts discuss a health topic","Audience is present","Specific order, set speeches","Audience can take part"], a:2},
+{q:"All are advantage of using mass media except:", o:["More influential with average and below average education","Gives greater support for concentrated programs","Gets public attention","Reaches the widest population"], a:1},
+{q:"Health educator offering weight control and exercise programs is example of:", o:["Information dissemination","Health risk appraisal and wellness assessment","Lifestyle and behavioral change","Environmental control program"], a:2},
+{q:"Quarantine was first applied for:", o:["HIV/AIDS","Leprosy","Tuberculosis","Plague"], a:3},
+{q:"Chemicals emitted from vinyl floors are called:", o:["Pathogens","Vinyl oxidize","Phthalates","Chorines"], a:2},
+{q:"Process to remove temporary hardness of water:", o:["Base exchange","Permutit","Both","None"], a:1},
+{q:"Acid rain is due to:", o:["SO2","H2SO4","HCL","b and c"], a:0}
+];
+
+// Shuffle questions randomly
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
