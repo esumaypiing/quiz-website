@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+  {q:"One year old child comes to emergency with watery diarrhea, impalpable pulse and unrecordable BP. Immediate step?", o:["I/V Ringer's Lactate","I/V antibiotics","Oral rehydration therapy","Stool examination"], a:0},
+  {q:"Mass screening of TB is done by:", o:["Sputum test","Mantoux tuberculin","Xene expert","All"], a:1},
+  {q:"What percentage of alcohol is used as disinfectant?", o:["50%","70%","90%","99%"], a:1},
+  {q:"Minamata disease was caused by:", o:["Lead","Arsenic","Mercury","All"], a:2},
+  {q:"Study considering multiple environmental, genetic, behavioral factors rather than single cause follows:", o:["Germ Theory","Causal Model of Disease","Risk Factor Model","Immunological Theory"], a:1},
+  {q:"Reliability measure for questionnaire internal consistency:", o:["Cronbach's Alpha","Spearman's Rank Correlation","Chi-Square Test","Kaplan-Meier Estimate"], a:0},
+  {q:"Chapter dealing with Provisions Relating to Occupation Safety and Health as per Labour Act 2074:", o:["Chapter 5","Chapter 8","Chapter 12","Chapter 16"], a:2},
+  {q:"First Indicator of PEM:", o:["Stunting","Marasmus","Underweight for height","Underweight for age"], a:3},
+  {q:"A literature review should be done to:", o:["Identify problem gap from previous articles","To conclude the result","To show whole research process","To present methodology"], a:0},
+  {q:"Operational definition in research proposal means:", o:["Definition of problem","Definition of term in specific research","Explanation of conclusion","Definition of dependent & independent variable"], a:1},
+  {q:"If hazard index = 0.75, it means:", o:["Protective action","Unlikely to cause adverse effect","Adverse effect on health","No effect"], a:1},
+  {q:"Propagated epidemic is caused by:", o:["Transmission from animal","Food poisoning","Person to person transmission","Common source exposure"], a:2},
+  {q:"Total communication means:", o:["Use of all methods for advertisement","Use of all methods for school teaching","Use of all methods for community participation","Using every communication option to teach deaf child"], a:3},
+  {q:"Clean care is safe care guideline by WHO is for:", o:["Hand Hygiene","Obstetric care","Cord care","Injection practice"], a:0},
+  {q:"Surveillance reporting system used by WHO:", o:["Technical report series","Weekly epidemiological reports","Morbidity & mortality weekly reports","WHO Bulletins"], a:1},
+  {q:"UNICEF provides all except:", o:["Child nutrition","Immunization","Child health education","Family planning"], a:3},
+  {q:"Value of chi-square variable cannot be:", o:["Positive","Negative","0","None of the above"], a:1},
+  {q:"To test equality of two variances, you would use:", o:["Z","t","chi-square","F test"], a:3},
+  {q:"Degrees of freedom for chi-square test for variances or SD:", o:["1","n","n-1","None of the above"], a:2},
+  {q:"For t test, one uses .... instead of (sigma)", o:["n","s","t","x"], a:1}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
