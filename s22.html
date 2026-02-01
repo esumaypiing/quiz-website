@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(120deg,#eef2f3,#d9e4f5);
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.quiz-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.option{
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:8px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option:hover{
+    background:#f1f5ff;
+}
+
+.option.selected{
+    border-color:#4b6cff;
+    background:#eef2ff;
+}
+
+.option.correct{
+    background:#e8f8ee;
+    border-color:#2ecc71;
+}
+
+.option.wrong{
+    background:#fdecea;
+    border-color:#e74c3c;
+}
+
+#submitBtn{
+    display:block;
+    margin:30px auto;
+    padding:14px 40px;
+    font-size:16px;
+    border:none;
+    background:#4b6cff;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#submitBtn:hover{
+    background:#354fdc;
+}
+
+#score{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Online Quiz</h1>
+<div id="quiz"></div>
+
+<button id="submitBtn">Submit Quiz</button>
+<div id="score"></div>
+</div>
+
+<script>
+const questions = [
+{
+q:"A test measure shows the negative test when the disease is absent is:",
+options:["Specificity","Sensitivity","Accuracy","Precision"],
+answer:0
+},
+{
+q:"Ottawa Charter for health promotion is not implemented strictly in all parts of the world because:",
+options:["Insufficient funds","International countries cannot implement policies bravely","Lack of political will","Inadequate principles knowledge"],
+answer:2
+},
+{
+q:"In public health, decisions, plans, and actions undertaken to achieve health goals are called:",
+options:["Strategies","Contingency plan","Intervention framework","Health policy"],
+answer:3
+},
+{
+q:"Antioxidants help in:",
+options:["Water retention","Immunity","Regulation of blood pressure","Muscle strength"],
+answer:1
+},
+{
+q:"Which of the following is not a cause of bias?",
+options:["Confounding","Selection","Misclassification","Random error"],
+answer:3
+},
+{
+q:"Case control study is used for study of:",
+options:["Common disease","Uncommon exposure","Rare disease","Unknown disease"],
+answer:2
+},
+{
+q:"Koplik spots are seen in:",
+options:["Prodromal stage","Incubation","Eruptive stage","Convalescent stage"],
+answer:0
+},
+{
+q:"Epidemiological triad includes:",
+options:["Agent","Environment","Host","All of the above"],
+answer:3
+},
+{
+q:"Increased body temperature during ovulation is due to increase in:",
+options:["Estrogen","Progesterone","Luteinizing hormone","FSH"],
+answer:1
+},
+{
+q:"Continuing a trial despite severe side effects violates which ethical principle?",
+options:["Non-maleficence","Beneficence","Autonomy","Justice"],
+answer:0
+},
+{
+q:"Who should primarily decide on hospital budget cuts?",
+options:["High-level managers","Low-level managers","Middle-level managers","Supervisors"],
+answer:0
+},
+{
+q:"Which initiative would NOT directly contribute to Universal Health Coverage?",
+options:["Expanding genetic services to all","Financial risk protection","Access to essential services","Affordable medicines"],
+answer:0
+},
+{
+q:"Denominator of Maternal Mortality Ratio is:",
+options:["Live births","Mid-year population","Women 15–49 years","Married women 15–49"],
+answer:0
+},
+{
+q:"Effectiveness of birth control method is measured by:",
+options:["Pearl Index","Chandler Index","Hookworm Index","Broca Index"],
+answer:0
+},
+{
+q:"Third generation IUCD acts by:",
+options:["Copper effect","Altering cervical mucus","Hormonal effect on endometrium","Enhanced cellular response"],
+answer:2
+},
+{
+q:"Strategic planning originated from:",
+options:["Stanford University","Harvard University","Wolverhampton University","Coventry University"],
+answer:1
+},
+{
+q:"Functionalism and conflict theory are perspectives of:",
+options:["Social interaction","Social stratification","Social crime","Social constructionism"],
+answer:1
+},
+{
+q:"According to Maslow, love is a:",
+options:["Physiological need","Safety need","Social need","Self-esteem need"],
+answer:2
+},
+{
+q:"Consistency of measurement is called:",
+options:["Internal consistency","Reliability","Validity","External validity"],
+answer:1
+},
+{
+q:"Skewness is best measured by:",
+options:["3(Mean-Median)/SD","3(Median-Mean)/SD","3Median-2Mean","Mean/SD"],
+answer:0
+}
+];
+
+// shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((q, index) => {
+    const card = document.createElement("div");
+    card.className = "quiz-card";
+    card.innerHTML = `<div class="question">${index+1}. ${q.q}</div>`;
+
+    q.options.forEach((opt, i) => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerText = opt;
+
+        div.onclick = () => {
+            if(card.classList.contains("submitted")) return;
+            card.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
+            div.classList.add("selected");
+            card.dataset.answer = i;
+        };
+
+        card.appendChild(div);
+    });
+
+    quizDiv.appendChild(card);
+});
+
+document.getElementById("submitBtn").onclick = () => {
+    let score = 0;
+    const cards = document.querySelectorAll(".quiz-card");
+
+    cards.forEach((card, index) => {
+        card.classList.add("submitted");
+        const selected = card.dataset.answer;
+        const correct = questions[index].answer;
+
+        const options = card.querySelectorAll(".option");
+
+        options.forEach((opt,i)=>{
+            if(i == correct) opt.classList.add("correct");
+            if(i == selected && i != correct) opt.classList.add("wrong");
+        });
+
+        if(selected == correct) score++;
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+};
+</script>
+
+</body>
+</html>
