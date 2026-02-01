@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+  {q:"A group of people exposed to certain risk factors are being observed for a certain period of time. Then, data obtained from them will be compared to similar group of people after some time. From this study which of the following can be calculated?", o:["Relative Risk","Odds ratio","Mean","Standard Deviation"], a:0},
+  {q:"Mean of the three group of people is best compared by:", o:["T-test","Z-test","Chi-square Test","ANOVA test"], a:3},
+  {q:"A researcher is listening to the audio and writing what he/she listens. What is he/she doing?", o:["Analysis of qualitative data","Translation","Transcription","Writing conclusion of report"], a:2},
+  {q:"The ability of individuals, communities and systems to withstand, adapt and recover the situation from the impact of recent earthquake is:", o:["Response Mechanism","Tolerance","Resilience","Prevention"], a:2},
+  {q:"Mid-year population refers to population as on:", o:["March 31","January 1","July 1","December 31"], a:2},
+  {q:"Type of census currently used in Nepal:", o:["De-facto","De-Jure","Modified De-jure","Modified De-facto"], a:2},
+  {q:"Net reproduction rate means:", o:["Average no. of offspring a female would produce during her lifetime","Average no. of children per parents","No. of children per household","None"], a:0},
+  {q:"Population growth rate of 1.5 denotes:", o:["Rapid growth","Very rapid growth","Slow growth","Explosive growth"], a:0},
+  {q:"A person experiencing stress and mental fluctuations avoids expressing feelings due to stigma. Which intervention is most appropriate?", o:["Individual anonymous counseling","Discussion about mental health with everyone in the workplace","Educating and creating awareness among members through sessions and presentations","Coordination among group members"], a:0},
+  {q:"A patient admitted to the hospital misses several working days. What type of cost does this loss represent?", o:["Direct cost","Indirect cost","Opportunity cost","Fixed cost"], a:1},
+  {q:"Which of the following is generally not included in the abstract section of a thesis?", o:["Introduction","Methodology","Findings","Ethical considerations"], a:3},
+  {q:"For an HIV-tested patient, what is considered the best course of action according to WHO current guidelines?", o:["Start antiretroviral drugs immediately","Wait for 9 months before initiating therapy","Monitor without intervention for a fixed period","Initiate therapy only upon symptom onset"], a:0},
+  {q:"Which of the following statement is true about line organization?", o:["Easy to operate and establish","Less expensive","All of the above","None"], a:2},
+  {q:"Most comprehensive indicator of cost effectiveness analysis is:", o:["No. of life year gained","No. of heart attack avoided","QALYS Gained","Cost per life year gained"], a:2},
+  {q:"Immunization is an example of which of the following:", o:["Positive externalities","Normative economic","Negative externalities","None"], a:0},
+  {q:"If a good is normal, then the demand curve for that good must be:", o:["Downward sloping","Upward sloping","Perfectly elastic","Completely elastic"], a:0},
+  {q:"The ratio between the incident of disease among exposed and non-exposed is called:", o:["Causal risk","Relative risk","Atributable risk","Odds ratio"], a:1},
+  {q:"All of following comes under random sampling method except:", o:["Quota sampling","Simple random sampling","Stratified sampling","Cluster sampling"], a:0},
+  {q:"Child nutritional status measured in terms of three anthropometric indicators are:", o:["Stunting, wasting and underweight","Mortality, morbidity and underweight","Body mass index, morbidity rate and dependency","None of these"], a:0},
+  {q:"Low weight for height is called:", o:["Wasting","Stunting","LBW","Underweight"], a:0}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
