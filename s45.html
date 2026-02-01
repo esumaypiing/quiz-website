@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+  {q:"Disaccharide", o:["Sucrose","Fructose","Glucose","All"], a:0},
+  {q:"Immunoglobulin in allergic reaction", o:["IgG","IgA","IgM","IgE"], a:3},
+  {q:"HIV virus attacks", o:["B-cell","E-cell","T-cell","All"], a:2},
+  {q:"WHO recommended time for everyday walk", o:["60 minutes","20 minutes","150 minutes","30 minutes"], a:3},
+  {q:"Variance of the Poisson distribution is given by", o:["npq","λ","λ /2","λ2"], a:1},
+  {q:"Inter-rater reliability statistical measure in qualitative study", o:["Pearson Correlation Coefficient","Cohen's Kappa","Independent t-test","One-Way ANOVA"], a:1},
+  {q:"Three key risk factors contribute to four chronic diseases (50% deaths). Principle is called", o:["Epidemiological Triad","3-4-50 Concept","Web of Causation","Social Determinants Model"], a:1},
+  {q:"Vaccination campaign strategy aligns with which marketing concept?", o:["4P's of Marketing","SWOT Analysis","Porter's Five Forces","Branding Strategy"], a:0},
+  {q:"Which vaccine has more side effect in low immune person?", o:["Live vaccine","Killed vaccine","Attenuated vaccine","Toxoid Vaccine"], a:0},
+  {q:"WHO polio eradication program aims based on?", o:["Health Education and health promotion","Screening and diagnosis","Immunization and Rapid finding of polio cases","None"], a:2},
+  {q:"First thing to do on knowing hurricane approaching city", o:["Educate all people","Find place to evacuate","Stay informed & keep communication good","Provide new shelter for city"], a:2},
+  {q:"Case control study measures", o:["Odds Ratio","Relative Risk","Standard deviation","Mean"], a:0},
+  {q:"Millennium development goals are based upon", o:["WHO health records","UNICEF health criteria","United Nations Millennium Declarations","SEARO Nations declarations"], a:2},
+  {q:"If demand is little, user fee would be good method for healthcare financing", o:["Price elasticity","Income elasticity","Cross elasticity","None of the above"], a:0},
+  {q:"Provides guidance for reconstructing global governance for health", o:["Framework convention on Global health","Principles of global determinants","Framework for global governance & economic development","None"], a:0},
+  {q:"Cost of product failure, error prevention and appraisal classified as", o:["Shrinkage cost","Stocking cost","Cost of quality","Stock out cost"], a:2},
+  {q:"Full form of EOP in logistics", o:["Emergency Order Point","Emergency Operation Plan","Emergency Operational Practices","End Order Point"], a:0},
+  {q:"A 'C' distribution is used to analyze", o:["A very large sample","Infinite sample","Large sample","Small sample"], a:3},
+  {q:"Population divided into subgroups then sampled. Method is called", o:["Random","Stratified","Systematic","Cluster"], a:1},
+  {q:"To see if two rankings are related, you can use", o:["Runs test","Spearman correlation coefficient","Sign test","Kruskal-Wallis test"], a:1}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
