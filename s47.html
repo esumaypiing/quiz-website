@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    padding: 30px;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+  {q:"Which of the following stages of demographic transition best represents Nepal's current situation?", o:["High stationary","Early expanding","Late expanding","Low stationary"], a:1},
+  {q:"Which of the following is known as 'Father of public health'?", o:["Tuberculosis","Cholera","John Snow","Louis Pasteur"], a:1},
+  {q:"Which of the following is the social indicator?", o:["CBR","IMR","CDR","None"], a:1},
+  {q:"Which of the following is also known as a marker of social inequality?", o:["HIV","Tuberculosis","Diarrhea","Leprosy"], a:1},
+  {q:"Every year is taken as a new year and previous year is not taken as a base in:", o:["Short term budget","Rolling budget","Zero based budgeting","Flexible budget"], a:2},
+  {q:"Public personnel management in Nepal is based on the principle of:", o:["Merit","Patronage","Spoils","Give and take"], a:0},
+  {q:"Fixation of standards, measurements of performance, comparison, and correction of deviation are the steps in:", o:["Planning","Staffing","Organizing","Control process"], a:3},
+  {q:"Which of the following statements explains the purpose of planning?", o:["To match the limited resources with many problems","To eliminate wasteful expenditure","To develop the best course of action to accomplish a defined objective","All of the above"], a:3},
+  {q:"The extra calorie needed during the lactation period of 6-12 months is:", o:["600","520","350","450"], a:1},
+  {q:"A hospital administrator is responsible for ensuring the availability of essential resources such as skilled personnel, medical equipment, and financial resources. Which function of management does this process represent?", o:["Cooperating","Organizing","Acquisition","Controlling"], a:2},
+  {q:"Who Introduced the concept of the Policy Rainbow?", o:["Dahlgren and Whitehead","Henry Mintzberg","Talcott Parsons","Michael Porter"], a:0},
+  {q:"A business organization is preparing its financial plan for the upcoming fiscal year. What is this consolidated financial document called?", o:["Cash Budget","Master Budget","Flexible Budget","Capital Budget"], a:1},
+  {q:"The gap between death rate and birth rate is lowest in:", o:["Stage I","Stage II","Stage III","Stage IV"], a:3},
+  {q:"Birth rate in population is described by:", o:["Natality","Fertility","Mortality","Morbidity"], a:0},
+  {q:"2 years old 11.8 KG child who have 75% of normal body weight is in front of you. How would be your first step to manage this case?", o:["Counselling","Very high protein diet recommendation","Stool test","Give glucose 500 Cal per day"], a:0},
+  {q:"A doctor smokes and says to his patients that smoking prevents obesity. What is he doing?", o:["Health promotion","Rationalization","Explaining the protective action of smoking","Internalization"], a:1},
+  {q:"Socratic method of education are all except:", o:["Group discussion","Lecture","Seminar","Panel discussion"], a:1},
+  {q:"The first indicator of PEM is:", o:["Stunting","Marsmus","Underweight for height","Underweight for age"], a:3},
+  {q:"According to the recommendations for the nutritional management of patients with diabetes, the consumption of saturated fat should be:", o:["<10% of total daily energy","<12%","<15%","<16%"], a:0},
+  {q:"Which of the following is not a cause of bias?", o:["Confounding","Misclassification","Selection","Random error"], a:3}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
