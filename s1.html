@@ -5,181 +5,265 @@
 <title>Professional Quiz</title>
 
 <style>
-body{
-    margin:0;
-    padding:30px;
-    font-family: "Segoe UI", sans-serif;
-    background: #f4f6fb;
-}
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 30px;
+    }
 
-.quiz-container{
-    max-width:900px;
-    margin:auto;
-}
+    .quiz-container {
+        max-width: 900px;
+        margin: auto;
+    }
 
-.question-card{
-    background:#fff;
-    border-radius:12px;
-    padding:20px 25px;
-    margin-bottom:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-}
+    .question-card {
+        background: #fff;
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
 
-.question{
-    font-weight:600;
-    margin-bottom:15px;
-}
+    .question {
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
 
-.options label{
-    display:block;
-    padding:12px 15px;
-    border-radius:8px;
-    margin-bottom:10px;
-    border:1px solid #ddd;
-    cursor:pointer;
-    transition:0.3s;
-}
+    .option {
+        padding: 10px 15px;
+        margin: 8px 0;
+        border-radius: 8px;
+        border: 2px solid #ddd;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-.options input{
-    display:none;
-}
+    .option:hover {
+        background: #f0f3ff;
+    }
 
-.options label:hover{
-    background:#f0f3ff;
-}
+    .option.selected {
+        border-color: #4a6cff;
+        background: #eaf0ff;
+    }
 
-.correct{
-    background:#d4f7df !important;
-    border-color:#2ecc71 !important;
-}
+    .option.correct {
+        background: #d4edda;
+        border-color: #28a745;
+    }
 
-.wrong{
-    background:#fde0e0 !important;
-    border-color:#e74c3c !important;
-}
+    .option.wrong {
+        background: #f8d7da;
+        border-color: #dc3545;
+    }
 
-.submit-btn{
-    display:block;
-    margin:30px auto;
-    padding:14px 40px;
-    font-size:18px;
-    border:none;
-    border-radius:30px;
-    background:#4b6cff;
-    color:#fff;
-    cursor:pointer;
-}
+    .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        background: #4a6cff;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 30px;
+    }
 
-.submit-btn:hover{
-    background:#364ee0;
-}
+    .submit-btn:hover {
+        background: #334ecc;
+    }
 
-.score-box{
-    text-align:center;
-    font-size:22px;
-    font-weight:700;
-    margin-top:20px;
-}
+    .score {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
 </style>
 </head>
 
 <body>
 
 <div class="quiz-container" id="quiz"></div>
-
 <button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
-
-<div class="score-box" id="scoreBox"></div>
+<div class="score" id="score"></div>
 
 <script>
-const quizData = [
- {q:"MMR is a:", o:["Rate","Ratio","Proportion","None of the above"], a:1},
- {q:"Parents saying 'Because I said so' reflect:", o:["Authoritarian","Authoritative","Permissive","Uninvolved"], a:0},
- {q:"CB IMNCI addresses:", o:[
-   "Pneumonia, Diarrhea, Malaria, Measles and Malnutrition",
-   "Pneumonia, Diarrhea, Malaria, Rabies and Malnutrition",
-   "Pneumonia, Diarrhea, Malaria, Tetanus and Malnutrition",
-   "Pneumonia, Diarrhea, Malaria, Mumps and Malnutrition"], a:0},
- {q:"Loss or abnormality of structure or function is:", o:["Impairment","Disability","Handicap","Disease"], a:0},
- {q:"WHO minimum health workers per 1000 population:", o:["2.2","2.3","2.4","2.5"], a:3},
- {q:"Sample size for infinite population mean:", o:[
-   "n = (Z²σ²)/E²","n=N-n/N","n=(N-1)/n","n=n-1/N"], a:0},
- {q:"Minimum sample size (pulse rate question):", o:["64","68","246","256"], a:2},
- {q:"Probability smoker + lung cancer:", o:["1/100","11/100","1/1000","11/1000"], a:2},
- {q:"Primary source of methane:", o:["Agriculture sector","Industrial sector","Residential energy","Automobiles"], a:0},
- {q:"Role play method mainly for:", o:[
-   "Educating large population","Increasing active listening",
-   "Developing interpersonal skills","Enhancing communication"], a:1},
- {q:"Correct sequence:", o:[
-   "Vision, Mission, Goal, Objectives",
-   "Mission, Vision, Goal, Objectives",
-   "Goal, Vision, Mission, Objectives",
-   "Objectives, Vision, Mission, Goal"], a:0},
- {q:"Full form of POMA:", o:[
-   "Planning Organizing Monitoring Appreciation",
-   "Planning Organizing Monitoring Appraisal",
-   "Planning Organizing Managing Assessment",
-   "Planning Organizing Maintaining Analysis"], a:1},
- {q:"Best for quantitative data:", o:["Simple Bar","Histogram","Pie diagram","Multiple Bar"], a:1},
- {q:"Normal distribution true statement:", o:[
-   "Mean < Median","Mean = Median","Mean = 1","Not symmetrical"], a:1},
- {q:"Rejecting null hypothesis when true:", o:[
-   "Type I error","Type II error","Gamma error","Delta error"], a:0},
- {q:"Proportional hazard regression:", o:[
-   "Cox Regression","McNemar Test","Logistic Regression","Kappa statistic"], a:0},
- {q:"Vision 2020 concerned with:", o:[
-   "Trachoma","Onchocerciasis","Child blindness","All of the above"], a:3},
- {q:"Economic efficiency producing wanted goods:", o:[
-   "Allocative inefficiency","Productive inefficiency",
-   "Distributive inefficiency","Technological efficiency"], a:1},
- {q:"HMIS falls under:", o:[
-   "Health Information Management Section",
-   "Integrated Health Information Management Section",
-   "Management Section","Health Management Section"], a:1},
- {q:"BMI grade II obesity:", o:[
-   ">30","30 to <40","35 to <40",">40"], a:2}
+const questions = [
+    {
+        q: "MMR is a:",
+        options: ["Rate", "Ratio", "Proportion", "None of the above"],
+        answer: 1
+    },
+    {
+        q: "Parents saying 'Because I said so' indicates:",
+        options: ["Authoritarian", "Authoritative", "Permissive", "Uninvolved"],
+        answer: 0
+    },
+    {
+        q: "CB IMNCI addresses:",
+        options: [
+            "Pneumonia, Diarrhea, Malaria, Measles and Malnutrition",
+            "Pneumonia, Diarrhea, Malaria, Rabies and Malnutrition",
+            "Pneumonia, Diarrhea, Malaria, Tetanus and Malnutrition",
+            "Pneumonia, Diarrhea, Malaria, Mumps and Malnutrition"
+        ],
+        answer: 0
+    },
+    {
+        q: "Any loss or abnormality of structure or function is:",
+        options: ["Impairment", "Disability", "Handicap", "Disease"],
+        answer: 0
+    },
+    {
+        q: "WHO recommends how many medical staff per 1000 people?",
+        options: ["2.2", "2.3", "2.4", "2.5"],
+        answer: 3
+    },
+    {
+        q: "Minimum sample size required is:",
+        options: ["64", "68", "246", "256"],
+        answer: 2
+    },
+    {
+        q: "Probability of heavy smoker developing lung cancer:",
+        options: ["1/100", "11/100", "1/1000", "11/1000"],
+        answer: 2
+    },
+    {
+        q: "Primary source of methane emission:",
+        options: ["Agriculture sector", "Industrial sector", "Residential energy", "Automobiles"],
+        answer: 0
+    },
+    {
+        q: "Role play method is mainly used for:",
+        options: [
+            "Educating large populations",
+            "Increasing active listening capacity",
+            "Developing interpersonal skills",
+            "Enhancing communication abilities"
+        ],
+        answer: 1
+    },
+    {
+        q: "Correct sequence is:",
+        options: [
+            "Vision, Mission, Goal, Objectives",
+            "Mission, Vision, Goal, Objectives",
+            "Goal, Vision, Mission, Objectives",
+            "Objectives, Vision, Mission, Goal"
+        ],
+        answer: 0
+    },
+    {
+        q: "Histogram represents:",
+        options: ["Simple Bar", "Histogram", "Pie diagram", "Multiple Bar"],
+        answer: 1
+    },
+    {
+        q: "In normal distribution:",
+        options: ["Mean median", "Mean = Median", "Mean = 1", "Not symmetrical"],
+        answer: 1
+    },
+    {
+        q: "Type I error means:",
+        options: [
+            "Rejecting true null hypothesis",
+            "Rejecting false null hypothesis",
+            "Gamma error",
+            "Delta error"
+        ],
+        answer: 0
+    },
+    {
+        q: "Proportional hazard regression:",
+        options: ["Cox Regression", "McNemar Test", "Logistic Regression", "Kappa statistic"],
+        answer: 0
+    },
+    {
+        q: "Vision 2020 deals with:",
+        options: ["Trachoma", "Onchocerciasis", "Child blindness", "All of the above"],
+        answer: 3
+    },
+    {
+        q: "Economic efficiency requirement is:",
+        options: [
+            "Allocative inefficiency",
+            "Productive inefficiency",
+            "Distributive inefficiency",
+            "Technological efficiency"
+        ],
+        answer: 1
+    },
+    {
+        q: "HMIS falls under:",
+        options: [
+            "Health Information Management Section",
+            "Integrated Health Information Management Section",
+            "Management Section",
+            "Health Management Section"
+        ],
+        answer: 1
+    },
+    {
+        q: "Grade II obesity BMI:",
+        options: [">30", "30 to <40", "35 to <40", ">40"],
+        answer: 2
+    }
 ];
 
-// shuffle questions
-quizData.sort(() => Math.random() - 0.5);
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
 
-const quiz = document.getElementById("quiz");
+const quizDiv = document.getElementById("quiz");
 
-quizData.forEach((item, index) => {
-    quiz.innerHTML += `
-    <div class="question-card">
-        <div class="question">${index+1}. ${item.q}</div>
-        <div class="options">
-            ${item.o.map((opt,i)=>`
-                <label>
-                    <input type="radio" name="q${index}" value="${i}">
-                    ${opt}
-                </label>`).join("")}
-        </div>
-    </div>`;
+questions.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+    card.innerHTML = `<div class="question">${index + 1}. ${item.q}</div>`;
+
+    item.options.forEach((opt, i) => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.textContent = opt;
+        div.onclick = () => selectOption(index, i, div);
+        card.appendChild(div);
+    });
+
+    quizDiv.appendChild(card);
 });
 
-function submitQuiz(){
+const userAnswers = {};
+
+function selectOption(qIndex, optIndex, element) {
+    const options = element.parentNode.querySelectorAll(".option");
+    options.forEach(o => o.classList.remove("selected"));
+    element.classList.add("selected");
+    userAnswers[qIndex] = optIndex;
+}
+
+function submitQuiz() {
     let score = 0;
-    quizData.forEach((item, index)=>{
-        const options = document.getElementsByName(`q${index}`);
-        options.forEach(opt=>{
-            const label = opt.parentElement;
-            if(parseInt(opt.value) === item.a){
-                label.classList.add("correct");
+    const cards = document.querySelectorAll(".question-card");
+
+    cards.forEach((card, i) => {
+        const opts = card.querySelectorAll(".option");
+        opts.forEach((opt, j) => {
+            if (j === questions[i].answer) {
+                opt.classList.add("correct");
             }
-            if(opt.checked){
-                if(parseInt(opt.value) === item.a){
-                    score++;
-                } else {
-                    label.classList.add("wrong");
-                }
+            if (userAnswers[i] === j && j !== questions[i].answer) {
+                opt.classList.add("wrong");
             }
-            opt.disabled = true;
         });
+        if (userAnswers[i] === questions[i].answer) score++;
     });
-    document.getElementById("scoreBox").innerText =
-        `Your Score: ${score} / ${quizData.length}`;
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
 }
 </script>
 
