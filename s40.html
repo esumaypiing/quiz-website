@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{q:"As per the researchers view what is the relation between Urbanization and fertility in developing countries?", o:["Fertility declines with urbanization","Fertility increases with urbanization","Fertility remains stationary with urbanization","None of the above"], a:0},
+{q:"In a school, for testing the statistical significance of the mean difference in height of grade 7 students and grade 8 students, which test should be used?", o:["Unpaired t-test","Chi-square test","Paired t-test","DANOVA test"], a:0},
+{q:"In 100 patients visiting OPD, best test to compare categorical data of age groups (<40 and >40)?", o:["Chi-square test","Fisher test","t-test","Mann Whitney test"], a:0},
+{q:"P value of the test:", o:["Measures strength of association","Finds whether two variables are associated","Probability of test giving result correctly","Gives info to accept/reject null hypothesis"], a:2},
+{q:"Which statement is true in context of testing hypotheses?", o:["Only alternative hypotheses can be tested","Only null hypotheses can be tested","Both can be tested","Neither can be tested"], a:1},
+{q:"Free chlorine and combined chlorine test is done by:", o:["Ortho-toluidine Test","Horrok's apparatus","Coliform test","Calcium carbonate"], a:0},
+{q:"Solid waste from Kitchen is called:", o:["Sewage","Sludge","Sullage","Refuse"], a:3},
+{q:"Most common type of mosquito found in Nepal:", o:["Culex","Aedes","Falciparum","Anopheles"], a:3},
+{q:"Borderline mental IQ according to Wechsler's scale:", o:["70-79","80-89","90-109","110-119"], a:2},
+{q:"Which part of the management process includes measuring results and taking corrective action?", o:["Planning","Organizing","Leading","Controlling"], a:3},
+{q:"Process of estimating additional cost per unit outcome is known as:", o:["Economic evaluation","Incremental Cost-Effectiveness Ratio","Average cost-effectiveness rate","Cost-effectiveness ratio"], a:1},
+{q:"Which approach to health education is 'radically new'?", o:["Regulatory approach","Primary Health Care approach","Service approach","Health education approach"], a:1},
+{q:"Strength of sewage is expressed in terms of all except:", o:["E. coli count","Suspended particles","Chemical oxygen demand","Biological oxygen demand"], a:0},
+{q:"Example of cyclopropagative transmission is:", o:["Plague bacilli in rat flea","Malaria parasite in mosquito","Microfilaria in mosquito","Guineaworm embryo in Cyclops"], a:1},
+{q:"Lead poisoning in industries commonly occurs by:", o:["Inhalation","Ingestion","Skin absorption","Conjunctival route"], a:0},
+{q:"A 40-year-old man working in a coal mine with 'snow-storm' appearance on X-ray. Likely diagnosis?", o:["Anthracosis","Silicosis","Asbestosis","Siderosis"], a:1},
+{q:"Solid waste from Kitchen is called:", o:["Sewage","Sludge","Sullage","Refuge"], a:2},
+{q:"Validity means:", o:["Accuracy","Consistency","Reliability","All"], a:0},
+{q:"Calculate BMI of person height 172cm weight 89kg?", o:["30","27","33","36"], a:0},
+{q:"Most effective method of health education:", o:["Demonstration","Group Discussion","Role-play","Lecture"], a:0}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
