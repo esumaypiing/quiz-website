@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .quiz-container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .question-card {
+        background: #ffffff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .question-text {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .option {
+        display: block;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+        background: #f0f2f5;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .option input {
+        margin-right: 10px;
+    }
+
+    .option:hover {
+        background: #e4e7ec;
+    }
+
+    .correct {
+        background: #d4edda !important;
+        border-left: 6px solid #28a745;
+    }
+
+    .wrong {
+        background: #f8d7da !important;
+        border-left: 6px solid #dc3545;
+    }
+
+    .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+        background: #0d6efd;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background: #084298;
+    }
+
+    .score {
+        margin-top: 25px;
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+
+<button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+    {
+        q: "Kathmandu Valley has introduced speed breakers and traffic lights to reduce RTAs. Which prevention level is this?",
+        options: ["Primordial prevention","Primary prevention","Secondary prevention","Tertiary prevention"],
+        answer: 1
+    },
+    {
+        q: "Coagulation is necessary for:",
+        options: ["Water retention","Immunity","Blood clotting","None of the above"],
+        answer: 2
+    },
+    {
+        q: "What tool is used to estimate residual chlorine level?",
+        options: ["Horrock's apparatus","Chlorinator","Chloroscope","Residual chlorine meter"],
+        answer: 2
+    },
+    {
+        q: "Which change decreases effectiveness of chlorine in water?",
+        options: ["pH and salinity","Alkalinity and salinity","Temperature and pH","Turbidity and temperature"],
+        answer: 2
+    },
+    {
+        q: "In which Year Plan was PHC started in Nepal?",
+        options: ["7th","8th","5th","10th"],
+        answer: 2
+    },
+    {
+        q: "Government of Nepal vision for malaria free country by:",
+        options: ["2020","2025","2030","2035"],
+        answer: 1
+    },
+    {
+        q: "FCHV programme initiated in FY:",
+        options: ["2045/46","2046/47","2044/45","2047/48"],
+        answer: 0
+    },
+    {
+        q: "Henry Fayol POCCC stands for:",
+        options: [
+            "Planning Organizing Controlling Consulting Coordinating",
+            "Planning Organizing Commanding Coordinating Controlling",
+            "Planning Organizing Collaborating Commanding Controlling",
+            "None"
+        ],
+        answer: 1
+    },
+    {
+        q: "Example of cyclo-propagative transmission is:",
+        options: [
+            "Plague bacilli in rat flea",
+            "Malaria parasite in mosquito",
+            "Microfilaria in mosquito",
+            "Guineaworm embryo in Cyclops"
+        ],
+        answer: 1
+    },
+    {
+        q: "Environmental manipulation enabling genes to express readily is called:",
+        options: ["Positive eugenics","Euthenics","Negative eugenics","Genetic counselling"],
+        answer: 1
+    },
+    {
+        q: "Limitation of PRECEDE-PROCEED model:",
+        options: [
+            "Too complex and time-consuming",
+            "No guidance on implementation",
+            "Ignores cultural factors",
+            "All of the above"
+        ],
+        answer: 0
+    },
+    {
+        q: "TTM stage where behavior changed within past six months:",
+        options: ["Precontemplation","Contemplation","Preparation","Action"],
+        answer: 3
+    },
+    {
+        q: "Iron is deficient in:",
+        options: ["Apple","Milk","Pulses","Jaggery"],
+        answer: 1
+    },
+    {
+        q: "Old age allowance in Nepal (Nrs):",
+        options: ["2000","3000","4000","5000"],
+        answer: 2
+    },
+    {
+        q: "Vitamin deficit in plant origin food:",
+        options: ["Vitamin B3","Vitamin B7","Vitamin B9","Vitamin B12"],
+        answer: 3
+    },
+    {
+        q: "Child deficiency if mother consumes only vegetarian food:",
+        options: ["Vitamin B2","Vitamin B6","Vitamin B9","Vitamin B12"],
+        answer: 3
+    }
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+const quizDiv = document.getElementById("quiz");
+
+questions.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "question-card";
+
+    let html = `<div class="question-text">${item.q}</div>`;
+
+    item.options.forEach((opt, i) => {
+        html += `
+        <label class="option">
+            <input type="radio" name="q${index}" value="${i}">
+            ${opt}
+        </label>`;
+    });
+
+    card.innerHTML = html;
+    quizDiv.appendChild(card);
+});
+
+function submitQuiz() {
+    let score = 0;
+    const cards = document.querySelectorAll(".question-card");
+
+    cards.forEach((card, index) => {
+        const options = card.querySelectorAll(".option");
+        const selected = card.querySelector("input[type=radio]:checked");
+
+        options.forEach((opt, i) => {
+            opt.classList.remove("correct","wrong");
+            if (i === questions[index].answer) {
+                opt.classList.add("correct");
+            }
+        });
+
+        if (selected) {
+            if (parseInt(selected.value) === questions[index].answer) {
+                score++;
+            } else {
+                selected.parentElement.classList.add("wrong");
+            }
+        }
+    });
+
+    document.getElementById("score").innerText =
+        `Your Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
