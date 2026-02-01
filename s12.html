@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f7f8;
+    padding: 20px;
+}
+.quiz-container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #eef2f6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.option:hover {
+    background: #e0e6ef;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.wrong {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background: #084298;
+}
+.score {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{
+q:"A woman returned home without taking family planning service due to seeing a male provider. Which term explains this?",
+options:["Acceptability","Affordability","Accessibility","Cultural sensitivity"],
+answer:0
+},
+{
+q:"The health promotion chief of tobacco control is not allowed to meet:",
+options:["Investors of the tobacco industry","Supervisors of the program","Representatives from advocacy groups","Public health officials from other sectors"],
+answer:0
+},
+{
+q:"The diseased photos are kept on cigarette packets to:",
+options:["Scare the consumer","Promote healthy behaviours","Increase attractiveness","None of the above"],
+answer:0
+},
+{
+q:"The measurement of the cost of a health program with the gains is called:",
+options:["Cost-effective analysis","Cost-benefit analysis","Cost-minimization analysis","Cost-utility analysis"],
+answer:1
+},
+{
+q:"Burden of disease is measured by:",
+options:["Disability Adjusted life years (DALY)","Physical Quality of life years (PQLY)","Health Adjusted Life Years (HALE)","All of the above"],
+answer:0
+},
+{
+q:"At least what percentage of GDP should be on health?",
+options:["3%","5%","7%","10%"],
+answer:1
+},
+{
+q:"Used to evaluate total anticipated cost vs expected benefits of a project:",
+options:["Cost-minimization analysis","Cost-benefit analysis","Cost-effective analysis","Cost-utility analysis"],
+answer:1
+},
+{
+q:"Potential benefit an individual will miss while seeking health care is called:",
+options:["Expenditure","Benefit","Cost","Opportunity cost"],
+answer:3
+},
+{
+q:"Which level is Bachelor of Public Health registered to?",
+options:["First category class A","Second category class B","Third category class C","Third category class B"],
+answer:0
+},
+{
+q:"Which is not included in sociology?",
+options:["Social Institutions","Social Relationships","Biological Processes","Cultural Norms"],
+answer:2
+},
+{
+q:"When was UNICEF established?",
+options:["1946 AD","1947 AD","1948 AD","1953 AD"],
+answer:0
+},
+{
+q:"Hospital infected amputated parts are kept in:",
+options:["Red colour","Yellow colour","Blue colour","Black colour"],
+answer:0
+},
+{
+q:"Most appropriate approach of hospital waste management:",
+options:["Autoclave","Incineration","Chlorine disinfection","Dumping"],
+answer:1
+},
+{
+q:"Lifestyle disease is:",
+options:["Cancer","Malaria","Tuberculosis","Asthma"],
+answer:0
+},
+{
+q:"Longevity is a proxy for in HDI:",
+options:["Living standard","Purchasing power","Infant mortality","Health and Nutrition"],
+answer:3
+},
+{
+q:"Which particle sizes are most dangerous?",
+options:["0.5-3.0 micron","5-10 micron","0.5-5 micron","1-3 micron"],
+answer:0
+},
+{
+q:"Which of the following disease is not caused by Asbestosis?",
+options:["Pleural disease","Gl cancer","Urinary disease","Brain cancer"],
+answer:3
+},
+{
+q:"Neurolathyrism can be prevented by:",
+options:["Spraying acid","Steeping method","Isolation of cases","Quarantine of cases"],
+answer:1
+},
+{
+q:"A qualitative method where we start with particular statements and conclude universally is called:",
+options:["Deductive","Inductive","Abnormal","Transcendental"],
+answer:1
+},
+{
+q:"When was the Diarrhea control program initiated in Nepal?",
+options:["1978","1983","1986","1991"],
+answer:1
+}
+];
+
+// Shuffle questions
+questions.sort(() => Math.random() - 0.5);
+
+// Generate quiz
+const quiz = document.getElementById("quiz");
+questions.forEach((item,index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    let html = `<div class="question">${item.q}</div>`;
+    item.options.forEach((opt,i) => {
+        html += `<label class="option">
+                    <input type="radio" name="q${index}" value="${i}">${opt}
+                </label>`;
+    });
+    card.innerHTML = html;
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz(){
+    let score = 0;
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card,index) => {
+        const options = card.querySelectorAll(".option");
+        const selected = card.querySelector("input:checked");
+        options.forEach((opt,i) => {
+            opt.classList.remove("correct","wrong");
+            if(i === questions[index].answer) opt.classList.add("correct");
+        });
+        if(selected){
+            if(parseInt(selected.value) === questions[index].answer) score++;
+            else selected.parentElement.classList.add("wrong");
+        }
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
