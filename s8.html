@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional MCQ Quiz</title>
+
+<style>
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#f3f5fa;
+    padding:40px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.card{
+    background:#fff;
+    padding:22px;
+    margin-bottom:22px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.question{
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:14px;
+}
+
+.option{
+    display:block;
+    padding:12px 16px;
+    margin:8px 0;
+    border-radius:8px;
+    border:2px solid #ddd;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.option:hover{
+    background:#eef2ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.correct{
+    background:#e9f9f0;
+    border-color:#28a745;
+}
+
+.wrong{
+    background:#fdeaea;
+    border-color:#dc3545;
+}
+
+button{
+    display:block;
+    margin:40px auto;
+    padding:14px 50px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    background:#4f46e5;
+    color:white;
+    cursor:pointer;
+}
+
+.score{
+    text-align:center;
+    font-size:24px;
+    font-weight:700;
+    margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="quiz"></div>
+
+<button onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="score" id="score"></div>
+
+<script>
+const questions = [
+{q:"The Bamako initiative introduced user fees. What is a disadvantage?",o:["Reduction in use by poor people","Promotion of private sector","Increase in government revenue","Enhanced quality of services"],a:0},
+{q:"Side effect of progesterone for fertility control:",o:["Menopause","Irregular menstrual cycles","Increased fertility","Reduced libido"],a:1},
+{q:"Rapid material change leaving non-material culture behind is called:",o:["Left culture","Far culture","Cultural lag","Taken culture"],a:2},
+{q:"Cancer screening test is an example of:",o:["Primordial","Primary","Secondary","Tertiary"],a:2},
+
+{q:"Cognitive skills are related to:",o:["Knowledge","Attitude","Behavior","None"],a:0},
+{q:"PERT is a technique of:",o:["Gender analysis","Network analysis","Statistical analysis","Problem analysis"],a:1},
+{q:"Negative population growth seen in Nepal census:",o:["1910","1920 & 1930","2001","2011"],a:1},
+{q:"Most appropriate word in supervision:",o:["Enforcement","Reinforcement","Suggestion","Inspection"],a:1},
+
+{q:"Diffusion of innovation: early adopters are:",o:["Resistant people","Early adopters","Laggards","None"],a:1},
+{q:"Policy-level tobacco control intervention:",o:["Health education","Counseling","Increase tobacco tax","Nicotine patches"],a:2},
+{q:"World’s first international health agency:",o:["WHO","UNICEF","Pan American Sanitary Bureau","OIHP"],a:2},
+{q:"Fluctuation of values drawn from same population:",o:["Fluctuation error","Standard error","Selection error","Population error"],a:1},
+
+{q:"Free and combined chlorine in water is determined by:",o:["Schermer test","Ortholine test","Orthotolidine test","Nitrate test"],a:2},
+{q:"Itai-itai disease is caused by:",o:["Mercury","Cadmium","Nuclear poisoning","MIC"],a:1},
+{q:"Staphylococcus aureus is:",o:["Gram negative","Bacilli","Spiral","Gram positive"],a:3},
+{q:"Study of social factors in disease etiology:",o:["Social medicine","Medical sociology","Social epidemiology","Social structure"],a:2},
+
+{q:"Which is NOT an emerging disease?",o:["Malaria","Hanta pulmonary syndrome","Ebola","Hepatitis A"],a:0},
+{q:"Most important neglected tropical diseases:",o:["Leprosy & LF","Malaria & Typhoid","HIV & Diarrhea","Chickenpox & Mumps"],a:0},
+{q:"WHO slogan for 2022:",o:["Support nurses","Our planet, Our health","Health for all","UHC"],a:1},
+{q:"Maize-based diet causes deficiency of:",o:["Biotin","Niacin","Pyridoxine","Riboflavin"],a:1}
+];
+
+// shuffle on reload
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+questions.forEach((q,i)=>{
+    let html = `<div class="card">
+        <div class="question">${i+1}. ${q.q}</div>`;
+    q.o.forEach((opt,idx)=>{
+        html += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${idx}">
+            ${opt}
+        </label>`;
+    });
+    html += `</div>`;
+    quiz.innerHTML += html;
+});
+
+function submitQuiz(){
+    let score = 0;
+
+    questions.forEach((q,i)=>{
+        const options = document.getElementsByName(`q${i}`);
+        options.forEach(o=>{
+            const box = o.parentElement;
+            o.disabled = true;
+
+            if(+o.value === q.a){
+                box.classList.add("correct");
+                if(o.checked) score++;
+            } else if(o.checked){
+                box.classList.add("wrong");
+            }
+        });
+    });
+
+    document.getElementById("score").innerText =
+        `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
