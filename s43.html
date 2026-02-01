@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f0f2f5;
+    padding: 30px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+.question {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.option {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f3f6fb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.option:hover {
+    background: #e4ebf7;
+}
+.option input {
+    margin-right: 10px;
+}
+.correct {
+    background: #d4edda !important;
+    border-left: 6px solid #28a745;
+}
+.incorrect {
+    background: #f8d7da !important;
+    border-left: 6px solid #dc3545;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: #0056b3;
+}
+#score {
+    margin-top: 25px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div id="score"></div>
+
+<script>
+// Array of questions
+const questions = [
+{q:"Which of the following antitubercular drugs is pyridoxine antagonist?", o:["INH","Rifampicin","Pyrazinamide","Ethambutol"], a:0},
+{q:"Most common cause of blindness in Nepal?", o:["Trauma","Cataract","Glaucoma","Infection"], a:1},
+{q:"High IgM denotes:", o:["Early Infection","Chronic infection","Both","None"], a:0},
+{q:"Best test to detect iron deficiency in community is:", o:["Serum transferring","Serum ferritin","Serum iron","Hemoglobin"], a:1},
+{q:"Example of personal prevention through immunization:", o:["Wearing a seatbelt","Receiving the influenza vaccine","Washing hands regularly","Maintaining a balanced diet"], a:1},
+{q:"Under which SDG is 'Good Health and Well-being' categorized?", o:["SDG 1","SDG 3","SDG 5","SDG 7"], a:1},
+{q:"Conference associated with providing guidance on public health:", o:["COP21","Alma-Ata Conference","Kyoto Protocol","Montreal Protocol"], a:1},
+{q:"International agreement focuses on responding to climate change:", o:["Paris Agreement","Geneva Convention","Basel Convention","Vienna Convention"], a:0},
+{q:"In a village 1000 population, 400 infected this year, 60 get infected next year. Prevalence?", o:["10%","20%","60%","46%"], a:3},
+{q:"Which of the following is done in sentinel surveillance?", o:["Finding new causative agent","Monitoring a specific population","Monthly reporting","Finding new intervention method"], a:1},
+{q:"HbA1c measures:", o:["Blood glucose level","Haemoglobin level","Blood count","Vitamin D level"], a:0},
+{q:"Best evidence of clinical relevance is given by:", o:["Meta-analysis","Case-control study","Cohort Study","Ecological Study"], a:0},
+{q:"Community development program means:", o:["Social and economic change through villagers' effort","Welfare programs for women and children","Improve agriculture","Plan development program for 60-80k population"], a:0},
+{q:"An ideal poster should contain:", o:["Picture only","Picture and title","Picture, caption and info","Picture, caption, info and logo"], a:3},
+{q:"Informing, motivating and guiding people into action is main objective of:", o:["Community participation","Preventive medicine","Health education","Primary health care"], a:2},
+{q:"According to Rogers model, adoption series:", o:["Awareness, evaluation, trial, interest and adoption","Awareness, interest, evaluation, trial and adoption","Awareness, interest, trial, evaluation","Interest, evaluation, trial, awareness"], a:1},
+{q:"When value of a is increased, probability of type 1 error is:", o:["Decreased","Increased","The same","None"], a:1},
+{q:"Prevention of emergence of risk factor is:", o:["Primordial prevention","Primary prevention","Secondary prevention","Tertiary prevention"], a:0},
+{q:"Secondary level of prevention include all except:", o:["Health screening for Diabetes","Case finding for Malaria","Contact tracing for STIs","Reconstructive surgery in Leprosy"], a:3},
+{q:"Breastfeeding week is celebrated on:", o:["1st week of March","1st week of July","1st week of August","1st December"], a:2}
+];
+
+// Shuffle questions randomly
+questions.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+// Render quiz
+questions.forEach((q,i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `<div class="question">${q.q}</div>`;
+    q.o.forEach((opt,j) => {
+        card.innerHTML += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${j}">
+            ${opt}
+        </label>`;
+    });
+    quiz.appendChild(card);
+});
+
+// Submit quiz
+function submitQuiz() {
+    let score = 0;
+    questions.forEach((q,i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        document.querySelectorAll(`input[name="q${i}"]`).forEach((inp,j)=>{
+            const label = inp.parentElement;
+            if(j === q.a) label.classList.add("correct");
+            if(selected && j == selected.value && j !== q.a) label.classList.add("incorrect");
+        });
+        if(selected && Number(selected.value) === q.a) score++;
+    });
+    document.getElementById("score").innerText = `Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
