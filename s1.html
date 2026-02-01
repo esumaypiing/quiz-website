@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+body{
+    margin:0;
+    padding:30px;
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f6fb;
+}
+
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.question-card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px 25px;
+    margin-bottom:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.options label{
+    display:block;
+    padding:12px 15px;
+    border-radius:8px;
+    margin-bottom:10px;
+    border:1px solid #ddd;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.options input{
+    display:none;
+}
+
+.options label:hover{
+    background:#f0f3ff;
+}
+
+.correct{
+    background:#d4f7df !important;
+    border-color:#2ecc71 !important;
+}
+
+.wrong{
+    background:#fde0e0 !important;
+    border-color:#e74c3c !important;
+}
+
+.submit-btn{
+    display:block;
+    margin:30px auto;
+    padding:14px 40px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#4b6cff;
+    color:#fff;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#364ee0;
+}
+
+.score-box{
+    text-align:center;
+    font-size:22px;
+    font-weight:700;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+
+<button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+
+<div class="score-box" id="scoreBox"></div>
+
+<script>
+const quizData = [
+ {q:"MMR is a:", o:["Rate","Ratio","Proportion","None of the above"], a:1},
+ {q:"Parents saying 'Because I said so' reflect:", o:["Authoritarian","Authoritative","Permissive","Uninvolved"], a:0},
+ {q:"CB IMNCI addresses:", o:[
+   "Pneumonia, Diarrhea, Malaria, Measles and Malnutrition",
+   "Pneumonia, Diarrhea, Malaria, Rabies and Malnutrition",
+   "Pneumonia, Diarrhea, Malaria, Tetanus and Malnutrition",
+   "Pneumonia, Diarrhea, Malaria, Mumps and Malnutrition"], a:0},
+ {q:"Loss or abnormality of structure or function is:", o:["Impairment","Disability","Handicap","Disease"], a:0},
+ {q:"WHO minimum health workers per 1000 population:", o:["2.2","2.3","2.4","2.5"], a:3},
+ {q:"Sample size for infinite population mean:", o:[
+   "n = (Z²σ²)/E²","n=N-n/N","n=(N-1)/n","n=n-1/N"], a:0},
+ {q:"Minimum sample size (pulse rate question):", o:["64","68","246","256"], a:2},
+ {q:"Probability smoker + lung cancer:", o:["1/100","11/100","1/1000","11/1000"], a:2},
+ {q:"Primary source of methane:", o:["Agriculture sector","Industrial sector","Residential energy","Automobiles"], a:0},
+ {q:"Role play method mainly for:", o:[
+   "Educating large population","Increasing active listening",
+   "Developing interpersonal skills","Enhancing communication"], a:1},
+ {q:"Correct sequence:", o:[
+   "Vision, Mission, Goal, Objectives",
+   "Mission, Vision, Goal, Objectives",
+   "Goal, Vision, Mission, Objectives",
+   "Objectives, Vision, Mission, Goal"], a:0},
+ {q:"Full form of POMA:", o:[
+   "Planning Organizing Monitoring Appreciation",
+   "Planning Organizing Monitoring Appraisal",
+   "Planning Organizing Managing Assessment",
+   "Planning Organizing Maintaining Analysis"], a:1},
+ {q:"Best for quantitative data:", o:["Simple Bar","Histogram","Pie diagram","Multiple Bar"], a:1},
+ {q:"Normal distribution true statement:", o:[
+   "Mean < Median","Mean = Median","Mean = 1","Not symmetrical"], a:1},
+ {q:"Rejecting null hypothesis when true:", o:[
+   "Type I error","Type II error","Gamma error","Delta error"], a:0},
+ {q:"Proportional hazard regression:", o:[
+   "Cox Regression","McNemar Test","Logistic Regression","Kappa statistic"], a:0},
+ {q:"Vision 2020 concerned with:", o:[
+   "Trachoma","Onchocerciasis","Child blindness","All of the above"], a:3},
+ {q:"Economic efficiency producing wanted goods:", o:[
+   "Allocative inefficiency","Productive inefficiency",
+   "Distributive inefficiency","Technological efficiency"], a:1},
+ {q:"HMIS falls under:", o:[
+   "Health Information Management Section",
+   "Integrated Health Information Management Section",
+   "Management Section","Health Management Section"], a:1},
+ {q:"BMI grade II obesity:", o:[
+   ">30","30 to <40","35 to <40",">40"], a:2}
+];
+
+// shuffle questions
+quizData.sort(() => Math.random() - 0.5);
+
+const quiz = document.getElementById("quiz");
+
+quizData.forEach((item, index) => {
+    quiz.innerHTML += `
+    <div class="question-card">
+        <div class="question">${index+1}. ${item.q}</div>
+        <div class="options">
+            ${item.o.map((opt,i)=>`
+                <label>
+                    <input type="radio" name="q${index}" value="${i}">
+                    ${opt}
+                </label>`).join("")}
+        </div>
+    </div>`;
+});
+
+function submitQuiz(){
+    let score = 0;
+    quizData.forEach((item, index)=>{
+        const options = document.getElementsByName(`q${index}`);
+        options.forEach(opt=>{
+            const label = opt.parentElement;
+            if(parseInt(opt.value) === item.a){
+                label.classList.add("correct");
+            }
+            if(opt.checked){
+                if(parseInt(opt.value) === item.a){
+                    score++;
+                } else {
+                    label.classList.add("wrong");
+                }
+            }
+            opt.disabled = true;
+        });
+    });
+    document.getElementById("scoreBox").innerText =
+        `Your Score: ${score} / ${quizData.length}`;
+}
+</script>
+
+</body>
+</html>
