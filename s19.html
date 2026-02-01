@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Professional Quiz</title>
+
+<style>
+body{
+    margin:0;
+    padding:30px;
+    font-family:Segoe UI, sans-serif;
+    background:linear-gradient(120deg,#283c86,#45a247);
+}
+.quiz-container{
+    max-width:950px;
+    margin:auto;
+}
+.card{
+    background:#fff;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+.question{
+    font-weight:600;
+    margin-bottom:15px;
+}
+.option{
+    padding:10px 14px;
+    margin:8px 0;
+    border-radius:8px;
+    border:2px solid #ddd;
+    cursor:pointer;
+    transition:.3s;
+}
+.option:hover{
+    background:#f2f2f2;
+}
+.option.selected{
+    background:#e8f0ff;
+    border-color:#0d6efd;
+}
+.correct{
+    background:#d4edda !important;
+    border-color:#28a745 !important;
+}
+.wrong{
+    background:#f8d7da !important;
+    border-color:#dc3545 !important;
+}
+button{
+    display:block;
+    margin:30px auto;
+    padding:12px 40px;
+    font-size:16px;
+    border:none;
+    border-radius:30px;
+    background:#ffc107;
+    cursor:pointer;
+    font-weight:600;
+}
+button:hover{
+    background:#e0a800;
+}
+.score{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container" id="quiz"></div>
+<button onclick="submitQuiz()">Submit Quiz</button>
+<div class="score" id="score"></div>
+
+<script>
+let questions = [
+{q:"Expected number of diseased individuals (p=0.80, n=40):",options:["32","28","35","40"],answer:0},
+{q:"Bias eliminated by double blinding:",options:["Observer bias","Selection bias","Recall bias","Confirmation bias"],answer:0},
+{q:"Study used to measure prevalence:",options:["Cross-sectional study","Ecological study","Cohort study","Case-control study"],answer:0},
+{q:"Odds ratio of 1 indicates:",options:["Positive association","Negative association","No association","Strong association"],answer:2},
+
+{q:"Positive correlation means:",options:["One increases other decreases","Dependent ↑ independent ↓","Both increase/decrease together","Correlation near zero"],answer:2},
+{q:"95% confidence interval refers to:",options:["1 out of 20 chances wrong","1 out of 100 wrong","95 out of 100 wrong","5 out of 20 wrong"],answer:0},
+{q:"Sampling from heterogeneous population after dividing into homogeneous groups:",options:["Quota","Simple random","PPS","Stratified"],answer:3},
+{q:"FALSE statement about normal distribution:",options:["50% within 1 SD","68% within 1 SD","95% within 2 SD","99.7% within 3 SD"],answer:0},
+
+{q:"Individual IEC approach is:",options:["Home visits","Television","Role play","Posters"],answer:0},
+{q:"Healthy migration effect on prevalence in origin country:",options:["Decrease","Always same","Increase","Not affected"],answer:2},
+{q:"Pathogenesis phase starts with:",options:["Entry of agent","Agent-host-environment interaction","Signs & symptoms","Complications"],answer:0},
+{q:"Test to compare mean body weight of males and females:",options:["Student t-test","Chi-square","Odds ratio","Correlation"],answer:0},
+
+{q:"NOT an advantage of closed questions:",options:["Reduces variability","Easy analysis","Prevents spontaneous answers","Quick to complete"],answer:2},
+{q:"Hypothesis refers to:",options:["Outcome","Conclusion","Bias","Tentative relationship"],answer:3},
+{q:"Generalization indicates:",options:["External validity","Internal reliability","External reliability","Internal validity"],answer:0},
+{q:"Best sampling when different methods for population parts:",options:["Stratified clustered","Double sampling","Cluster","Snowball"],answer:0},
+
+{q:"Nutrient depleted by excessive alcohol:",options:["Vitamin C","Vitamin B12","Iron","Folate"],answer:1},
+{q:"Denominator of MMR:",options:["Women of reproductive age","Pregnant women","Live births","Total births"],answer:2},
+{q:"Ovum survival after ovulation:",options:["24 hours","7 days","48 hours","5 days"],answer:2},
+{q:"IUCD not recommended for:",options:["PID","Breastfeeding","After abortion","All"],answer:0}
+];
+
+// Shuffle questions
+questions.sort(()=>Math.random()-0.5);
+
+let userAnswers = [];
+
+function loadQuiz(){
+    const quiz=document.getElementById("quiz");
+    quiz.innerHTML="";
+    questions.forEach((q,i)=>{
+        let card=document.createElement("div");
+        card.className="card";
+        card.innerHTML=`<div class="question">${i+1}. ${q.q}</div>`;
+        q.options.forEach((opt,j)=>{
+            let div=document.createElement("div");
+            div.className="option";
+            div.innerText=opt;
+            div.onclick=()=>selectOption(i,j,div);
+            card.appendChild(div);
+        });
+        quiz.appendChild(card);
+    });
+}
+
+function selectOption(qi,oi,el){
+    let opts=el.parentNode.querySelectorAll(".option");
+    opts.forEach(o=>o.classList.remove("selected"));
+    el.classList.add("selected");
+    userAnswers[qi]=oi;
+}
+
+function submitQuiz(){
+    let score=0;
+    document.querySelectorAll(".card").forEach((card,i)=>{
+        let opts=card.querySelectorAll(".option");
+        opts.forEach((opt,j)=>{
+            if(j===questions[i].answer) opt.classList.add("correct");
+            if(userAnswers[i]===j && j!==questions[i].answer) opt.classList.add("wrong");
+        });
+        if(userAnswers[i]===questions[i].answer) score++;
+    });
+    document.getElementById("score").innerText=`Score: ${score} / ${questions.length}`;
+}
+
+loadQuiz();
+</script>
+
+</body>
+</html>
